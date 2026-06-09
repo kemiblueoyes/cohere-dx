@@ -240,6 +240,8 @@ navigation:
         contents:
           - page: Overview
             path: pages/v2/deployment-options/deployment-options-overview.mdx
+          - page: Decision guide
+            path: pages/deployment-options/deployment-decision.mdx
           - page: SDK Compatibility
             path: pages/v2/deployment-options/cohere-works-everywhere.mdx
           - section: Private Deployment

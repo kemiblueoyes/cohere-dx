@@ -1,5 +1,5 @@
 ---
-title: An Overview of The Cohere Platform
+title: Cohere platform overview
 slug: docs/the-cohere-platform
 hidden: false
 description: >-
@@ -11,98 +11,205 @@ createdAt: 'Thu Oct 13 2022 21:30:34 GMT+0000 (Coordinated Universal Time)'
 updatedAt: 'Mon Jun 24 2024 09:16:55 GMT+0000 (Coordinated Universal Time)'
 ---
 
+Cohere is an AI platform for building production-grade applications and knowledge systems. Use Cohere's APIs and models to add language understanding, generation, search, retrieval, and agent capabilities to your products.
 
-## Large Language Models (LLMs)
+<Tabs>
 
-Language is important. It’s how we learn about the world (e.g. news, searching the web or Wikipedia), and also how we shape it (e.g. agreements, laws, or messages). Language is also how we connect and communicate — as people, and as groups and companies.
+<Tab title="Python">
+```python
+import cohere
 
-Despite the rapid evolution of software, computers remain limited in their ability to deal with language. Software is great at searching for exact matches in text, but often fails at more advanced uses of language — ones that humans employ on a daily basis.
+co = cohere.ClientV2(api_key="YOUR_API_KEY")
 
-There’s a clear need for more intelligent tools that better understand language.
+response = co.chat(
+    model="command-a-03-2025",
+    messages=[{"role": "user", "content": "What is retrieval-augmented generation?"}]
+)
 
+print(response)
+```
+[Source](https://github.com/cohere-ai/cohere-python)
 
-A recent breakthrough in artificial intelligence (AI) is the introduction of language processing technologies that enable us to build more intelligent systems with a richer understanding of language than ever before. Large pre-trained Transformer language models, or simply large language models, vastly extend the capabilities of what systems are able to do with text.
+</Tab>
 
-<img src='../../assets/images/edb518d-IntroToLLM_Visual_1.png' alt='systems.' />
+<Tab title="TypeScript">
+```typescript
+const { CohereClientV2 } = require('cohere-ai');
+const cohere = new CohereClientV2({
+  token: '<<apiKey>>',
+});
+(async () => {
+  const response = await cohere.chat({
+    model: 'command-a-plus-05-2026',
+    messages: [
+      {
+        role: 'user',
+        content: 'What is retrieval-augmented generation?',
+      },
+    ],
+  });
+  console.log(response);
+})();
+```
+[Source](https://github.com/cohere-ai/cohere-typescript)
+</Tab>
 
+<Tab title="Java">
+```java
+package chatv2post;
 
-Consider this: adding language models to empower Google Search was <a href="https://blog.google/products/search/search-language-understanding-bert/" target="_blank">noted</a> as “representing the biggest leap forward in the past five years, and one of the biggest leaps forward in the history of Search“. Microsoft also <a href="https://azure.microsoft.com/en-us/blog/bing-delivers-its-largest-improvement-in-search-experience-using-azure-gpus/" target="_blank">uses</a> such models for every query in the Bing search engine.
+import com.cohere.api.Cohere;
+import com.cohere.api.resources.v2.requests.V2ChatRequest;
+import com.cohere.api.types.*;
+import java.util.List;
 
-Despite the utility of these models, training and deploying them effectively is resource intensive, requiring a large investment of data, compute, and engineering resources.
+public class Default {
+    public static void main(String[] args) {
+        Cohere cohere = Cohere.builder().token("<<apiKey>>").clientName("snippet").build();
 
-## Cohere's LLMs
+        ChatResponse response =
+                cohere.v2()
+                        .chat(
+                                V2ChatRequest.builder()
+                                    .model("command-a-plus-05-2026")
+                                    .messages(
+                                        List.of(
+                                            ChatMessageV2.user(
+                                                UserMessage.builder()
+                                                    .content(
+                                                        UserMessageContent
+                                                                .of("What is retrieval-augmented generation?"))
+                                                    .build())))
+                                    .build());
 
-Cohere allows developers and enterprises to build LLM-powered applications. We do that by creating world-class models, along with the supporting platform required to deploy them securely and privately.
+        System.out.println(response);
+    }
+}
+```
+[Source](https://github.com/cohere-ai/cohere-java)
+</Tab>
 
+<Tab title="Go">
+```go
+package main
 
-The Command family of models includes [Command A+](/docs/command-a-plus), [Command A](/docs/command-a),
-[Command R7B](/docs/command-r7b), [Command R+](/docs/command-r-plus), and [Command R](/docs/command-r).
-Together, they are the text-generation LLMs powering conversational agents, summarization, copywriting, and similar use cases.
-They work through the [Chat](/reference/chat) endpoint, which can be used with or without [retrieval augmented generation](/docs/retrieval-augmented-generation-rag) RAG.
+import (
+	"context"
+	"log"
 
-[Rerank](https://cohere.com/blog/rerank/) is the fastest way to inject the intelligence of a language model into an existing search system. It can be accessed via the [Rerank](/reference/rerank-1) endpoint.
+	cohere "github.com/cohere-ai/cohere-go/v2"
+	client "github.com/cohere-ai/cohere-go/v2/client"
+)
 
-[Embed](https://cohere.com/models/embed) improves the accuracy of search, classification, clustering, and RAG results. It also powers the [Embed](/reference/embed) and [Classify](/reference/classify) endpoints.
+func main() {
+	co := client.NewClient(client.WithToken("Your API key"))
 
+	resp, err := co.Chat(
+		context.TODO(),
+		&cohere.ChatRequest{
+			Message: "What is retrieval-augmented generation?",
+		},
+	)
 
-<img src="../../assets/images//b483350-Visual_1.png" />
+	if err != nil {
+		log.Fatal(err)
+	}
 
-[Click here](/docs/foundation-models) to learn more about Cohere foundation models.
+	log.Printf("%+v", resp)
+}
+```
+[Source](https://github.com/cohere-ai/cohere-go)
+</Tab>
 
-## Example Applications
+</Tabs>
+Ready to build with your own data? [Start the RAG quickstart](/docs/rag-quickstart)  
+No code yet? [Explore in the Playground](https://dashboard.cohere.com/playground/generate)
 
-Try [the playground](https://dashboard.cohere.com/playground) to see what an LLM-powered conversational agent can look like. It is able to converse, summarize text, and write emails and articles.
+## Common use cases
 
-<img src="../../assets/images//ebb82f9-Screenshot_2024-07-10_at_9.27.11_AM.png" />
+<CardGroup cols={2}>
+  <Card title="Enterprise AI agents & automation">
+    Build agents that use  [tools](/docs/tools), [APIs](/reference/about), and company systems to complete tasks and workflows.
+  </Card>
+  <Card title="Search & retrieval">
+    Power [semantic search](/docs/semantic-search-with-cohere), knowledge assistants, and [RAG](/docs/retrieval-augmented-generation-rag) across your data with [Embed](/docs/cohere-embed) and [Rerank](/docs/rerank).
+  </Card>
+  <Card title="Document intelligence">
+    Extract, classify, and organize information from large document collections using [Command](/docs/models#command).
+  </Card>
+  <Card title="Grounded content generation">
+    Generate reports, summaries, and responses backed by company knowledge and [citations](/docs/rag-citations).
+  </Card>
+  <Card title="Multilingual applications">
+    Search and generate content across [multiple languages](/docs/aya).
+  </Card>
+</CardGroup>
 
-Our goal, however, is to enable you to build your own LLM-powered applications. The [Chat endpoint](/docs/chat-api), for example, can be used to build a conversational agent powered by the Command family of models. 
+## Start building
 
-<img src="../../assets/images//f4a351b-Visual_3.png" alt="A diagram of a conversational agent." />
+- **[RAG](/docs/retrieval-augmented-generation-rag)**: Ground model responses in your own data using the Chat endpoint with documents.
+- **[Semantic search](/docs/semantic-search-embed)**: Search by meaning, not keywords, using Cohere's Embed models.
+- **[Reranking](/docs/rerank)**: Improve retrieval quality by reranking candidate results before generation.
+- **[Text generation](/docs/chat-api)**: Generate and refine text using the Chat endpoint and Command models.
+- **[Tool use & agents](/docs/tool-use)**: Build agents that call external tools, APIs, and data sources.
+- **[Transcription](/docs/transcribe)**: Convert audio to text using Cohere's transcription models.
 
-### Retrieval-Augmented Generation (RAG)
+## Models
 
-“Grounding” refers to the practice of allowing an LLM to access external data sources – like the internet or a company’s internal technical documentation – which leads to better, more factual generations. 
+<CardGroup cols={2}>
+  <Card title="Command" href="/docs/models#command">
+    Text generation models for chat, RAG, tool use, and agents. Optimized for enterprise performance and instruction following.
+  </Card>
+  <Card title="Embed" href="/docs/cohere-embed">
+    Convert text and images into vector embeddings for semantic search, retrieval, and classification across 100+ languages.
+  </Card>
+  <Card title="Rerank" href="/docs/rerank">
+    Improve search and retrieval quality by reranking candidate results by relevance before generation.
+  </Card>
+  <Card title="Transcribe" href="/docs/transcribe">
+    Convert audio to text with high accuracy across multiple languages using Cohere's speech recognition model.
+  </Card>
+  <Card title="Aya" href="/docs/aya">
+    Open-weight multilingual models designed for research and underserved languages. Supports 70+ languages.
+  </Card>
+</CardGroup>
 
-Chat is being used with grounding enabled in the screenshot below, and you can see how accurate and information-dense its reply is.
+## Developer resources
 
-<img src="../../assets/images//04315e6-Screenshot_2024-07-10_at_9.29.25_AM.png" />
+- **[API reference](/reference/about)**: Complete reference for all Cohere endpoints, parameters, and response objects.
+- **[SDKs](/docs/cohere-sdks)**: Official Python, TypeScript, Go, and Java clients for the Cohere API.
+- **[Cohere Toolkit](/docs/cohere-toolkit)**: Open-source components for building and deploying RAG applications quickly, including preconfigured front-end, back-end, and data retrieval chains.
+- **[Cookbooks](/docs/cookbooks)**: Code-based guides and recipes for common Cohere use cases and integrations.
 
+## Choose your deployment
 
-What’s more, advanced RAG capabilities allow you to see what underlying query the model generates when completing its tasks, and its output includes [citations](/docs/documents-and-citations) pointing you to where it found the information it uses. Both the query and the citations can be leveraged alongside the Cohere Embed and Rerank models to build a remarkably powerful RAG system, such as the one found in [this guide](https://cohere.com/llmu/rag-chatbot).
+The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features. See each platform's documentation for details.
 
-<img src="../../assets/images//545e35e-Visual_5.png" />
+<CardGroup cols={2}>
+  <Card title="Cohere platform" href="/reference/about">
+    The fastest way to get started. Access Cohere models through a fully managed API with no infrastructure setup required.
+  </Card>
+  <Card title="Amazon Bedrock" href="/docs/aws-bedrock">
+    Access Cohere's Command, Embed, and Rerank models through AWS's fully managed, serverless AI service.
+  </Card>
+  <Card title="Amazon SageMaker" href="/docs/amazon-sagemaker-setup-guide">
+    Deploy and customize Cohere models on AWS with full control over infrastructure, instance types, and configuration.
+  </Card>
+  <Card title="AWS private deployment" href="/docs/aws-private-deployment">
+    Deploy Cohere models in your own AWS VPC for network isolation and tighter data controls.
+  </Card>
+  <Card title="On-premises" href="/docs/private-deployment-overview">
+    Run Cohere models on your own infrastructure, including air-gapped environments with no external network access.
+  </Card>
+  <Card title="Microsoft Azure" href="/docs/cohere-on-microsoft-azure">
+    Access Cohere models through Azure AI Foundry on enterprise-grade Microsoft cloud infrastructure.
+  </Card>
+  <Card title="OCI" href="/docs/oracle-cloud-infrastructure-oci">
+    Access Cohere's generative and embedding models through Oracle Cloud Infrastructure's fully managed AI service.
+  </Card>
+</CardGroup>
 
-[Click here](/docs/serving-platform) to learn more about the Cohere serving platform.
+## Community & learning
 
-### Advanced Search & Retrieval
-
-Embeddings enable you to search based on what a phrase _means_ rather than simply what keywords it _contains_, leading to search systems that incorporate context and user intent better than anything that has come before.
-
-<img src="../../assets/images//04fe094-Visual_6.png" alt="How a query returns results." />
-
-Learn more about semantic search [here](https://cohere.com/llmu/what-is-semantic-search).
-
-## Fine-Tuning
-
-To [create a fine-tuned model](/docs/fine-tuning), simply upload a dataset and hold on while we train a custom model and then deploy it for you. Fine-tuning can be done with [generative models](/docs/generate-fine-tuning), [multi-label classification models](/docs/classify-fine-tuning), [rerank models](/docs/rerank-fine-tuning), and [chat models](/docs/chat-fine-tuning).
-
-<img src="../../assets/images//980660f-Visual_7.png" alt="A diagram of fine-tuning." />
-
-## Accessing Cohere Models
-
-Depending on your privacy/security requirements there are a number of ways to access Cohere:
-
-- [Cohere API](/reference/about): this is the easiest option, simply grab an API key from [the dashboard](https://dashboard.cohere.com/) and start using the models hosted by Cohere.
-- Cloud AI platforms: this option offers a balance of ease-of-use and security. you can access Cohere on various cloud AI platforms such as [Oracle's GenAI Service](https://www.oracle.com/uk/artificial-intelligence/generative-ai/large-language-models/), AWS' [Bedrock](https://aws.amazon.com/bedrock/cohere-command-embed/) and [Sagemaker](https://aws.amazon.com/blogs/machine-learning/cohere-brings-language-ai-to-amazon-sagemaker/) platforms, [Google Cloud](https://console.cloud.google.com/marketplace/product/cohere-id-public/cohere-public?ref=txt.cohere.com), and [Azure's AML service](https://cohere.com/blog/coheres-enterprise-ai-models-coming-soon-to-microsoft-azure-ai-as-a-managed-service/).
-- Private cloud deploy deployments: Cohere's models can be deployed privately in most virtual private cloud (VPC) environments, offering enhanced security and highest degree of customization. Please [contact sales](emailto:team@cohere.com) for information.
-
-<img src="../../assets/images//2ce36b1-Visual_8.png" alt="The major cloud providers." />
-
-
-### On-Premise and Air Gapped Solutions
-
-- On-premise: if your organization deals with sensitive data that cannot live on a cloud we also offer the option for fully-private deployment on your own infrastructure. Please [contact sales](emailto:team@cohere.com) for information.
-
-## Let us Know What You’re Making
-
-We hope this overview has whetted your appetite for building with our generative AI models. Reach out to us on [Discord](https://discord.com/invite/co-mmunity) with any questions or to showcase your projects – we love hearing from the Cohere community!
+- **[LLMU](/docs/llmu)**: Free courses on large language models and building with Cohere, from fundamentals to advanced topics.
+- **[Discord](https://discord.com/invite/co-mmunity)**: Share what you're building and get help from the Cohere community.

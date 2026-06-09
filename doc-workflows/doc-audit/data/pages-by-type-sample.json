@@ -1,0 +1,46 @@
+{
+  "Overview": [
+    "https://docs.cohere.com/docs/the-cohere-platform",
+    "https://docs.cohere.com/docs/deployment-options-overview",
+    "https://docs.cohere.com/docs/models",
+    "https://docs.cohere.com/docs/introduction-to-text-generation-at-cohere"
+  ],
+  "Concept": [
+    "https://docs.cohere.com/docs/private-deployment-overview",
+    "https://docs.cohere.com/docs/advanced-generation-hyperparameters",
+    "https://docs.cohere.com/docs/tokens-and-tokenizers"
+  ],
+  "Quickstart": [
+    "https://docs.cohere.com/docs/rag-quickstart",
+    "https://docs.cohere.com/docs/reranking-quickstart",
+    "https://docs.cohere.com/docs/sem-search-quickstart",
+    "https://docs.cohere.com/docs/text-gen-quickstart",
+    "https://docs.cohere.com/docs/tool-use-quickstart"
+  ],
+  "Guide": [
+    "https://docs.cohere.com/docs/create-client",
+    "https://docs.cohere.com/docs/aws-private-deployment",
+    "https://docs.cohere.com/docs/cohere-on-microsoft-azure",
+    "https://docs.cohere.com/docs/qdrant-and-cohere",
+    "https://docs.cohere.com/docs/tools-on-langchain"
+  ],
+  "Tutorial": [
+    "https://docs.cohere.com/docs/routing-queries-to-data-sources",
+    "https://docs.cohere.com/docs/generating-parallel-queries",
+    "https://docs.cohere.com/docs/performing-tasks-sequentially",
+    "https://docs.cohere.com/docs/generating-multi-faceted-queries",
+    "https://docs.cohere.com/docs/querying-structured-data-tables"
+  ],
+  "Reference": [
+    "https://docs.cohere.com/docs/command-r7b",
+    "https://docs.cohere.com/docs/cohere-embed",
+    "https://docs.cohere.com/docs/parameter-types-in-json",
+    "https://docs.cohere.com/docs/deprecations",
+    "https://docs.cohere.com/docs/cohere-labs-acceptable-use-policy"
+  ],
+  "Feature": [
+    "https://docs.cohere.com/docs/playground-overview",
+    "https://docs.cohere.com/docs/cohere-toolkit",
+    "https://docs.cohere.com/docs/model-vault"
+  ]
+}

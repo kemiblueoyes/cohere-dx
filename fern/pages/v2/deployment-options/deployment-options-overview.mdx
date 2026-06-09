@@ -1,5 +1,5 @@
 ---
-title: "Deployment Options - Overview"
+title: "Cohere deployment options"
 slug: "v2/docs/deployment-options-overview"
 
 hidden: false
@@ -11,58 +11,79 @@ keywords: "generative AI, large language models, private deployment"
 createdAt: "Mon Apr 08 2024 14:53:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Wed May 01 2024 16:11:36 GMT+0000 (Coordinated Universal Time)"
 ---
-The most common way to access Cohere’s large language models (LLMs) is through the Cohere platform, which is fully managed by Cohere and accessible through an API.
+Cohere models are available through multiple deployment options, so you can choose the setup that best fits your organization's security, compliance, and infrastructure requirements.
 
-But that’s not the only way to access Cohere’s models. In an enterprise setting, organizations might require more control over where and how the models are hosted.
+<CardGroup cols={2}>
+  <Card title="Cohere Platform">
+    The fastest way to get started. Access Cohere models through a fully managed API with no infrastructure setup required.
 
-Specifically, Cohere offers four types of deployment options.
-1. **Cohere Platform**
-2. **Cloud AI Services**
-3. **Private Deployments - Cloud**
-4. **Private Deployments - On-Premises**
+    [Get started](https://docs.cohere.com/docs/get-started-installation)
+  </Card>
+  <Card title="Amazon Bedrock">
+    Access Cohere's Command, Embed, and Rerank models through AWS's fully managed, serverless AI service.
 
-## Cohere platform
+    [Set up Bedrock](https://docs.cohere.com/docs/amazon-bedrock)
 
-This is the fastest and easiest way to start using Cohere’s models. The models are hosted on Cohere infrastructure and available on our public SaaS platform (which provides an API data opt-out), which is fully managed by Cohere.
+    [Read about Bedrock](http://docs.aws.amazon.com/bedrock)
 
-## Cloud AI services
+    [View Cohere's models on Amazon Bedrock](https://aws.amazon.com/bedrock/cohere/)
+  </Card>
+  <Card title="Amazon SageMaker">
+    Deploy and customize Cohere models on AWS with full control over infrastructure, instance types, and configuration.
 
-These managed services enable enterprises to access Cohere’s models on cloud AI services. In this scenario, Cohere’s models are hosted on the cloud provider’s infrastructure. Cohere is cloud-agnostic, meaning you can deploy our models through any cloud provider.
+    [Set up SageMaker](https://docs.cohere.com/docs/amazon-sagemaker-setup-guide)
 
-### AWS
+    [Read about SageMaker](https://aws.amazon.com/pm/sagemaker/)
 
-Developers can access a range of Cohere’s language models in a private environment via Amazon’s AWS Cloud platform. Cohere’s models are supported on two Amazon services: **Amazon Bedrock** and **Amazon SageMaker**.
+    [View Cohere's models on AWS Marketplace](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0)
+  </Card>
+  <Card title="Microsoft Azure">
+    Access Cohere models through Azure AI Foundry on enterprise-grade Microsoft cloud infrastructure.
 
-#### Amazon Bedrock
+    [Set up Azure](https://docs.cohere.com/docs/cohere-on-microsoft-azure)
 
-Amazon Bedrock is a fully managed service where foundational models from Cohere are made available through a single, serverless API. [Read about Bedrock here](http://docs.aws.amazon.com/bedrock).
+    [View Cohere's models on Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-cohere-command)
+  </Card>
+  <Card title="OCI">
+    Access Cohere's generative and embedding models through Oracle Cloud Infrastructure's fully managed AI service.
 
-[View Cohere’s models on Amazon Bedrock](https://aws.amazon.com/bedrock/cohere/).
+    [Set up OCI](https://docs.cohere.com/docs/oracle-cloud-infrastructure-oci)
 
-#### Amazon SageMaker
+    [View Cohere's models on OCI](https://docs.oracle.com/en-us/iaas/Content/generative-ai/generate-models.htm)
+  </Card>
+    <Card title="Private deployment">
+    Deploy Cohere models securely inside your own controlled environment, either within a private cloud VPC or on-premises. Supports fully network-isolated, air-gapped systems.
 
-Amazon SageMaker is a service that allows customers to prepare data and build, train, and deploy machine learning (ML) models for any use case with fully managed infrastructure, tools, and workflows. [Read about SageMaker here.](https://aws.amazon.com/pm/sagemaker/)
+    [Set up private deployment (universal)](https://docs.cohere.com/docs/single-container-on-private-clouds)
 
-Cohere offers a comprehensive suite of generative and embedding models through SageMaker on a range of hardware options, many of which support finetuning for deeper customization and performance.
+    [Set up on AWS VPC](https://docs.cohere.com/docs/aws-private-deployment)
 
-[View Cohere's model listing on the AWS Marketplace](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0).
+    [Read private deployment overview](https://docs.cohere.com/docs/private-deployment-overview)
+  </Card>
+</CardGroup>
 
-### Azure AI Foundry
+## Feature support
 
-Azure AI Foundry is a platform that is designed for developers to build generative AI applications on an enterprise-grade platform. Developers can explore a wide range of models, services, and capabilities to build AI applications that meet their specific goals.
+The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features. See each platform's documentation for details.
 
-[View Cohere’s models on Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-cohere-command).
+| Method | Cohere Platform | Private Deployment | Azure | Bedrock | Sagemaker | OCI |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| chat\_stream | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| chat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| generate\_stream (legacy endpoint deprecated in V1 for chat\_stream) | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜️ |
+| generate (legacy endpoint deprecated in V1 for chat) | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜️ |
+| embed | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| rerank | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜️ |
+| classify (deprecated in V1) | ✅ | ✅ | ⬜️ | ⬜️ | ⬜️ | ⬜️ |
+| summarize (legacy endpoint deprecated in V1 for chat) | ✅ | ✅ | ⬜️ | ⬜️ | ⬜️ | ⬜️ |
+| tokenize | ✅ | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) |
+| detokenize | ✅ | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) |
+| check\_api\_key (removed in V2) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-### OCI Generative AI Service
+**Offline** refers to [tokenization](https://docs.cohere.com/docs/tokens-and-tokenizers#caching-and-optimization) that runs locally without making a network call to Cohere's API. The tokenizer config is downloaded and cached on your local machine, so subsequent tokenization happens without hitting Cohere's servers. In the Cohere Python SDK only, these can be accessed by setting `offline=False`.
 
-Oracle Cloud Infrastructure Generative AI is a fully managed service that enables you to use Cohere's [generative](https://docs.oracle.com/en-us/iaas/Content/generative-ai/generate-models.htm) and [embedding models](https://docs.oracle.com/en-us/iaas/Content/generative-ai/embed-models.htm) through an API.
+## Recommended next steps
 
-## Private deployments
+If you're comparing deployment options for an enterprise environment, start with [Choose a deployment option for Cohere models](#). It explains how to evaluate deployment models based on infrastructure, security, compliance, data residency, and operational requirements.
 
-### Cloud (VPC)
-
-Private deployments (cloud) allow enterprises to deploy the Cohere stack privately on cloud platforms. With AWS, Cohere’s models can be deployed in an enterprise’s AWS Cloud environment via their own VPC (EC2, EKS). Compared to managed cloud services, VPC deployments provide tighter control and compliance. No egress is another common reason for going with VPCs. Overall, the VPC option has a higher management burden but offers more flexibility.
-
-### On-premises
-
-Private deployments on-premises (on-prem) allow enterprises to deploy the Cohere stack privately on their own compute. This includes air-gapped environments where systems are physically isolated from unsecured networks, providing maximum security for sensitive workloads.
+If you already know which option fits your needs, continue with the setup guide for that deployment option.

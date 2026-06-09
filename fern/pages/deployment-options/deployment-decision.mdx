@@ -1,0 +1,231 @@
+---
+title: "Choose a deployment option for Cohere models"
+slug: "docs/choosing-deployment-option"
+description: >-
+    Compare Cohere's deployment options across data residency, compliance, and infrastructure 
+    requirements to choose the right fit for your organization."
+keywords: "Cohere deployment options, Cohere enterprise deployment"
+---
+
+When you deploy Cohere in your organization, you choose a deployment option that determines:
+
+- **Who controls the infrastructure:** Cohere, a cloud provider, or your own team
+- **Where your data is processed and stored:** Includes who can access it and where it lives.
+- **What compliance frameworks apply:** Dictates what your team is ultimately responsible for.
+- **How much operational overhead you take on:** Defines your day-to-day maintenance limits.
+
+This guide helps you evaluate the four deployment options and choose the one that fits your organization's security, compliance, and infrastructure requirements.
+
+---
+
+## Deployment options at a glance
+
+| Deployment option | Infrastructure managed by | Data processed by | Best for |
+|---|---|---|---|
+| **Cohere Platform** | Cohere | Cohere | Getting started quickly; general-purpose API access |
+| **Cloud AI Services** (AWS, Azure, OCI) | Cloud provider | Cloud provider | Teams already on a major cloud platform who want managed infrastructure |
+| **Private Deployment - Cloud (VPC)** | Your team | Your team | Organizations that need network isolation and tighter data controls |
+| **Private Deployment - On-Premises** | Your team | Your team | Air-gapped environments and maximum data sovereignty |
+
+---
+
+## Understand each option
+
+### Cohere Platform
+
+The Cohere Platform is a fully managed SaaS API. Cohere hosts the infrastructure, manages model updates, and handles availability. You authenticate with an API key and start making requests immediately, with no infrastructure setup required.
+
+**What Cohere controls:** Infrastructure, model hosting, availability, and updates.
+
+**What you control:** API key management, which models you call, and how you integrate Cohere into your application.
+
+**Data handling:** Your prompts and completions are processed by Cohere's infrastructure. Enterprise customers can opt out of model training in the Cohere dashboard. If you're approved for zero data retention (ZDR), Cohere does not log any prompts or completions. A Data Processing Agreement (DPA) is available for enterprise customers.
+
+**Compliance certifications:** SOC 2 Type II, ISO 27001, ISO 42001.
+
+**Best for:** Teams that want fast access to Cohere models without managing infrastructure, and whose data sensitivity requirements are met by Cohere's enterprise data commitments and ZDR opt-out.
+
+---
+
+### Cloud AI Services
+
+Cohere models are available through AWS Bedrock, AWS SageMaker, Microsoft Azure AI Foundry, and Oracle Cloud Infrastructure (OCI). In these deployments, the cloud provider hosts and manages Cohere's models within their own infrastructure.
+
+**What the cloud provider controls:** Infrastructure, model hosting, and availability within their platform.
+
+**What you control:** Your cloud account configuration, Identity and Access Management (IAM) roles and permissions, and how you integrate the model into your existing cloud workloads.
+
+**Data handling:** Your prompts and completions are processed within your chosen cloud provider's infrastructure, not Cohere's. No DPA with Cohere is required, as Cohere does not receive your prompts or completions. Data handling is governed by your existing agreements with the cloud provider.
+
+**Compliance certifications:** Governed by your cloud provider's compliance posture. AWS, Azure, and OCI each carry extensive compliance certifications including FedRAMP, HIPAA, GDPR, and others. Check your provider's compliance documentation for the specific certifications that apply to your deployment region and service.
+
+**Best for:** Organizations that are already standardized on a major cloud platform and want to keep AI infrastructure within the same environment, billing, and compliance boundary. Also suitable for teams with existing cloud security controls they want to extend to AI workloads.
+
+**Feature support note:** Cloud AI Services support the core Cohere endpoints: chat, embed, and rerank. Some legacy endpoints are not available on all platforms. See the [deployment options overview](https://docs.cohere.com/docs/deployment-options-overview) for the full feature support matrix.
+
+---
+
+### Private Deployment - Cloud (VPC)
+
+Private Deployment in your cloud environment runs Cohere models inside your own Virtual Private Cloud (VPC) on AWS, Azure, or another supported cloud provider. The model runs within your network boundary, and traffic never leaves your VPC to reach Cohere's infrastructure.
+
+**What you control:** The full deployment, including infrastructure provisioning, network configuration, access controls, and model operations.
+
+**What Cohere provides:** The model weights and containers. Cohere does not have access to your infrastructure or your data once deployed.
+
+**Data handling:** No prompts or completions are sent to Cohere. No DPA is required. Your organization is fully responsible for data handling within your environment.
+
+**Compliance certifications:** Your organization's own compliance posture applies. Because data stays within your environment, private deployment is well-suited for regulated industries with strict data residency requirements.
+
+**Best for:** Organizations that need network isolation, where data cannot leave a defined network perimeter, but prefer to keep infrastructure in a cloud environment rather than on-premises. Common in financial services, healthcare, and other regulated industries.
+
+**Operational overhead:** Higher than Cohere Platform or Cloud AI Services. Your team is responsible for provisioning, scaling, monitoring, and maintaining the deployment.
+
+---
+
+### Private Deployment - On-Premises
+
+On-premises deployment runs Cohere models on your own physical infrastructure, including fully air-gapped environments with no external network access. This is the maximum data sovereignty option.
+
+**What you control:** Everything, including physical infrastructure, networking, model operations, and all data.
+
+**What Cohere provides:** The model weights and containers for deployment on your hardware.
+
+**Data handling:** No data leaves your environment under any circumstances. This option is designed for organizations where data must never traverse external networks.
+
+**Compliance certifications:** Your organization's own compliance posture and internal security controls apply entirely.
+
+**Best for:** Defense, intelligence, and other public-sector organizations requiring air-gapped environments; enterprises with the most stringent data sovereignty requirements; organizations subject to regulations that prohibit cloud processing of certain data categories.
+
+**Operational overhead:** The highest of all options. Your team is responsible for the full infrastructure stack.
+
+---
+
+## Compare by key decision factors
+
+Use this table to evaluate options against your organization's specific requirements.
+
+| Factor | Cohere Platform | Cloud AI Services | Private - Cloud (VPC) | Private - On-Premises |
+|---|---|---|---|---|
+| **Data processed by** | Cohere | Cloud provider | Your team | Your team |
+| **Cohere receives prompts** | Yes (ZDR opt-out available) | No | No | No |
+| **DPA with Cohere required** | Yes (enterprise) | No | No | No |
+| **Network isolation** | No | Partial (within cloud) | Yes (VPC boundary) | Yes (air-gapped possible) |
+| **Data residency control** | Limited | Cloud provider regions | Your cloud region | Your physical location |
+| **SOC 2 / ISO 27001** | Cohere-certified | Cloud provider-certified | Your responsibility | Your responsibility |
+| **FedRAMP High** | Via Second Front (Game Warden) | Via cloud provider (where applicable) | Your responsibility | Your responsibility |
+| **HIPAA** | BAA available for custom model engagements only | Via cloud provider | Your responsibility | Your responsibility |
+| **Fine-tuning availability** | Yes | Varies by platform | Yes | Yes |
+| **Time to first API call** | Minutes | Hours to days | Days to weeks | Weeks to months |
+| **Infrastructure management** | Cohere | Cloud provider | Your team | Your team |
+| **Full feature support** | Yes | Partial (varies by platform) | Yes | Yes |
+
+---
+
+## Compliance considerations
+
+### FedRAMP
+
+Cohere achieved FedRAMP High authorization in May 2026 through Second Front Systems' Game Warden platform, making Cohere the first independent LLM company to reach the High authorization level. This authorization enables federal agencies to access Cohere's enterprise AI models for mission-critical applications.
+
+- **Cohere Platform via Second Front Game Warden:** FedRAMP High authorized
+- **Cloud AI Services:** FedRAMP compliance depends on your cloud provider's authorization for the specific service and region. AWS GovCloud and Azure Government each carry FedRAMP High for supported services. Verify coverage for Cohere model endpoints specifically.
+- **Private deployments:** FedRAMP compliance is your organization's responsibility.
+
+If your organization requires FedRAMP High, contact Cohere or Second Front to understand the deployment path through Game Warden.
+
+### HIPAA
+
+Cohere may execute a Business Associate Agreement (BAA) for custom model development engagements only. The BAA does not cover Cohere's SaaS platform or hosted products.
+
+If your use case involves Protected Health Information (PHI):
+
+- Do not submit PHI through the Cohere Platform SaaS service.
+- Consider a Cloud AI Services deployment on a HIPAA-eligible cloud service (AWS, Azure, or OCI each offer HIPAA-eligible configurations; verify the specific service).
+- Private deployment keeps all data within your environment and is the most direct path to full HIPAA control.
+
+### GDPR
+
+Cohere operates across multiple jurisdictions including Canada, the EU, and the US, and has designed its services with Privacy-by-Design. Enterprise customers can request a DPA, and a GDPR-compliant data processing path is available.
+
+For strict GDPR data residency requirements:
+
+- **Cohere Platform:** Limited control over where data is processed. Contact Cohere to understand processing regions.
+- **Cloud AI Services:** Your cloud provider's regional deployment options apply. Azure and AWS both support EU data residency for supported services.
+- **Private deployments:** Full control. Data stays within your designated environment.
+
+---
+
+## Questions to answer before you choose
+
+Work through these questions with your security, legal, and infrastructure teams before selecting a deployment option.
+
+**Data sensitivity**
+- What classification level does the data your application will process carry?
+- Are there categories of data, such as personal health information, financial data, or classified information, that are subject to specific handling requirements?
+- Does your organization have internal data handling policies that restrict cloud processing of certain data types?
+
+**Regulatory and compliance requirements**
+- Which compliance frameworks apply to your organization and this use case: FedRAMP, HIPAA, GDPR, SOC 2, or others?
+- Do you need Cohere to be the data processor, or do you need to keep processing entirely within your environment?
+- Does your compliance posture require a signed DPA?
+
+**Infrastructure and operations**
+- Does your organization have the engineering capacity to manage a private deployment?
+- Are you already standardized on a cloud provider that offers Cohere models?
+- What are your latency requirements, and how does infrastructure location affect them?
+
+**Timeline**
+- How quickly do you need the deployment operational?
+- Is a phased approach viable, such as starting on the Cohere Platform and migrating to private deployment later?
+
+---
+
+## Recommended paths by scenario
+
+### Regulated industry (financial services, insurance)
+
+**Recommended:** Private Deployment - Cloud (VPC) or Cloud AI Services on your existing cloud provider.
+
+Financial services organizations typically need network isolation and data residency control, but can operate within cloud environments. A VPC deployment keeps data within your network boundary while using cloud infrastructure your team already manages. If you're on AWS or Azure, Cloud AI Services may provide sufficient data controls depending on your specific regulatory requirements. Evaluate against your compliance team's requirements.
+
+### Federal agency or defense contractor
+
+**Recommended:** Cohere Platform via Second Front Game Warden (FedRAMP High), or Private Deployment - On-Premises for classified or air-gapped requirements.
+
+Cohere's FedRAMP High authorization through Second Front Game Warden is the fastest path for federal agency deployments requiring FedRAMP High compliance. For classified environments or programs requiring air-gapped infrastructure, Private Deployment - On-Premises is the appropriate path.
+
+### Healthcare organization
+
+**Recommended:** Private Deployment - Cloud (VPC) or Cloud AI Services on a HIPAA-eligible cloud service.
+
+Do not submit PHI through the Cohere Platform SaaS service. If your application requires PHI processing, evaluate Cloud AI Services on a HIPAA-eligible AWS or Azure configuration, or deploy privately within your own VPC. Engage Cohere and your legal team to understand the BAA scope if custom model development is part of your use case.
+
+### Enterprise team starting quickly, low data sensitivity
+
+**Recommended:** Cohere Platform.
+
+If your application does not involve sensitive data categories, the Cohere Platform is the fastest path to production. Enable zero data retention in the dashboard if you do not want prompts logged. Upgrade your deployment option as your requirements evolve.
+
+### Large enterprise with strict data sovereignty
+
+**Recommended:** Private Deployment - On-Premises or Cloud (VPC), depending on whether cloud infrastructure is acceptable.
+
+Organizations with requirements that prohibit cloud processing, or that need full control over the infrastructure stack, should plan for private deployment. On-premises provides maximum sovereignty; VPC provides a balance of control and operational manageability.
+
+---
+
+## Next steps
+
+If you're still evaluating which option fits your requirements, review [Cohere's Enterprise Data Commitments](https://cohere.com/enterprise-data-commitments) and [Trust Center](https://trustcenter.cohere.com) for detailed information on data handling, certifications, and compliance resources.
+
+When you're ready to set up your chosen deployment option, continue with the setup guide for that option:
+
+- [Set up the Cohere Platform](https://docs.cohere.com/docs/the-cohere-platform)
+- [Set up Amazon Bedrock](https://docs.cohere.com/docs/amazon-bedrock)
+- [Set up Amazon SageMaker](https://docs.cohere.com/docs/amazon-sagemaker-setup-guide)
+- [Set up Microsoft Azure](https://docs.cohere.com/docs/cohere-on-microsoft-azure)
+- [Set up OCI](https://docs.cohere.com/docs/oracle-cloud-infrastructure-oci)
+- [Set up private deployment](https://docs.cohere.com/docs/single-container-on-private-clouds)
+- [Set up on AWS VPC](https://docs.cohere.com/docs/aws-private-deployment)
+- [Read the private deployment overview](https://docs.cohere.com/docs/private-deployment-overview)

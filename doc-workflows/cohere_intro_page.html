@@ -1,0 +1,185 @@
+
+<style>
+  .page { max-width: 680px; margin: 0 auto; padding: 2rem 0; font-family: var(--font-sans); color: var(--color-text-primary); }
+  .section { margin-bottom: 2.5rem; }
+  .section-title { font-size: 18px; font-weight: 500; margin: 0 0 1rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 0.5rem; }
+  .intro-text { font-size: 16px; line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 1.5rem; }
+  .code-block { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; font-family: var(--font-mono); font-size: 13px; line-height: 1.7; margin: 0 0 1.25rem; overflow-x: auto; }
+  .kw { color: #7F77DD; }
+  .str { color: #1D9E75; }
+  .cm { color: var(--color-text-tertiary); }
+  .cta-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--color-text-primary); color: var(--color-background-primary); border: none; border-radius: var(--border-radius-md); padding: 8px 18px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn-secondary { background: transparent; color: var(--color-text-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 8px 18px; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-block; }
+  .use-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .use-case-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+  .use-case-title { font-size: 14px; font-weight: 500; margin: 0 0 4px; }
+  .use-case-desc { font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+  .start-building-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
+  .start-building-list li { font-size: 14px; }
+  .start-building-list a { color: var(--color-text-info); text-decoration: none; font-weight: 500; }
+  .start-building-list .desc { color: var(--color-text-secondary); font-size: 13px; display: block; margin-top: 2px; }
+  .model-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .model-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+  .model-title { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+  .model-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin: 0 0 10px; }
+  .model-link { font-size: 13px; color: var(--color-text-info); text-decoration: none; }
+  .dev-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .dev-list li { font-size: 14px; }
+  .dev-list a { color: var(--color-text-info); text-decoration: none; font-weight: 500; }
+  .dev-list .desc { color: var(--color-text-secondary); font-size: 13px; }
+  .deploy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .deploy-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+  .deploy-title { font-size: 14px; font-weight: 500; margin: 0 0 4px; }
+  .deploy-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin: 0 0 10px; }
+  .deploy-link { font-size: 13px; color: var(--color-text-info); text-decoration: none; }
+  .community-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .community-list li { font-size: 14px; }
+  .community-list a { color: var(--color-text-info); text-decoration: none; font-weight: 500; }
+  .community-list .desc { color: var(--color-text-secondary); font-size: 13px; }
+  .feature-note { font-size: 13px; color: var(--color-text-secondary); background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; margin-bottom: 1rem; }
+</style>
+
+<div class="page">
+
+  <div class="section">
+    <p class="intro-text">Cohere is an AI platform for building production-grade applications and knowledge systems. Use Cohere's APIs and models to add language understanding, generation, search, retrieval, and agent capabilities to your products.</p>
+
+    <div class="code-block"><span class="kw">import</span> cohere<br><br>co = cohere.ClientV2(api_key=<span class="str">"YOUR_API_KEY"</span>)<br><br>response = co.chat(<br>&nbsp;&nbsp;&nbsp;&nbsp;model=<span class="str">"command-a-03-2025"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;messages=[{<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: <span class="str">"What is retrieval-augmented generation?"</span>}]<br>)<br><br><span class="kw">print</span>(response.message.content[<span class="str">0</span>].text)</div>
+
+    <div class="cta-row">
+      <a class="btn-primary" href="#">Ready to build with your own data? Start the RAG quickstart</a>
+      <a class="btn-secondary" href="#">Explore in the Playground</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Popular use cases</h2>
+    <div class="use-case-grid">
+      <div class="use-case-card">
+        <p class="use-case-title">Enterprise AI agents &amp; automation</p>
+        <p class="use-case-desc">Build agents that use tools, APIs, and company systems to complete tasks and workflows.</p>
+      </div>
+      <div class="use-case-card">
+        <p class="use-case-title">Search &amp; retrieval</p>
+        <p class="use-case-desc">Power semantic search, knowledge assistants, and RAG across your data with Embed and Rerank.</p>
+      </div>
+      <div class="use-case-card">
+        <p class="use-case-title">Document intelligence</p>
+        <p class="use-case-desc">Extract, classify, and organize information from large document collections using Command.</p>
+      </div>
+      <div class="use-case-card">
+        <p class="use-case-title">Grounded content generation</p>
+        <p class="use-case-desc">Generate reports, summaries, and responses backed by company knowledge and citations.</p>
+      </div>
+      <div class="use-case-card">
+        <p class="use-case-title">Multilingual applications</p>
+        <p class="use-case-desc">Search and generate content across multiple languages.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Start building</h2>
+    <ul class="start-building-list">
+      <li><a href="#">RAG</a><span class="desc">Ground model responses in your own data using the Chat endpoint with documents.</span></li>
+      <li><a href="#">Semantic search</a><span class="desc">Search by meaning, not keywords, using Cohere's Embed models.</span></li>
+      <li><a href="#">Reranking</a><span class="desc">Improve retrieval quality by reranking candidate results before generation.</span></li>
+      <li><a href="#">Text generation</a><span class="desc">Generate and refine text using the Chat endpoint and Command models.</span></li>
+      <li><a href="#">Tool use &amp; agents</a><span class="desc">Build agents that call external tools, APIs, and data sources.</span></li>
+      <li><a href="#">Transcription</a><span class="desc">Convert audio to text using Cohere's transcription models.</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Models</h2>
+    <div class="model-grid">
+      <div class="model-card">
+        <p class="model-title">Command</p>
+        <p class="model-desc">Text generation models for chat, RAG, tool use, and agents. Optimized for enterprise performance and instruction following.</p>
+        <a class="model-link" href="#">Explore Command →</a>
+      </div>
+      <div class="model-card">
+        <p class="model-title">Embed</p>
+        <p class="model-desc">Convert text and images into vector embeddings for semantic search, retrieval, and classification across 100+ languages.</p>
+        <a class="model-link" href="#">Explore Embed →</a>
+      </div>
+      <div class="model-card">
+        <p class="model-title">Rerank</p>
+        <p class="model-desc">Improve search and retrieval quality by reranking candidate results by relevance before generation.</p>
+        <a class="model-link" href="#">Explore Rerank →</a>
+      </div>
+      <div class="model-card">
+        <p class="model-title">Transcribe</p>
+        <p class="model-desc">Convert audio to text with high accuracy across multiple languages using Cohere's speech recognition model.</p>
+        <a class="model-link" href="#">Explore Transcribe →</a>
+      </div>
+      <div class="model-card">
+        <p class="model-title">Aya</p>
+        <p class="model-desc">Open-weight multilingual models designed for research and underserved languages. Supports 70+ languages.</p>
+        <a class="model-link" href="#">Explore Aya →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Developer resources</h2>
+    <ul class="dev-list">
+      <li><a href="#">API reference</a> — <span class="desc">Complete reference for all Cohere endpoints, parameters, and response objects.</span></li>
+      <li><a href="#">SDKs</a> — <span class="desc">Official Python, TypeScript, Go, and Java clients for the Cohere API.</span></li>
+      <li><a href="#">Cohere Toolkit</a> — <span class="desc">Open-source components for building and deploying RAG applications quickly, including preconfigured front-end, back-end, and data retrieval chains.</span></li>
+      <li><a href="#">Cookbooks</a> — <span class="desc">Code-based guides and recipes for common Cohere use cases and integrations.</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Choose your deployment</h2>
+    <p class="feature-note">The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features — see each platform's documentation for details.</p>
+    <div class="deploy-grid">
+      <div class="deploy-card">
+        <p class="deploy-title">Cohere platform</p>
+        <p class="deploy-desc">The fastest way to get started. Access Cohere models through a fully managed API with no infrastructure setup required.</p>
+        <a class="deploy-link" href="#">Get started →</a>
+      </div>
+      <div class="deploy-card">
+        <p class="deploy-title">Amazon Bedrock</p>
+        <p class="deploy-desc">Access Cohere's Command, Embed, and Rerank models through AWS's fully managed, serverless AI service.</p>
+        <a class="deploy-link" href="#">Set up Bedrock →</a>
+      </div>
+      <div class="deploy-card">
+        <p class="deploy-title">Amazon SageMaker</p>
+        <p class="deploy-desc">Deploy and customize Cohere models on AWS with full control over infrastructure, instance types, and configuration.</p>
+        <a class="deploy-link" href="#">Set up SageMaker →</a>
+      </div>
+      <div class="deploy-card">
+        <p class="deploy-title">AWS private deployment</p>
+        <p class="deploy-desc">Deploy Cohere models in your own AWS VPC for network isolation and tighter data controls.</p>
+        <a class="deploy-link" href="#">Deploy on AWS →</a>
+      </div>
+      <div class="deploy-card">
+        <p class="deploy-title">On-premises</p>
+        <p class="deploy-desc">Run Cohere models on your own infrastructure, including air-gapped environments with no external network access.</p>
+        <a class="deploy-link" href="#">Deploy on-premises →</a>
+      </div>
+      <div class="deploy-card">
+        <p class="deploy-title">Microsoft Azure</p>
+        <p class="deploy-desc">Access Cohere models through Azure AI Foundry on enterprise-grade Microsoft cloud infrastructure.</p>
+        <a class="deploy-link" href="#">Set up Azure →</a>
+      </div>
+      <div class="deploy-card">
+        <p class="deploy-title">OCI</p>
+        <p class="deploy-desc">Access Cohere's generative and embedding models through Oracle Cloud Infrastructure's fully managed AI service.</p>
+        <a class="deploy-link" href="#">Set up OCI →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Community &amp; learning</h2>
+    <ul class="community-list">
+      <li><a href="#">LLMU</a> — <span class="desc">Free courses on large language models and building with Cohere, from fundamentals to advanced topics.</span></li>
+      <li><a href="#">Discord</a> — <span class="desc">Share what you're building and get help from the Cohere community.</span></li>
+    </ul>
+  </div>
+
+</div>
