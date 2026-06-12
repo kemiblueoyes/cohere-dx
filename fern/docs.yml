@@ -34,6 +34,9 @@ favicon: assets/favicon.png
 
 css: assets/styles.css
 
+agents:
+  robots-txt: robots.txt
+
 typography:
   headingsFont:
     name: CohereVariable
