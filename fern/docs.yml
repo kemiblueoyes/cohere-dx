@@ -3,7 +3,6 @@ announcement:
 
 instances:
   - url: devx-portfolio.docs.buildwithfern.com
-    custom-domain: docs.cohere.com
     edit-this-page:
       github:
         owner: kemiblueoyes
@@ -20,6 +19,9 @@ versions:
   - display-name: v1 API
     path: v1.yml
     slug: v1
+
+ai-examples:
+  enabled: false
 
 ai-chat:
   model: command-a
@@ -654,7 +656,3 @@ redirects:
   - source: /v2/docs/preambles
     destination: /docs/system-instructions
     permanent: true
-
-analytics:
-  segment:
-    write-key: ${SEGMENT_WRITE_KEY}
