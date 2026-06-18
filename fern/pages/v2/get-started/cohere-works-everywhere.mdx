@@ -1,0 +1,610 @@
+---
+title: "Cohere SDK Cloud Platform Compatibility"
+slug: docs/cohere-works-everywhere
+description: "This page describes various places you can use Cohere's SDK."
+keywords: "Cohere, Cohere SDK, large language model SDK"
+---
+
+Cohere's SDKs support Cohere platform, Amazon Bedrock, SageMaker, Azure AI Foundry, OCI, and private deployment environments. The client class and initialization pattern differ by deployment, but the rest of your code stays the same, so switching environments requires only minimal changes.
+
+For SDK installation, see [SDKs](/docs/sdks).
+
+## Supported environments
+
+SDKs available for supported deployment environments.
+
+| SDK                                                         | [Cohere platform](/docs/sdks) | [Bedrock](/docs/amazon-bedrock) | [Sagemaker](/docs/amazon-sagemaker-setup-guide)                       | [Azure](/docs/cohere-on-microsoft-azure)                       | [OCI](/docs/oracle-cloud-infrastructure-oci)                       | [Private Deployment](/docs/private-deployment-overview)                 |
+| ------------------------------------------------------------ | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------- | --------------------------- | -------------------------- | ------------------------------ |
+| [Typescript](https://github.com/cohere-ai/cohere-typescript) | [✅](#cohere-platform)                             | [✅](#bedrock)                                                                | [✅](#sagemaker) | [✅](#azure) | ⬜️  | [✅](#private-deployment) |
+| [Python](https://github.com/cohere-ai/cohere-python)         | [✅](#cohere-platform)                                 | [✅](#bedrock)                                                                    | [✅](#sagemaker)     | [✅](#azure)     | [✅](#oci)     | [✅](#private-deployment)     |
+| [Go](https://github.com/cohere-ai/cohere-go)                 | [✅](#cohere-platform)                                     | [✅](#bedrock)                                                                       | [✅](#sagemaker)        | [✅](#azure)         |   ⬜️       | [✅](#private-deployment)         |
+| [Java](https://github.com/cohere-ai/cohere-java)             | [✅](#cohere-platform)                                   | [✅](#bedrock)                                                                     | [✅](#sagemaker)      | [✅](#azure)       |   ⬜️      | [✅](#private-deployment)       |
+
+## Feature support
+
+The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features. See each platform's documentation for details.
+
+| Feature         | Cohere Platform | Bedrock     | Sagemaker   | Azure       | OCI         | Private Deployment |
+| --------------- | --------------- | ----------- | ----------- | ----------- | ----------- | -------------- |
+| chat_stream     | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
+| chat            | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
+| generate_stream (*legacy endpoint deprecated in V1 for chat_stream*) | ✅               | ✅           | ✅           | ✅           | ⬜️           | ✅              |
+| generate (*legacy endpoint deprecated in V1 for chat*)       | ✅               | ✅           | ✅           | ✅           | ⬜️           | ✅              |
+| embed           | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
+| rerank          | ✅               | ✅           | ✅           | ✅           | ⬜️           | ✅              |
+| classify (*deprecated in V1*)        | ✅               | ⬜️           | ⬜️           | ⬜️           | ⬜️           | ✅              |
+| summarize (*legacy endpoint deprecated in V1 for chat*)      | ✅               | ⬜️           | ⬜️           | ⬜️           | ⬜️           | ✅              |
+| tokenize        | ✅               | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*)    |
+| detokenize      | ✅               | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*)    |
+| check_api_key   | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
+
+**Offline** refers to [tokenization](/docs/tokens-and-tokenizers#caching-and-optimization) that runs locally without making a network call to Cohere's API. The tokenizer config is downloaded and cached on your local machine, so subsequent tokenization happens without hitting Cohere's servers. In the Cohere Python SDK only, these can be accessed by setting `offline=False`.
+
+## Code examples
+
+The following examples show how to initialize a client and make an API call for all deployment options.
+
+<Note>
+  The Cohere v2 API is not yet supported for Bedrock, SageMaker, and Azure. OCI supports the v2 API via `OciClientV2`. The code examples shown for Bedrock, SageMaker, and Azure use the v1 API.
+</Note>
+
+#### Cohere Platform 
+
+<CodeBlocks>
+
+```python
+import cohere
+
+co = cohere.ClientV2("YOUR_API_KEY")
+
+res = co.chat(
+    model="command-a-plus-05-2026",
+    messages=[
+        {
+            "role": "user",
+            "content": "Who discovered gravity?",
+        }
+    ],
+)
+print(res.message.content[0].text)
+```
+```typescript 
+const { CohereClientV2 } = require('cohere-ai');
+
+const cohere = new CohereClientV2({
+  token: 'YOUR_API_KEY',
+});
+
+(async () => {
+  const response = await cohere.chat({
+    model: 'command-a-plus-05-2026',
+    messages: [
+      {
+        role: 'user',
+        content: 'Who discovered gravity?',
+      },
+    ],
+  });
+
+  console.log(response);
+})();
+```
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	cohere "github.com/cohere-ai/cohere-go/v2"
+	client "github.com/cohere-ai/cohere-go/v2/client"
+)
+
+func main() {
+    co := client.NewClient(client.WithToken("YOUR_API_KEY"))
+
+	resp, err := co.V2.Chat(
+		context.TODO(),
+		&cohere.V2ChatRequest{
+			Model: "command-a-plus-05-2026",
+			Messages: cohere.ChatMessages{
+				{
+					Role: "user",
+					User: &cohere.UserMessageV2{Content: &cohere.UserMessageV2Content{
+						String: "Who discovered gravity?",
+					}},
+				},
+			},
+		},
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("%+v", resp)
+}
+```
+```java
+package chatv2post;
+
+import com.cohere.api.Cohere;
+import com.cohere.api.resources.v2.requests.V2ChatRequest;
+import com.cohere.api.types.*;
+import java.util.List;
+
+public class Default {
+    public static void main(String[] args) {
+        Cohere cohere = Cohere.builder().token("YOUR_API_KEY").clientName("snippet").build();
+
+        ChatResponse response =
+                cohere.v2()
+                        .chat(
+                                V2ChatRequest.builder()
+                                    .model("command-a-plus-05-2026")
+                                    .messages(
+                                        List.of(
+                                            ChatMessageV2.user(
+                                                UserMessage.builder()
+                                                    .content(
+                                                        UserMessageContent
+                                                                .of("Who discovered gravity?"))
+                                                    .build())))
+                                    .build());
+
+        System.out.println(response);
+    }
+}
+```
+</CodeBlocks>
+
+#### Private Deployment
+
+<CodeBlocks>
+
+```python
+import cohere
+
+co = cohere.ClientV2(api_key="", base_url="YOUR_DEPLOYMENT_URL")
+
+res = co.chat(
+    model="command-a-plus-05-2026",
+    messages=[
+        {
+            "role": "user",
+            "content": "Who discovered gravity?",
+        }
+    ],
+)
+
+print(response)
+```
+```typescript 
+const { CohereClientV2 } = require('cohere-ai');
+
+const cohere = new CohereClientV2({});
+
+(async () => {
+  const response = await cohere.chat({
+    model: 'command-a-plus-05-2026',
+    messages: [
+      {
+        role: 'user',
+        content: 'Who discovered gravity?',
+      },
+    ],
+  });
+
+  console.log(response);
+})();
+```
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	cohere "github.com/cohere-ai/cohere-go/v2"
+	client "github.com/cohere-ai/cohere-go/v2/client"
+)
+
+func main() {
+	  co := client.NewClient(
+			    client.WithBaseURL("YOUR_DEPLOYMENT_URL"),
+		)
+
+	resp, err := co.V2.Chat(
+		context.TODO(),
+		&cohere.V2ChatRequest{
+			Model: "command-a-plus-05-2026",
+			Messages: cohere.ChatMessages{
+				{
+					Role: "user",
+					User: &cohere.UserMessageV2{Content: &cohere.UserMessageV2Content{
+						String: "Who discovered gravity?",
+					}},
+				},
+			},
+		},
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("%+v", resp)
+}
+```
+```java
+package chatv2post;
+
+import com.cohere.api.Cohere;
+import com.cohere.api.resources.v2.requests.V2ChatRequest;
+import com.cohere.api.types.*;
+import java.util.List;
+
+public class Default {
+    public static void main(String[] args) {
+        Cohere cohere = Cohere.builder().token("YOUR_API_KEY").clientName("snippet").build();
+
+        ChatResponse response =
+                cohere.v2()
+                        .chat(
+                                V2ChatRequest.builder()
+                                    .model("command-a-plus-05-2026")
+                                    .messages(
+                                        List.of(
+                                            ChatMessageV2.user(
+                                                UserMessage.builder()
+                                                    .content(
+                                                        UserMessageContent
+                                                                .of("Who discovered gravity?"))
+                                                    .build())))
+                                    .build());
+
+        System.out.println(response);
+    }
+}
+```
+</CodeBlocks>
+
+#### Bedrock
+
+<CodeBlocks>
+```python
+import cohere
+
+co = cohere.BedrockClient(
+    aws_region="us-east-1",
+    aws_access_key="...",
+    aws_secret_key="...",
+    aws_session_token="...",
+)
+
+response = co.chat(
+    model="cohere.command-r-plus-v1:0",
+    chat_history=[
+        {"role": "USER", "message": "Who discovered gravity?"},
+        {
+            "role": "CHATBOT",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+        },
+    ],
+    message="What year was he born?",
+)
+
+print(response)
+```
+```typescript 
+const { BedrockClient } = require('cohere-ai');
+
+const cohere = new BedrockClient({
+  awsRegion: "us-east-1",
+  awsAccessKey: "...",
+  awsSecretKey: "...",
+  awsSessionToken: "...",
+});
+
+(async () => {
+  const response = await cohere.chat({
+    model: "cohere.command-r-plus-v1:0",
+    chatHistory: [
+      { role: 'USER', message: 'Who discovered gravity?' },
+      {
+        role: 'CHATBOT',
+        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton',
+      },
+    ],
+    message: 'What year was he born?',
+  });
+
+  console.log(response);
+})();
+```
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	cohere "github.com/cohere-ai/cohere-go/v2"
+	client "github.com/cohere-ai/cohere-go/v2/client"
+  "github.com/cohere-ai/cohere-go/v2/core"
+)
+
+func main() {
+	co := client.NewBedrockClient([]core.RequestOption{}, []client.AwsRequestOption{
+		client.WithAwsRegion("us-east-1"),
+		client.WithAwsAccessKey(""),
+		client.WithAwsSecretKey(""),
+		client.WithAwsSessionToken(""),
+	})
+
+	resp, err := co.Chat(
+		context.TODO(),
+		&cohere.ChatRequest{
+			ChatHistory: []*cohere.ChatMessage{
+				{
+					Role:    cohere.ChatMessageRoleUser,
+					Message: "Who discovered gravity?",
+				},
+				{
+					Role:    cohere.ChatMessageRoleChatbot,
+					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+				}},
+			Message: "What year was he born?",
+		},
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("%+v", resp)
+}
+```
+</CodeBlocks>
+
+#### Sagemaker
+
+<CodeBlocks>
+```python
+import cohere
+
+co = cohere.SagemakerClient(
+    aws_region="us-east-1",
+    aws_access_key="...",
+    aws_secret_key="...",
+    aws_session_token="...",
+)
+
+response = co.chat(
+    model="my-endpoint-name",
+    chat_history=[
+        {"role": "USER", "message": "Who discovered gravity?"},
+        {
+            "role": "CHATBOT",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+        },
+    ],
+    message="What year was he born?",
+)
+
+print(response)
+```
+```typescript 
+const { SagemakerClient } = require('cohere-ai');
+
+const cohere = new SagemakerClient({
+  awsRegion: "us-east-1",
+  awsAccessKey: "...",
+  awsSecretKey: "...",
+  awsSessionToken: "...",
+});
+
+(async () => {
+  const response = await cohere.chat({
+    model: "my-endpoint-name",
+    chatHistory: [
+      { role: 'USER', message: 'Who discovered gravity?' },
+      {
+        role: 'CHATBOT',
+        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton',
+      },
+    ],
+    message: 'What year was he born?',
+  });
+
+  console.log(response);
+})();
+```
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	cohere "github.com/cohere-ai/cohere-go/v2"
+	client "github.com/cohere-ai/cohere-go/v2/client"
+  "github.com/cohere-ai/cohere-go/v2/core"
+)
+
+func main() {
+	co := client.NewSagemakerClient([]core.RequestOption{}, []client.AwsRequestOption{
+		client.WithAwsRegion("us-east-1"),
+		client.WithAwsAccessKey(""),
+		client.WithAwsSecretKey(""),
+		client.WithAwsSessionToken(""),
+	})
+
+	resp, err := co.Chat(
+		context.TODO(),
+		&cohere.ChatRequest{
+      Model: cohere.String("my-endpoint-name"),
+			ChatHistory: []*cohere.ChatMessage{
+				{
+					Role:    cohere.ChatMessageRoleUser,
+					Message: "Who discovered gravity?",
+				},
+				{
+					Role:    cohere.ChatMessageRoleChatbot,
+					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+				}},
+			Message: "What year was he born?",
+		},
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("%+v", resp)
+}
+```
+</CodeBlocks>
+
+#### Azure
+
+<CodeBlocks>
+
+```python
+import cohere
+
+co = cohere.Client(
+    api_key="AZURE_TOKEN",
+    base_url="https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1",
+)
+
+response = co.chat(
+    chat_history=[
+        {"role": "USER", "message": "Who discovered gravity?"},
+        {
+            "role": "CHATBOT",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+        },
+    ],
+    message="What year was he born?",
+)
+
+print(response)
+```
+```typescript 
+const { CohereClient } = require('cohere-ai');
+
+const cohere = new CohereClient({
+  token: "AZURE_TOKEN",
+  environment: "https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1",
+});
+
+(async () => {
+  const response = await cohere.chat({
+    chatHistory: [
+      { role: 'USER', message: 'Who discovered gravity?' },
+      {
+        role: 'CHATBOT',
+        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton',
+      },
+    ],
+    message: 'What year was he born?',
+  });
+
+  console.log(response);
+})();
+```
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	cohere "github.com/cohere-ai/cohere-go/v2"
+	client "github.com/cohere-ai/cohere-go/v2/client"
+)
+
+func main() {
+	client := client.NewClient(
+		client.WithToken("AZURE_TOKEN"),
+		client.WithBaseURL("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1"),
+	)
+
+	resp, err := co.V2.Chat(
+		context.TODO(),
+		&cohere.ChatRequest{
+			ChatHistory: []*cohere.ChatMessage{
+				{
+					Role:    cohere.ChatMessageRoleUser,
+					Message: "Who discovered gravity?",
+				},
+				{
+					Role:    cohere.ChatMessageRoleChatbot,
+					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+				}},
+			Message: "What year was he born?",
+		},
+	)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Printf("%+v", resp)
+}
+```
+```java
+import com.cohere.api.Cohere;
+import com.cohere.api.requests.ChatRequest;
+import com.cohere.api.types.ChatMessage;
+import com.cohere.api.types.Message;
+import com.cohere.api.types.NonStreamedChatResponse;
+
+import java.util.List;
+
+
+public class ChatPost {
+    public static void main(String[] args) {
+        Cohere cohere = Cohere.builder().environment(Environment.custom("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1")).token("AZURE_TOKEN").clientName("snippet").build();
+
+        NonStreamedChatResponse response = cohere.chat(
+                ChatRequest.builder()
+                        .message("What year was he born?")
+                        .chatHistory(
+                                List.of(Message.user(ChatMessage.builder().message("Who discovered gravity?").build()),
+                                        Message.chatbot(ChatMessage.builder().message("The man who is widely credited with discovering gravity is Sir Isaac Newton").build()))).build());
+
+        System.out.println(response);
+    }
+}
+```
+</CodeBlocks>
+
+#### OCI
+
+<CodeBlocks>
+```python Python
+import cohere
+
+co = cohere.OciClient(
+    oci_region="us-chicago-1",
+    oci_compartment_id="ocid1.compartment.oc1...",
+)
+
+response = co.chat(
+    model="command-r-plus-08-2024",
+    chat_history=[
+        {"role": "USER", "message": "Who discovered gravity?"},
+        {
+            "role": "CHATBOT",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+        },
+    ],
+    message="What year was he born?",
+)
+
+print(response)
+```
+</CodeBlocks>

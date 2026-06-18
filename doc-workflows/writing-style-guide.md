@@ -1,6 +1,6 @@
 # Writing Style Guide
 
-These are technical writing guidelines that should be used for Cohere's developer documentation.
+These are technical writing guidelines that should be used for Cohere's developer documentation. They focus on tone and voice, sentence structure, terminology, capitalization, AI-writing fingerprints to avoid, audience considerations, and the like.
 
 Some of the benefits of using this style guide are:
 
@@ -231,7 +231,7 @@ FAQ headings may be phrased as questions. In all other cases, follow the task/co
 
 ## Bulleted lists
 
-A list should always have a piece of text introducing the list followed by a colon, and then a blank line.
+A list should always have a piece of text introducing the list followed by a colon, and then a blank line, such as:
 
 This is an example of a bulleted list:
 
@@ -244,11 +244,11 @@ Note the following points:
 
 * Each sentence in the list is terminated by a full-stop (period).
 * If each item in the list is a single word, a terminating period is not required.
-* don't use bold formatting for prefixes in bullet points (for example, avoid patterns like "**Feature name:** description").
+* Don't use bold formatting for prefixes in bullet points (for example, avoid patterns like "**Feature name:** description").
 
 ## Acronyms
 
-Define acronyms on first use, in the form of "Oracle Cloud Infrastructure (OCI)". On subsequent use in a topic you don't need to redefine the acronym.
+Define acronyms on first use on a page, in the form of "Oracle Cloud Infrastructure (OCI)". On subsequent use in a topic you don't need to redefine the acronym.
 
 ## Be explicit
 
@@ -319,7 +319,7 @@ A few patterns are worth keeping when they earn their place. These are counter-r
 
 ## Layer-0 hook for opening prose
 
-Every page should open with a hook that answers "what is this, why should I care?". The `intro:` frontmatter feeds the auto-generated page header, and the body's first paragraph reinforces it.
+Every page should open with a hook that answers "what is this, why should I care?".
 
 ## Callouts
 
@@ -328,6 +328,7 @@ Use callouts sparingly:
 * `Warning` only for production-blocking issues.
 * `Info` for genuine context the reader would otherwise miss.
 * `Note` for highlighting additional context or supplementary information.
+* `Error` for indicating a potential error or missing information that must be added.
 
 Default to no callout; let prose carry the emphasis. Decorative callouts get purged on review.
 

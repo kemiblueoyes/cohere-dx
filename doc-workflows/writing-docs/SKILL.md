@@ -1,7 +1,13 @@
 ---
 name: write-docs
-description: Write or refresh an Cohere documentation page in this repo. Use when creating a new MDX page, rewriting an existing one, or applying the page-design principles to docs work. Captures the principles, page-type templates, writing standards, and code-accuracy checks distilled from the April 2026 wireframe workings used for the AI Transport refresh.
+description: Write or refresh an Cohere documentation page in this repo. Use when creating a new MDX page, rewriting an existing one, or applying the page-design principles to docs work. Ensures principles, page-type templates, writing standards, and code-accuracy checks are .
 ---
+
+When writing:
+
+1. Follow style-guide.md.
+2. Follow content-model.md.
+3. If output is Fern documentation, follow fern-authoring.md.
 
 ## How to use this skill
 

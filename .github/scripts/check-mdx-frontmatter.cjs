@@ -11,7 +11,7 @@ let totalFilesValid = 0;
 let totalFilesInvalid = 0;
 
 // List of validators to run
-const validators = [checkDescriptionLength, checkTitleLength];
+const validators = [checkDescriptionLength, checkTitleLength, checkKeywords];
 
 // List of folders to exclude (relative to mdxDir)
 const excludedFolders = ["-ARCHIVE-", "api-reference", "llm-university"];
@@ -96,6 +96,42 @@ async function checkTitleLength(filePath) {
             `Title should be between ${minTitleLength}-${maxTitleLength} characters.`
         );
         return true;
+    }
+
+    return true;
+}
+
+async function checkKeywords(filePath) {
+    // these two files are layout files
+    // and we don't expect to have keywords in them
+    const filesToExclude = ["index.mdx", "cookbooks.mdx"];
+
+    const fileContent = await fs.readFile(filePath, "utf8");
+    const { data } = matter(fileContent);
+    const minKeywords = 2;
+
+    filePath = path.relative(mdxDir, filePath);
+
+    if (filesToExclude.includes(filePath)) {
+        return true;
+    }
+
+    if (!data.keywords) {
+        logInvalidMessage(`File "${filePath}" is missing keywords.`);
+        return false;
+    }
+
+    const keywords = String(data.keywords)
+        .split(",")
+        .map((keyword) => keyword.trim())
+        .filter((keyword) => keyword.length > 0);
+
+    if (keywords.length < minKeywords) {
+        logInvalidMessage(
+            `File "${filePath}" has an invalid number of keywords: ${keywords.length}. ` +
+            `Keywords should be a comma-separated list of at least ${minKeywords} keywords.`
+        );
+        return false;
     }
 
     return true;

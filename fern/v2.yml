@@ -28,10 +28,6 @@ navigation:
         contents:
           - page: Introduction
             path: pages/get-started/the-cohere-platform.mdx
-          - page: Installation
-            path: pages/get-started/installation.mdx
-          - page: Creating a client
-            path: pages/v2/get-started/creating-client.mdx
           - section: Quickstart
             contents:
               - page: RAG
@@ -46,8 +42,17 @@ navigation:
                 path: pages/v2/get-started/quickstart/tool-use-quickstart.mdx
               - page: Transcribing Audio
                 path: pages/v2/get-started/quickstart/audio-transcription-quickstart.mdx
+          - page: Authentication
+            path: pages/get-started/authentication.mdx
+          - section: SDKs
+            path: pages/get-started/sdks.mdx
+            contents: 
+              - page: SDKs by deployment
+                path: pages/v2/get-started/cohere-works-everywhere.mdx
           - page: Playground
             path: pages/get-started/playground-overview.mdx
+          - page: Cohere Toolkit
+            path: pages/get-started/cohere-toolkit.mdx
           - page: FAQs
             path: pages/get-started/frequently-asked-questions.mdx
       - section: Models
@@ -172,7 +177,7 @@ navigation:
             path: pages/v2/text-generation/summarizing-text.mdx
           - page: Safety Modes
             path: pages/v2/text-generation/safety-modes.mdx
-      - section: Embeddings (Vectors, Search, Retrieval)
+      - section: Embeddings
         contents:
           - page: Introduction to Embeddings at Cohere
             path: pages/text-embeddings/embeddings.mdx
@@ -182,6 +187,8 @@ navigation:
             path: pages/v2/text-embeddings/multimodal-embeddings.mdx
           - page: Batch Embedding Jobs
             path: pages/v2/text-embeddings/embed-jobs-api.mdx
+          - page: Datasets
+            path: pages/v2/text-embeddings/datasets.mdx
           - section: Reranking
             contents:
               - page: Rerank Overview
@@ -246,8 +253,6 @@ navigation:
             path: pages/v2/deployment-options/deployment-options-overview.mdx
           - page: Decision guide
             path: pages/deployment-options/deployment-decision.mdx
-          - page: SDK Compatibility
-            path: pages/v2/deployment-options/cohere-works-everywhere.mdx
           - section: Private Deployment
             contents:
               - page: Overview
@@ -343,14 +348,12 @@ navigation:
         contents:
           - page: Cohere Labs Acceptable Use Policy
             path: pages/cohere-labs/cohere-labs-acceptable-use-policy.mdx
-      - section: More Resources
+      - section: Resources
         contents:
-          - page: Cohere Toolkit
-            path: pages/get-started/cohere-toolkit.mdx
-          - page: Datasets
-            path: pages/get-started/datasets.mdx
-          - page: Improve Cohere Docs
-            path: pages/get-started/contribute.mdx
+          - page: Contribute to Cohere docs
+            path: pages/resources/contribute.mdx
+          - page: Glossary
+            path: pages/resources/glossary.mdx
       # HIDDEN SECTION
       - page: API Keys
         hidden: true

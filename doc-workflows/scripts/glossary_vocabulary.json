@@ -1,0 +1,30 @@
+{
+  "description": "Curated seed vocabulary for the Cohere developer glossary. The extractor uses the term list (and curated definitions) to keep output focused on real Cohere product and ML/AI vocabulary. Edit this file to refine results; the script is data-driven.",
+
+  "terms": {
+    "Command": "Cohere's family of large language models for text generation, optimized for instruction following, RAG, and tool use through the Chat endpoint.",
+    "Embed": "Cohere's endpoint and model family that turns text or images into numerical embeddings for semantic search, classification, and clustering.",
+    "Rerank": "Cohere's endpoint that reorders a list of documents by semantic relevance to a query, used to improve search and RAG results.",
+    "Classify": "Cohere's endpoint that assigns labels to text using a small number of examples or a fine-tuned model.",
+    "Aya": "Cohere's family of open-weights multilingual models, developed with Cohere Labs, covering a broad range of languages.",
+    "North": "Cohere's secure AI workspace platform for building and running agents and automations inside an organization.",
+    "Embeddings": "Numerical vector representations of text or images that capture semantic meaning, enabling similarity comparison, search, and clustering.",
+    "Reranking": "Reordering an initial set of retrieved documents by their relevance to a query, typically as a second stage after a first-pass retrieval.",
+    "Retrieval-augmented generation": "A technique where relevant documents are retrieved and supplied to a model so its response is grounded in that external information.",
+    "Grounding": "Constraining a model's response to supplied source documents so the output is supported by, and traceable to, that content.",
+    "Tool use": "A capability that lets a model call external functions or APIs, receive their results, and incorporate them into its response.",
+    "Citations": "References a model returns that link specific parts of its response back to the source documents that support them.",
+    "Semantic search": "Search that ranks results by meaning using embeddings, rather than by exact keyword matching.",
+    "Structured outputs": "A feature that forces a model's response to conform to a specified schema, such as valid JSON or a defined object shape.",
+    "Fine-tuning": "Adapting a base model to a specific task or domain by further training it on a set of labeled examples.",
+    "Tokenization": "The process of splitting text into tokens, the units a model reads and generates.",
+    "Token": "The basic unit of text a model processes; tokens are fragments of words used for both input and output and for measuring usage.",
+    "Context window": "The maximum number of tokens a model can consider at once, spanning both the input and the generated output.",
+    "Temperature": "A sampling parameter that controls randomness in generation; lower values produce more deterministic output, higher values more varied output.",
+    "Seed": "A Chat API parameter that, when set to a fixed integer, makes generation reproducible so the same request returns the same tokens; useful for debugging and testing, though not guaranteed across model updates.",
+    "Connector": "An integration that lets the Chat endpoint retrieve documents from an external data source at query time to ground responses.",
+    "Chunking": "Splitting long documents into smaller passages so they fit a model's context window and can be retrieved or embedded individually.",
+    "Zero-shot classification": "Classifying text into labels without any task-specific training examples, relying on the model's general knowledge.",
+    "Multi-step tool use": "Tool use where the model plans and executes a sequence of tool calls across multiple turns to complete a task; the basis for agents."
+  }
+}

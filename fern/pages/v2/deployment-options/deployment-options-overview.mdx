@@ -1,15 +1,8 @@
 ---
 title: "Cohere deployment options"
 slug: "v2/docs/deployment-options-overview"
-
-hidden: false
-
 description: "This page provides an overview of the available options for deploying Cohere's models."
-image: "../../../assets/images/f1cc130-cohere_meta_image.jpg"  
 keywords: "generative AI, large language models, private deployment"
-
-createdAt: "Mon Apr 08 2024 14:53:59 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed May 01 2024 16:11:36 GMT+0000 (Coordinated Universal Time)"
 ---
 Cohere models are available through multiple deployment options, so you can choose the setup that best fits your organization's security, compliance, and infrastructure requirements.
 
@@ -62,25 +55,9 @@ Cohere models are available through multiple deployment options, so you can choo
   </Card>
 </CardGroup>
 
-## Feature support
+## SDK compatability and feature support
 
-The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features. See each platform's documentation for details.
-
-| Method | Cohere Platform | Private Deployment | Azure | Bedrock | Sagemaker | OCI |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| chat\_stream | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| chat | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| generate\_stream (legacy endpoint deprecated in V1 for chat\_stream) | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜️ |
-| generate (legacy endpoint deprecated in V1 for chat) | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜️ |
-| embed | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| rerank | ✅ | ✅ | ✅ | ✅ | ✅ | ⬜️ |
-| classify (deprecated in V1) | ✅ | ✅ | ⬜️ | ⬜️ | ⬜️ | ⬜️ |
-| summarize (legacy endpoint deprecated in V1 for chat) | ✅ | ✅ | ⬜️ | ⬜️ | ⬜️ | ⬜️ |
-| tokenize | ✅ | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) |
-| detokenize | ✅ | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) | ✅ (offline) |
-| check\_api\_key (removed in V2) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-**Offline** refers to [tokenization](https://docs.cohere.com/docs/tokens-and-tokenizers#caching-and-optimization) that runs locally without making a network call to Cohere's API. The tokenizer config is downloaded and cached on your local machine, so subsequent tokenization happens without hitting Cohere's servers. In the Cohere Python SDK only, these can be accessed by setting `offline=False`.
+For a breakdown of SDK compatibility and supported features by deployment environment, see [SDKs by Deployment](/docs/cohere-works-everywhere).
 
 ## Recommended next steps
 

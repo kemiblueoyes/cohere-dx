@@ -1,0 +1,61 @@
+---
+title: "Authentication"
+slug: "docs/authentication"
+description: "How to authenticate with Cohere across deployment options."
+audience: Developer, Technical Decision-Maker 
+keywords: authentication, API key, trial key, production key, credentials, private deployment, Amazon Bedrock, SageMaker, Azure AI Foundry, OCI, IAM, network security
+---
+
+You'll need credentials to access Cohere's models. How you authenticate depends on your deployment.
+
+Once you have your credentials, see [SDKs](/docs/sdks) to initialize a client for your deployment.
+
+## Cohere platform
+
+Sign up and get an [API key](https://dashboard.cohere.com/api-keys) to start making API calls from the Cohere platform. Your API key is passed directly to the client.
+
+### API key types
+
+Cohere offers two kinds of API keys:
+
+- **Trial keys:** Free but rate-limited; suitable for evaluation and development.
+- **Production keys:** Paid with significantly higher usage limits; required for production applications.
+
+You can create either key type on the [API keys page](https://dashboard.cohere.com/api-keys). For pricing details, view our [pricing doc](https://docs.cohere.com/v2/docs/how-does-cohere-pricing-work).
+
+<Note>
+  Production keys function the same as trial keys for newer model variants such as Command A Reasoning. Contact [sales@cohere.com](mailto:sales@cohere.com) if you intend to use those models in production.
+</Note>
+
+## Private deployment
+
+Private deployment runs Cohere models within your own infrastructure using container images provided by Cohere. Unlike the Cohere platform, there is no API key. Access is controlled by your network security configuration rather than an API key.
+
+Cohere distributes model images through a private container registry, which requires a license agreement. To get access, contact Cohere at [/contact-sales](https://cohere.com/contact-sales).
+
+Once deployed, you route application calls to your deployment's endpoint URL instead of the public Cohere API.
+
+For private deployment setup instructions, see [Private deployment overview](https://docs.cohere.com/docs/deployment-options-overview).
+
+## Amazon Bedrock and SageMaker
+
+Cohere models are available on two AWS services: Amazon SageMaker and Amazon Bedrock. Both use AWS credentials rather than a Cohere API key, and each uses a dedicated client class.
+
+- For Bedrock setup instructions, see [Cohere on Amazon Bedrock](https://docs.cohere.com/docs/amazon-bedrock).
+- For SageMaker setup instructions, including IAM permissions and marketplace subscription steps, see [Cohere on Amazon SageMaker](https://docs.cohere.com/docs/amazon-sagemaker-setup-guide).
+
+## Microsoft Azure
+
+Cohere models are available on Microsoft Azure through Azure AI Foundry, with pay-as-you-go, token-based billing. Azure uses the standard `cohere.Client` rather than a dedicated client class, authenticating with an Azure inference credential and a model-specific endpoint URL.
+
+A separate client instance is required for each model type.
+
+For Azure setup instructions, including prerequisites and deployment steps, see [Cohere on Microsoft Azure](https://docs.cohere.com/docs/cohere-on-microsoft-azure).
+
+## Oracle Cloud Infrastructure (OCI)
+
+Cohere models are available on OCI, accessible via the OCI console, CLI, or API. Authentication uses OCI's own credential system rather than a Cohere API key, and requires a dedicated `OciClientV2`.
+
+OCI credential configuration is managed through OCI's Identity and Access Management (IAM).
+
+For OCI setup instructions, see [Cohere on OCI](https://docs.cohere.com/docs/oracle-cloud-infrastructure-oci).
