@@ -43,7 +43,7 @@ navigation:
           - page: Authentication
             path: pages/get-started/authentication.mdx
           - section: SDKs
-            path: pages/v2/get-started/sdks.mdx
+            path: pages/get-started/sdks.mdx
             slug: sdks
             contents: 
               - page: SDKs by deployment
