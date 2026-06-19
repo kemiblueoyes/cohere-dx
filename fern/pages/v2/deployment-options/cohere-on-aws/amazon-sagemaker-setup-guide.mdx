@@ -1,52 +1,45 @@
 ---
-title: "An Amazon SageMaker Setup Guide"
+title: "Cohere models on SageMaker"
 slug: "v2/docs/amazon-sagemaker-setup-guide"
-
-hidden: false
-description: "This document will guide you through enabling development teams to access Cohere’s offerings on Amazon SageMaker."
-image: "../../../../assets/images/6330341-cohere_meta_image.jpg"  
+description: "Learn how to subscribe to and deploy Cohere generative AI and embedding models on Amazon SageMaker, including IAM prerequisites, model setup, and inference optimization."
 keywords: "Amazon SageMaker, Generative AI on AWS"
-
-createdAt: "Wed Jun 28 2023 14:29:11 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu May 30 2024 16:01:40 GMT+0000 (Coordinated Universal Time)"
 ---
-<Note title="Note"> 
-The code examples in this section use the Cohere v1 API. The v2 API is not yet supported for cloud deployments and will be coming soon.
-</Note>
+[Amazon SageMaker](https://aws.amazon.com/pm/sagemaker/) lets your team deploy and run Cohere's models — including Command, Embed, and Rerank — without managing your own infrastructure. This guide walks through prerequisites, subscription setup, and first API calls for each model type.
 
-This document will guide you through enabling development teams to access [Cohere’s offerings on Amazon SageMaker](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0). 
+[View Cohere's products on Amazon SageMaker](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0)
 
 ## Prerequisites
 
-In order to successfully subscribe to Cohere’s offerings on Amazon SageMaker, the user will need the following **Identity and Access Management (IAM)** permissions:  
+To subscribe to Cohere models on Amazon SageMaker, the AWS account user or administrator will need the following **Identity and Access Management (IAM)** permissions:  
 
 - **AmazonSageMakerFullAccess**
 - **aws-marketplace:ViewSubscriptions**
 - **aws-marketplace:Subscribe**
 - **aws-marketplace:Unsubscribe**
 
-These permissions allow a user to manage your organization’s Amazon SageMaker subscriptions. Learn more about [managing Amazon’s IAM Permissions here](https://aws.amazon.com/iam/?trk=cf28fddb-12ed-4ffd-981b-b89c14793bf1&sc_channel=ps&ef_id=CjwKCAjwsvujBhAXEiwA_UXnAJ4JEQ3KgW0eFBzr5nuwt9L5S7w3A0f3wqensQJgUQ7Mf_ZEdArZRxoCjKQQAvD_BwE:G:s&s_kwcid=AL!4422!3!652240143562!e!!g!!amazon%20iam!19878797467!148973348604). Contact your AWS administrator if you have questions about account permissions.
+These permissions allow them to manage their organization's Amazon SageMaker subscriptions. Learn more about [managing Amazon's IAM Permissions here](https://aws.amazon.com/iam/?trk=cf28fddb-12ed-4ffd-981b-b89c14793bf1&sc_channel=ps&ef_id=CjwKCAjwsvujBhAXEiwA_UXnAJ4JEQ3KgW0eFBzr5nuwt9L5S7w3A0f3wqensQJgUQ7Mf_ZEdArZRxoCjKQQAvD_BwE:G:s&s_kwcid=AL!4422!3!652240143562!e!!g!!amazon%20iam!19878797467!148973348604). Contact your AWS administrator if you have questions about account permissions.
 
-## Cohere with Amazon SageMaker Setup
+## Deploying Cohere models on SageMaker
 
-First, navigate to [Cohere’s SageMaker Marketplace](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0) to view the available product offerings. Select the product offering to which you are interested in subscribing.
+1. Navigate to [Cohere's SageMaker Marketplace](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0) to view available products and select a product to subscribe to.
+2. Explore the tools on the **Product Detail** page to evaluate how to configure your subscription:
 
-Next, explore the tools on the **Product Detail** page to evaluate how you want to configure your subscription. It contains information related to:
+- Pricing: Estimate the cost of running inference on different types of instances.
+- Usage: Contains technical details around supported data formats for each model, and offers links to documentation and notebooks that will help developers scope out the effort required to integrate with Cohere's models.
+- Subscribing: Provides pricing details and the EULA for final review before you accept the offer. This information is identical to the information on Product Detail page.
+- Configuration: Retrieve the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for the product you have subscribed to.
 
-- Pricing: This section allows you to estimate the cost of running inference on different types of instances.
-- Usage: This section contains the technical details around supported data formats for each model, and offers links to documentation and notebooks that will help developers scope out the effort required to integrate with Cohere’s models.
-- Subscribing: This section will once again present you with both the pricing details and the EULA for final review before you accept the offer. This information is identical to the information on Product Detail page.
-- Configuration: The primary goal of this section is to retrieve the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for the product you have subscribed to.
+<Note title="Note"> 
+The following code examples use the Cohere v1 API. The v2 API is not yet supported for cloud deployments.
+</Note>
 
-<Warning>
-For any Cohere _software_ version after 1.0.5 (or _model_ version after 3.0.5), the parameter `InferenceAmiVersion=al2-ami-sagemaker-inference-gpu-2` must be specified during endpoint configuration (as a variant option) to avoid deployment errors.
-</Warning>
+The code examples are in [Python](https://github.com/cohere-ai/cohere-python), but [TypeScript](https://github.com/cohere-ai/cohere-python) and [Go](https://github.com/cohere-ai/cohere-go/) are also supported.
 
 ### Embeddings
 
-You can use this code to invoke Cohere's embed model on Amazon SageMaker:
+Invoke Cohere's embed model on Amazon SageMaker:
 
-```python PYTHON
+```python Python
 import cohere
 
 co = cohere.SagemakerClient(
@@ -84,13 +77,13 @@ print(result)
 
 <Warning>Cohere's embed models don't support batch transform operations.</Warning>
 
-Note that we've released multimodal embeddings models that are able to handle images in addition to text. Find [more information here](https://docs.cohere.com/docs/multimodal-embeddings).
+Cohere's multimodal embedding models can handle images in addition to text. For more information, see the [multimodal embeddings documentation](https://docs.cohere.com/docs/multimodal-embeddings).
 
 ### Text Generation
 
-You can use this code to invoke Cohere's Command models on Amazon SageMaker:
+Invoke Cohere's Command models on Amazon SageMaker:
 
-```python PYTHON 
+```python Python 
 import cohere
 
 co = cohere.SagemakerClient(
@@ -108,9 +101,9 @@ print(result)
 ```
 
 ### Reranking 
-You can use this code to invoke Cohere's Rerank v4.0 model on Amazon SageMaker:
+Invoke Cohere's Rerank v4.0 model on Amazon SageMaker:
 
-```python PYTHON 
+```python Python 
 import cohere
 
 co = cohere.SagemakerClient(
@@ -138,31 +131,29 @@ results = co.rerank(
 print(result)
 ```
 
-## Access Via Amazon SageMaker Jumpstart
+## Accessing Cohere models from Amazon SageMaker Jumpstart
 
-Cohere's models are also available on Amazon SageMaker Jumpstart, which makes it easy to access the models with just a few clicks.
+Cohere's models are also available on Amazon SageMaker Jumpstart, making it easy to access the models in just a few clicks.
 
 To access Cohere's models on SageMaker Jumpstart, follow these steps:
 
-- In the AWS Console, go to Amazon SageMaker and click `Studio`.
-- Then, click `Open Studio`. If you don't see this option, you first need to create a user profile.
-- This will bring you to the SageMaker Studio page. Look for `Prebuilt and automated solutions` and select `JumpStart`.
-- A list of models will appear. To look for Cohere models, type "cohere" in the search bar.
-- Select any Cohere model and you will find details about the model and links to further resources.
-- You can try out the model by going to the `Notebooks` tab, where you can launch the notebook in JupyterLab.
+1. In the AWS Console, go to Amazon SageMaker and click `Studio`.
+2. Click `Open Studio`. If you don't see this option, you first need to create a user profile.
+3. On the SageMaker Studio page, under `Prebuilt and automated solutions` select `JumpStart`.
+4. From the list of models look for Cohere models by entering "cohere" in the search bar.
+5. Select any Cohere model and view details about the model and links to further resources.
+6. Try models from the `Notebooks` tab. Launch a notebook in JupyterLab.
 
 If you have any questions about this process, reach out to support@cohere.com.
 
-## Optimize your Inference Latencies
+## Optimize your inference latencies
 
-By default, SageMaker endpoints have a random routing strategy. This means that requests coming to the model endpoints are forwarded to the machine learning instances randomly, which can cause latency issues in applications focused on generative AI. In 2023, the SageMaker platform introduced a `RoutingStrategy` parameter allowing you to use the ‘least outstanding requests’ (LOR) approach to routing. With LOR, SageMaker monitors the load of the instances behind your endpoint as well as the models or inference components that are deployed on each instance, then optimally routes requests to the instance that is best suited to serve it.
+By default SageMaker endpoints have a random routing strategy. Requests coming to the model endpoints are forwarded to the machine learning instances randomly, which can cause latency issues in applications focused on generative AI. In 2023, the SageMaker platform introduced a `RoutingStrategy` parameter allowing you to use the `least outstanding requests` (LOR) approach to routing. With LOR, SageMaker monitors the load of the instances behind your endpoint as well as the models or inference components that are deployed on each instance, then optimally routes requests to the instance that is best suited to serve it.
 
-LOR has shown an improvement in latency under various conditions, and you can find more details [here](https://aws.amazon.com/blogs/machine-learning/minimize-real-time-inference-latency-by-using-amazon-sagemaker-routing-strategies/).
+LOR can reduce latency in a variety of conditions. For more details, see [Amazon SageMaker's routing strategies guidance](https://aws.amazon.com/blogs/machine-learning/minimize-real-time-inference-latency-by-using-amazon-sagemaker-routing-strategies/).
 
-## Next Steps
+## Next steps
 
-With your selected configuration and Product ARN available, you now have everything you need to integrate with Cohere’s model offerings on SageMaker. 
-
-Cohere recommends your next step be to find the appropriate notebook in [Cohere's list of Amazon SageMaker notebooks](https://github.com/cohere-ai/cohere-aws/tree/main/notebooks/sagemaker), and follow the instructions there, or provide the link to Cohere’s SageMaker notebooks to your development team to implement. The notebooks are thorough, developer-centric guides that will enable your team to begin leveraging Cohere’s endpoints in production for live inference. 
-
-If you have further questions about subscribing or configuring Cohere’s product offerings on Amazon SageMaker, please contact our team at [support+aws@cohere.com](mailto:support+aws@cohere.com).
+- Find the right notebook in [Cohere's list of Amazon SageMaker notebooks](https://github.com/cohere-ai/cohere-aws/tree/main/notebooks/sagemaker). If you are handing off implementation to a development team, share the SageMaker notebooks with them. These developer-focused guides will help your team start using Cohere endpoints for production inference.
+- If you need to deploy a finetuned Command model from AWS Marketplace, see [Deploy finetuned Command models from AWS Marketplace](/docs/bring-your-finetuned-models-to-sagemaker).
+- If you have further questions about subscribing or configuring Cohere's models on Amazon SageMaker, contact [support+aws@cohere.com](mailto:support+aws@cohere.com).

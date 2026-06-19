@@ -11,30 +11,30 @@ For SDK installation, see [SDKs](/docs/sdks).
 
 SDKs available for supported deployment environments.
 
-| SDK                                                         | [Cohere platform](/docs/sdks) | [Bedrock](/docs/amazon-bedrock) | [Sagemaker](/docs/amazon-sagemaker-setup-guide)                       | [Azure](/docs/cohere-on-microsoft-azure)                       | [OCI](/docs/oracle-cloud-infrastructure-oci)                       | [Private Deployment](/docs/private-deployment-overview)                 |
-| ------------------------------------------------------------ | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------- | --------------------------- | -------------------------- | ------------------------------ |
-| [Typescript](https://github.com/cohere-ai/cohere-typescript) | [✅](#cohere-platform)                             | [✅](#bedrock)                                                                | [✅](#sagemaker) | [✅](#azure) | ⬜️  | [✅](#private-deployment) |
-| [Python](https://github.com/cohere-ai/cohere-python)         | [✅](#cohere-platform)                                 | [✅](#bedrock)                                                                    | [✅](#sagemaker)     | [✅](#azure)     | [✅](#oci)     | [✅](#private-deployment)     |
-| [Go](https://github.com/cohere-ai/cohere-go)                 | [✅](#cohere-platform)                                     | [✅](#bedrock)                                                                       | [✅](#sagemaker)        | [✅](#azure)         |   ⬜️       | [✅](#private-deployment)         |
-| [Java](https://github.com/cohere-ai/cohere-java)             | [✅](#cohere-platform)                                   | [✅](#bedrock)                                                                     | [✅](#sagemaker)      | [✅](#azure)       |   ⬜️      | [✅](#private-deployment)       |
+| SDK                                                         | [Cohere platform](/docs/sdks) | [Bedrock](/docs/amazon-bedrock) | [Sagemaker](/docs/amazon-sagemaker-setup-guide) | [Azure](/docs/cohere-on-microsoft-azure) | [OCI](/docs/oracle-cloud-infrastructure-oci) | [Private Deployment](/docs/private-deployment-overview) |
+| ----------------------------------------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------ | ----------------------------------------- | --------------------------------------------- | -------------------------------------------------------- |
+| [Typescript](https://github.com/cohere-ai/cohere-typescript) | [✅](#cohere-platform)         | [✅](#bedrock)                   | [✅](#sagemaker)                                 | [✅](#azure)                              | ⬜️                                            | [✅](#private-deployment)                                |
+| [Python](https://github.com/cohere-ai/cohere-python)         | [✅](#cohere-platform)         | [✅](#bedrock)                   | [✅](#sagemaker)                                 | [✅](#azure)                              | [✅](#oci)                                    | [✅](#private-deployment)                                |
+| [Go](https://github.com/cohere-ai/cohere-go)                 | [✅](#cohere-platform)         | [✅](#bedrock)                   | [✅](#sagemaker)                                 | [✅](#azure)                              | ⬜️                                            | [✅](#private-deployment)                                |
+| [Java](https://github.com/cohere-ai/cohere-java)             | [✅](#cohere-platform)         | ⬜️                               | ⬜️                                               | [✅](#azure)                              | ⬜️                                            | [✅](#private-deployment)                                |
 
 ## Feature support
 
 The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features. See each platform's documentation for details.
 
-| Feature         | Cohere Platform | Bedrock     | Sagemaker   | Azure       | OCI         | Private Deployment |
-| --------------- | --------------- | ----------- | ----------- | ----------- | ----------- | -------------- |
-| chat_stream     | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
-| chat            | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
-| generate_stream (*legacy endpoint deprecated in V1 for chat_stream*) | ✅               | ✅           | ✅           | ✅           | ⬜️           | ✅              |
-| generate (*legacy endpoint deprecated in V1 for chat*)       | ✅               | ✅           | ✅           | ✅           | ⬜️           | ✅              |
-| embed           | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
-| rerank          | ✅               | ✅           | ✅           | ✅           | ⬜️           | ✅              |
-| classify (*deprecated in V1*)        | ✅               | ⬜️           | ⬜️           | ⬜️           | ⬜️           | ✅              |
-| summarize (*legacy endpoint deprecated in V1 for chat*)      | ✅               | ⬜️           | ⬜️           | ⬜️           | ⬜️           | ✅              |
-| tokenize        | ✅               | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*)    |
-| detokenize      | ✅               | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*)    |
-| check_api_key   | ✅               | ✅           | ✅           | ✅           | ✅           | ✅              |
+| Feature                                                        | Cohere Platform | Bedrock       | Sagemaker     | Azure         | OCI           | Private Deployment |
+| -------------------------------------------------------------- | --------------- | ------------- | ------------- | ------------- | ------------- | ------------------ |
+| chat_stream                                                    | ✅               | ✅             | ✅             | ✅             | ✅             | ✅                  |
+| chat                                                           | ✅               | ✅             | ✅             | ✅             | ✅             | ✅                  |
+| generate_stream (*legacy endpoint deprecated for chat_stream*) | ✅               | ✅             | ✅             | ✅             | ⬜️            | ✅                  |
+| generate (*legacy endpoint deprecated for chat*)               | ✅               | ✅             | ✅             | ✅             | ⬜️            | ✅                  |
+| embed                                                          | ✅               | ✅             | ✅             | ✅             | ✅             | ✅                  |
+| rerank                                                         | ✅               | ✅             | ✅             | ✅             | ⬜️            | ✅                  |
+| classify (*deprecated*)                                        | ✅               | ⬜️            | ⬜️            | ⬜️            | ⬜️            | ✅                  |
+| summarize (*legacy endpoint deprecated for chat*)              | ✅               | ⬜️            | ⬜️            | ⬜️            | ⬜️            | ✅                  |
+| tokenize                                                       | ✅               | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*)      |
+| detokenize                                                     | ✅               | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*) | ✅ (*offline*)      |
+| check_api_key                                                  | ✅               | ✅             | ✅             | ✅             | ✅             | ✅                  |
 
 **Offline** refers to [tokenization](/docs/tokens-and-tokenizers#caching-and-optimization) that runs locally without making a network call to Cohere's API. The tokenizer config is downloaded and cached on your local machine, so subsequent tokenization happens without hitting Cohere's servers. In the Cohere Python SDK only, these can be accessed by setting `offline=False`.
 

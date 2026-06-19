@@ -1,0 +1,41 @@
+---
+title: Cohere on AWS
+slug: docs/cohere-on-aws
+description: Deploy and run Cohere's Command, Embed, and Rerank models on AWS through Amazon Bedrock and Amazon SageMaker.
+keywords: 'Language models on AWS, Amazon SageMaker, Amazon BedRock'
+---
+Cohere's models are available on two AWS services: Amazon Bedrock and Amazon SageMaker.
+
+### Amazon SageMaker
+
+Amazon SageMaker is a cloud service by AWS that enable developers and data scientists to prepare data and build, train, and deploy machine learning (ML) models for any purpose with fully managed infrastructure, tools, and workflows. [Read about Amazon SageMaker here.](https://aws.amazon.com/pm/sagemaker/)
+
+Cohere offers a comprehensive suite of generative and embedding models through SageMaker on a range of hardware options. 
+
+[View Cohere's products on Amazon SageMaker](https://aws.amazon.com/marketplace/seller-profile?id=87af0c85-6cf9-4ed8-bee0-b40ce65167e0)
+
+#### Finetuning
+
+SageMaker also supports deploying your own finetuned Command R models. If you've finetuned Command R using Hugging Face PEFT, you can export and deploy the merged weights as a SageMaker endpoint from the [Cohere Bring Your Own Fine-tuning listing](https://aws.amazon.com/marketplace/pp/prodview-5wt5pdnw3bbq6). 
+
+[Deploy a finetuned Command R model on SageMaker](/docs/bring-your-finetuned-models-to-sagemaker)
+
+### Amazon Bedrock
+
+Amazon Bedrock is a fully managed AWS service that enables developers to build and scale generative AI application through a single, serverless API. [Read about Amazon Bedrock here](http://docs.aws.amazon.com/bedrock).
+
+Cohere has three flagship products available on-demand through Amazon Bedrock: Command, the Embed v3 family of models, and Rerank v3.5.
+
+[View Cohere's products on Amazon Bedrock](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/providers?model=command)
+
+### SDKs
+
+Cohere's Python, TypeScript, and Go SDKs all support Amazon Bedrock and SageMaker natively. Use the same SDK you're already using for the Cohere API — no separate package required.
+
+- [cohere-python](https://github.com/cohere-ai/cohere-python)
+- [cohere-typescript](https://github.com/cohere-ai/cohere-typescript)
+- [cohere-go](https://github.com/cohere-ai/cohere-go)
+
+### Pricing
+
+The latest pricing for Cohere models can be viewed directly from the listing pages on our Amazon Bedrock and SageMaker marketplace pages. If you have any questions about pricing or deployment options, [contact our sales team](https://cohere.com/contact-sales).

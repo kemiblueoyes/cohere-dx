@@ -1,6 +1,6 @@
 ---
 title: "SDKs"
-slug: "docs/sdks"
+slug: docs/sdks
 description: "Install and initialize the Cohere SDK for your language and deployment."
 audience: "Developer, Technical Decision-Maker"
 keywords: "SDK, Python, TypeScript, Java, Go, client initialization, API key, Bedrock, SageMaker, Azure, OCI, private deployment"
@@ -9,10 +9,6 @@ keywords: "SDK, Python, TypeScript, Java, Go, client initialization, API key, Be
 The Cohere SDK is the primary way to access Cohere's models. SDKs are available for Python, TypeScript, Java, and Go.
 
 Before installing the SDK, you'll need credentials to access our models. How you [authenticate](/docs/authentication) depends on your deployment. 
-
-<Note>
-  The Cohere v2 API is not yet supported for Bedrock, SageMaker, and Azure. OCI supports the v2 API via `OciClientV2`. The code examples shown for Bedrock, SageMaker, and Azure use the v1 API.
-</Note>
 
 ## Install an SDK
 
@@ -53,7 +49,7 @@ import cohere
 
 co = cohere.ClientV2(api_key="YOUR_API_KEY")
 ```
-[Source](https://github.com/cohere-ai/cohere-python)
+[Cohere SDK for Python on GitHub](https://github.com/cohere-ai/cohere-python)
 
 The Cohere API client initializes with the following parameters:
 
@@ -77,7 +73,7 @@ import { CohereClientV2 } from 'cohere-ai';
 
 const cohere = new CohereClientV2({ token: 'YOUR_API_KEY' });
 ```
-[Source](https://github.com/cohere-ai/cohere-typescript)
+[Cohere SDK for TypeScript on GitHub](https://github.com/cohere-ai/cohere-typescript)
 
 The Cohere API client initializes with the following parameters:
 
@@ -102,7 +98,7 @@ Cohere cohere = Cohere.builder()
                       .build();
 
 ```
-[Source](https://github.com/cohere-ai/cohere-java)
+[Cohere SDK for Java on GitHub](https://github.com/cohere-ai/cohere-java)
 
 The Cohere API client initializes with the following parameters:
 
@@ -126,7 +122,7 @@ import (
 co := client.NewClient(client.WithToken("YOUR_API_KEY"))
 ```
 
-[Source](https://github.com/cohere-ai/cohere-go)
+[Cohere SDK for Go on GitHub](https://github.com/cohere-ai/cohere-go)
 
 The Cohere API client initializes with the following parameters:
 

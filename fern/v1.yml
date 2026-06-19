@@ -247,7 +247,7 @@ navigation:
       - section: Deployment Options
         contents:
           - page: Overview
-            path: pages/v2/deployment-options/deployment-options-overview.mdx
+            path: pages/deployment-options/deployment-options-overview.mdx
           - page: Decision guide
             path: pages/deployment-options/deployment-decision.mdx
           - section: Private Deployment
@@ -257,7 +257,7 @@ navigation:
               - page: Setting Up
                 path: pages/v2/deployment-options/private-deployment/private-deployment-setup.mdx
               - page: Model Deployment
-                path: pages/deployment-options/single-container-on-private-clouds.mdx
+                path: pages/deployment-options/private-deployment/single-container-on-private-clouds.mdx
               - page: Model Deployment - AWS
                 path: pages/v2/deployment-options/private-deployment/aws-private-deployment.mdx
               - page: Usage
@@ -265,7 +265,7 @@ navigation:
           - section: Cloud AI Services
             contents:
             - section: Cohere on AWS
-              path: pages/deployment-options/cohere-on-aws.mdx
+              path: pages/deployment-options/cohere-on-aws/cohere-on-aws.mdx
               contents:
                 - page: Amazon Bedrock
                   path: pages/deployment-options/cohere-on-aws/amazon-bedrock.mdx
@@ -273,7 +273,7 @@ navigation:
                   path: pages/deployment-options/cohere-on-aws/amazon-sagemaker-setup-guide.mdx
                   contents:
                     - page: Deploy Your Own Finetuned Command-R-0824 Model from AWS Marketplace
-                      path: pages/deployment-options/cohere-on-aws/amazon-sagemaker-setup-guide/byo-finetuning-sm.mdx
+                      path: pages/deployment-options/cohere-on-aws/byo-finetuning-sm.mdx
             - page: Cohere on Azure
               path: pages/deployment-options/cohere-on-microsoft-azure.mdx
             - page: Cohere on Oracle Cloud Infrastructure (OCI)
@@ -362,21 +362,6 @@ navigation:
       - page: User
         hidden: true
         path: pages/command-line-interface/command-reference/user.mdx
-      - page: Deployment Options
-        hidden: true
-        path: pages/deployment-options/deployment-options.mdx
-      - page: Amazon Bedrock
-        hidden: true
-        path: pages/deployment-options/deployment-options/aws-bedrock.mdx
-      - page: Amazon SageMaker
-        hidden: true
-        path: pages/deployment-options/deployment-options/aws-sagemaker.mdx
-      - page: Oracle Cloud Infrastructure (OCI)
-        hidden: true
-        path: pages/deployment-options/deployment-options/oracle-cloud-infrastructure-oci.mdx
-      - page: Private Deployment
-        hidden: true
-        path: pages/deployment-options/deployment-options/private-deployment.mdx
       - page: Fine-tuning on AWS
         hidden: true
         path: pages/fine-tuning/fine-tuning-on-aws.mdx

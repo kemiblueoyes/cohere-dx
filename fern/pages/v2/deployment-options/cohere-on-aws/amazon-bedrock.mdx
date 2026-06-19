@@ -1,19 +1,21 @@
 ---
-title: Cohere Models on Amazon Bedrock
+title: Cohere models on Amazon Bedrock
 slug: v2/docs/amazon-bedrock
-hidden: false
-description: >-
-  This document provides a guide for using Cohere's models on Amazon Bedrock.
-image: ../../../../assets/images/8dbcb80-cohere_meta_image.jpg
-keywords: 'Cohere on AWS, language models on AWS, Amazon Bedrock, Amazon SageMaker'
-createdAt: 'Thu Feb 01 2024 18:08:37 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Thu May 30 2024 16:00:53 GMT+0000 (Coordinated Universal Time)'
+description: "Learn how to use Cohere Command, Embed, and Rerank models on Amazon Bedrock with Python examples for embeddings, text generation, and reranking."
+keywords: "Cohere on AWS, Cohere Amazon Bedrock, Amazon Bedrock models, Command models, Embed models, Rerank models"
 ---
-<Note title="Note"> 
-The code examples in this section use the Cohere v1 API. The v2 API is not yet supported for cloud deployments and will be coming soon.
-</Note>
 
-In this guide, you’ll learn how to use Amazon Bedrock to deploy the Cohere Command, Embed, and Rerank models on the AWS cloud computing platform. The following models are available on Bedrock:
+[Amazon Bedrocl](http://docs.aws.amazon.com/bedrock) lets your team access Cohere's models through AWS without managing infrastructure. This guide covers authentication setup and first API calls for Command, Embed, and Rerank.
+
+[View Cohere's models on Amazon Bedrock](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/providers?model=command)
+
+## Prerequisites
+1. [Subscribe to Cohere's models on Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html)
+2. [Configure your authentication credentials for AWS](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration)
+
+## Deploying Cohere Command, Embed, and Rerank models
+
+The following models are available on Bedrock:
 
 - Command R
 - Command R+
@@ -23,18 +25,17 @@ In this guide, you’ll learn how to use Amazon Bedrock to deploy the Cohere Com
 - Embed - Multilingual
 - Rerank v3.5
 
-Note that the code snippets below are in Python, but you can find the equivalent code for other languages (if they're supported) [here](https://docs.cohere.com/docs/cohere-works-everywhere)
+Finetuning is also supported for the Command and Command-Light models.
 
-## Prerequisites
+The following code examples are in [Python](https://github.com/cohere-ai/cohere-python), but [TypeScript](https://github.com/cohere-ai/cohere-python) and [Go](https://github.com/cohere-ai/cohere-go/) are also supported.
 
-Here are the steps you'll need to get set up in advance of running Cohere models on Amazon Bedrock.
-
-- Subscribe to Cohere's models on Amazon Bedrock. For more details, [see here](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html).
-- You'll also have to configure your authentication credentials for AWS. This [document](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration) has more information.
+<Note title="Note"> 
+The code examples use the Cohere v1 API. The Cohere v2 API is not yet supported for cloud deployments.
+</Note>
 
 ## Embeddings
 
-You can use this code to invoke Cohere’s Embed English v3 model (`cohere.embed-english-v3`) or Embed Multilingual v3 model (`cohere.embed-multilingual-v3`) on Amazon Bedrock:
+Invoke Cohere's Embed English v3 model (`cohere.embed-english-v3`) or Embed Multilingual v3 model (`cohere.embed-multilingual-v3`) models on Bedrock:
 
 ```python PYTHON
 import cohere
@@ -74,11 +75,11 @@ result = co.embed(
 print(result)
 ```
 
-Note that we've released multimodal embeddings models that are able to handle images in addition to text. Find [more information here](https://docs.cohere.com/docs/multimodal-embeddings).
+Cohere's multimodal embedding models can handle images in addition to text. For more information, see the [multimodal embeddings documentation](https://docs.cohere.com/docs/multimodal-embeddings).
 
 ## Text Generation
 
-You can use this code to invoke either Command R (`cohere.command-r-v1:0`), Command R+ (`cohere.command-r-plus-v1:0`) on Amazon Bedrock:
+Invoke Command R (`cohere.command-r-v1:0`) or Command R+ (`cohere.command-r-plus-v1:0`) on Bedrock:
 
 ```python PYTHON
 import cohere
@@ -100,7 +101,7 @@ print(result)
 
 ## Rerank
 
-You can use this code to invoke our latest Rerank models on Bedrock
+Invoke our latest Rerank models on Bedrock:
 
 ```python PYTHON
 import cohere
