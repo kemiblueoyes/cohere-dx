@@ -3,7 +3,7 @@ name: snippet-ci
 on:
   push:
     branches:
-      - main
+      - portfolio
 
 jobs:
   run:

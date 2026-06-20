@@ -3,7 +3,7 @@ name: check-mdx-frontmatter
 on:
   pull_request:
     branches:
-      - main
+      - portfolio
     paths:
       - 'fern/pages/**/*.mdx'
       - 'fern/pages/**/**/*.mdx'
