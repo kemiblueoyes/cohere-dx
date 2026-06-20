@@ -1,17 +1,13 @@
 ---
-title: "Retrieval Augmented Generation (RAG)"
+title: Retrieval-augmented generation (RAG)
 slug: "v2/docs/retrieval-augmented-generation-rag"
-
-hidden: false
-description: "Guide on using Cohere's Retrieval Augmented Generation (RAG) capabilities such as document grounding and citations."
-image: "../../../assets/images/1edd35f-cohere_meta_image.jpg"  
-keywords: "retrieval augmented generation, RAG, grounded replies, text generation"
-
-createdAt: "Fri Aug 18 2023 19:13:29 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Wed Jun 19 2024 13:01:22 GMT+0000 (Coordinated Universal Time)"
+description: Generate text with external data and inline citations using Retrieval-augmented generation (RAG) and Cohere's Chat API.
+keywords: 'retrieval augmented generation, RAG, grounded replies, text generation'
 canonical-url: "https://docs.cohere.com/docs/retrieval-augmented-generation-rag"
 ---
-Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. When used in conjunction with [Command](https://docs.cohere.com/docs/models#command) family of models, the [Chat API](https://docs.cohere.com/reference/chat) makes it easy to generate text that is grounded on supplementary documents, thus minimizing hallucinations.
+Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. For a conceptual introduction to RAG, see [Introduction to RAG on LLM University](https://cohere.com/llmu/introduction-to-rag). 
+
+When used with [Command A+](/docs/command-a-plus), [Command A](/docs/command-a), or [Command R7B](/docs/command-r7b), the [Chat API](/reference/chat) makes it easy to generate text that is grounded by supplementary information.
 
 ## A quick example
 
@@ -25,7 +21,7 @@ The code snippet below, for example, will produce a grounded answer to `"Where d
 <Tabs>
 <Tab title="Cohere platform">
 
-```python PYTHON
+```python Python
 # ! pip install -U cohere
 import cohere
 
@@ -36,7 +32,7 @@ co = cohere.ClientV2(
 </Tab>
 
 <Tab title="Private deployment">
-```python PYTHON
+```python Python
 # ! pip install -U cohere
 import cohere
 
@@ -48,7 +44,7 @@ co = cohere.ClientV2(
 </Tab>
 </Tabs>
 
-```python PYTHON
+```python Python
 # Retrieve the documents
 documents = [
     {
@@ -157,9 +153,9 @@ The response also includes **inline citations**  that reference the first two do
 Read more about using and customizing [RAG citations here](https://docs.cohere.com/v2/docs/rag-citations)
 </Note>
 
-## Three steps of RAG
+## RAG in three steps
 
-The RAG workflow generally consists of **3 steps**:
+The RAG workflow has three steps:
 
 - **Generating search queries** for finding relevant documents. _What does the model recommend looking up before answering this question?_
 - **Fetching relevant documents** from an external data source using the generated search queries. _Performing a search to find some relevant information._
@@ -177,7 +173,7 @@ There are different possible approaches to do this. In this example, we'll take 
 
 Here, we build a tool that takes a user query and returns a list of relevant document snippets for that query. The tool can generate zero, one or multiple search queries depending on the user query.
 
-```python PYTHON
+```python Python
 message = "Who is more popular: Nsync or Backstreet Boys?"
 
 # Define the query generation tool
@@ -278,7 +274,7 @@ You can then update the system message and/or the tool definition to generate qu
 
 For example, you can update the system message to encourage a longer list of search queries to be generated.
 
-```python PYTHON
+```python Python
 instructions = "Write a search query that will find helpful information for answering the user's question accurately. If you need more than one search query, write a list of search queries. If you decide that a search is very unlikely to find information that would be useful in constructing a response to the user, you should instead directly answer."
 ```
 Example response:
@@ -308,7 +304,7 @@ The following examples demonstrate the options mentioned above.
 
 <Tabs>
 <Tab title="'data' object">
-```python PYTHON
+```python Python
 documents = [
     {
         "data": {
@@ -320,7 +316,7 @@ documents = [
 ```
 </Tab>
 <Tab title="'data' string">
-```python PYTHON
+```python Python
 documents = [
     {"data": "Tall penguins: Emperor penguins are the tallest."}
 ]
@@ -328,7 +324,7 @@ documents = [
 </Tab>
 
 <Tab title="string">
-```python PYTHON
+```python Python
 documents = [
     "Tall penguins: Emperor penguins are the tallest.",
 ]
@@ -342,7 +338,7 @@ The `id` field will be used in citation generation as the reference document IDs
 
 In the final step, we will be calling the Chat API again, but this time passing along the `documents` you acquired in Step 2. We recommend using a few descriptive keys such as `"title"`, `"snippet"`, or `"last updated"` and only including semantically relevant data. The keys and the values will be formatted into the prompt and passed to the model.
 
-```python PYTHON
+```python Python
 documents = [
     {
         "data": {
@@ -423,7 +419,7 @@ In this RAG setting, Cohere models are trained to generate fine-grained citation
 
 For a deeper dive into the citations feature, see the [RAG citations guide](https://docs.cohere.com/v2/docs/rag-citations).
 
-```python PYTHON
+```python Python
 print(response.message.citations)
 ```
 

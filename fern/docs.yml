@@ -133,7 +133,7 @@ experimental:
 redirects:
   # fern redirect rules
   - source: "/docs/llmu{/:path}*"
-    destination: "/docs/llmu-2"
+    destination: "https://cohere.com/llmu"
     permanent: true
   - source: "/docs/managing-your-connector"
     destination: "/v1/docs/managing-your-connector"
@@ -155,9 +155,18 @@ redirects:
     destination: "/v1/docs/prompt-truncation"
   - source: "/classify-reference"
     destination: "/reference/classify"
-
+  - source: "/docs/cookbooks"
+    destination: "/docs/tutorials/cookbooks"
+  - source: "/pages/cookbooks"
+    destination: "/docs/tutorials/cookbooks"
+  - source: "/page/cookbooks"
+    destination: "/docs/tutorials/cookbooks"
+    permanent: true
+  - source: "/docs/llmu-2"
+    destination: "https://cohere.com/llmu"
+    permanent: true
   - source: "/docs/llmu"
-    destination: "/docs/llmu-2"
+    destination: "https://cohere.com/llmu"
     permanent: true
   - source: "/docs/multi-hop-tool-use"
     destination: "/docs/multi-step-tool-use"
@@ -179,6 +188,9 @@ redirects:
     permanent: true
   - source: "/docs/reranking"
     destination: "/docs/rerank-overview"
+    permanent: true
+  - source: "/docs/rerank-fine-tuning"
+    destination: "/docs/fine-tuning-for-rerank"
     permanent: true
   - source: "/docs/multilingual-movie-search"
     destination: "/docs/intro-semantic-search"
@@ -210,6 +222,7 @@ redirects:
   - source: "/reference/summarize-2"
     destination: "/reference/summarize"
     permanent: true
+  
 
   # migrated redirect rules
   - source: /docs/sitemap.xml
@@ -288,7 +301,7 @@ redirects:
     destination: /reference/generate
     permanent: true
   - source: /going-live
-    destination: /docs/going-live
+    destination: /docs/upgrading-to-prod-key
     permanent: true
   - source: /harm-prevention
     destination: /docs/responsible-use
@@ -463,9 +476,6 @@ redirects:
     permanent: true
   - source: /generation-card
     destination: /docs/usage-guidelines
-    permanent: true
-  - source: /going-live
-    destination: /docs/going-live
     permanent: true
   - source: /harm-prevention
     destination: /docs/responsible-use

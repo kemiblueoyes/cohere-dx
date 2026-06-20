@@ -24,7 +24,7 @@ landing-page:
 navigation:
   - tab: docs
     layout:
-      - section: Get Started
+      - section: Get started
         contents:
           - page: Introduction
             path: pages/get-started/the-cohere-platform.mdx
@@ -34,13 +34,13 @@ navigation:
                 path: pages/v2/get-started/quickstart/rag-quickstart.mdx
               - page: Reranking
                 path: pages/v2/get-started/quickstart/reranking-quickstart.mdx
-              - page: Semantic Search
+              - page: Semantic search
                 path: pages/v2/get-started/quickstart/sem-search-quickstart.mdx
-              - page: Text Generation
+              - page: Text generation
                 path: pages/v2/get-started/quickstart/text-gen-quickstart.mdx
-              - page: Tool Use & Agents
+              - page: Tool use & agents
                 path: pages/v2/get-started/quickstart/tool-use-quickstart.mdx
-              - page: Transcribing Audio
+              - page: Transcribing audio
                 path: pages/v2/get-started/quickstart/audio-transcription-quickstart.mdx
           - page: Authentication
             path: pages/get-started/authentication.mdx
@@ -49,6 +49,8 @@ navigation:
             contents: 
               - page: SDKs by deployment
                 path: pages/v2/get-started/cohere-works-everywhere.mdx
+          - page: Pricing
+            path: pages/get-started/how-does-cohere-pricing-work.mdx
           - page: Playground
             path: pages/get-started/playground-overview.mdx
           - page: Cohere Toolkit
@@ -57,21 +59,12 @@ navigation:
             path: pages/get-started/frequently-asked-questions.mdx
       - section: Models
         contents:
-          - page: An Overview of Cohere's Models
+          - page: Overview
             path: pages/models/models.mdx
           - section: Audio
             contents:
               - page: Cohere Transcribe
                 path: pages/models/transcribe.mdx
-          - section: Aya
-            path: pages/models/aya.mdx
-            contents:
-              - page: Aya Vision
-                path: pages/models/aya-multimodal.mdx
-              - page: Aya Expanse
-                path: pages/models/aya-expanse.mdx
-              - page: Tiny Aya
-                path: pages/models/tiny-aya.mdx
           - section: Command
             contents:
               - page: Command A+
@@ -95,35 +88,42 @@ navigation:
                 hidden: true
           - page: Embed
             path: pages/models/cohere-embed.mdx
-          - section: North
-            contents:
-              - page: North Mini Code
-                path: pages/models/north/north-mini-code-1.0.mdx
           - page: Rerank
             path: pages/models/rerank-2.mdx
-      - section: Text Generation
+          - page: North Mini Code
+            path: pages/models/north/north-mini-code-1.0.mdx
+          - section: Aya
+            path: pages/models/aya.mdx
+            contents:
+              - page: Aya Vision
+                path: pages/models/aya-multimodal.mdx
+              - page: Aya Expanse
+                path: pages/models/aya-expanse.mdx
+              - page: Tiny Aya
+                path: pages/models/tiny-aya.mdx
+      - section: Text generation
         contents:
-          - page: Introduction to Text Generation at Cohere
+          - page: Introduction
             path: pages/text-generation/introduction-to-text-generation-at-cohere.mdx
           - page: Using the Chat API
             path: pages/v2/text-generation/chat-api.mdx
           - page: Reasoning 
             path: pages/text-generation/reasoning.mdx
-          - page: Image Inputs
+          - page: Image inputs
             path: pages/text-generation/image-inputs.mdx
-          - page: Streaming Responses
+          - page: Streaming responses
             path: pages/v2/text-generation/streaming.mdx
-          - section: Structured Outputs
+          - section: Structured outputs
             contents: 
-            - page: Structured Outputs
+            - page: Structured outputs
               path: pages/v2/text-generation/structured-outputs.mdx
-            - page: Parameter Types in Structured Outputs (JSON)
+            - page: Parameter types in structured outputs (JSON)
               path: pages/v2/text-generation/parameter-types-in-json.mdx
-          - page: Predictable Outputs
+          - page: Predictable outputs
             path: pages/v2/text-generation/predictable-outputs.mdx
-          - page: Advanced Generation Parameters
+          - page: Advanced generation parameters
             path: pages/text-generation/advanced-generation-hyperparameters.mdx
-          - section: Retrieval Augmented Generation (RAG)
+          - section: Retrieval augmented generation (RAG)
             contents:
               - page: Basic usage
                 path: pages/v2/rag/retrieval-augmented-generation-rag.mdx
@@ -133,7 +133,7 @@ navigation:
                 path: pages/v2/rag/rag-streaming.mdx
               - page: Citations
                 path: pages/v2/rag/rag-citations.mdx
-          - section: Tool Use
+          - section: Tool use
             path: pages/v2/text-generation/tools.mdx
             contents:
               - page: Basic usage
@@ -146,68 +146,104 @@ navigation:
                 path: pages/v2/tool-use/tool-use-streaming.mdx
               - page: Citations
                 path: pages/v2/tool-use/tool-use-citations.mdx
-          - page: Tokens and Tokenizers
+          - page: Tokens and tokenizers
             path: pages/v2/text-generation/tokens-and-tokenizers.mdx
-          - section: Prompt Engineering
+          - section: Prompt engineering
             hidden: true 
             contents:
-              - page: Crafting Effective Prompts
+              - page: Crafting effective prompts
                 path: pages/v2/text-generation/prompt-engineering/crafting-effective-prompts.mdx
-              - page: Advanced Prompt Engineering Techniques
+              - page: Advanced prompt engineering techniques
                 path: pages/v2/text-generation/prompt-engineering/advanced-prompt-engineering-techniques.mdx
-              - page: System Messages
+              - page: System messages
                 path: pages/v2/text-generation/prompt-engineering/preambles.mdx
-              - section: Prompt Library
+              - section: Prompt library
                 contents:
                   - page: Create CSV data from JSON data
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/create-csv-data-from-json-data.mdx
                   - page: Create a markdown table from raw data
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/create-a-markdown-table-from-raw-data.mdx
-                  - page: Meeting Summarizer
+                  - page: Meeting summarizer
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/meeting-summarizer.mdx
                   - page: Remove PII
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/remove-pii.mdx
-                  - page: Add a Docstring to your code
+                  - page: Add a docstring to your code
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/add-a-docstring-to-your-code.mdx
                   - page: Evaluate your LLM response
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/evaluate-your-llm-response.mdx
                   - page: Multilingual interpreter
                     path: pages/v2/text-generation/prompt-engineering/prompt-library/multilingual-interpreter.mdx
-          - page: Summarizing Text
+          - page: Summarizing text
             path: pages/v2/text-generation/summarizing-text.mdx
-          - page: Safety Modes
+          - page: Safety modes
             path: pages/v2/text-generation/safety-modes.mdx
       - section: Embeddings
         contents:
-          - page: Introduction to Embeddings at Cohere
+          - page: Embeddings overview
             path: pages/text-embeddings/embeddings.mdx
-          - page: Semantic Search with Embeddings
+          - page: Semantic search with embeddings
             path: pages/v2/text-embeddings/semantic-search-embed.mdx
-          - page: Multimodal Embeddings
+          - page: Multimodal embeddings
             path: pages/v2/text-embeddings/multimodal-embeddings.mdx
-          - page: Batch Embedding Jobs
+          - page: Batch embedding jobs
             path: pages/v2/text-embeddings/embed-jobs-api.mdx
           - page: Datasets
             path: pages/v2/text-embeddings/datasets.mdx
           - section: Reranking
             contents:
-              - page: Rerank Overview
+              - page: Rerank overview
                 path: pages/v2/text-embeddings/reranking/overview.mdx
-              - page: Rerank Best Practices
+              - page: Rerank best practices
                 path: pages/v2/text-embeddings/reranking/reranking-best-practices.mdx
-      - section: Going to Production
+      - section: Deployment options
         contents:
-          - page: API Keys and Rate Limits
-            path: pages/going-to-production/rate-limits.mdx
-          - page: Going Live
-            path: pages/going-to-production/going-live.mdx
+          - page: Overview
+            path: pages/deployment-options/deployment-options-overview.mdx
+          - page: Decision guide
+            path: pages/deployment-options/deployment-decision.mdx
+          - section: Private deployment
+            contents:
+              - page: Overview
+                path: pages/v2/deployment-options/private-deployment/private-deployment-overview.mdx
+              - page: Setup
+                path: pages/v2/deployment-options/private-deployment/private-deployment-setup.mdx
+              - page: Model deployment
+                path: pages/v2/deployment-options/private-deployment/single-container-on-private-clouds.mdx
+              - page: Model deployment on AWS VPC
+                path: pages/v2/deployment-options/private-deployment/aws-private-deployment.mdx
+              - page: SDK usage
+                path: pages/v2/deployment-options/private-deployment/private-deployment-usage.mdx
+          - section: Cloud AI services
+            contents:
+            - section: Cohere on AWS
+              path: pages/deployment-options/cohere-on-aws/cohere-on-aws.mdx
+              contents:
+                - page: Amazon Bedrock
+                  path: pages/v2/deployment-options/cohere-on-aws/amazon-bedrock.mdx
+                - section: Amazon SageMaker
+                  path: pages/v2/deployment-options/cohere-on-aws/amazon-sagemaker-setup-guide.mdx
+                  contents:
+                    - page: Deploy a finetuned model
+                      path: pages/deployment-options/cohere-on-aws/byo-finetuning-sm.mdx
+            - page: Cohere on Azure
+              path: pages/v2/deployment-options/cohere-on-microsoft-azure.mdx
+            - page: Cohere on Oracle Cloud Infrastructure (OCI)
+              path: pages/deployment-options/oracle-cloud-infrastructure-oci.mdx
+          - section: Model Vault
+            contents:
+              - page: Model Vault
+                path: pages/v2/deployment-options/model-vault/model-vault.mdx
+      - section: Going live
+        contents:
+          - page: Rate limits
+            path: pages/going-live/rate-limits.mdx
+          - page: Upgrading to production key
+            path: pages/going-live/upgrading-to-prod-key.mdx
           - page: Deprecations
-            path: pages/going-to-production/deprecations.mdx
-          - page: How Does Cohere's Pricing Work?
-            path: pages/going-to-production/how-does-cohere-pricing-work.mdx
+            path: pages/going-live/deprecations.mdx
       - section: Integrations
         contents:
-          - section: Integrating Embedding Models with Other Tools
+          - section: Embedding models
             path: pages/integrations/integrations.mdx
             contents:
               - page: Elasticsearch and Cohere
@@ -247,106 +283,66 @@ navigation:
                 path: pages/integrations/cohere-and-langchain/tools-on-langchain.mdx
           - page: LlamaIndex and Cohere
             path: pages/integrations/llamaindex.mdx
-      - section: Deployment Options
-        contents:
-          - page: Overview
-            path: pages/deployment-options/deployment-options-overview.mdx
-          - page: Decision guide
-            path: pages/deployment-options/deployment-decision.mdx
-          - section: Private Deployment
-            contents:
-              - page: Overview
-                path: pages/v2/deployment-options/private-deployment/private-deployment-overview.mdx
-              - page: Setting Up
-                path: pages/v2/deployment-options/private-deployment/private-deployment-setup.mdx
-              - page: Model Deployment
-                path: pages/v2/deployment-options/private-deployment/single-container-on-private-clouds.mdx
-              - page: Model Deployment - AWS
-                path: pages/v2/deployment-options/private-deployment/aws-private-deployment.mdx
-              - page: Usage
-                path: pages/v2/deployment-options/private-deployment/private-deployment-usage.mdx
-          - section: Cloud AI Services
-            contents:
-            - section: Cohere on AWS
-              path: pages/deployment-options/cohere-on-aws/cohere-on-aws.mdx
-              contents:
-                - page: Amazon Bedrock
-                  path: pages/v2/deployment-options/cohere-on-aws/amazon-bedrock.mdx
-                - section: Amazon SageMaker
-                  path: pages/v2/deployment-options/cohere-on-aws/amazon-sagemaker-setup-guide.mdx
-                  contents:
-                    - page: Deploy Your Own Finetuned Command-R-0824 Model from AWS Marketplace
-                      path: pages/deployment-options/cohere-on-aws/byo-finetuning-sm.mdx
-            - page: Cohere on Azure
-              path: pages/v2/deployment-options/cohere-on-microsoft-azure.mdx
-            - page: Cohere on Oracle Cloud Infrastructure (OCI)
-              path: pages/deployment-options/oracle-cloud-infrastructure-oci.mdx
-          - section: Model Vault
-            contents:
-              - page: Model Vault
-                path: pages/v2/deployment-options/model-vault/model-vault.mdx
       - section: Tutorials
         contents:
           - page: Cookbooks
-            path: pages/v2/tutorials/cookbooks.mdx
-          - page: LLM University
-            path: pages/llm-university/llmu-2.mdx
-          - section: Build Things with Cohere!
+            path: pages/cookbooks.mdx
+          - link: LLM University
+            href: https://cohere.com/llmu
+          - section: Build things with Cohere!
             path: pages/v2/tutorials/build-things-with-cohere.mdx
             contents: 
-              - page: Cohere Text Generation Tutorial
+              - page: Cohere text generation tutorial
                 path: pages/v2/tutorials/build-things-with-cohere/text-generation-tutorial.mdx
-              - page: Building a Chatbot with Cohere
+              - page: Building a chatbot with Cohere
                 path: pages/v2/tutorials/build-things-with-cohere/building-a-chatbot-with-cohere.mdx
-              - page: Semantic Search with Cohere
+              - page: Semantic search with Cohere
                 path: pages/v2/tutorials/build-things-with-cohere/semantic-search-with-cohere.mdx
               - page: Reranking with Cohere
                 path: pages/v2/tutorials/build-things-with-cohere/reranking-with-cohere.mdx
               - page: RAG with Cohere 
                 path: pages/v2/tutorials/build-things-with-cohere/rag-with-cohere.mdx
-              - page: Building an Agent with Cohere
+              - page: Building an agent with Cohere
                 path: pages/v2/tutorials/build-things-with-cohere/building-an-agent-with-cohere.mdx
           - section: Agentic RAG
             path: pages/v2/tutorials/agentic-rag.mdx
             contents: 
-              - page: Routing Queries to Data Sources
+              - page: Routing queries to data sources
                 path: pages/v2/tutorials/agentic-rag/routing-queries-to-data-sources.mdx
-              - page: Generating Parallel Queries
+              - page: Generating parallel queries
                 path: pages/v2/tutorials/agentic-rag/generating-parallel-queries.mdx
-              - page: Performing Tasks Sequentially
+              - page: Performing tasks sequentially
                 path: pages/v2/tutorials/agentic-rag/performing-tasks-sequentially.mdx
-              - page: Generating Multi-Faceted Queries
+              - page: Generating multi-faceted queries
                 path: pages/v2/tutorials/agentic-rag/generating-multi-faceted-queries.mdx
-              - page: Querying Structured Data (Tables)
+              - page: Querying structured data (tables)
                 path: pages/v2/tutorials/agentic-rag/querying-structured-data-tables.mdx
-              - page: Querying Structured Data (SQL)
+              - page: Querying structured data (SQL)
                 path: pages/v2/tutorials/agentic-rag/querying-structured-data-sql.mdx
           - section: Cohere on Azure
             path: pages/v2/tutorials/cohere-azure-ai-foundry.mdx
             contents:
-              - page: Text Generation
+              - page: Text generation
                 path: pages/v2/tutorials/cohere-on-azure/azure-ai-text-generation.mdx
-              - page: Semantic Search
+              - page: Semantic search
                 path: pages/v2/tutorials/cohere-on-azure/azure-ai-sem-search.mdx
               - page: Reranking
                 path: pages/v2/tutorials/cohere-on-azure/azure-ai-reranking.mdx
-              - page: Retrieval Augmented Generation (RAG)
+              - page: Retrieval augmented generation (RAG)
                 path: pages/v2/tutorials/cohere-on-azure/azure-ai-rag.mdx
-              - page: Tool Use & Agents
+              - page: Tool use & agents
                 path: pages/v2/tutorials/cohere-on-azure/azure-ai-tool-use.mdx
-      - section: Responsible Use
+      - section: Responsible use
         contents:
           - link: Security
             href: https://cohere.ai/security
-          - page: Usage Policy
+          - page: Usage policy
             path: pages/responsible-use/responsible-use/usage-guidelines.mdx
           - link: Command A Technical Report
             href: https://cohere.com/research/papers/command-a-technical-report.pdf#page=46&zoom=100,62,620
-          - page: Command R and Command R+ Model Card
+          - page: Command R and Command R+ model card
             path: pages/responsible-use/responsible-use.mdx   
-      - section: Cohere Labs
-        contents:
-          - page: Cohere Labs Acceptable Use Policy
+          - page: Cohere Labs acceptable use policy
             path: pages/cohere-labs/cohere-labs-acceptable-use-policy.mdx
       - section: Resources
         contents:
@@ -355,22 +351,22 @@ navigation:
           - page: Glossary
             path: pages/resources/glossary.mdx
       # HIDDEN SECTION
-      - page: API Keys
+      - page: API keys
         hidden: true
         path: pages/cohere-api/create-an-api-key.mdx
       - page: Versioning
         hidden: true
         path: pages/cohere-api/versioning.mdx
-      - page: Model Commands
+      - page: Model commands
         hidden: true
         path: pages/command-line-interface/admin-commands.mdx
-      - page: Admin Commands
+      - page: Admin commands
         hidden: true
         path: pages/command-line-interface/command-reference.mdx
       - page: Finetune
         hidden: true
         path: pages/command-line-interface/admin-commands/finetune.mdx
-      - page: Generate Docs
+      - page: Generate docs
         hidden: true
         path: pages/command-line-interface/admin-commands/generate-docs.mdx
       - page: Model
@@ -400,22 +396,22 @@ navigation:
       - page: Fine-tuning on AWS
         hidden: true
         path: pages/fine-tuning/fine-tuning-on-aws.mdx
-      - page: Fine-tuning Cohere Models on Amazon Bedrock
+      - page: Fine-tuning Cohere models on Amazon Bedrock
         hidden: true
         path: pages/fine-tuning/fine-tuning-on-aws/fine-tuning-cohere-models-on-amazon-bedrock.mdx
-      - page: Fine-tuning Cohere Models on Amazon SageMaker
+      - page: Fine-tuning Cohere models on Amazon SageMaker
         hidden: true
         path: pages/fine-tuning/fine-tuning-on-aws/fine-tuning-cohere-models-on-amazon-sagemaker.mdx
       - page: Cohere SDKs
         hidden: true
         path: pages/get-started/cohere-sdks.mdx
-      - page: Errors and Warnings
+      - page: Errors and warnings
         hidden: true
-        path: pages/going-to-production/errors-and-warnings.mdx
+        path: pages/going-live/errors-and-warnings.mdx
       - page: Amazon SageMaker and Cohere
         hidden: true
         path: pages/integrations/integrations/amazon-sagemaker-and-cohere.mdx
-      - page: "Appendix 2: Building Apps"
+      - page: "Appendix 2: building apps"
         hidden: true
         path: pages/llm-university/intro-building-apps.mdx
       - page: "Module 7: The Cohere Platform"
@@ -424,37 +420,37 @@ navigation:
       - page: Sandbox
         hidden: true
         path: pages/llm-university/sandbox.mdx
-      - page: App Examples
+      - page: App examples
         hidden: true
         path: pages/llm-university/intro-building-apps/app-examples.mdx
       - page: Deploying with Amazon SageMaker
         hidden: true
         path: pages/llm-university/intro-deployment/deploying-with-aws-sagemaker.mdx
-      - page: Semantic Search
+      - page: Semantic search
         hidden: true
         path: pages/llm-university/intro-large-language-models/semantic-search-temp.mdx
-      - page: A Deeper Dive Into Semantic Search
+      - page: A deeper dive into semantic search
         hidden: true
         path: pages/llm-university/intro-semantic-search/deeper-semantic-search.mdx
-      - page: Text Embeddings
+      - page: Text embeddings
         hidden: true
         path: pages/llm-university/intro-large-language-models/text-embeddings.mdx
-      - page: Evaluation Methods for Search
+      - page: Evaluation methods for search
         hidden: true
         path: pages/llm-university/intro-semantic-search/evaluation-methods-for-search.mdx
-      - page: Fine-Tuning for Rerank
+      - page: Fine-tuning for Rerank
         hidden: true
         path: pages/llm-university/intro-semantic-search/fine-tuning-for-rerank.mdx
-      - page: Multilingual Semantic Search With Cohere and Langchain
+      - page: Multilingual semantic search with Cohere and LangChain
         hidden: true
         path: pages/llm-university/intro-semantic-search/multilingual-semantic-search-with-cohere-and-langchain.mdx
-      - page: Chaining Prompts
+      - page: Chaining prompts
         hidden: true
         path: pages/llm-university/intro-text-generation/chaining-prompts.mdx
-      - page: Fine-tuning a Generative Model
+      - page: Fine-tuning a generative model
         hidden: true
         path: pages/llm-university/intro-text-generation/creating-custom-models.mdx
-      - page: Prompt Engineering
+      - page: Prompt engineering
         hidden: true
         path: pages/llm-university/intro-text-generation/model-prompting.mdx
       - page: Prompting Command R
@@ -469,46 +465,46 @@ navigation:
       - page: Conclusion
         hidden: true
         path: pages/llm-university/intro-text-generation/text-generation-conclusion.mdx
-      - page: Text Summarization
+      - page: Text summarization
         hidden: true
         path: pages/llm-university/intro-text-generation/text-summarization.mdx
-      - page: "Cohere's Command Model"
+      - page: "Cohere's Command model"
         hidden: true
         path: pages/llm-university/intro-text-generation/the-command-model.mdx
-      - page: The Generate Endpoint
+      - page: The Generate endpoint
         hidden: true
         path: pages/llm-university/intro-text-generation/the-generate-endpoint.mdx
-      - page: Use Case Ideation
+      - page: Use case ideation
         hidden: true
         path: pages/llm-university/intro-text-generation/use-case-ideation.mdx
-      - page: What is Generative AI?
+      - page: What is generative AI?
         hidden: true
         path: pages/llm-university/intro-text-generation/what-is-generative-ai.mdx
-      - page: Classification Models
+      - page: Classification models
         hidden: true
         path: pages/llm-university/intro-text-representation/classification-models.mdx
-      - page: Classification Using Embeddings
+      - page: Classification using embeddings
         hidden: true
         path: pages/llm-university/intro-text-representation/classification-using-embeddings.mdx
-      - page: The Classify Endpoint
+      - page: The Classify endpoint
         hidden: true
         path: pages/llm-university/intro-text-representation/classify-endpoint.mdx
-      - page: Clustering Using Embeddings
+      - page: Clustering using embeddings
         hidden: true
         path: pages/llm-university/intro-text-representation/clustering-using-embeddings.mdx
-      - page: The Embed Endpoint
+      - page: The Embed endpoint
         hidden: true
         path: pages/llm-university/intro-text-representation/embed-endpoint.mdx
-      - page: Visualizing Data
+      - page: Visualizing data
         hidden: true
         path: pages/llm-university/intro-text-representation/embeddings-visualizing-data.mdx
-      - page: Classification Evaluation Metrics
+      - page: Classification evaluation metrics
         hidden: true
         path: pages/llm-university/intro-text-representation/evaluation-metrics.mdx
-      - page: Fine-tuning an Embedding Model for Classification
+      - page: Fine-tuning an embedding model for classification
         hidden: true
         path: pages/llm-university/intro-text-representation/finetuning.mdx
-      - page: Semantic Search Using Embeddings
+      - page: Semantic search using embeddings
         hidden: true
         path: pages/llm-university/intro-text-representation/semantic-search-using-embeddings.mdx
       - page: Setting up
@@ -517,91 +513,91 @@ navigation:
       - page: Applications
         hidden: true
         path: pages/llm-university/intro-the-cohere-platform/applications.mdx
-      - page: Conclusion - The Cohere Platform
+      - page: Conclusion - the Cohere Platform
         hidden: true
         path: pages/llm-university/intro-the-cohere-platform/conclusion-the-cohere-platform.mdx
       - page: Endpoints
         hidden: true
         path: pages/llm-university/intro-the-cohere-platform/endpoints.mdx
-      - page: Foundational Models
+      - page: Foundational models
         hidden: true
         path: pages/llm-university/intro-the-cohere-platform/foundation-models.mdx
-      - page: Serving Platform
+      - page: Serving platform
         hidden: true
         path: pages/llm-university/intro-the-cohere-platform/serving-platform.mdx
-      - page: Classification Models
+      - page: Classification models
         hidden: true
         path: pages/llm-university/sandbox/classification-models-remove.mdx
-      - page: BAK MEOR Creating Custom Generative Models
+      - page: BAK MEOR creating custom generative models
         hidden: true
         path: pages/llm-university/sandbox/creating-custom-generative-models-copy.mdx
-      - page: Structure of the Course (WITH DEPLOYMENT ADDED)
+      - page: Structure of the course (with deployment added)
         hidden: true
         path: pages/llm-university/sandbox/structure-of-the-course-copy-1.mdx
-      - page: Backup Structure
+      - page: Backup structure
         hidden: true
         path: pages/llm-university/sandbox/structure-of-the-course-copy.mdx
-      - page: "[ALT] The Generate Endpoint"
+      - page: "[ALT] The Generate endpoint"
         hidden: true
         path: pages/llm-university/sandbox/the-generate-endpoint-copy.mdx
-      - page: Customer Support
+      - page: Customer support
         hidden: true
         path: pages/quickstart-tutorials/customer-support-link.mdx
-      - page: Intent Recognition
+      - page: Intent recognition
         hidden: true
         path: pages/quickstart-tutorials/intent-recognition-link.mdx
-      - page: Sentiment Analysis
+      - page: Sentiment analysis
         hidden: true
         path: pages/quickstart-tutorials/sentiment-analysis-link.mdx
-      - page: Toxicity Detection
+      - page: Toxicity detection
         hidden: true
         path: pages/quickstart-tutorials/toxicity-detection-link.mdx
       - page: Using the Embed API
         hidden: true
         path: pages/text-embeddings/embed-api.mdx
-      - page: Multilingual Embed Models
+      - page: Multilingual Embed models
         hidden: true
         path: pages/text-embeddings/multilingual-language-models.mdx
-      - page: Introduction to Cohere Embeddings
+      - page: Introduction to Cohere embeddings
         hidden: true
         path: pages/text-embeddings/semantic-search-with-embeddings.mdx
-      - page: Cross-Lingual Content Moderation
+      - page: Cross-lingual content moderation
         hidden: true
         path: pages/text-embeddings/multilingual-language-models/cross-lingual-content-moderation.mdx
-      - page: Customer Feedback Aggregation
+      - page: Customer feedback aggregation
         hidden: true
         path: pages/text-embeddings/multilingual-language-models/customer-feedback-aggregation.mdx
-      - page: Multilingual Semantic Search
+      - page: Multilingual semantic search
         hidden: true
         path: pages/text-embeddings/multilingual-language-models/multilingual-semantic-search.mdx
-      - page: Supported Languages
+      - page: Supported languages
         hidden: true
         path: pages/text-embeddings/multilingual-language-models/supported-languages.mdx
-      - page: Documents and Citations
+      - page: Documents and citations
         hidden: true
         path: pages/v2/text-generation/documents-and-citations.mdx
-      - page: Sending Feedback
+      - page: Sending feedback
         hidden: true
         path: pages/text-generation/feedback.mdx
       - page: Book an appointment
         hidden: true
         path: pages/text-generation/prompt-engineering/prompt-library/book-an-appointment.mdx
-      - page: Single-step vs Multi-step
+      - page: Single-step vs multi-step
         hidden: true
         path: pages/text-generation/tools/single-step-vs-multi-step.mdx
-      - page: Semantic Search
+      - page: Semantic search
         hidden: true
         path: pages/-ARCHIVE-/old-tutorials/semantic-search.mdx
       - page: Fine-tuning for Generate
         hidden: true
         path: pages/-ARCHIVE-/generate-fine-tuning.mdx
-      - page: Starting the Generate Fine-tuning
+      - page: Starting the Generate fine-tuning
         hidden: true
         path: pages/-ARCHIVE-/generate-fine-tuning/generate-starting-the-training.mdx
-      - page: Understanding the Generate Fine-tuning Results
+      - page: Understanding the Generate fine-tuning results
         hidden: true
         path: pages/-ARCHIVE-/generate-fine-tuning/generate-understanding-the-results.mdx
-      - page: Improving the Generate Fine-tuning results
+      - page: Improving the Generate fine-tuning results
         hidden: true
         path: pages/-ARCHIVE-/generate-fine-tuning/generate-improving-the-results.mdx
       - page: Temperature
@@ -613,58 +609,58 @@ navigation:
       - page: Introduction
         path: pages/fine-tuning/fine-tuning.mdx
         hidden: true
-      - page: Fine-tuning with the Web-UI
+      - page: Fine-tuning with the Web UI
         path: pages/fine-tuning/fine-tuning-with-the-cohere-dashboard.mdx
         hidden: true
-      - page: Programmatic Fine-tuning
+      - page: Programmatic fine-tuning
         path: pages/v2/fine-tuning/fine-tuning-with-the-python-sdk.mdx
         hidden: true
       - page: Fine-tuning for Chat
         path: pages/fine-tuning/chat-fine-tuning.mdx
         hidden: true
-      - page: Preparing the Chat Fine-tuning Data
+      - page: Preparing the Chat fine-tuning data
         path: pages/v2/fine-tuning/chat-fine-tuning/chat-preparing-the-data.mdx
         hidden: true
-      - page: Starting the Chat Fine-Tuning
+      - page: Starting the Chat fine-tuning
         path: pages/v2/fine-tuning/chat-fine-tuning/chat-starting-the-training.mdx
         hidden: true
-      - page: Understanding the Chat Fine-tuning Results
+      - page: Understanding the Chat fine-tuning results
         path: pages/fine-tuning/chat-fine-tuning/chat-understanding-the-results.mdx
         hidden: true
-      - page: Improving the Chat Fine-tuning Results
+      - page: Improving the Chat fine-tuning results
         path: pages/fine-tuning/chat-fine-tuning/chat-improving-the-results.mdx
         hidden: true
       - page: Fine-tuning for Rerank
         path: pages/fine-tuning/rerank-fine-tuning.mdx
         hidden: true
-      - page: Preparing the Rerank Fine-tuning Data
+      - page: Preparing the Rerank fine-tuning data
         path: pages/v2/fine-tuning/rerank-fine-tuning/rerank-preparing-the-data.mdx
         hidden: true
-      - page: Starting the Rerank Fine-Tuning
+      - page: Starting the Rerank fine-tuning
         path: pages/v2/fine-tuning/rerank-fine-tuning/rerank-starting-the-training.mdx
         hidden: true
-      - page: Understanding the Rerank Fine-tuning Results
+      - page: Understanding the Rerank fine-tuning results
         path: pages/fine-tuning/rerank-fine-tuning/rerank-understanding-the-results.mdx
         hidden: true
-      - page: Improving the Rerank Fine-tuning Results
+      - page: Improving the Rerank fine-tuning results
         path: pages/fine-tuning/rerank-fine-tuning/rerank-improving-the-results.mdx
         hidden: true
       - page: Fine-tuning for Classify
         path: pages/fine-tuning/classify-fine-tuning.mdx
         hidden: true
-      - page: Preparing the Classify Fine-tuning data
+      - page: Preparing the Classify fine-tuning data
         path: pages/v2/fine-tuning/classify-fine-tuning/classify-preparing-the-data.mdx
         hidden: true
       - page: Train and deploy a fine-tuned model
         path: pages/v2/fine-tuning/classify-fine-tuning/classify-starting-the-training.mdx
         hidden: true
-      - page: Understanding the Classify Fine-tuning Results
+      - page: Understanding the Classify fine-tuning results
         path: pages/fine-tuning/classify-fine-tuning/classify-understanding-the-results.mdx
         hidden: true
-      - page: Improving the Classify Fine-tuning Results
+      - page: Improving the Classify fine-tuning results
         path: pages/fine-tuning/classify-fine-tuning/classify-improving-the-results.mdx
         hidden: true
-      - page: FAQs / Troubleshooting
+      - page: FAQs / troubleshooting
         path: pages/fine-tuning/troubleshooting-a-fine-tuned-model.mdx
         hidden: true
   - tab: api

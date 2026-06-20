@@ -1,23 +1,19 @@
 ---
-title: Retrieval Augmented Generation (RAG)
+title: Retrieval-augmented generation (RAG)
 slug: docs/retrieval-augmented-generation-rag
-hidden: false
-description: >-
-  Generate text with external data and inline citations using Retrieval
-  Augmented Generation and Cohere's Chat API.
-image: ../../assets/images/1edd35f-cohere_meta_image.jpg
+description: Generate text with external data and inline citations using Retrieval-augmented generation (RAG) and Cohere's Chat API.
 keywords: 'retrieval augmented generation, RAG, grounded replies, text generation'
-createdAt: 'Fri Aug 18 2023 19:13:29 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Wed Jun 19 2024 13:01:22 GMT+0000 (Coordinated Universal Time)'
 canonical-url: "https://docs.cohere.com/docs/retrieval-augmented-generation-rag"
 ---
-Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. When used in conjunction with [Command A+](/docs/command-a-plus), [Command A](/docs/command-a), or [Command R7B](/docs/command-r7b), the [Chat API](/reference/chat) makes it easy to generate text that is grounded on supplementary information.
+Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. For a conceptual introduction to RAG, see [Introduction to RAG on LLM University](https://cohere.com/llmu/introduction-to-rag). 
 
-The code snippet below, for example, will produce a grounded answer to `"Where do the tallest penguins live?"`, along with inline citations based on the provided documents.
+When used with [Command A+](/docs/command-a-plus), [Command A](/docs/command-a), or [Command R7B](/docs/command-r7b), the [Chat API](/reference/chat) makes it easy to generate text that is grounded by supplementary information.
+
+The code example below produces a grounded answer to `"Where do the tallest penguins live?"`, and inline citations based on the provided documents.
 
 **Request**
 
-```python PYTHON
+```python Python
 import cohere
 
 co = cohere.Client(api_key="<YOUR API KEY>")
@@ -70,9 +66,9 @@ As you will learn in the following section, the [Chat API](/reference/chat) will
 
 You can find more code and context in [this colab notebook](https://github.com/cohere-ai/cohere-developer-experience/blob/main/notebooks/Vanilla_RAG.ipynb).
 
-### Three steps of RAG
+### RAG in three steps
 
-The RAG workflow generally consists of **3 steps**:
+The RAG workflow has three steps:
 
 - **Generating search queries** for finding relevant documents. _What does the model recommend looking up before answering this question?_
 - **Fetching relevant documents** from an external data source using the generated search queries. _Performing a search to find some relevant information._
@@ -90,7 +86,7 @@ Calling the [Chat API](/reference/chat) with the `search_queries_only` parameter
 
 **Request**
 
-```python PYTHON
+```python Python
 import cohere
 
 co = cohere.Client(api_key="<YOUR API KEY>")
@@ -122,7 +118,7 @@ If you are looking for greater control over how search queries are generated, yo
 
 Here, we build a tool that takes a user query and returns a list of relevant document snippets for that query. The tool can generate zero, one or multiple search queries depending on the user query.
 
-```python PYTHON
+```python Python
 query_gen_tool = [
     {
         "name": "internet_search",
@@ -163,7 +159,7 @@ You can then customize the preamble and/or the tool definition to generate queri
 
 For example, you can customize the preamble to encourage a longer list of search queries to be generated.
 
-```python PYTHON
+```python Python
 instructions_verbose = "Write many search queries that will find helpful information for answering the user's question accurately. Always write a very long list of at least 7 search queries. If you decide that a search is very unlikely to find information that would be useful in constructing a response to the user, you should instead directly answer."
 ```
 ```
@@ -236,7 +232,7 @@ As an alternative to manually implementing the 3 step workflow, the Chat API off
 
 **Request**
 
-```python PYTHON
+```python Python
 import cohere
 
 co = cohere.Client(api_key="<YOUR API KEY>")
@@ -294,7 +290,7 @@ Below are example code snippets demonstrating both approaches.
 
 <Accordion title='Accurate citations'>
 
-```python PYTHON
+```python Python
 documents = [
     {
         "text": "Reimbursing Travel Expenses: Easily manage your travel expenses by submitting them through our finance tool. Approvals are prompt and straightforward."
@@ -329,7 +325,7 @@ Yes, we offer gym memberships, on-site yoga classes, and comprehensive health in
 
 <Accordion title='Fast citations'>
 
-```python PYTHON
+```python Python
 documents = [
     {
         "text": "Reimbursing Travel Expenses: Easily manage your travel expenses by submitting them through our finance tool. Approvals are prompt and straightforward."
@@ -364,4 +360,4 @@ Yes, we offer gym memberships, ['doc_1'] on-site yoga classes, ['doc_1'] and com
 
 ### Caveats
 
-It’s worth underscoring that RAG does not guarantee accuracy. It involves giving a model context which informs its replies, but if the provided documents are themselves out-of-date, inaccurate, or biased, whatever the model generates might be as well. What’s more, RAG doesn’t guarantee that a model won’t hallucinate. It greatly reduces the risk, but doesn’t necessarily eliminate it altogether. This is why we put an emphasis on including inline citations, which allow users to verify the information.
+RAG doesn't guarantee accuracy. It gives a model context which informs its replies. But if the provided documents are themselves out-of-date, inaccurate, or biased, whatever the model generates will be too. Also, RAG doesn't guarantee that a model won't hallucinate. It reduces the risk, but doesn't necessarily eliminate it. That's why it's important to include inline citations, allowing users to verify information retrieved.

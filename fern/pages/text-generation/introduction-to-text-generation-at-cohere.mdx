@@ -1,39 +1,38 @@
 ---
-title: Introduction to Text Generation at Cohere
+title: Text generation
 slug: /docs/introduction-to-text-generation-at-cohere
-
-description: "This page describes how a large language model generates textual output."
-image: "../../assets/images/f1cc130-cohere_meta_image.jpg"  
-keywords: "Cohere, large language models"
+description: "Learn how Cohere's Chat endpoint generates text, with an overview of streaming, structured outputs, RAG, and tool use."
+keywords: "text generation, Cohere command, large language models, Chat API"
 ---
+Cohere's text generation models are accessed through the Chat endpoint. You send a list of messages, and the model returns a generated response — the same endpoint powers single-turn completions, multi-turn conversations, RAG, and tool use.
 
-Large language models are impressive for many reasons, but among the most prominent is their ability to quickly generate text. With just a little bit of prompting, they can crank out conceptual explanations, blog posts, web copy, poetry, and almost anything else. Their style can be tweaked to be suitable for children and adults, technical people and laymen, and they can be asked to work in dozens of different natural languages.
+A basic request looks like this:
 
-In this article, we'll cover some of the basics of what makes this functionality possible. If you'd like to skip straight to a more hands-on treatment, check out "[Using the Chat API](/docs/chat-api)."
+```python Python
+import cohere
 
-## How are Large Language Models Trained?
+co = cohere.ClientV2()
 
-Eliding a great deal of technical complexity, a large language model is just a neural network trained to predict the [next token](/docs/tokens-and-tokenizers#what-is-a-token), given the tokens that have come before. Take a sentence like "Hang on, I need to go inside and grab my \_\_\_." As a human being with a great deal of experience using natural language, you can make some reasonable guesses about which token will complete this sentence even with no additional context:
+response = co.chat(
+    model="command-a-03-2025",
+    messages=[{"role": "user", "content": "Write a title for a blog post about quantum computing."}]
+)
 
-- "Hang on, I need to go inside and grab my **bag**."
-- "Hang on, I need to go inside and grab my **keys**."
-- Etc.
+print(response.message.content[0].text)
+```
 
-Of course, there are other possibilities that are plausible, but less likely:
+The response contains the generated text along with metadata such as token usage and, when applicable, citations or tool calls.
 
-- "Hang on, I need to go inside and grab my **friend**."
-- "Hang on, I need to go inside and grab my **book**."
+## What's in this section
 
-And, there's a long-tail of possibilities that are technically grammatically correct but which effectively never occur in a real exchange:
+- **[Using the Chat API](/docs/chat-api)** — Request and response structure, and how to set up your first call
+- **[Streaming responses](/docs/streaming)** — Receive generated text incrementally instead of waiting for the full response
+- **[Structured outputs](/docs/structured-outputs)** — Constrain responses to a JSON schema
+- **[Predictable outputs](/docs/predictable-outputs)** — Control randomness and reproducibility in generation
+- **[Advanced generation parameters](/docs/advanced-generation-hyperparameters)** — Fine-tune behavior with temperature, penalties, and other parameters
+- **[Retrieval-augmented generation (RAG)](/docs/retrieval-augmented-generation-rag)** — Ground responses in your own documents
+- **[Tool use](/docs/tools)** — Let the model call functions and external tools as part of generation
 
-- "Hang on, I need to go inside and grab my **giraffe**."
+## Choosing a model
 
-_You_ have an intuitive sense of how a sentence like this will end because you've been using language all your life. A model like Command R+ must learn how to perform the same feat by seeing billions of token sequences and figuring out a statistical distribution over them that allows it to predict what comes next.
-
-Once it's done so, it can take a prompt like "Help me generate some titles for a blog post about quantum computing," and use the distribution it has learned to generate the series of tokens it _thinks_ would follow such a request. Since it's an _AI_ system _generating_ tokens, it's known as "generative AI," and with models as powerful as Cohere's, the results are often surprisingly good.
-
-## Learn More
-
-The rest of the "Text Generation" section of our documentation walks you through how to work with Cohere's models. Check out ["Using the Chat API"](/docs/chat-api) to get set up and understand what a response looks like, or reading the [streaming guide](/docs/streaming) to figure out how to integrate generative AI into streaming applications.
-
-You might also benefit from reading the [retrieval-augmented generation](/docs/retrieval-augmented-generation-rag), [tool-use](/docs/tool-use), and [agent-building](/docs/multi-step-tool-use) guides.
+Cohere offers several models in the Command family, each suited to different latency, cost, and capability tradeoffs. See the [model overview](/docs/models) to compare options.
