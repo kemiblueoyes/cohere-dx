@@ -6,6 +6,7 @@
     "preinstall": "npx only-allow pnpm",
     "clean": "rm -rf ./fern/dist && rm -rf ./node_modules",
     "docs:check": "fern check",
+    "docs:check-hidden-links": "node .github/scripts/check-hidden-links.cjs",
     "docs:publish": "fern generate --docs",
     "docs:preview": "fern generate --docs --preview --log-level debug",
     "prepublish": "exit 1"

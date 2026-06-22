@@ -1,0 +1,41 @@
+name: check-hidden-links
+
+on:
+  pull_request:
+    branches:
+      - portfolio
+    paths:
+      - 'fern/pages/**/*.mdx'
+      - 'fern/pages/**/**/*.mdx'
+      - 'fern/v1.yml'
+      - 'fern/v2.yml'
+      - '.github/scripts/check-hidden-links.cjs'
+      - 'package.json'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Dependencies
+        shell: bash
+        run: pnpm install
+
+      - name: Run hidden link check
+        run: node .github/scripts/check-hidden-links.cjs
+
+      - name: Upload hidden link report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hidden-link-report
+          path: doc-workflows/reports/hidden-links.md

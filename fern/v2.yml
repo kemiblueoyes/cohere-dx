@@ -83,9 +83,6 @@ navigation:
                 path: pages/models/the-command-family-of-models/command-r-plus.mdx
               - page: Command R
                 path: pages/models/the-command-family-of-models/command-r.mdx
-              - page: Command and Command Lite
-                path: pages/models/the-command-family-of-models/command-beta.mdx
-                hidden: true
           - page: Embed
             path: pages/models/cohere-embed.mdx
           - page: Rerank
@@ -351,6 +348,9 @@ navigation:
           - page: Glossary
             path: pages/resources/glossary.mdx
       # HIDDEN SECTION
+      - page: Command and Command Lite
+        path: pages/models/the-command-family-of-models/command-beta.mdx
+        hidden: true
       - page: API keys
         hidden: true
         path: pages/cohere-api/create-an-api-key.mdx

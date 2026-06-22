@@ -1,23 +1,20 @@
 ---
-title: Errors (status codes and description)
+title: Error status codes and descriptions
 slug: reference/errors
 hidden: false
 description: >-
   Understand Cohere's HTTP response codes and how to handle errors in various
   programming languages.
-image: ../../assets/images/72cf813-meta_docs_image_cohere.jpg
 keywords: 'RAG, retrieval, augmented, generation, LLM, connectors, connector, langchain'
-createdAt: 'Tue Sep 06 2022 17:39:07 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Fri Mar 15 2024 04:29:33 GMT+0000 (Coordinated Universal Time)'
 ---
-
+Cohere uses standard HTTP status codes to indicate the success or failure of an API request.
 # Http status codes
 
 ## 400 - Bad Request
 
 400 responses are sent when the body of the request is not valid. This can happen when required fields are missing, or when the values provided are not valid.
 
-To resolve this error, consult [the API spec](https://docs.cohere.com/reference/about) to ensure that you are providing the correct fields and values. 
+To resolve this error, consult the reference documentation for the endpoint you're calling to confirm the required fields and accepted values.
 
 <details>
     <summary>Example error responses</summary>
@@ -57,7 +54,7 @@ To resolve this error, consult [the API spec](https://docs.cohere.com/reference/
     |tool call id not found in previous tool calls|
     |invalid request: each unique label must have at least 2 examples. Not enough examples for: awr_report, create_user, tablespace_usage|
     |invalid request: multi step is not supported by the provided model: command.|
-    |invalid request: invalid API version was passed in, for more information please refer to https://docs.cohere.com/versioning-reference|
+    |invalid request: invalid API version was passed in.|
     |document does not have a 'snippet' or a 'text' field that can be used for chunking and reranking|
     |finetuned model with name xyz is not ready for serving|
     |invalid request: required 'text' param is missing or empty.|
@@ -157,4 +154,4 @@ To resolve this error, consult [the API spec](https://docs.cohere.com/reference/
 
 ## 500 - Server Error
 
-500 responses are sent when there is an unexpected internal server error. To resolve these errors, please contact support via [email](mailto:support@cohere.com) or [discord](https://discord.gg/XW44jPfYJu) with details about your request and use case.
+500 responses are sent when there is an unexpected internal server error. To resolve these errors, please contact support at [support@cohere.com](mailto:support@cohere.com) or [discord](https://discord.gg/XW44jPfYJu) with details about your request and use case.

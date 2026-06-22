@@ -151,8 +151,6 @@ redirects:
     destination: "/docs/cohere-embed"
   - source: "/docs/docs/overview-rag-connectors"
     destination: "/v1/docs/overview-rag-connectors"
-  - source: "/docs/prompt-truncation"
-    destination: "/v1/docs/prompt-truncation"
   - source: "/classify-reference"
     destination: "/reference/classify"
   - source: "/docs/cookbooks"
@@ -173,12 +171,6 @@ redirects:
     permanent: true
   - source: "/docs/command"
     destination: "/docs/command-r-plus"
-    permanent: true
-  - source: "/docs/prompt-engineering"
-    destination: "/docs/crafting-effective-prompts"
-    permanent: true
-  - source: "/docs/prompt-library"
-    destination: "/docs/create-csv-data-from-json-data"
     permanent: true
   - source: "/docs/rag-connectors"
     destination: "/docs/overview-rag-connectors"
@@ -327,12 +319,6 @@ redirects:
   - source: /playground-overview
     destination: /docs/playground-overview
     permanent: true
-  - source: /prompt-engineering
-    destination: /docs/prompt-engineering
-    permanent: true
-  - source: /prompt-engineering-wiki
-    destination: /docs/prompt-engineering
-    permanent: true
   - source: /reference/generate-2
     destination: /reference/text-summarization-example
     permanent: true
@@ -395,9 +381,6 @@ redirects:
     permanent: true
   - source: /usage-guidelines
     destination: /docs/usage-guidelines
-    permanent: true
-  - source: /versioning-reference
-    destination: /reference/versioning
     permanent: true
   - source: /api-reference
     destination: /reference/about
@@ -504,6 +487,20 @@ redirects:
   - source: /playground-overview
     destination: /docs/playground-overview
     permanent: true
+  - source: "/docs/prompt-truncation"
+    destination: "/v1/docs/prompt-truncation"
+  - source: "/docs/prompt-engineering"
+    destination: "/docs/crafting-effective-prompts"
+    permanent: true
+  - source: "/docs/prompt-library"
+    destination: "/docs/create-csv-data-from-json-data"
+    permanent: true
+  - source: /prompt-engineering
+    destination: /docs/prompt-engineering
+    permanent: true
+  - source: /prompt-engineering-wiki
+    destination: /docs/prompt-engineering
+    permanent: true
   - source: /prompt-engineering
     destination: /docs/prompt-engineering
     permanent: true
@@ -587,6 +584,9 @@ redirects:
     permanent: true
   - source: /versioning-reference
     destination: /reference/versioning
+    permanent: true
+  - source: /reference/versioning
+    destination: /reference/about
     permanent: true
   - source: /docs/coral-toolkit
     destination: /docs/cohere-toolkit
