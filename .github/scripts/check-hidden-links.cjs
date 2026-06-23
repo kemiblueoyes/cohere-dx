@@ -129,11 +129,11 @@ async function collectNavData() {
       addToMapSet(navMembership, normalizePagePath(match[1]), navFile.version);
     }
 
-    for (const hiddenPath of collectHiddenSectionPaths(content)) {
+    for (const hiddenEntry of collectHiddenNavPaths(content)) {
       addToMapSet(
         navHidden,
-        normalizePagePath(hiddenPath),
-        `${path.basename(navFile.filePath)} # HIDDEN SECTION`
+        normalizePagePath(hiddenEntry.path),
+        `${path.basename(navFile.filePath)} ${hiddenEntry.reason}`
       );
     }
   }
@@ -141,33 +141,55 @@ async function collectNavData() {
   return { navMembership, navHidden };
 }
 
-function collectHiddenSectionPaths(content) {
+function collectHiddenNavPaths(content) {
   const lines = content.split(/\r?\n/);
   const markerIndex = lines.findIndex((line) => line.includes("# HIDDEN SECTION"));
-  const hiddenPaths = new Set();
-
-  if (markerIndex === -1) {
-    return hiddenPaths;
-  }
-
+  const hiddenEntries = new Map();
+  const navItemStack = [];
   let currentItem = null;
 
+  function addHiddenEntry(hiddenPath, reason) {
+    if (!hiddenEntries.has(hiddenPath)) {
+      hiddenEntries.set(hiddenPath, new Set());
+    }
+
+    hiddenEntries.get(hiddenPath).add(reason);
+  }
+
   function commitCurrentItem() {
-    if (currentItem?.hasHiddenTrue && currentItem.path) {
-      hiddenPaths.add(currentItem.path);
+    if (!currentItem) {
+      return;
+    }
+
+    if (currentItem.isHidden) {
+      navItemStack.push(currentItem);
+    }
+
+    const hiddenAncestor = navItemStack.findLast((item) => item.isHidden);
+    if (currentItem.path && hiddenAncestor) {
+      addHiddenEntry(currentItem.path, hiddenAncestor.reason);
     }
   }
 
-  for (let index = markerIndex + 1; index < lines.length; index++) {
+  for (let index = 0; index < lines.length; index++) {
     const line = lines[index];
     const itemMatch = line.match(/^(\s*)-\s+(?:page|section):/);
 
     if (itemMatch) {
       commitCurrentItem();
+      const indent = itemMatch[1].length;
+
+      while (navItemStack.length > 0 && navItemStack.at(-1).indent >= indent) {
+        navItemStack.pop();
+      }
+
       currentItem = {
-        indent: itemMatch[1].length,
-        hasHiddenTrue: false,
+        indent,
+        isHidden: false,
         path: null,
+        reason: index > markerIndex
+          ? "nav hidden entry under # HIDDEN SECTION"
+          : "nav hidden parent section",
       };
       continue;
     }
@@ -182,7 +204,7 @@ function collectHiddenSectionPaths(content) {
     }
 
     if (/^\s*hidden:\s*true\s*(?:#.*)?$/.test(line)) {
-      currentItem.hasHiddenTrue = true;
+      currentItem.isHidden = true;
       continue;
     }
 
@@ -193,7 +215,12 @@ function collectHiddenSectionPaths(content) {
   }
 
   commitCurrentItem();
-  return hiddenPaths;
+  return [...hiddenEntries.entries()].flatMap(([hiddenPath, reasons]) => {
+    return [...reasons].map((reason) => ({
+      path: hiddenPath,
+      reason,
+    }));
+  });
 }
 
 function addToMapSet(map, key, value) {

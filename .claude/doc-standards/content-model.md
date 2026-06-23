@@ -1,15 +1,15 @@
 # Content Format Guidelines
 
-These are content formatting and model guidelines that focus on fern published pages 
+These are content formatting and model guidelines that focus on: 
 
-- Page types
-- Required sections
-- Heading hierarchy
+- Page types structure
+- Required frontmatter
+- Heading conventions
 - Code block conventions
 - Table conventions
 - Callouts usage rules
 - Image and diagram conventions
-- Link patterns
+- Link conventions
 
 ## Frontmatter / metadata
 
@@ -33,11 +33,64 @@ audience: "Technical Decision-Maker"
 
 ## Page types
 
-### Required sections
+Consult the page-templates/ for how to structure the following page types:
 
-## Headings hierarchy
+- Concept
+- Feature
+- Guide
+- Overview
+- Quickstart
+- Reference
+- Tutorial
+
+## Headings
+
+### Page titles (H1)
+
+Use the title form appropriate for the page type.
+
+Examples:
+- Text Generation Quickstart
+- Streaming Responses
+- Grounding with RAG
+- Parameter Types in JSON
+
+Avoid imperative (direct command, instruction, or call to action to the reader) H1 titles unless the page is explicitly task-oriented.
+
+### Section headings (H2-H6)
+
+#### Task-oriented
+Task-oriented sections use the imperative form. If a heading can naturally be prefixed with "How to," it's a task heading and should be imperative.
+
+Examples:
+- Install the SDK
+- Configure the client
+- Ground responses with RAG
+
+
+#### Concept and reference
+Concept and reference sections use noun phrases. Use noun phrases rather than commands. These may start with -ing terms when that's the established name of a feature or capability. The -ing word names the thing rather than instructing the reader to do something.
+
+Examples:
+- Streaming responses
+- Grounding with RAG
+- Rate limits
+- Authentication methods
+
+#### FAQ
+
+FAQ headings may be written as questions.
 
 ## Callouts
+
+Use callouts sparingly:
+
+- `Warning` only for production-blocking issues.
+- `Info` for genuine context the reader would otherwise miss.
+- `Note` for highlighting additional context or supplementary information.
+- `Error` for indicating a potential error or missing information that must be added.
+
+Default to no callout; let prose carry the emphasis. Decorative callouts get purged on review.
 
 ## Code blocks
 
@@ -56,7 +109,7 @@ For tables with 20 rows or less, use default table markdown.
 
 For long tables of 20 rows or more, follow these rules:
 
-- Use the fern <SearchableTable> component to make it a searchable table
+- Wrap markdown in [`<SearchableTable>`](https://buildwithfern.com/learn/docs/writing-content/components/tables#searchable-tables) component to make it a searchable table
 - Don't put essential content after a long table, because users who find what they need will stop reading.
 - If content, such as next steps or a ling to a guide, must follow a large table, give it a distinct heading so it reads as a new section, not an afterthought.
 
@@ -93,19 +146,55 @@ Use the following fern callouts like so:
 <Error>This callout should only be used in API reference docs for indicating a potential error or missing information that must be added.</Error>
 ```
 
+
 ## Lists
 
-For unordered lists, use - for consistency.
-- JavaScript
-- Go
-- Python
+A list should have a piece of text introducing the list followed by a colon, and then a blank line, such as:
 
-For ordered lists, use standard Markdown syntax with ascending numbers for readability and consistency.
-1. First
-2. Second
-3. Third
+This is an example of a bulleted list:
+
+- Use bulleted lists for lists of items that have no particular order.
+- Precede a list with a sentence and a colon, followed by a blank line.
+- Terminate each *sentence* in a list with a full stop.
+
+This is an example of an ordered list:
+
+1. Use numbered lists for ordered sequences, such as procedures, tasks, a series of specific steps, items that are being enumerated, and so on.
+2. This is the next step in this task.
+3. This is the last step in this task.
+
+Note the following points:
+
+- Each sentence in the lists are terminated by a full-stop (period).
+- If each item in the list is a single word, a terminating period is not required.
+- Don't use bold formatting for prefixes (for example, avoid patterns like "**Feature name:** description").
+
+## Links
+
+Use standard link markdown, such as the example below, where possible instead of HTML `<a></a>`.
+
+Standard link markdown: 
+- `[Cohere Docs](https://docs.cohere.com/)`
+- `Email link: [support+aws@cohere.com](mailto:support+aws@cohere.com)`
+- Anchor on same page: [Link text](#anchor)`
+- `Link with title: [Cohere Docs](https://docs.cohere.com/, "Cohere docs home")`
 
 ## Images
 
-## Diagrams
+Use standard image markdown:
+
+ - Image with alt tag: `![Cohere logo](/../assets/logo.svg)`
+ - Linked image: `[![Cohere logo](/../assets/logo.svg)]](https://docs.cohere.com/)`
+
+ ## Diagrams
+
+ Use HTML to display captions with diagram images:
+
+ ```html
+<figure>
+    <img src="/../assets/diagram.jpg"
+         alt="diagram alt text">
+    <figcaption>Short diagram description.</figcaption>
+</figure>
+ ```
 

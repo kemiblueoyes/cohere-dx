@@ -21,7 +21,7 @@ Sometimes these objectives can conflict with each other, in which case the techn
 
 ## Technical terms
 
-It's important to be consistent with the use of technical terms. In order to provide consistency with technical terms, acronyms, and product names you should always refer to the Cohere Glossary.
+It's important to be consistent with the use of technical terms. In order to provide consistency with Cohere product names and related technical terms, always refer to the [Cohere Glossary](/docs/resources/glossary). Outside of the glossary, follow [Microsoft Writing Style Guide's rules on using technical terms](https://learn.microsoft.com/en-us/style-guide/word-choice/use-technical-terms-carefully).
 
 ## Use International English
 
@@ -207,50 +207,6 @@ Use sentence-style capitalization most of the time:
 - Capitalize proper nouns, which include job titles, and the names of brands, products, and services.
 - Use lowercase for everything else.
 
-## Heading forms
-
-Use the imperative form for task headings. It's direct and action-oriented, making it clear what the developer needs to do. If a heading can naturally be prefixed with "How to," it's a task heading and should be imperative.
-
-Examples:
-
-- *Imperative (preferred):* Configure the API client
-- *Gerund (avoid):* Configuring the API client
-- *Imperative (preferred):* Install the SDK
-- *Gerund (avoid):* Installing the SDK
-
-Concept and reference headings are noun phrases, not commands. These may start with -ing terms when that's the established name of a feature or capability. The -ing word names the thing rather than instructing the reader to do something.
-
-Examples:
-
-- *Noun phrase (correct):* Streaming responses
-- *Noun phrase (correct):* Grounding with RAG
-
-Note that the same topic can take both forms depending on the page type: "Grounding with RAG" works as a concept heading, but a section that walks through implementation steps should use "Ground responses with RAG."
-
-FAQ headings may be phrased as questions. In all other cases, follow the task/concept distinction above.
-
-## Lists
-
-A list should have a piece of text introducing the list followed by a colon, and then a blank line, such as:
-
-This is an example of a bulleted list:
-
-- Use bulleted lists for lists of items that have no particular order.
-- Precede a list with a sentence and a colon, followed by a blank line.
-- Terminate each *sentence* in a list with a full stop.
-
-This is an example of an ordered list:
-
-1. Use numbered lists for ordered sequences, such as procedures, tasks, a series of specific steps, items that are being enumerated, and so on.
-2. This is the next step in this task.
-3. This is the last step in this task.
-
-Note the following points:
-
-- Each sentence in the lists are terminated by a full-stop (period).
-- If each item in the list is a single word, a terminating period is not required.
-- Don't use bold formatting for prefixes (for example, avoid patterns like "**Feature name:** description").
-
 ## Acronyms
 
 Define acronyms on first use on a page, in the form of "Oracle Cloud Infrastructure (OCI)". On subsequent use in a topic you don't need to redefine the acronym.
@@ -326,16 +282,6 @@ A few patterns are worth keeping when they earn their place. These are counter-r
 
 Every page should open with a hook that answers "what is this, why should I care?".
 
-## Callouts
-
-Use callouts sparingly:
-
-- `Warning` only for production-blocking issues.
-- `Info` for genuine context the reader would otherwise miss.
-- `Note` for highlighting additional context or supplementary information.
-- `Error` for indicating a potential error or missing information that must be added.
-
-Default to no callout; let prose carry the emphasis. Decorative callouts get purged on review.
 
 ## API keys in client code
 
