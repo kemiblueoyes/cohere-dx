@@ -90,7 +90,6 @@ package main
 import (
 	"context"
 	"log"
-
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
 )
@@ -199,7 +198,6 @@ package main
 import (
 	"context"
 	"log"
-
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
 )
@@ -324,7 +322,6 @@ package main
 import (
 	"context"
 	"log"
-
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
   "github.com/cohere-ai/cohere-go/v2/core"
@@ -422,7 +419,6 @@ package main
 import (
 	"context"
 	"log"
-
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
   "github.com/cohere-ai/cohere-go/v2/core"
@@ -516,7 +512,6 @@ package main
 import (
 	"context"
 	"log"
-
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
 )
@@ -582,24 +577,16 @@ public class ChatPost {
 <CodeBlocks>
 ```python Python
 import cohere
-
-co = cohere.OciClient(
+co = cohere.OciClientV2(
     oci_region="us-chicago-1",
     oci_compartment_id="ocid1.compartment.oc1...",
 )
-
 response = co.chat(
-    model="command-r-plus-08-2024",
-    chat_history=[
-        {"role": "USER", "message": "Who discovered gravity?"},
-        {
-            "role": "CHATBOT",
-            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
-        },
+    model="command-a-plus-05-2026",
+    messages=[
+        {"role": "user", "content": "Who discovered gravity?"},
     ],
-    message="What year was he born?",
 )
-
 print(response)
 ```
 </CodeBlocks>

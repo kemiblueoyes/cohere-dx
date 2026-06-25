@@ -1,0 +1,8 @@
+const { SagemakerClient } = require('cohere-ai');
+
+const cohere = new SagemakerClient({
+  awsRegion: "us-east-1",
+  awsAccessKey: "...",
+  awsSecretKey: "...",
+  awsSessionToken: "...",
+});

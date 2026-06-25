@@ -1,5 +1,6 @@
 ---
 title: "SDKs by deployment"
+slug: v1/docs/cohere-works-everywhere
 description: "This page describes various places you can use Cohere's SDK."
 keywords: "Cohere, Cohere SDK, large language model SDK"
 ---
@@ -60,8 +61,6 @@ response = co.chat(
         },
     ],
     message="What year was he born?",
-    # perform web search before answering the question. You can also use your own custom connector.
-    connectors=[{"id": "web-search"}],
 )
 
 print(response)
@@ -83,8 +82,6 @@ const cohere = new CohereClient({
       },
     ],
     message: 'What year was he born?',
-    // perform web search before answering the question. You can also use your own custom connector.
-    connectors: [{ id: 'web-search' }],
   });
 
   console.log(response);
@@ -117,9 +114,6 @@ func main() {
 					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
 				}},
 			Message: "What year was he born?",
-			Connectors: []*cohere.ChatConnector{
-				{Id: "web-search"},
-			},
 		},
 	)
 
@@ -175,8 +169,6 @@ response = co.chat(
         },
     ],
     message="What year was he born?",
-    # perform web search before answering the question. You can also use your own custom connector.
-    connectors=[{"id": "web-search"}],
 )
 
 print(response)
@@ -199,8 +191,6 @@ const cohere = new CohereClient({
       },
     ],
     message: 'What year was he born?',
-    // perform web search before answering the question. You can also use your own custom connector.
-    connectors: [{ id: 'web-search' }],
   });
 
   console.log(response);
@@ -235,9 +225,6 @@ func main() {
 					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
 				}},
 			Message: "What year was he born?",
-			Connectors: []*cohere.ChatConnector{
-				{Id: "web-search"},
-			},
 		},
 	)
 
