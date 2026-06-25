@@ -63,8 +63,7 @@ conn = sqlite3.connect("evaluation_results.db")
 cursor = conn.cursor()
 
 # Execute the CREATE TABLE command
-cursor.execute(
-    """
+cursor.execute("""
 CREATE TABLE evaluation_results (
     usecase TEXT,
     run TEXT,
@@ -73,8 +72,7 @@ CREATE TABLE evaluation_results (
     tokens INTEGER,
     latency FLOAT
 )
-"""
-)
+""")
 
 # Execute the INSERT commands
 data = [

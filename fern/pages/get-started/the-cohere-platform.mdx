@@ -23,7 +23,12 @@ co = cohere.ClientV2(api_key="YOUR_API_KEY")
 
 response = co.chat(
     model="command-a-03-2025",
-    messages=[{"role": "user", "content": "What is retrieval-augmented generation?"}]
+    messages=[
+        {
+            "role": "user",
+            "content": "What is retrieval-augmented generation?",
+        }
+    ],
 )
 
 print(response)
