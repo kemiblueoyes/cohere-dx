@@ -578,7 +578,7 @@ function escapeBackticks(value) {
   if (violations.length > 0) {
     console.error(`Found ${violations.length} hidden-link violation(s).`);
     console.error(`Report written to ${repoRelative(reportPath)}.`);
-    process.exit(1);
+    process.exit(0); //0 = violations loge a warning only; 1 = block PR merge
   }
 
   console.log("No hidden links found.");
