@@ -1,9 +1,9 @@
 # Hidden Link Report
 
-Generated: 2026-06-22T19:22:48.473Z
+Generated: 2026-06-25T21:44:09.949Z
 
-Hidden pages found: 241
-Visible source pages scanned: 343
+Hidden pages found: 247
+Visible source pages scanned: 335
 Hidden-link violations found: 70
 
 ## `fern/pages/cookbooks/convfinqa-finetuning-wandb.mdx`
@@ -40,12 +40,12 @@ Hidden-link violations found: 70
 - Line 36: links to hidden page `/v1/docs/crafting-effective-prompts`
   - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/v1/docs/crafting-effective-prompts`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 37: links to hidden page `/v1/docs/advanced-prompt-engineering-techniques`
   - Target: `fern/pages/text-generation/prompt-engineering/advanced-prompt-engineering-techniques.mdx`
   - Link: `https://docs.cohere.com/v1/docs/advanced-prompt-engineering-techniques`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 49: links to hidden page `/docs/fine-tuning`
   - Target: `fern/pages/fine-tuning/fine-tuning.mdx`
@@ -100,12 +100,12 @@ Hidden-link violations found: 70
 - Line 250: links to hidden page `/v1/docs/crafting-effective-prompts`
   - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/v1/docs/crafting-effective-prompts`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 251: links to hidden page `/v1/docs/advanced-prompt-engineering-techniques`
   - Target: `fern/pages/text-generation/prompt-engineering/advanced-prompt-engineering-techniques.mdx`
   - Link: `https://docs.cohere.com/v1/docs/advanced-prompt-engineering-techniques`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 ## `fern/pages/going-live/deprecations.mdx`
 
@@ -254,12 +254,12 @@ Hidden-link violations found: 70
 - Line 46: links to hidden page `/docs/system-instructions`
   - Target: `fern/pages/text-generation/prompt-engineering/preambles.mdx`
   - Link: `https://docs.cohere.com/docs/system-instructions`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 46: links to hidden page `/docs/system-instructions`
   - Target: `fern/pages/v2/text-generation/prompt-engineering/preambles.mdx`
   - Link: `https://docs.cohere.com/docs/system-instructions`
-  - Hidden by: v2.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v2.yml nav hidden parent section
 
 ## `fern/pages/models/the-command-family-of-models/command-r-plus.mdx`
 
@@ -290,12 +290,12 @@ Hidden-link violations found: 70
 - Line 52: links to hidden page `/docs/crafting-effective-prompts`
   - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/docs/crafting-effective-prompts`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 52: links to hidden page `/docs/crafting-effective-prompts`
   - Target: `fern/pages/v2/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/docs/crafting-effective-prompts`
-  - Hidden by: v2.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v2.yml nav hidden parent section
 
 ## `fern/pages/text-embeddings/embeddings.mdx`
 
@@ -346,7 +346,7 @@ Hidden-link violations found: 70
 - Line 272: links to hidden page `/docs/prompt-truncation`
   - Target: `fern/pages/text-generation/prompt-engineering/prompt-truncation.mdx`
   - Link: `/docs/prompt-truncation`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 ## `fern/pages/tutorials/build-things-with-cohere/rag-with-cohere.mdx`
 
@@ -372,12 +372,12 @@ Hidden-link violations found: 70
 - Line 125: links to hidden page `/docs/crafting-effective-prompts`
   - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `/docs/crafting-effective-prompts`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 125: links to hidden page `/docs/crafting-effective-prompts`
   - Target: `fern/pages/v2/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `/docs/crafting-effective-prompts`
-  - Hidden by: v2.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v2.yml nav hidden parent section
 
 ## `fern/pages/v2/rag/retrieval-augmented-generation-rag.mdx`
 
@@ -415,10 +415,10 @@ Hidden-link violations found: 70
 - Line 142: links to hidden page `/docs/crafting-effective-prompts`
   - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/docs/crafting-effective-prompts`
-  - Hidden by: v1.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
 - Line 142: links to hidden page `/docs/crafting-effective-prompts`
   - Target: `fern/pages/v2/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/docs/crafting-effective-prompts`
-  - Hidden by: v2.yml nav hidden parent section
+  - Hidden by: frontmatter hidden: true; v2.yml nav hidden parent section
 

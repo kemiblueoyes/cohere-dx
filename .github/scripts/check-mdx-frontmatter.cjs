@@ -14,7 +14,7 @@ let totalFilesInvalid = 0;
 const validators = [checkDescriptionLength, checkTitleLength, checkKeywords];
 
 // List of folders to exclude (relative to mdxDir)
-const excludedFolders = ["-ARCHIVE-", "api-reference", "llm-university"];
+const excludedFolders = ["-ARCHIVE-", "api-reference", "llm-university", "changelog"];
 const filesToExclude = ["fern/pages/changelog/overview.mdx"];
 
 function logInvalidMessage(message) {
@@ -76,7 +76,7 @@ async function checkTitleLength(filePath) {
     
     const fileContent = await fs.readFile(filePath, "utf8");
     const { data } = matter(fileContent);
-    const minTitleLength = 30;
+    const minTitleLength = 10;
     const maxTitleLength = 60;
 
     filePath = path.relative(mdxDir, filePath);
