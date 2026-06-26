@@ -55,15 +55,12 @@ co = cohere.ClientV2("COHERE_API_KEY")
 res = co.chat(
     model="command-a-plus-05-2026",
     messages=[
+        {"role": "user", "content": "Who discovered gravity?"},
         {
-            "role": "user", "content": "Who discovered gravity?"
+            "role": "assistant",
+            "content": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
         },
-        {   
-            "role": "assistant", "content": "The man who is widely credited with discovering gravity is Sir Isaac Newton."
-        },
-        {
-            "role": "user", "content": "What year was he born?"
-        },
+        {"role": "user", "content": "What year was he born?"},
     ],
 )
 print(res.message.content[0].text)
@@ -194,15 +191,12 @@ co = cohere.ClientV2(api_key="", base_url="YOUR_DEPLOYMENT_URL")
 res = co.chat(
     model="command-a-plus-05-2026",
     messages=[
+        {"role": "user", "content": "Who discovered gravity?"},
         {
-            "role": "user", "content": "Who discovered gravity?"
+            "role": "assistant",
+            "content": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
         },
-        {   
-            "role": "assistant", "content": "The man who is widely credited with discovering gravity is Sir Isaac Newton."
-        },
-        {
-            "role": "user", "content": "What year was he born?"
-        },
+        {"role": "user", "content": "What year was he born?"},
     ],
 )
 
