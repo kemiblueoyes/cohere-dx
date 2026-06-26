@@ -15,7 +15,7 @@ The Chat API endpoint is used to generate text with Cohere LLMs. This endpoint f
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 response = co.chat(
     model="command-a-03-2025",
@@ -28,7 +28,7 @@ print(response.text)
 ```java JAVA
 public class ChatPost {
   public static void main(String[] args) {
-    Cohere cohere = Cohere.builder().token("<YOUR API KEY>").build();
+    Cohere cohere = Cohere.builder().token("COHERE_API_KEY").build();
 
     NonStreamedChatResponse response = cohere.chat(
       ChatRequest.builder()
@@ -44,7 +44,7 @@ public class ChatPost {
 const { CohereClient } = require('cohere-ai');
 
 const cohere = new CohereClient({
-  token: '<YOUR API KEY>',
+  token: 'COHERE_API_KEY',
 });
 
 (async () => {
@@ -109,7 +109,7 @@ The user message in the Chat request can be sent together with a `chat_history` 
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 message = "Can you tell me about LLMs?"
 
@@ -159,7 +159,7 @@ Providing the model with the conversation history is one way to have a multi-tur
 ```python PYTHON
 import cohere
 
-co = cohere.Client("<YOUR API KEY>")
+co = cohere.Client("COHERE_API_KEY")
 
 response = co.chat(
     model="command-a-03-2025",

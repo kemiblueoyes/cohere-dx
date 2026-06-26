@@ -18,7 +18,7 @@ To start using all features available in the Cohere SDK, you should create a cli
 ```python
 import cohere
 
-co = cohere.ClientV2(api_key="YOUR_API_KEY")
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
 ```
 [Source](https://github.com/cohere-ai/cohere-python)
 
@@ -42,7 +42,7 @@ The Cohere API client initializes with the following parameters:
 ```typescript
 import { CohereClientV2 } from 'cohere-ai';
 
-const cohere = new CohereClientV2({ token: 'YOUR_API_KEY' });
+const cohere = new CohereClientV2({ token: 'COHERE_API_KEY' });
 ```
 [Source](https://github.com/cohere-ai/cohere-typescript)
 
@@ -64,7 +64,7 @@ The Cohere API client initializes with the following parameters:
 import com.cohere.api.Cohere;
 
 Cohere cohere = Cohere.builder()
-                      .token("YOUR_API_KEY")
+                      .token("COHERE_API_KEY")
                       .clientName("your-client-name")
                       .build();
 
@@ -90,7 +90,7 @@ import (
     client "github.com/cohere-ai/cohere-go/v2/client"
 )
 
-co := client.NewClient(client.WithToken("YOUR_API_KEY"))
+co := client.NewClient(client.WithToken("COHERE_API_KEY"))
 ```
 
 [Source](https://github.com/cohere-ai/cohere-go)

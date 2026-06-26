@@ -305,7 +305,7 @@ navigation:
           - page: Command R and Command R+ model card
             path: pages/responsible-use/responsible-use.mdx                      
           - page: Cohere Labs acceptable use policy
-            path: pages/cohere-labs/cohere-labs-acceptable-use-policy.mdx
+            path: pages/responsible-use/cohere-labs-acceptable-use-policy.mdx
       - section: Resources
         contents:
           - page: Improve Cohere docs
@@ -502,18 +502,6 @@ navigation:
       - page: "[ALT] The Generate endpoint"
         hidden: true
         path: pages/llm-university/sandbox/the-generate-endpoint-copy.mdx
-      - page: Customer support
-        hidden: true
-        path: pages/quickstart-tutorials/customer-support-link.mdx
-      - page: Intent recognition
-        hidden: true
-        path: pages/quickstart-tutorials/intent-recognition-link.mdx
-      - page: Sentiment analysis
-        hidden: true
-        path: pages/quickstart-tutorials/sentiment-analysis-link.mdx
-      - page: Toxicity detection
-        hidden: true
-        path: pages/quickstart-tutorials/toxicity-detection-link.mdx
       - page: Using the Embed API
         hidden: true
         path: pages/text-embeddings/embed-api.mdx

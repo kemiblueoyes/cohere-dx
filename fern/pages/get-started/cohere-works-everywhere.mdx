@@ -50,7 +50,7 @@ The following examples show how to initialize a client and make an API call for 
 ```python
 import cohere
 
-co = cohere.Client("YOUR_API_KEY")
+co = cohere.Client("COHERE_API_KEY")
 
 response = co.chat(
     chat_history=[
@@ -69,7 +69,7 @@ print(response)
 const { CohereClient } = require('cohere-ai');
 
 const cohere = new CohereClient({
-  token: 'YOUR_API_KEY',
+  token: 'COHERE_API_KEY',
 });
 
 (async () => {
@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-	co := client.NewClient(client.WithToken("YOUR_API_KEY"))
+	co := client.NewClient(client.WithToken("COHERE_API_KEY"))
 
 	resp, err := co.Chat(
 		context.TODO(),
@@ -136,7 +136,7 @@ import java.util.List;
 
 public class ChatPost {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().token("YOUR_API_KEY").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
 
         NonStreamedChatResponse response = cohere.chat(
                 ChatRequest.builder()
@@ -247,15 +247,23 @@ import java.util.List;
 
 public class ChatPost {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().token("YOUR_API_KEY").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
         Cohere cohere = Cohere.builder().environment(Environment.custom("YOUR_DEPLOYMENT_URL")).clientName("snippet").build();
 
         NonStreamedChatResponse response = cohere.chat(
-                ChatRequest.builder()
-                        .message("What year was he born?")
-                        .chatHistory(
-                                List.of(Message.user(ChatMessage.builder().message("Who discovered gravity?").build()),
-                                        Message.chatbot(ChatMessage.builder().message("The man who is widely credited with discovering gravity is Sir Isaac Newton").build()))).build());
+            ChatRequest.builder()
+                .message("What year was he born?")
+                .chatHistory(
+                    List.of(
+                        Message.user(
+                            ChatMessage.builder()
+                                .message("Who discovered gravity?").build()),
+                        Message.chatbot(
+                            ChatMessage.builder()
+                                .message("The man who is widely credited with discovering gravity is Sir Isaac Newton").build()),      
+                        Message.user(
+                            ChatMessage.builder()
+                                .message("What year was he born?").build()))).build());
 
         System.out.println(response);
     }
@@ -469,7 +477,7 @@ func main() {
 import cohere
 
 co = cohere.Client(
-    api_key="AZURE_TOKEN",
+    api_key="AZURE_INFERENCE_CREDENTIAL",
     base_url="https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1",
 )
 
@@ -490,7 +498,7 @@ print(response)
 const { CohereClient } = require('cohere-ai');
 
 const cohere = new CohereClient({
-  token: "AZURE_TOKEN",
+  token: "AZURE_INFERENCE_CREDENTIAL",
   environment: "https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1",
 });
 
@@ -522,7 +530,7 @@ import (
 
 func main() {
 	client := client.NewClient(
-		client.WithToken("AZURE_TOKEN"),
+		client.WithToken("AZURE_INFERENCE_CREDENTIAL"),
 		client.WithBaseURL("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1"),
 	)
 
@@ -555,21 +563,23 @@ import com.cohere.api.requests.ChatRequest;
 import com.cohere.api.types.ChatMessage;
 import com.cohere.api.types.Message;
 import com.cohere.api.types.NonStreamedChatResponse;
-
 import java.util.List;
-
 
 public class ChatPost {
     public static void main(String[] args) {
         Cohere cohere = Cohere.builder().environment(Environment.custom("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1")).token("AZURE_TOKEN").clientName("snippet").build();
 
         NonStreamedChatResponse response = cohere.chat(
-                ChatRequest.builder()
-                        .message("What year was he born?")
-                        .chatHistory(
-                                List.of(Message.user(ChatMessage.builder().message("Who discovered gravity?").build()),
-                                        Message.chatbot(ChatMessage.builder().message("The man who is widely credited with discovering gravity is Sir Isaac Newton").build()))).build());
-
+            ChatRequest.builder()
+                .chatHistory(
+                    List.of(
+                        Message.user(
+                            ChatMessage.builder().message("Who discovered gravity?").build()),
+                        Message.chatbot(
+                            ChatMessage.builder().message(
+                                "The man who is widely credited with discovering gravity is Sir Isaac Newton").build())))
+                .message("What year was he born?").build());
+        
         System.out.println(response);
     }
 }

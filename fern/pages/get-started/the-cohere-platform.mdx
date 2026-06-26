@@ -19,7 +19,7 @@ Cohere is an AI platform for building production-grade applications and knowledg
 ```python
 import cohere
 
-co = cohere.ClientV2(api_key="YOUR_API_KEY")
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 response = co.chat(
     model="command-a-03-2025",
@@ -41,7 +41,7 @@ print(response)
 ```typescript
 const { CohereClientV2 } = require('cohere-ai');
 const cohere = new CohereClientV2({
-  token: '<<apiKey>>',
+  token: 'COHERE_API_KEY',
 });
 (async () => {
   const response = await cohere.chat({
@@ -70,7 +70,7 @@ import java.util.List;
 
 public class Default {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().token("<<apiKey>>").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
 
         ChatResponse response =
                 cohere.v2()

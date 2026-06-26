@@ -50,15 +50,17 @@ The following examples show how to initialize a client and make an API call for 
 ```python
 import cohere
 
-co = cohere.ClientV2("YOUR_API_KEY")
+co = cohere.ClientV2("COHERE_API_KEY")
 
 res = co.chat(
     model="command-a-plus-05-2026",
     messages=[
+        {"role": "user", "content": "Who discovered gravity?"},
         {
-            "role": "user",
-            "content": "Who discovered gravity?",
-        }
+            "role": "assistant",
+            "content": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
+        },
+        {"role": "user", "content": "What year was he born?"},
     ],
 )
 print(res.message.content[0].text)
@@ -67,17 +69,25 @@ print(res.message.content[0].text)
 const { CohereClientV2 } = require('cohere-ai');
 
 const cohere = new CohereClientV2({
-  token: 'YOUR_API_KEY',
+  token: 'COHERE_API_KEY',
 });
 
 (async () => {
   const response = await cohere.chat({
     model: 'command-a-plus-05-2026',
     messages: [
-      {
-        role: 'user',
-        content: 'Who discovered gravity?',
-      },
+        {
+            role: 'user',
+            content: 'Who discovered gravity?',
+        },
+        {
+            role: 'assistant',
+            content: 'The man who is widely credited with discovering gravity is Sir Isaac Newton.',
+        },
+        {
+            role: 'user',
+            content: 'What year was he born?',
+        }
     ],
   });
 
@@ -90,12 +100,13 @@ package main
 import (
 	"context"
 	"log"
+
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
 )
 
 func main() {
-    co := client.NewClient(client.WithToken("YOUR_API_KEY"))
+    co := client.NewClient(client.WithToken("COHERE_API_KEY"))
 
 	resp, err := co.V2.Chat(
 		context.TODO(),
@@ -106,6 +117,18 @@ func main() {
 					Role: "user",
 					User: &cohere.UserMessageV2{Content: &cohere.UserMessageV2Content{
 						String: "Who discovered gravity?",
+					}},
+				},
+				{
+					Role: "assistant",
+					Assistant: &cohere.AssistantMessage{Content: &cohere.AssistantMessageV2Content{
+						String: "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
+					}},
+				},
+				{
+					Role: "user",
+					User: &cohere.UserMessageV2{Content: &cohere.UserMessageV2Content{
+						String: "What year was he born?",
 					}},
 				},
 			},
@@ -129,22 +152,26 @@ import java.util.List;
 
 public class Default {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().token("YOUR_API_KEY").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
 
         ChatResponse response =
-                cohere.v2()
-                        .chat(
-                                V2ChatRequest.builder()
-                                    .model("command-a-plus-05-2026")
-                                    .messages(
-                                        List.of(
-                                            ChatMessageV2.user(
-                                                UserMessage.builder()
-                                                    .content(
-                                                        UserMessageContent
-                                                                .of("Who discovered gravity?"))
-                                                    .build())))
-                                    .build());
+            cohere.v2()
+                .chat(
+                    V2ChatRequest.builder()
+                        .model("command-a-plus-05-2026")
+                        .messages(
+                            List.of(
+                                ChatMessageV2.user(
+                                    UserMessage.builder().content(
+                                        UserMessageContent.of("Who discovered gravity?")).build()),
+                                ChatMessageV2.assistant(
+                                    AssistantMessage.builder().content(
+                                        AssistantMessageV2Content.of(
+                                            "The man who is widely credited with discovering gravity is Sir Isaac Newton.")).build()),
+                                ChatMessageV2.user(
+                                    UserMessage.builder().content(
+                                        UserMessageContent.of("What year was he born?")).build())
+                            )).build());
 
         System.out.println(response);
     }
@@ -164,10 +191,12 @@ co = cohere.ClientV2(api_key="", base_url="YOUR_DEPLOYMENT_URL")
 res = co.chat(
     model="command-a-plus-05-2026",
     messages=[
+        {"role": "user", "content": "Who discovered gravity?"},
         {
-            "role": "user",
-            "content": "Who discovered gravity?",
-        }
+            "role": "assistant",
+            "content": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
+        },
+        {"role": "user", "content": "What year was he born?"},
     ],
 )
 
@@ -198,6 +227,7 @@ package main
 import (
 	"context"
 	"log"
+
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
 )
@@ -239,22 +269,25 @@ import java.util.List;
 
 public class Default {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().token("YOUR_API_KEY").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().environment(Environment.custom("YOUR_DEPLOYMENT_URL")).clientName("snippet").build();
 
         ChatResponse response =
-                cohere.v2()
-                        .chat(
-                                V2ChatRequest.builder()
-                                    .model("command-a-plus-05-2026")
-                                    .messages(
-                                        List.of(
-                                            ChatMessageV2.user(
-                                                UserMessage.builder()
-                                                    .content(
-                                                        UserMessageContent
-                                                                .of("Who discovered gravity?"))
-                                                    .build())))
-                                    .build());
+            cohere.v2()
+                .chat(
+                    V2ChatRequest.builder()
+                        .model("command-a-plus-05-2026")
+                        .messages(
+                            List.of(
+                                ChatMessageV2.user(
+                                    UserMessage.builder().content(
+                                        UserMessageContent.of("Who discovered gravity?")).build()),
+                                ChatMessageV2.assistant(
+                                    AssistantMessage.builder().content(
+                                        AssistantMessageV2Content.of("The man who is widely credited with discovering gravity is Sir Isaac Newton.")).build()),
+                                ChatMessageV2.user(
+                                    UserMessage.builder().content(
+                                        UserMessageContent.of("What year was he born?")).build()))).build());
 
         System.out.println(response);
     }
@@ -281,7 +314,7 @@ response = co.chat(
         {"role": "USER", "message": "Who discovered gravity?"},
         {
             "role": "CHATBOT",
-            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
         },
     ],
     message="What year was he born?",
@@ -306,7 +339,7 @@ const cohere = new BedrockClient({
       { role: 'USER', message: 'Who discovered gravity?' },
       {
         role: 'CHATBOT',
-        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton',
+        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton.',
       },
     ],
     message: 'What year was he born?',
@@ -322,6 +355,7 @@ package main
 import (
 	"context"
 	"log"
+
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
   "github.com/cohere-ai/cohere-go/v2/core"
@@ -345,7 +379,7 @@ func main() {
 				},
 				{
 					Role:    cohere.ChatMessageRoleChatbot,
-					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
 				}},
 			Message: "What year was he born?",
 		},
@@ -379,7 +413,7 @@ response = co.chat(
         {"role": "USER", "message": "Who discovered gravity?"},
         {
             "role": "CHATBOT",
-            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
         },
     ],
     message="What year was he born?",
@@ -404,7 +438,7 @@ const cohere = new SagemakerClient({
       { role: 'USER', message: 'Who discovered gravity?' },
       {
         role: 'CHATBOT',
-        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton',
+        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton.',
       },
     ],
     message: 'What year was he born?',
@@ -419,6 +453,7 @@ package main
 import (
 	"context"
 	"log"
+
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
   "github.com/cohere-ai/cohere-go/v2/core"
@@ -438,12 +473,12 @@ func main() {
       Model: cohere.String("my-endpoint-name"),
 			ChatHistory: []*cohere.ChatMessage{
 				{
-					Role:    cohere.ChatMessageRoleUser,
+					Role: cohere.ChatMessageRoleUser,
 					Message: "Who discovered gravity?",
 				},
 				{
-					Role:    cohere.ChatMessageRoleChatbot,
-					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+					Role: cohere.ChatMessageRoleChatbot,
+					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
 				}},
 			Message: "What year was he born?",
 		},
@@ -475,7 +510,7 @@ response = co.chat(
         {"role": "USER", "message": "Who discovered gravity?"},
         {
             "role": "CHATBOT",
-            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
         },
     ],
     message="What year was he born?",
@@ -497,7 +532,7 @@ const cohere = new CohereClient({
       { role: 'USER', message: 'Who discovered gravity?' },
       {
         role: 'CHATBOT',
-        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton',
+        message: 'The man who is widely credited with discovering gravity is Sir Isaac Newton.',
       },
     ],
     message: 'What year was he born?',
@@ -512,6 +547,7 @@ package main
 import (
 	"context"
 	"log"
+
 	cohere "github.com/cohere-ai/cohere-go/v2"
 	client "github.com/cohere-ai/cohere-go/v2/client"
 )
@@ -527,12 +563,12 @@ func main() {
 		&cohere.ChatRequest{
 			ChatHistory: []*cohere.ChatMessage{
 				{
-					Role:    cohere.ChatMessageRoleUser,
+					Role: cohere.ChatMessageRoleUser,
 					Message: "Who discovered gravity?",
 				},
 				{
-					Role:    cohere.ChatMessageRoleChatbot,
-					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton",
+					Role: cohere.ChatMessageRoleChatbot,
+					Message: "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
 				}},
 			Message: "What year was he born?",
 		},
@@ -551,20 +587,22 @@ import com.cohere.api.requests.ChatRequest;
 import com.cohere.api.types.ChatMessage;
 import com.cohere.api.types.Message;
 import com.cohere.api.types.NonStreamedChatResponse;
-
 import java.util.List;
-
 
 public class ChatPost {
     public static void main(String[] args) {
         Cohere cohere = Cohere.builder().environment(Environment.custom("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1")).token("AZURE_TOKEN").clientName("snippet").build();
 
         NonStreamedChatResponse response = cohere.chat(
-                ChatRequest.builder()
-                        .message("What year was he born?")
-                        .chatHistory(
-                                List.of(Message.user(ChatMessage.builder().message("Who discovered gravity?").build()),
-                                        Message.chatbot(ChatMessage.builder().message("The man who is widely credited with discovering gravity is Sir Isaac Newton").build()))).build());
+            ChatRequest.builder()
+                .chatHistory(
+                    List.of(
+                        Message.user(
+                            ChatMessage.builder().message("Who discovered gravity?").build()),
+                        Message.chatbot(
+                            ChatMessage.builder().message(
+                                "The man who is widely credited with discovering gravity is Sir Isaac Newton.").build())))
+                .message("What year was he born?").build());
 
         System.out.println(response);
     }
@@ -577,16 +615,24 @@ public class ChatPost {
 <CodeBlocks>
 ```python Python
 import cohere
-co = cohere.OciClientV2(
+
+co = cohere.OciClient(
     oci_region="us-chicago-1",
     oci_compartment_id="ocid1.compartment.oc1...",
 )
+
 response = co.chat(
-    model="command-a-plus-05-2026",
-    messages=[
-        {"role": "user", "content": "Who discovered gravity?"},
+    model="command-r-plus-08-2024",
+    chat_history=[
+        {"role": "USER", "message": "Who discovered gravity?"},
+        {
+            "role": "CHATBOT",
+            "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton.",
+        },
     ],
+    message="What year was he born?",
 )
+
 print(response)
 ```
 </CodeBlocks>

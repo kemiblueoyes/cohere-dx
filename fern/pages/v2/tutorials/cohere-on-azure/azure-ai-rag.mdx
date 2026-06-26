@@ -38,18 +38,18 @@ To create a client, you need to provide the API key and the model's base URL for
 import cohere
 
 co_chat = cohere.ClientV2(
-    api_key="AZURE_API_KEY_CHAT",
-    base_url="AZURE_ENDPOINT_CHAT",  # example: "https://cohere-command-r-plus-08-2024-xyz.eastus.models.ai.azure.com/"
+    api_key="AZURE_CHAT_INFERENCE_CREDENTIAL",
+    base_url="AZURE_CHAT_ENDPOINT",  # example: "https://cohere-command-r-plus-08-2024-xyz.eastus.models.ai.azure.com/"
 )
 
 co_embed = cohere.ClientV2(
-    api_key="AZURE_API_KEY_EMBED",
-    base_url="AZURE_ENDPOINT_EMBED",  # example: "https://embed-v-4-0-xyz.eastus.models.ai.azure.com/"
+    api_key="AZURE_EMBED_INFERENCE_CREDENTIAL",
+    base_url="AZURE_EMBED_ENDPOINT",  # example: "https://embed-v-4-0-xyz.eastus.models.ai.azure.com/"
 )
 
 co_rerank = cohere.ClientV2(
-    api_key="AZURE_API_KEY_RERANK",
-    base_url="AZURE_ENDPOINT_RERANK",  # example: "https://cohere-rerank-v3-multilingual-xyz.eastus.models.ai.azure.com/"
+    api_key="AZURE_RERANK_INFERENCE_CREDENTIAL",
+    base_url="AZURE_RERANK_ENDPOINT",  # example: "https://cohere-rerank-v3-multilingual-xyz.eastus.models.ai.azure.com/"
 )
 ```
 
