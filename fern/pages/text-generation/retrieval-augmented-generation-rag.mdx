@@ -16,7 +16,7 @@ The code example below produces a grounded answer to `"Where do the tallest peng
 ```python Python
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 co.chat(
     model="command-a-03-2025",
@@ -89,7 +89,7 @@ Calling the [Chat API](/reference/chat) with the `search_queries_only` parameter
 ```python Python
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 co.chat(
     model="command-a-03-2025",
@@ -181,7 +181,7 @@ In the final step, we will be calling the Chat API again, but this time passing 
 
 ```
 import cohere
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 co.chat(
   model="command-a-03-2025",
@@ -235,7 +235,7 @@ As an alternative to manually implementing the 3 step workflow, the Chat API off
 ```python Python
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 co.chat(
     model="command-a-03-2025",

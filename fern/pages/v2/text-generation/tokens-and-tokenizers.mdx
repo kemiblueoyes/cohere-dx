@@ -42,7 +42,7 @@ Cohere Tokenizers are publicly hosted and can be used locally to avoid network c
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 co.tokenize(
     text="caterpillar", model="command-a-plus-05-2026"
@@ -60,7 +60,7 @@ If you are doing development work before going to production with your applicati
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 co.tokenize(
     text="caterpillar", model="command-a-plus-05-2026", offline=False

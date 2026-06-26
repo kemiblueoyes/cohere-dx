@@ -103,6 +103,22 @@ Code example language selection depends on what the reader needs to do with the 
 - Use cURL alone when deliberately showing API shape
 - Use all supported SDKs in auto-generated references or when code is meant to be copied and run, such as in quickstarts, install, and authentication pages.
 
+### Code credentials
+
+For API keys, tokens, credentials, base urls, and so forth, placeholders should be in `ALL_CAPS_WITH_UNDERSCORES` such as:
+
+- co = cohere.Client("`COHERE_API_KEY`")
+- token: "`AZURE_INFERENCE_CREDENTIAL`"
+- base_url="`AZURE_MODEL_ENDPOINT`"
+- aws_region="`AWS_REGION`"
+- aws_access_key="`AWS_ACCESS_KEY_ID`"
+- aws_secret_key="`AWS_SECRET_ACCESS_KEY`"
+- aws_session_token="`AWS_SESSION_TOKEN`"
+
+Make sure to use the eact same labeling for the exact same placeholder throughout docs. Exceptions:
+
+- In tutorials and guides that use specific models or endpoints, such as /docs/cohere-on-azure/azure-ai-sem-search: api_key="`AZURE_EMBED_INFERENCE_CREDENTIAL`" and  base_url="`AZURE_EMBED_ENDPOINT`". Event then, be consistent in using the same alternative labeling throughout docs.
+
 ## Tables
 
 For tables with 20 rows or less, use default table markdown.

@@ -73,7 +73,7 @@ Here's a code snippet for putting the models in strict safety mode:
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 response = co.chat(
     model="command-a-03-2025",
@@ -102,7 +102,7 @@ Here's a code snippet for putting the models in contextual safety mode:
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 response = co.chat(
     model="command-a-03-2025",
@@ -123,7 +123,7 @@ And, for the sake of completeness, users of models released prior to Command R7B
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 response = co.chat(
     model="command-r-08-2024",

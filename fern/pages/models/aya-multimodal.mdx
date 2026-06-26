@@ -39,7 +39,7 @@ def generate_text(image_path, message):
 
     model = "c4ai-aya-vision-32b"
 
-    co = cohere.ClientV2("<YOUR_API_KEY>")
+    co = cohere.ClientV2("<COHERE_API_KEY>")
 
     with open(image_path, "rb") as img_file:
         base64_image_url = f"data:image/jpeg;base64,{base64.b64encode(img_file.read()).decode('utf-8')}"

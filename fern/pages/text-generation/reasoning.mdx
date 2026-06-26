@@ -25,7 +25,7 @@ Models with Reasoning capabilities are accessible via the Chat API. Here's an ex
 ```python PYTHON 
 from cohere import ClientV2
 
-co = ClientV2(api_key="<YOUR_API_KEY>")
+co = ClientV2(api_key="<COHERE_API_KEY>")
 
 prompt = """
 Alice has 3 brothers and she also has 2 sisters. How many sisters does Alice's brother have?
@@ -51,7 +51,7 @@ for content in response.message.content:
 ```python PYTHON (Streaming) 
 from cohere import ClientV2
 
-co = ClientV2(api_key="<YOUR_API_KEY>")        
+co = ClientV2(api_key="<COHERE_API_KEY>")        
 
 
 prompt = """

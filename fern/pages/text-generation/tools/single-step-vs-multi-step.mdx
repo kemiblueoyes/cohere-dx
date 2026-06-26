@@ -33,7 +33,7 @@ Observe that, for each tool, the developer describes the tool name, description,
 ```python PYTHON
 import cohere
 
-co = cohere.Client(api_key="<YOUR API KEY>")
+co = cohere.Client(api_key="COHERE_API_KEY")
 
 # tool descriptions that the model has access to
 tools = [
@@ -227,7 +227,7 @@ Here, we'll walk through a couple of different ways of using multi-step tool use
 curl --location 'https://api.cohere.ai/v1/chat' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Authorization: Bearer <COHERE_API_KEY>' \
 --data '{
     "model": "command-a-03-2025",
     "enable_multi_step": true,
@@ -314,7 +314,7 @@ In this next request, we'll send the model the tool result and the reasoning mes
 curl --location 'https://api.cohere.ai/v1/chat' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Authorization: Bearer <COHERE_API_KEY>' \
 --data '{
     "model": "command-a-03-2025",
     "enable_multi_step": true,
@@ -461,7 +461,7 @@ In this final request, the tool results for `get_weather` are passed to the mode
 curl --location 'https://api.cohere.ai/v1/chat' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer <YOUR_API_KEY>' \
+--header 'Authorization: Bearer <COHERE_API_KEY>' \
 --data '{
     "model": "command-a-03-2025",
     "enable_multi_step": true,

@@ -19,7 +19,7 @@ Every message comes with a `content` field and an associated `role`, which indic
 ```python PYTHON
 import cohere
 
-co = cohere.ClientV2(api_key="<YOUR API KEY>")
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 res = co.chat(
     model="command-a-plus-05-2026",
@@ -44,7 +44,7 @@ import java.util.List;
 
 public class Default {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().token("<<apiKey>>").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
 
         ChatResponse response =
                 cohere.v2()
@@ -70,7 +70,7 @@ public class Default {
 const { CohereClientV2 } = require('cohere-ai');
 
 const cohere = new CohereClientV2({
-  token: '<<apiKey>>',
+  token: 'COHERE_API_KEY',
 });
 
 (async () => {
@@ -155,7 +155,7 @@ It is recommended to send the system message as the first element in the message
 ```python PYTHON
 import cohere
 
-co = cohere.ClientV2(api_key="<YOUR API KEY>")
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 system_message = "You respond concisely, in about 5 words or less"
 
@@ -203,7 +203,7 @@ A single Chat request can encapsulate multiple turns of a conversation, where ea
 ```python PYTHON
 import cohere
 
-co = cohere.ClientV2(api_key="<YOUR API KEY>")
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 system_message = "You respond concisely, in about 5 words or less"
 
