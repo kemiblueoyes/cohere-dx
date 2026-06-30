@@ -18,6 +18,13 @@ Do not use a concept page to provide a full task walkthrough, get the reader to 
 **Primary reader question:**  
 “I don’t understand this thing. What is it, why does it exist, how does it work, and when would I use it?”
 
+**Planning checklist**
+
+- What is the primary reader question?
+- What problem or confusion does this concept resolve?
+- What mental model should the reader leave with?
+- What related concepts or guides should this page connect to?
+
 **Required sections:**
 
 1. Short explanation  

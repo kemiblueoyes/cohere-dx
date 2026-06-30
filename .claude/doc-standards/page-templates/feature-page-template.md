@@ -18,6 +18,13 @@ Do not use a feature page to orient readers to a broad product area, teach a ful
 **Primary reader question:**  
 “I heard about this thing. What does it do, and when should I use it?”
 
+**Planning checklist**
+
+- What capability is being introduced?
+- What user problem does it solve?
+- When should the reader use it?
+- When should they use something else instead?
+
 **Required sections:**
 
 1. Short capability summary  

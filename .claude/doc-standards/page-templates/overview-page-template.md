@@ -27,6 +27,12 @@ Do not use an overview page to provide a full implementation walkthrough, explai
 **Primary reader question:**  
 “I’m here, but I need to understand what this area contains, what my options are, and where I should go next.”
 
+**Planning checklist**
+
+- What area of the product is being introduced?
+- What options or capabilities does it contain?
+- Where should different audiences go next?
+
 **Required sections:**
 
 1. Short orientation  

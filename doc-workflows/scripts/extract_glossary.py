@@ -28,8 +28,20 @@ Outputs:
   glossary_vocabulary.json instead.
 
 Usage:
+    # Dry run: scan the docs and (re)write the candidates report only. Use
+    # this first, after editing glossary_vocabulary.json or the docs corpus,
+    # to review new/missing terms before touching the published glossary.
     python3 doc-workflows/scripts/extract_glossary.py
+
+    # Publish: same scan, but also regenerate the Definitions section of
+    # fern/pages/resources/glossary.mdx. Use this once you're happy with the
+    # candidates report and want the glossary page updated.
     python3 doc-workflows/scripts/extract_glossary.py --write-glossary
+
+    # Custom paths/excludes: override any default location, or change which
+    # subdirectories are skipped. Use this for one-off runs against a
+    # different checkout layout, a subset of pages, or an adjusted exclude
+    # list (the values shown here are the script's defaults).
     python3 doc-workflows/scripts/extract_glossary.py \\
         --pages fern/pages \\
         --vocab doc-workflows/scripts/glossary_vocabulary.json \\

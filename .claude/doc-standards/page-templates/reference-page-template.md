@@ -16,6 +16,12 @@ Do not use a reference page to introduce a broad product area, explain a concept
 **Primary reader question:**  
 “I know what I’m doing. What is the exact fact, value, parameter, limit, status, or supported behavior?”
 
+**Planning checklist**
+
+- What information is the reader looking up?
+- What factual information must be complete and accurate?
+- What related guides or concepts should be linked?
+
 **Required sections:**
 
 1. Short scope statement  

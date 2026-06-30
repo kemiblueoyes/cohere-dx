@@ -17,6 +17,12 @@ Do not use a tutorial for a first quick success, a short task, a conceptual expl
 **Primary reader question:**  
 “Can you walk me through building something so I understand how this works?”
 
+**Planning checklist**
+
+- What will the reader build?
+- What skills will they learn?
+- What is the finished outcome?
+
 **Required sections:**
 
 1. Tutorial outcome  

@@ -18,6 +18,13 @@ Do not use a guide to provide only a first successful API call, explain a concep
 **Primary reader question:**  
 “I understand the area. How do I do this correctly?”
 
+**Planning checklist**
+
+- What task is the reader trying to accomplish?
+- What prerequisites are required?
+- What is the expected outcome?
+- What is the recommended workflow?
+
 **Required sections:**
 
 1. Short task summary  

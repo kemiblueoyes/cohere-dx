@@ -94,7 +94,7 @@ Default to no callout; let prose carry the emphasis. Decorative callouts get pur
 
 ## Code blocks
 
-Code block tab labels use title case, not all caps: Python, JavaScript, cURL, Go. Not PYTHON, JAVASCRIPT, CURL, GO.
+Code block tab labels use title case: Python, JavaScript, cURL, Go. Not all caps: PYTHON, JAVASCRIPT, CURL, GO.
 
 Code example language selection depends on what the reader needs to do with the example, not which languages are technically supported:
 

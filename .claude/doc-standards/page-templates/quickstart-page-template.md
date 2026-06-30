@@ -15,6 +15,12 @@ Do not use a quickstart to explain a concept in depth, compare options, teach a 
 **Primary reader question:**  
 “How do I get this working right now?”
 
+**Planning checklist**
+
+- What is the quickest successful outcome?
+- What is the minimum setup?
+- What should the reader have working by the end?
+
 **Required sections:**
 
 1. Short outcome statement  
