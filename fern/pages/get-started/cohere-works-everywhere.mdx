@@ -567,7 +567,7 @@ import java.util.List;
 
 public class ChatPost {
     public static void main(String[] args) {
-        Cohere cohere = Cohere.builder().environment(Environment.custom("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1")).token("AZURE_TOKEN").clientName("snippet").build();
+        Cohere cohere = Cohere.builder().environment(Environment.custom("https://Cohere-command-r-plus-phulf-serverless.eastus2.inference.ai.azure.com/v1")).token("AZURE_INFERENCE_CREDENTIAL").clientName("snippet").build();
 
         NonStreamedChatResponse response = cohere.chat(
             ChatRequest.builder()
