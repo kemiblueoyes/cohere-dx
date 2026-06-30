@@ -1,8 +1,0 @@
-const { BedrockClient } = require('cohere-ai');
-
-const cohere = new BedrockClient({
-  awsRegion: "us-east-1",
-  awsAccessKey: "...",
-  awsSecretKey: "...",
-  awsSessionToken: "...",
-});
