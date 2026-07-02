@@ -44,18 +44,18 @@ Do not use a tutorial for a first quick success, a short task, a conceptual expl
 
 **Optional sections:**
 
-* Architecture or workflow diagram  
-* Sample dataset  
-* Full final code  
-* Intermediate checkpoints  
-* Expected output after each major step  
-* Troubleshooting  
-* Variations or extensions  
-* Cleanup steps  
-* Production considerations  
-* Related guides  
-* Related concepts  
-* API reference links
+- Architecture or workflow diagram  
+- Sample dataset  
+- Full final code  
+- Intermediate checkpoints  
+- Expected output after each major step  
+- Troubleshooting  
+- Variations or extensions  
+- Cleanup steps  
+- Production considerations  
+- Related guides  
+- Related concepts  
+- API reference links
 
 **Content pattern:**  
 Teach by building.
@@ -80,12 +80,12 @@ Code is usually required for developer-facing tutorials. The code should build p
 
 Use code examples that are:
 
-* Sequential  
-* Runnable or easy to adapt  
-* Explained in context  
-* Connected to the scenario  
-* Supported by expected output  
-* Consolidated at the end when useful
+- Sequential  
+- Runnable or easy to adapt  
+- Explained in context  
+- Connected to the scenario  
+- Supported by expected output  
+- Consolidated at the end when useful
 
 Tables are optional. Use tables for sample data, tool definitions, configuration values, or comparison points that support the tutorial. Do not use large lookup tables or exhaustive parameter tables; those belong in Reference pages.
 
@@ -94,32 +94,32 @@ Next steps are required. They should help the reader continue after completing t
 
 For example:
 
-* To understand the underlying concept, read \[concept\].  
-* To implement this pattern in your application, follow \[guide\].  
-* To try a shorter first-success path, use \[quickstart\].  
-* To look up parameters, limits, or supported values, use \[reference\].  
-* To extend this example, follow \[related tutorial or advanced guide\].
+- To understand the underlying concept, read \[concept\].  
+- To implement this pattern in your application, follow \[guide\].  
+- To try a shorter first-success path, use \[quickstart\].  
+- To look up parameters, limits, or supported values, use \[reference\].  
+- To extend this example, follow \[related tutorial or advanced guide\].
 
 Adapt the links to the tutorial. Do not include a long generic list of related pages.
 
 **Common mistakes:**
 
-* Writing a tutorial as a loose collection of examples.  
-* Skipping the scenario or finished outcome.  
-* Assuming the reader knows why each step matters.  
-* Providing code without explaining what changed or why.  
-* Ending without showing the complete result.  
-* Turning the tutorial into a quickstart by making it too shallow.  
-* Turning the tutorial into a guide by focusing only on task completion.  
-* Turning the tutorial into reference by listing parameters or options.  
-* Omitting prerequisites, setup, or expected output.  
-* Adding production complexity before the reader understands the basic workflow.
+- Writing a tutorial as a loose collection of examples.  
+- Skipping the scenario or finished outcome.  
+- Assuming the reader knows why each step matters.  
+- Providing code without explaining what changed or why.  
+- Ending without showing the complete result.  
+- Turning the tutorial into a quickstart by making it too shallow.  
+- Turning the tutorial into a guide by focusing only on task completion.  
+- Turning the tutorial into reference by listing parameters or options.  
+- Omitting prerequisites, setup, or expected output.  
+- Adding production complexity before the reader understands the basic workflow.
 
 **Example pages:**
 
-* Routing Queries to Data Sources  
-* Generate Parallel Queries for Better RAG Retrieval  
-* Performing Tasks Sequentially with Cohere’s RAG  
-* Generating Multi-Faceted Queries  
-* Querying Structured Data (Tables)
+- Routing Queries to Data Sources  
+- Generate Parallel Queries for Better RAG Retrieval  
+- Performing Tasks Sequentially with Cohere’s RAG  
+- Generating Multi-Faceted Queries  
+- Querying Structured Data (Tables)
 

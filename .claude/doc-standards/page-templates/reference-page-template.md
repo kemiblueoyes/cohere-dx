@@ -37,20 +37,20 @@ Do not use a reference page to introduce a broad product area, explain a concept
 
 **Optional sections:**
 
-* Endpoint summary  
-* Request schema  
-* Response schema  
-* Parameter table  
-* Supported values  
-* Model support table  
-* Platform or deployment support matrix  
-* Limits and quotas  
-* Error codes  
-* Deprecation or migration notes  
-* Version history  
-* Examples  
-* FAQ  
-* Changelog-style entries
+- Endpoint summary  
+- Request schema  
+- Response schema  
+- Parameter table  
+- Supported values  
+- Model support table  
+- Platform or deployment support matrix  
+- Limits and quotas  
+- Error codes  
+- Deprecation or migration notes  
+- Version history  
+- Examples  
+- FAQ  
+- Changelog-style entries
 
 **Content pattern:**  
 Optimize for lookup.
@@ -76,32 +76,32 @@ Related links are required, but they should be brief. Reference pages do not nee
 
 Use links such as:
 
-* To implement this, follow \[guide\].  
-* To try this quickly, start with \[quickstart\].  
-* To understand the underlying concept, read \[concept\].  
-* To migrate from a deprecated option, follow \[migration guide\].  
-* To use this endpoint, see \[API reference\].
+- To implement this, follow \[guide\].  
+- To try this quickly, start with \[quickstart\].  
+- To understand the underlying concept, read \[concept\].  
+- To migrate from a deprecated option, follow \[migration guide\].  
+- To use this endpoint, see \[API reference\].
 
 Adapt the links to the page. Do not include unrelated resources.
 
 **Common mistakes:**
 
-* Explaining too much before giving the lookup information.  
-* Hiding exact values inside paragraphs.  
-* Mixing conceptual explanation with reference material.  
-* Turning the page into a guide or tutorial.  
-* Omitting defaults, constraints, supported values, or version notes.  
-* Including examples that are too long or not tied to the reference content.  
-* Using prose when a table, schema, or list would be easier to scan.  
-* Failing to explain deprecated, legacy, or removed behavior clearly.  
-* Linking to broad docs instead of the most relevant implementation or migration page.
+- Explaining too much before giving the lookup information.  
+- Hiding exact values inside paragraphs.  
+- Mixing conceptual explanation with reference material.  
+- Turning the page into a guide or tutorial.  
+- Omitting defaults, constraints, supported values, or version notes.  
+- Including examples that are too long or not tied to the reference content.  
+- Using prose when a table, schema, or list would be easier to scan.  
+- Failing to explain deprecated, legacy, or removed behavior clearly.  
+- Linking to broad docs instead of the most relevant implementation or migration page.
 
 **Example pages:**
 
-* Cohere’s Command R7B Model  
-* Cohere’s Embed Models (Details and Application)  
-* Parameter Types in Structured Outputs (JSON)  
-* Deprecations  
-* Cohere Labs Acceptable Use Policy  
-* 
+- Cohere’s Command R7B Model  
+- Cohere’s Embed Models (Details and Application)  
+- Parameter Types in Structured Outputs (JSON)  
+- Deprecations  
+- Cohere Labs Acceptable Use Policy  
+- 
 

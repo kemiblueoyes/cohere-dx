@@ -40,19 +40,19 @@ Do not use a feature page to orient readers to a broad product area, teach a ful
 
 **Optional sections:**
 
-* Before you start  
-* Feature availability  
-* Supported models, platforms, or deployment options  
-* Configuration options  
-* Use case examples  
-* Comparison with related features  
-* Limits or constraints  
-* Pricing or billing notes  
-* Security, compliance, or governance considerations  
-* Short API example  
-* Dashboard or UI workflow  
-* Related guides  
-* API reference links
+- Before you start  
+- Feature availability  
+- Supported models, platforms, or deployment options  
+- Configuration options  
+- Use case examples  
+- Comparison with related features  
+- Limits or constraints  
+- Pricing or billing notes  
+- Security, compliance, or governance considerations  
+- Short API example  
+- Dashboard or UI workflow  
+- Related guides  
+- API reference links
 
 **Content pattern:**  
 Move from capability to fit to action.
@@ -78,29 +78,29 @@ Recommended next steps are required. These should help readers move from “Is t
 
 For example:
 
-* To try the feature quickly, start with \[quickstart\].  
-* To configure or implement the feature, follow \[guide\].  
-* To understand the underlying concept, read \[concept\].  
-* To check supported fields, parameters, limits, or methods, use \[reference\].  
-* To compare this feature with related options, read \[overview or decision guide\].
+- To try the feature quickly, start with \[quickstart\].  
+- To configure or implement the feature, follow \[guide\].  
+- To understand the underlying concept, read \[concept\].  
+- To check supported fields, parameters, limits, or methods, use \[reference\].  
+- To compare this feature with related options, read \[overview or decision guide\].
 
 Adapt the links to the page. Do not include all categories unless they are relevant.
 
 **Common mistakes:**
 
-* Writing the page like a broad Overview instead of focusing on one capability.  
-* Explaining benefits without explaining when to use the feature.  
-* Jumping into setup steps before establishing what the feature does.  
-* Turning the page into a full Guide or Tutorial.  
-* Adding too much conceptual explanation.  
-* Hiding limits, availability, or support boundaries.  
-* Including large code samples that belong in implementation docs.  
-* Listing links without explaining what each next step is for.  
-* Treating feature pages as marketing pages rather than developer decision-support pages.
+- Writing the page like a broad Overview instead of focusing on one capability.  
+- Explaining benefits without explaining when to use the feature.  
+- Jumping into setup steps before establishing what the feature does.  
+- Turning the page into a full Guide or Tutorial.  
+- Adding too much conceptual explanation.  
+- Hiding limits, availability, or support boundaries.  
+- Including large code samples that belong in implementation docs.  
+- Listing links without explaining what each next step is for.  
+- Treating feature pages as marketing pages rather than developer decision-support pages.
 
 **Example pages:**
 
-* An Overview of the Developer Playground  
-* How to Start with the Cohere Toolkit  
-* Model Vault
+- An Overview of the Developer Playground  
+- How to Start with the Cohere Toolkit  
+- Model Vault
 

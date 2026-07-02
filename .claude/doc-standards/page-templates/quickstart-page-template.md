@@ -36,16 +36,15 @@ Do not use a quickstart to explain a concept in depth, compare options, teach a 
 
 **Optional sections:**
 
-* Before you start  
-* API key or authentication note  
-* Sample input  
-* Documents or test data  
-* Environment variable setup  
-* Response explanation  
-* Streaming example  
-* Error or troubleshooting note  
-* SDK-specific tabs  
-* Next step for production use
+- Before you start  
+- API key or authentication note  
+- Sample input  
+- Documents or test data  
+- Environment variable setup  
+- Response explanation  
+- Streaming example  
+- Error or troubleshooting note  
+- Next step for production use
 
 **Content pattern:**  
 Move quickly from setup to working code to visible output.
@@ -59,18 +58,24 @@ Recommended pattern:
 5. Inspect the response  
 6. Continue to deeper docs
 
+Use Fern’s <Steps> component for the main quickstart flow, starting with setup or prerequisites and ending with inspecting the response or confirming the result. The steps should contain the core runnable path, not every supporting explanation on the page.
+
 The quickstart should prioritize momentum. Explain only what the reader needs to understand to run the example successfully.
 
 **Code/table guidance:**  
 Code is required. A quickstart should include a complete, runnable example or a short sequence of code blocks that build toward one working result.
 
+Use Python as the default SDK language for Quickstart examples. Do not include examples for every supported SDK in a Quickstart. If another language is necessary, include it only when the page is specifically for that SDK, deployment path, or audience.
+
+Use **Cohere Platform** as the default deployment path for Quickstart examples. Do not include code samples for every supported deployment option in a Quickstart. If a deployment-specific example is needed, link to the relevant deployment guide or create a separate deployment-specific quickstart.
+
 Use code examples that are:
 
-* Short  
-* Copy-pasteable  
-* Annotated only where needed  
-* Focused on one primary success path  
-* Free of production-only complexity unless required to make the example work
+- Short  
+- Copy-pasteable  
+- Annotated only where needed  
+- Focused on one primary success path  
+- Free of production-only complexity unless required to make the example work
 
 Avoid large tables. Use tables only for very small setup requirements or environment variables. Put detailed parameter tables, compatibility matrices, limits, and model support information in Reference pages.
 
@@ -79,31 +84,30 @@ Further resources are required. Keep this section short and action-oriented.
 
 Include links based on what the reader is likely to need after the first successful run, such as:
 
-* A Guide for the recommended implementation pattern  
-* A Concept page for the underlying mental model  
-* API Reference for parameters and response fields  
-* Related quickstarts for adjacent capabilities  
-* Production or deployment guidance, if the quickstart is intentionally minimal
+- A Guide for the recommended implementation pattern  
+- A Concept page for the underlying mental model  
+- API Reference for parameters and response fields  
+- Related quickstarts for adjacent capabilities  
+- Production or deployment guidance, if the quickstart is intentionally minimal
 
 Do not include a long generic list of related links. Each link should help the reader take a clear next step.
 
 **Common mistakes:**
 
-* Starting with too much conceptual explanation.  
-* Making the reader choose between too many options before they can run anything.  
-* Hiding setup requirements or prerequisites.  
-* Providing code that is incomplete or not copy-pasteable.  
-* Omitting the expected response or output.  
-* Turning the quickstart into a full guide or tutorial.  
-* Including production architecture, edge cases, or optimization details too early.  
-* Linking to many resources without explaining what to do next.  
-* Assuming the reader already knows which model, endpoint, or SDK setup to use.
+- Starting with too much conceptual explanation.  
+- Making the reader choose between too many options before they can run anything.  
+- Hiding setup requirements or prerequisites.  
+- Providing code that is incomplete or not copy-pasteable.  
+- Omitting the expected response or output.  
+- Turning the quickstart into a full guide or tutorial.  
+- Including production architecture, edge cases, or optimization details too early.  
+- Linking to many resources without explaining what to do next.  
+- Assuming the reader already knows which model, endpoint, or SDK setup to use.
+- Using regular headings or ordered lists for the main quickstart flow instead of Fern’s `<Steps>` component.
+- Including examples for every supported SDK instead of keeping the Quickstart focused on one primary language.
+- Including code samples for every supported deployment option instead of keeping the Quickstart focused on Cohere Platform.
 
 **Example pages:**
 
-* Retrieval augmented generation (RAG) \- quickstart  
-* Reranking \- quickstart  
-* Semantic search \- quickstart  
-* Text generation \- quickstart  
-* Tool use & agents \- quickstart
+- RAG quickstart
 

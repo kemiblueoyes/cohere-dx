@@ -40,17 +40,17 @@ Do not use a concept page to provide a full task walkthrough, get the reader to 
 
 **Optional sections:**
 
-* Key terminology  
-* Example scenario  
-* Architecture diagram  
-* Workflow diagram  
-* Comparison with related concepts  
-* Tradeoffs  
-* Limitations  
-* Common misconceptions  
-* Interaction with other Cohere features  
-* Security, compliance, or operational considerations  
-* Short code proof, if useful
+- Key terminology  
+- Example scenario  
+- Architecture diagram  
+- Workflow diagram  
+- Comparison with related concepts  
+- Tradeoffs  
+- Limitations  
+- Common misconceptions  
+- Interaction with other Cohere features  
+- Security, compliance, or operational considerations  
+- Short code proof, if useful
 
 **Content pattern:**  
 Move from explanation to application.
@@ -77,28 +77,28 @@ End with links that help the reader apply the concept.
 
 For example:
 
-* To try this in code, start with \[quickstart\].  
-* To implement this in an application, follow \[guide\].  
-* To understand a related idea, read \[related concept\].  
-* To look up exact fields, limits, or parameters, use \[reference\].
+- To try this in code, start with \[quickstart\].  
+- To implement this in an application, follow \[guide\].  
+- To understand a related idea, read \[related concept\].  
+- To look up exact fields, limits, or parameters, use \[reference\].
 
 Adapt the links to the page. Do not include all categories unless they are relevant.
 
 **Common mistakes:**
 
-* Starting with implementation steps before explaining the idea.  
-* Treating the concept page like a guide.  
-* Defining the term but not explaining why it matters.  
-* Explaining how something works without saying when to use it.  
-* Adding too much code.  
-* Adding reference-level parameter detail.  
-* Assuming the reader already understands related terminology.  
-* Omitting tradeoffs or boundaries.  
-* Ending without a path to implementation or deeper reference.
+- Starting with implementation steps before explaining the idea.  
+- Treating the concept page like a guide.  
+- Defining the term but not explaining why it matters.  
+- Explaining how something works without saying when to use it.  
+- Adding too much code.  
+- Adding reference-level parameter detail.  
+- Assuming the reader already understands related terminology.  
+- Omitting tradeoffs or boundaries.  
+- Ending without a path to implementation or deeper reference.
 
 **Example pages:**
 
-* Advanced Generation Parameters  
-* A Guide to Tokens and Tokenizers  
-* Understanding Retrieval Augmented Generation (RAG) \[new page\]
+- Advanced Generation Parameters  
+- A Guide to Tokens and Tokenizers  
+- Understanding Retrieval Augmented Generation (RAG) \[new page\]
 

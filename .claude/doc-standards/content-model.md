@@ -147,7 +147,7 @@ Don't use cards when:
 
 ## Steps
 
-Use the fern's `<Steps>` component for short, linear success paths where the reader's only goal is task completion, such as in quickstarts.
+Use the fern's `<Steps>` component for short, linear success paths where the reader's only goal is task completion, such as in quickstarts (where they're always required).
 
 Use numbered headings for longer guides where steps are part of a broader explanation, the page needs a ToC, or readers are likely to scan and jump rather than follow sequentially.
 
