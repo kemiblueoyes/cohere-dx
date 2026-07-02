@@ -94,7 +94,7 @@ Default to no callout; let prose carry the emphasis. Decorative callouts get pur
 
 ## Code blocks
 
-Code block tab labels use title case, not all caps: Python, JavaScript, cURL, Go. Not PYTHON, JAVASCRIPT, CURL, GO.
+Code block tab labels use title case: Python, JavaScript, cURL, Go. Not all caps: PYTHON, JAVASCRIPT, CURL, GO.
 
 Code example language selection depends on what the reader needs to do with the example, not which languages are technically supported:
 
@@ -147,7 +147,7 @@ Don't use cards when:
 
 ## Steps
 
-Use the fern's `<Steps>` component for short, linear success paths where the reader's only goal is task completion, such as in quickstarts.
+Use the fern's `<Steps>` component for short, linear success paths where the reader's only goal is task completion, such as in quickstarts (where they're always required).
 
 Use numbered headings for longer guides where steps are part of a broader explanation, the page needs a ToC, or readers are likely to scan and jump rather than follow sequentially.
 

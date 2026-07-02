@@ -9,28 +9,29 @@ Cohere product and ML/AI terms with dev-facing definitions. Curated definitions 
 | Term | Definition | Source | Occurrences |
 |------|------------|--------|-------------|
 | Aya | Cohere's family of open-weights multilingual models, developed with Cohere Labs, covering a broad range of languages. | fern/pages/models/aya-expanse.mdx | 55 |
-| Chunking | Splitting long documents into smaller passages so they fit a model's context window and can be retrieved or embedded individually. | fern/pages/text-embeddings/reranking/reranking-best-practices.mdx | 13 |
-| Citations | References a model returns that link specific parts of its response back to the source documents that support them. | fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx | 151 |
-| Classify | Cohere's endpoint that assigns labels to text using a small number of examples or a fine-tuned model. | fern/pages/cohere-api/errors.mdx | 31 |
-| Command | Cohere's family of large language models for text generation, optimized for instruction following, RAG, and tool use through the Chat endpoint. | fern/pages/cohere-api/errors.mdx | 362 |
-| Connector | An integration that lets the Chat endpoint retrieve documents from an external data source at query time to ground responses. | fern/pages/cohere-api/errors.mdx | 92 |
-| Context window | The maximum number of tokens a model can consider at once, spanning both the input and the generated output. | fern/pages/integrations/cohere-and-langchain/chat-on-langchain.mdx | 14 |
-| Embed | Cohere's endpoint and model family that turns text or images into numerical embeddings for semantic search, classification, and clustering. | fern/pages/deployment-options/cohere-on-aws/amazon-bedrock.mdx | 244 |
-| Embeddings | Numerical vector representations of text or images that capture semantic meaning, enabling similarity comparison, search, and clustering. | fern/pages/deployment-options/cohere-on-aws/amazon-bedrock.mdx | 192 |
+| Chunking | Splitting long documents into smaller passages so they fit a model's context window and can be retrieved or embedded individually. | fern/pages/cohere-api/errors.mdx | 13 |
+| Citations | References a model returns that link specific parts of its response back to the source documents that support them. | fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx | 152 |
+| Classify | Cohere's endpoint that assigns labels to text using a small number of examples or a fine-tuned model. | fern/pages/cohere-api/errors.mdx | 26 |
+| Command | Cohere's family of large language models for text generation, optimized for instruction following, RAG, and tool use through the Chat endpoint. | fern/pages/cohere-api/errors.mdx | 363 |
+| Context window | The maximum number of tokens a model can consider at once, spanning both the input and the generated output. | fern/pages/integrations/cohere-and-langchain/chat-on-langchain.mdx | 12 |
+| Embed | Cohere's endpoint and model family that turns text or images into numerical embeddings for semantic search, classification, and clustering. | fern/pages/deployment-options/cohere-on-microsoft-azure.mdx | 240 |
+| Embeddings | Numerical vector representations of text or images that capture semantic meaning, enabling similarity comparison, search, and clustering. | fern/pages/get-started/quickstart/sem-search-quickstart.mdx | 185 |
 | Fine-tuning | Adapting a base model to a specific task or domain by further training it on a set of labeled examples. | fern/pages/fine-tuning/chat-fine-tuning/chat-understanding-the-results.mdx | 185 |
 | Grounding | Constraining a model's response to supplied source documents so the output is supported by, and traceable to, that content. | fern/pages/text-generation/prompt-engineering/prompt-tuner.mdx | 14 |
 | Multi-step tool use | Tool use where the model plans and executes a sequence of tool calls across multiple turns to complete a task; the basis for agents. | fern/pages/integrations/cohere-and-langchain/tools-on-langchain.mdx | 45 |
 | North | Cohere's secure AI workspace platform for building and running agents and automations inside an organization. | fern/pages/models/north/north-mini-code-1.0.mdx | 8 |
-| Rerank | Cohere's endpoint that reorders a list of documents by semantic relevance to a query, used to improve search and RAG results. | fern/pages/cohere-api/errors.mdx | 222 |
-| Reranking | Reordering an initial set of retrieved documents by their relevance to a query, typically as a second stage after a first-pass retrieval. | fern/pages/get-started/quickstart/reranking-quickstart.mdx | 82 |
+| Rerank | Cohere's endpoint that reorders a list of documents by semantic relevance to a query, used to improve search and RAG results. | fern/pages/cohere-api/errors.mdx | 220 |
+| Reranking | Reordering an initial set of retrieved documents by their relevance to a query, typically as a second stage after a first-pass retrieval. | fern/pages/cohere-api/errors.mdx | 82 |
 | Retrieval-augmented generation | A technique where relevant documents are retrieved and supplied to a model so its response is grounded in that external information. | - | 20 |
 | Seed | A Chat API parameter that, when set to a fixed integer, makes generation reproducible so the same request returns the same tokens; useful for debugging and testing, though not guaranteed across model updates. | - | 5 |
-| Semantic search | Search that ranks results by meaning using embeddings, rather than by exact keyword matching. | fern/pages/get-started/quickstart/sem-search-quickstart.mdx | 115 |
-| Structured outputs | A feature that forces a model's response to conform to a specified schema, such as valid JSON or a defined object shape. | fern/pages/text-generation/structured-outputs.mdx | 52 |
-| Temperature | A sampling parameter that controls randomness in generation; lower values produce more deterministic output, higher values more varied output. | fern/pages/text-embeddings/semantic-search-embed.mdx | 24 |
+| Semantic search | Search that ranks results by meaning using embeddings, rather than by exact keyword matching. | fern/pages/get-started/quickstart/sem-search-quickstart.mdx | 111 |
+| Structured outputs | A feature that forces a model's response to conform to a specified schema, such as valid JSON or a defined object shape. | fern/pages/text-generation/structured-outputs.mdx | 53 |
+| Temperature | A sampling parameter that controls randomness in generation; lower values produce more deterministic output, higher values more varied output. | fern/pages/text-embeddings/semantic-search-embed.mdx | 25 |
 | Token | The basic unit of text a model processes; tokens are fragments of words used for both input and output and for measuring usage. | fern/pages/cohere-api/errors.mdx | 93 |
 | Tokenization | The process of splitting text into tokens, the units a model reads and generates. | fern/pages/text-generation/tokens-and-tokenizers.mdx | 10 |
-| Tool use | A capability that lets a model call external functions or APIs, receive their results, and incorporate them into its response. | fern/pages/get-started/frequently-asked-questions.mdx | 256 |
+| Tool use | A capability that lets a model call external functions or APIs, receive their results, and incorporate them into its response. | fern/pages/get-started/frequently-asked-questions.mdx | 258 |
+| Vector database | A database optimized for storing embeddings and retrieving them by similarity rather than exact match (for example, Pinecone, Weaviate); commonly used to index embeddings generated by Cohere's Embed endpoint to power semantic search and RAG. | fern/pages/v2/text-generation/tools/tool-use.mdx | 25 |
+| Vector search engine | A search system that ranks results by comparing vector embeddings for similarity instead of matching keywords (for example, Weaviate); typically built on a vector database and paired with Cohere's Embed endpoint to generate the embeddings and Rerank to refine the results. | - | 2 |
 | Zero-shot classification | Classifying text into labels without any task-specific training examples, relying on the model's general knowledge. | - | 0 |
 
 ## Glossary-ready output
@@ -45,7 +46,6 @@ Paste the block below into the glossary page after review.
 | Citations | References a model returns that link specific parts of its response back to the source documents that support them. |
 | Classify | Cohere's endpoint that assigns labels to text using a small number of examples or a fine-tuned model. |
 | Command | Cohere's family of large language models for text generation, optimized for instruction following, RAG, and tool use through the Chat endpoint. |
-| Connector | An integration that lets the Chat endpoint retrieve documents from an external data source at query time to ground responses. |
 | Context window | The maximum number of tokens a model can consider at once, spanning both the input and the generated output. |
 | Embed | Cohere's endpoint and model family that turns text or images into numerical embeddings for semantic search, classification, and clustering. |
 | Embeddings | Numerical vector representations of text or images that capture semantic meaning, enabling similarity comparison, search, and clustering. |
@@ -63,5 +63,7 @@ Paste the block below into the glossary page after review.
 | Token | The basic unit of text a model processes; tokens are fragments of words used for both input and output and for measuring usage. |
 | Tokenization | The process of splitting text into tokens, the units a model reads and generates. |
 | Tool use | A capability that lets a model call external functions or APIs, receive their results, and incorporate them into its response. |
+| Vector database | A database optimized for storing embeddings and retrieving them by similarity rather than exact match (for example, Pinecone, Weaviate); commonly used to index embeddings generated by Cohere's Embed endpoint to power semantic search and RAG. |
+| Vector search engine | A search system that ranks results by comparing vector embeddings for similarity instead of matching keywords (for example, Weaviate); typically built on a vector database and paired with Cohere's Embed endpoint to generate the embeddings and Rerank to refine the results. |
 | Zero-shot classification | Classifying text into labels without any task-specific training examples, relying on the model's general knowledge. |
 </SearchableTable>

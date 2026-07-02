@@ -1,0 +1,51 @@
+---
+name: author-docs
+description: Create a brand-new Cohere documentation page in fern/pages that doesn't exist yet — a new MDX page for a concept, guide, quickstart, reference, tutorial, overview, or feature. Applies the page-type templates, content-model.md, writing-style-guide.md, and fern-platform-rules.md from .claude/doc-standards while drafting. Use whenever the user wants to write a new page, draft a page from an outline, or add documentation for a feature, endpoint, or capability that isn't documented yet. Do NOT use for editing, rewriting, or refreshing an existing published page — that's update-docs. Do NOT use for auditing or reviewing existing content against standards without changing it — that's review-docs.
+---
+
+# Author Docs
+
+## Purpose
+
+The value for this SKILL isn't just AI generating docs. It's standardizing how documentation gets written.
+
+"How do we write documentation here?" not "Write documentation for me."
+
+## Workflow
+
+### 1. Write an outline for the new page, based on:
+- Suggested template: confirm the user-suggested template from `.claude/doc-standards/page-templates` is appropriate for the content, or recommend a better fit.
+- Review the selected page template's **Planning questions** to validate the page's purpose, audience, and scope before drafting the outline. If the proposed content doesn't align with the template, recommend a more appropriate page type.
+- Frontmatter: draft title (30-60 chars), description (≤160 chars), keywords, and audience per .claude/doc-standards/content-model.md, since these constrain page scope.
+- Content sources: Cohere context, specific pages published in fern/pages, or provided files. Check related/existing pages to avoid duplicating or contradicting published content.
+- Draft a section-by-section outline based on the selected page template.
+- Pause here and present the outline to the user for approval before drafting.
+
+### 2. Based on the approved outline, create a draft:
+- Aligns with the specified page template's structure and section order.
+- Implements `.claude/doc-standards/content-model.md` and `.claude/doc-standards/fern-platform-rules.md` (frontmatter, headings, callouts, code block components, tables, cards/steps).
+- Written using .claude/doc-standards/writing-style-guide.md (tone, voice, terminology).
+- Pause here and present the draft to the user for approval before the final pass.
+
+### 3. Based on the approved draft, create the final draft:
+- Polish pass against `.claude/doc-standards/writing-style-guide.md` (AI-writing fingerprints, active voice, simplicity).
+- Code format check against `.claude/doc-standards/content-model.md` and `.claude/doc-standards/fern-platform-rules.md` (credential placeholders, tab labels, CodeBlocks vs. Tabs usage).
+- Confirm page template structure is still intact after edits.
+- Present the final draft to the user for approval.
+
+### 4. Suggest linked pages:
+- Suggest related pages in fern/pages that should link to this new page if needed (ignore all hidden: true pages referenced in `fern/v1.yml`, `fern/v2.yml`, and page frontmatter; ignore `fern/pages/-ARCHIVE-`).
+- Suggest related API endpoint description copy in cohere-openapi.yaml that shold link to this new page, if needed.
+
+## Example
+
+**Input:** "Write a quickstart for Aya Vision. Here's the existing page: https://docs.cohere.com/docs/aya-vision"
+
+**Output (outline stage):**
+- Confirmed template: Quickstart (not Feature — that's what the existing page already is).
+- Flagged overlap: the existing Aya Vision page is a Feature page with an embedded code sample. The new Quickstart does not repeat the model table or capability description; it links back to the Feature page for that and focuses only on getting a working call.
+- Drafted frontmatter, scoped to the Developer audience.
+- Section outline following the Quickstart template's five required sections.
+- Paused for approval before drafting.
+
+See `.claude/doc-standards/author-docs-examples.md` for the full worked outline, including how the content-source check scopes a new page against overlapping existing content.

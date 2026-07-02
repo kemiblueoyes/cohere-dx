@@ -18,6 +18,13 @@ Do not use a guide to provide only a first successful API call, explain a concep
 **Primary reader question:**  
 “I understand the area. How do I do this correctly?”
 
+**Planning checklist**
+
+- What task is the reader trying to accomplish?
+- What prerequisites are required?
+- What is the expected outcome?
+- What is the recommended workflow?
+
 **Required sections:**
 
 1. Short task summary  
@@ -35,20 +42,20 @@ Do not use a guide to provide only a first successful API call, explain a concep
 
 **Optional sections:**
 
-* Before you start  
-* Architecture or workflow diagram  
-* Example request and response  
-* Configuration options  
-* Environment variables  
-* Deployment-specific notes  
-* Alternative approaches  
-* Best practices  
-* Troubleshooting  
-* Security or compliance considerations  
-* Performance considerations  
-* Cleanup steps  
-* Migration notes  
-* Related concepts
+- Before you start  
+- Architecture or workflow diagram  
+- Example request and response  
+- Configuration options  
+- Environment variables  
+- Deployment-specific notes  
+- Alternative approaches  
+- Best practices  
+- Troubleshooting  
+- Security or compliance considerations  
+- Performance considerations  
+- Cleanup steps  
+- Migration notes  
+- Related concepts
 
 **Content pattern:**  
 Move from task context to successful completion.
@@ -69,11 +76,11 @@ Code is usually expected for developer-facing guides and optional for admin, pla
 
 Code examples should be:
 
-* Complete enough to run or adapt  
-* Broken into meaningful steps  
-* Annotated where decisions or non-obvious behavior matter  
-* Consistent with the recommended approach  
-* Supported by expected output or validation where possible
+- Complete enough to run or adapt  
+- Broken into meaningful steps  
+- Annotated where decisions or non-obvious behavior matter  
+- Consistent with the recommended approach  
+- Supported by expected output or validation where possible
 
 Tables are useful for prerequisites, configuration options, environment variables, supported platforms, implementation choices, and tradeoffs. Avoid exhaustive parameter tables; those belong in Reference pages.
 
@@ -82,33 +89,33 @@ Next steps are required. These should help the reader continue after completing 
 
 For example:
 
-* To understand the underlying concept, read \[concept\].  
-* To try the simplest version first, use \[quickstart\].  
-* To look up parameters, limits, or supported values, use \[reference\].  
-* To build a fuller example, follow \[tutorial\].  
-* To prepare for production, read \[production/deployment guide\].  
-* To troubleshoot issues, see \[troubleshooting or error reference\].
+- To understand the underlying concept, read \[concept\].  
+- To try the simplest version first, use \[quickstart\].  
+- To look up parameters, limits, or supported values, use \[reference\].  
+- To build a fuller example, follow \[tutorial\].  
+- To prepare for production, read \[production/deployment guide\].  
+- To troubleshoot issues, see \[troubleshooting or error reference\].
 
 Adapt the links to the task. Do not include a long generic list of related pages.
 
 **Common mistakes:**
 
-* Writing the guide like a quickstart and skipping necessary context.  
-* Writing the guide like a tutorial and adding too much teaching or narrative.  
-* Omitting prerequisites.  
-* Starting steps before explaining the recommended approach.  
-* Mixing multiple unrelated tasks into one guide.  
-* Providing code without expected output or validation.  
-* Hiding important setup, permissions, or environment requirements.  
-* Including exhaustive reference material in the guide.  
-* Not explaining choices when there are multiple valid implementation paths.  
-* Ending without a clear next step.
+- Writing the guide like a quickstart and skipping necessary context.  
+- Writing the guide like a tutorial and adding too much teaching or narrative.  
+- Omitting prerequisites.  
+- Starting steps before explaining the recommended approach.  
+- Mixing multiple unrelated tasks into one guide.  
+- Providing code without expected output or validation.  
+- Hiding important setup, permissions, or environment requirements.  
+- Including exhaustive reference material in the guide.  
+- Not explaining choices when there are multiple valid implementation paths.  
+- Ending without a clear next step.
 
 **Example pages:**
 
-* Creating a client  
-* AWS Private Deployment Guide (EC2 and EKS)  
-* Cohere on the Microsoft Azure Platform  
-* Qdrant and Cohere (Integration Guide)  
-* Cohere Tools on LangChain (Integration Guide)
+- Creating a client  
+- AWS Private Deployment Guide (EC2 and EKS)  
+- Cohere on the Microsoft Azure Platform  
+- Qdrant and Cohere (Integration Guide)  
+- Cohere Tools on LangChain (Integration Guide)
 

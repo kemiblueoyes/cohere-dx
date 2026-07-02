@@ -11,13 +11,13 @@ Secondary, if applicable: \[Audience\]
 **Use when:**  
 Use this page type to orient readers to a product area, documentation section, capability group, or set of related options. An overview page should help readers understand what the area includes, how the pieces relate, and where to go next.
 
-* **Doc set / platform overview**  
+- **Doc set / platform overview**  
   Use when the page orients users to the whole platform or docs experience.  
   Emphasis: broad mental map, major product areas, audience paths, “start here” routing.  
-* **Product area overview**  
+- **Product area overview**  
   Use when the page introduces a major product area, such as models, deployment options, or text generation.  
   Emphasis: what the area includes, key components/options, how to choose, links to quickstarts/guides/reference.  
-* **Capability cluster overview**  
+- **Capability cluster overview**  
   Use when the page introduces a set of related capabilities, such as RAG, agents/tool use, private deployment, or search/retrieval.  
   Emphasis: when to use the capability, related concepts, common workflows, recommended next steps.
 
@@ -26,6 +26,12 @@ Do not use an overview page to provide a full implementation walkthrough, explai
 
 **Primary reader question:**  
 “I’m here, but I need to understand what this area contains, what my options are, and where I should go next.”
+
+**Planning checklist**
+
+- What area of the product is being introduced?
+- What options or capabilities does it contain?
+- Where should different audiences go next?
 
 **Required sections:**
 
@@ -43,21 +49,21 @@ Do not use an overview page to provide a full implementation walkthrough, explai
 
 **Optional sections:**
 
-* When to use each option
+- When to use each option
 
-* Comparison table
+- Comparison table
 
-* Feature support table
+- Feature support table
 
-* Common use cases
+- Common use cases
 
-* Audience-specific paths
+- Audience-specific paths
 
-* Architecture or workflow diagram
+- Architecture or workflow diagram
 
-* Related concepts
+- Related concepts
 
-* Prerequisites or assumptions, if the overview introduces implementation paths
+- Prerequisites or assumptions, if the overview introduces implementation paths
 
 **Content pattern:**  
 Start broad, then help the reader narrow.
@@ -84,13 +90,13 @@ Recommended next steps are required. These should be guided, not just listed. 
 
 For example:
 
-* To compare options before choosing, read \[decision guide\].
+- To compare options before choosing, read \[decision guide\].
 
-* To get started quickly, use \[quickstart\].
+- To get started quickly, use \[quickstart\].
 
-* To implement a specific path, follow \[setup or implementation guide\].
+- To implement a specific path, follow \[setup or implementation guide\].
 
-* To look up exact parameters, limits, or supported values, use \[reference\].
+- To look up exact parameters, limits, or supported values, use \[reference\].
 
 Adapt the links to the page. Do not include all of these categories unless they are relevant.
 
@@ -98,30 +104,30 @@ For pages with cards or comparison tables, the final next step should not duplic
 
 **Common mistakes:**
 
-* Turning the overview into a long concept explanation.
+- Turning the overview into a long concept explanation.
 
-* Adding too much implementation detail.
+- Adding too much implementation detail.
 
-* Listing links without explaining which reader should choose which link.
+- Listing links without explaining which reader should choose which link.
 
-* Mixing several page types into one page.
+- Mixing several page types into one page.
 
-* Assuming all readers have the same goal.
+- Assuming all readers have the same goal.
 
-* Making the page too marketing-oriented and not useful for developer navigation.
+- Making the page too marketing-oriented and not useful for developer navigation.
 
-* Creating a broad list of capabilities without explaining how they differ.
+- Creating a broad list of capabilities without explaining how they differ.
 
-* Including large code samples that belong in a Quickstart or Guide.
+- Including large code samples that belong in a Quickstart or Guide.
 
-* Omitting a clear next step.
+- Omitting a clear next step.
 
 **Example pages:**
 
-* Deployment Options \- Overview
+- Deployment Options \- Overview
 
-* An Overview of The Cohere Platform
+- An Overview of The Cohere Platform
 
-* An Overview of Cohere’s Models
+- An Overview of Cohere’s Models
 
-* Introduction to Text Generation at Cohere
+- Introduction to Text Generation at Cohere
