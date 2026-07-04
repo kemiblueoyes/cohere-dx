@@ -15,8 +15,8 @@ Use this page type to orient readers to a product area, documentation section, c
   Use when the page orients users to the whole platform or docs experience.  
   Emphasis: broad mental map, major product areas, audience paths, “start here” routing.  
 - **Product area overview**  
-  Use when the page introduces a major product area, such as models, deployment options, or text generation.  
-  Emphasis: what the area includes, key components/options, how to choose, links to quickstarts/guides/reference.  
+  Use when the page introduces a major product area, such as models, APIs, deployment options, or text generation.  
+  Emphasis: what the area includes, key components/options, how to choose, links to quickstarts, guides, reference, etc.  
 - **Capability cluster overview**  
   Use when the page introduces a set of related capabilities, such as RAG, agents/tool use, private deployment, or search/retrieval.  
   Emphasis: when to use the capability, related concepts, common workflows, recommended next steps.
@@ -50,19 +50,12 @@ Do not use an overview page to provide a full implementation walkthrough, explai
 **Optional sections:**
 
 - When to use each option
-
 - Comparison table
-
 - Feature support table
-
 - Common use cases
-
 - Audience-specific paths
-
 - Architecture or workflow diagram
-
 - Related concepts
-
 - Prerequisites or assumptions, if the overview introduces implementation paths
 
 **Content pattern:**  
@@ -91,11 +84,8 @@ Recommended next steps are required. These should be guided, not just listed. 
 For example:
 
 - To compare options before choosing, read \[decision guide\].
-
 - To get started quickly, use \[quickstart\].
-
 - To implement a specific path, follow \[setup or implementation guide\].
-
 - To look up exact parameters, limits, or supported values, use \[reference\].
 
 Adapt the links to the page. Do not include all of these categories unless they are relevant.
@@ -105,29 +95,18 @@ For pages with cards or comparison tables, the final next step should not duplic
 **Common mistakes:**
 
 - Turning the overview into a long concept explanation.
-
 - Adding too much implementation detail.
-
 - Listing links without explaining which reader should choose which link.
-
 - Mixing several page types into one page.
-
 - Assuming all readers have the same goal.
-
 - Making the page too marketing-oriented and not useful for developer navigation.
-
 - Creating a broad list of capabilities without explaining how they differ.
-
 - Including large code samples that belong in a Quickstart or Guide.
-
 - Omitting a clear next step.
 
 **Example pages:**
 
 - Deployment Options \- Overview
-
 - An Overview of The Cohere Platform
-
 - An Overview of Cohere’s Models
-
 - Introduction to Text Generation at Cohere

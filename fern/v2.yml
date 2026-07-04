@@ -30,14 +30,14 @@ navigation:
             path: pages/get-started/the-cohere-platform.mdx
           - section: Quickstart
             contents:
-              - page: RAG
-                path: pages/v2/get-started/quickstart/rag-quickstart.mdx
-              - page: Reranking
-                path: pages/v2/get-started/quickstart/reranking-quickstart.mdx
-              - page: Semantic search
-                path: pages/v2/get-started/quickstart/sem-search-quickstart.mdx
               - page: Text generation
                 path: pages/v2/get-started/quickstart/text-gen-quickstart.mdx
+              - page: RAG
+                path: pages/v2/get-started/quickstart/rag-quickstart.mdx
+              - page: Semantic search
+                path: pages/v2/get-started/quickstart/sem-search-quickstart.mdx
+              - page: Reranking
+                path: pages/v2/get-started/quickstart/reranking-quickstart.mdx
               - page: Tool use & agents
                 path: pages/v2/get-started/quickstart/tool-use-quickstart.mdx
               - page: Transcribing audio
