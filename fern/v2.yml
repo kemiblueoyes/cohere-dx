@@ -27,7 +27,7 @@ navigation:
       - section: Get started
         contents:
           - page: Introduction
-            path: pages/get-started/the-cohere-platform.mdx
+            path: pages/v2/get-started/the-cohere-platform.mdx
           - section: Quickstart
             contents:
               - page: Text generation
