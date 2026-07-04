@@ -5,11 +5,12 @@ description: "Perform RAG with Cohere's Command models using the v1 API."
 image: "../../../assets/images/f1cc130-cohere_meta_image.jpg"  
 keywords: "Cohere, RAG, retrieval-augmented generation, chatbot, command models"
 ---
+
 In this quickstart, you'll make a RAG request using the Chat endpoint and inspect the grounded response and citations it returns.
 
 RAG enables a model to ground its responses on external documents, reducing hallucinations by anchoring the output to a specific source. Cohere's Chat endpoint has built-in support for RAG through the `documents` parameter.
 
-<Steps>
+<Steps toc={true}>
 ### Set up the SDK
 Install the Cohere Python SDK.
 
@@ -22,7 +23,7 @@ Import the library and create a client.
 ```python Python
 import cohere
 
-co = cohere.Client("COHERE_API_KEY")  
+co = cohere.ClientV2("COHERE_API_KEY")  
 # Get your free API key at https://dashboard.cohere.com/api-keys
 ```
 ### Define documents

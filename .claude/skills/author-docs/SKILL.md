@@ -48,4 +48,4 @@ The value for this SKILL isn't just AI generating docs. It's standardizing how d
 - Section outline following the Quickstart template's five required sections.
 - Paused for approval before drafting.
 
-See `.claude/doc-standards/author-docs-examples.md` for the full worked outline, including how the content-source check scopes a new page against overlapping existing content.
+See `.claude/skills/author-docs/references/examples.md` for the full worked outline, including how the content-source check scopes a new page against overlapping existing content.

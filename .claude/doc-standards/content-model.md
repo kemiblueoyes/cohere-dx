@@ -101,7 +101,7 @@ Code example language selection depends on what the reader needs to do with the 
 - Use Python alone for long tutorials or conceptual walkthroughs
 - Use Python + TypeScript when async, streaming, or frontend patterns are involved
 - Use cURL alone when deliberately showing API shape
-- Use all supported SDKs in auto-generated references or when code is meant to be copied and run, such as in quickstarts, install, and authentication pages.
+- Use all supported SDKs in auto-generated references or when code is meant to be copied and run, such as in install, and authentication pages. Don't use all supported SDKs in quickstarts.
 
 ### Code credentials
 
@@ -147,7 +147,15 @@ Don't use cards when:
 
 ## Steps
 
+### Use `<Steps>` in quickstarts
+
 Use the fern's `<Steps>` component for short, linear success paths where the reader's only goal is task completion, such as in quickstarts (where they're always required).
+
+- The runnable path (install, request, inspect response) lives inside `<Steps>`, per quickstart-page-template.md. Supporting explanation should sit outside the Steps block, not inside it.
+- `<Steps>` requires `toc={true}` so the step headings appear in the page's table of contents.
+- Each step is a ### heading inside `<Steps toc={true}>`, per Fern docs and current live-docs usage — not a `<Step>` component wrapper.
+
+### Use numbered headings elsewhere
 
 Use numbered headings for longer guides where steps are part of a broader explanation, the page needs a ToC, or readers are likely to scan and jump rather than follow sequentially.
 

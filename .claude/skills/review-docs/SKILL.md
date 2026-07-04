@@ -3,15 +3,17 @@ name: review-docs
 description: Review documentation for compliance with the documentation standards, not to rewrite it.
 ---
 
-# Purpose
+#  Review Docs
+
+##  Purpose
 
 The value of this SKILL isn't just reviewing documentation. It's standardizing how documentation quality is evaluated.
 
 "Does this documentation meet our documentation standards?" not "Review this documentation for me."
 
-# Common use cases
+##  Common use cases
 
-## Content audits
+###  Content audits
 
 Review one or more pages to identify:
 
@@ -24,17 +26,17 @@ Review one or more pages to identify:
 - Missing links
 - Documentation gaps
 
-## Contributor pull requests
+###  Contributor pull requests
 
 Review a contributor's pull request from Cohere's contributor workflow (`README.md`: *How to contribute to this repository*).
 
-## Existing documentation
+###  Existing documentation
 
 Review existing documentation before publishing or as part of a documentation quality initiative.
 
-# Workflow
+##  Workflow
 
-## 1. Determine the review scope
+###  1. Determine the review scope
 - User provides the page, pull request, or set of pages to review.
 - Determine the page type and locate the corresponding template in `.claude/doc-standards/page-templates`.
 - Load:
@@ -47,7 +49,7 @@ Review existing documentation before publishing or as part of a documentation qu
     - A content audit
     - A pull request review
 
-## 2. Review against documentation standards
+###  2. Review against documentation standards
 
 Review the page against:
 - Page template
@@ -62,7 +64,7 @@ Review the page against:
     - Internal consistency
     - Duplicate or conflicting content
 
-## 3. Summarize the review
+###  3. Summarize the review
 
 Provide:
 - Overall assessment:
@@ -74,7 +76,7 @@ Provide:
     - Identify the highest-priority issues.
     - Highlight any documentation-wide concerns (for example, incorrect page type or duplicated content).
 
-## 4. Report findings
+###  4. Report findings
 
 Categorize findings as:
 
@@ -93,7 +95,7 @@ For each finding:
 - Suggest how to resolve it.
 - **Do not rewrite the content unless the user explicitly requests revisions.**
 
-## 5. Review documentation ecosystem impact
+###  5. Review documentation ecosystem impact
 
 If applicable, identify:
 - Related pages that should be updated

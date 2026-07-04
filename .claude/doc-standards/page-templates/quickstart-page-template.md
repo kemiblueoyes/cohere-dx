@@ -32,7 +32,7 @@ Do not use a quickstart to explain a concept in depth, compare options, teach a 
 4. Expected response or output  
    Show the reader what success looks like. Include a sample response, returned object, generated text, ranking result, streamed output, citation output, or other visible confirmation.  
 5. Further resources  
-   End with links that help the reader continue after their first success.
+   End with links that help the reader continue after their first success. Each link should be followed by a colon and a short sentence about the link. For example, Chat endpoint API reference: Explore all parameters and response fields for the Chat endpoint.
 
 **Optional sections:**
 
@@ -58,7 +58,7 @@ Recommended pattern:
 5. Inspect the response  
 6. Continue to deeper docs
 
-Use Fern’s <Steps> component for the main quickstart flow, starting with setup or prerequisites and ending with inspecting the response or confirming the result. The steps should contain the core runnable path, not every supporting explanation on the page.
+Use Fern’s `<Steps>` component for the main quickstart flow, starting with setup or prerequisites and ending with inspecting the response or confirming the result. The steps should contain the core runnable path, not every supporting explanation on the page. `<Steps>` requires `toc={true}` so the step headings appear in the page's table of contents. Each step is a ### heading inside <Steps toc={true}>, per Fern docs and current live-docs usage — not a <Step> component wrapper.
 
 The quickstart should prioritize momentum. Explain only what the reader needs to understand to run the example successfully.
 
@@ -109,5 +109,4 @@ Do not include a long generic list of related links. Each link should help the r
 
 **Example pages:**
 
-- RAG quickstart
-
+- RAG quickstart 
