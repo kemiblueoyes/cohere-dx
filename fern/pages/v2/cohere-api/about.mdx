@@ -1,6 +1,6 @@
 ---
 title: Cohere API reference
-slug: reference/about
+slug: v2/reference/about
 description: >-
   Overview of Cohere's native API reference for text generation, search,
   retrieval, and speech. Covers endpoints, authentication, SDKs, and API
@@ -26,11 +26,12 @@ for how to call the models on your platform.
 
 ## API versions
 
-Cohere's API has two versions, v1 and v2. This reference documents v1. v2 is
-the current version and is recommended for new projects. Use the v2 API / v1 API
-toggle at the top of any page to switch the documentation and code samples
-between versions. In your own code, the SDK client you initialize sets the
-version you call, for example, `Client` in Python. To move to v2, see
+Cohere's API has two versions, v1 and v2. This reference documents v2. v2 is
+the current version and is recommended for new projects. v1 remains available.
+Use the v2 API / v1 API toggle at the top of any page to switch the
+documentation and code samples between versions. In your own code, the SDK client
+you initialize sets the version you call, for example, `ClientV2` in Python. If
+you're moving an existing integration from v1, see
 [Migrating from API v1 to v2](/docs/migrating-v1-to-v2).
 
 ## What's in this reference
@@ -72,52 +73,62 @@ see [Rate limits](/docs/rate-limits).
 ## SDKs
 
 The SDK is the recommended way to call the API. The example below makes a basic
-v1 `Chat` request in each supported language. For installation, configuration,
+v2 `Chat` request in each supported language. For installation, configuration,
 and more examples, see [SDKs](/docs/sdks).
 
 <CodeBlocks>
 ```python Python
 import cohere
 
-co = cohere.Client(api_key="COHERE_API_KEY")
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 response = co.chat(
     model="command-a-plus-05-2026",
-    message="Tell me about LLMs",
+    messages=[{"role": "user", "content": "Tell me about LLMs"}],
 )
 
-print(response.text)
+print(response)
 ```
 
 ```typescript TypeScript
-import { CohereClient } from "cohere-ai";
+import { CohereClientV2 } from "cohere-ai";
 
-const cohere = new CohereClient({ token: "COHERE_API_KEY" });
+const cohere = new CohereClientV2({ token: "COHERE_API_KEY" });
 
 const response = await cohere.chat({
   model: "command-a-plus-05-2026",
-  message: "Tell me about LLMs",
+  messages: [{ role: "user", content: "Tell me about LLMs" }],
 });
 
 console.log(response);
 ```
 
 ```java Java
-package chatpost;
+package chatv2post;
 
 import com.cohere.api.Cohere;
-import com.cohere.api.requests.ChatRequest;
-import com.cohere.api.types.NonStreamedChatResponse;
+import com.cohere.api.resources.v2.requests.V2ChatRequest;
+import com.cohere.api.types.*;
+import java.util.List;
 
 public class Default {
     public static void main(String[] args) {
         Cohere cohere = Cohere.builder().token("COHERE_API_KEY").clientName("snippet").build();
 
-        NonStreamedChatResponse response = cohere.chat(
-                ChatRequest.builder()
-                        .model("command-a-plus-05-2026")
-                        .message("Tell me about LLMs")
-                        .build());
+        ChatResponse response =
+                cohere.v2()
+                        .chat(
+                                V2ChatRequest.builder()
+                                    .model("command-a-plus-05-2026")
+                                    .messages(
+                                        List.of(
+                                            ChatMessageV2.user(
+                                                UserMessage.builder()
+                                                    .content(
+                                                        UserMessageContent
+                                                                .of("Tell me about LLMs"))
+                                                    .build())))
+                                    .build());
 
         System.out.println(response);
     }
@@ -138,11 +149,18 @@ import (
 func main() {
     co := client.NewClient(client.WithToken("COHERE_API_KEY"))
 
-	response, err := co.Chat(
+	response, err := co.V2.Chat(
 		context.TODO(),
-		&cohere.ChatRequest{
-			Model:   "command-a-plus-05-2026",
-			Message: "Tell me about LLMs",
+		&cohere.V2ChatRequest{
+			Model: "command-a-plus-05-2026",
+			Messages: cohere.ChatMessages{
+				{
+					Role: "user",
+					User: &cohere.UserMessageV2{Content: &cohere.UserMessageV2Content{
+						String: "Tell me about LLMs",
+					}},
+				},
+			},
 		},
 	)
 
@@ -156,11 +174,24 @@ func main() {
 ```
 </CodeBlocks>
 
+## Compatibility API
+
+If you're migrating an existing OpenAI-based application, the Compatibility API
+lets you call Cohere's models through the OpenAI SDK with minimal code changes.
+Point the OpenAI client at the Compatibility API base URL and authenticate with
+your Cohere API key. Supported OpenAI SDK languages are Python, TypeScript/JavaScript, and .NET, with Java and Go in beta.
+
+The Compatibility API covers a subset of the native API. Cohere-specific
+capabilities such as grounded, cited responses for RAG are available only through
+the native SDK above. Use the Compatibility API to reuse existing OpenAI client
+code. Use the native SDK for new integrations or Cohere-specific features. See
+[Using Cohere models with the OpenAI SDK](/docs/compatibility-api).
+
 ## Next steps
 
 - To make your first call end to end, follow the [Text generation quickstart](/docs/text-gen-quickstart).
 - To look up a specific endpoint's parameters and schema, browse the endpoints
   in the sidebar.
-- To upgrade to the current API version, see
+- To move an existing v1 integration to v2, see
   [Migrating from API v1 to v2](/docs/migrating-v1-to-v2).
 - To understand the concepts behind the models, see the [Cohere platform overview](/docs/the-cohere-platform).

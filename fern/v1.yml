@@ -617,15 +617,12 @@ navigation:
     layout:
       - section: Cohere API
         contents:
-          - page: About
+          - page: Overview
             path: pages/cohere-api/about.mdx
           - page: Teams and Roles
             path: pages/cohere-api/teams-and-roles.mdx
           - page: Errors
             path: pages/cohere-api/errors.mdx
-          - page: Installation
-            hidden: true
-            path: pages/command-line-interface/command.mdx
       - api: Cohere API
         paginated: true
         api-name: v1
