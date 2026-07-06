@@ -10,6 +10,7 @@ __pycache__/
 ai_examples_override.yml
 doc-workflows/to-do.md
 doc-workflows/helpers.md
+.fern-docs-dev.pgid
 
 # C extensions
 *.so

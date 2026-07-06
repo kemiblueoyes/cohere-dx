@@ -38,7 +38,7 @@ navigation:
                 path: pages/get-started/quickstart/sem-search-quickstart.mdx
               - page: Reranking
                 path: pages/get-started/quickstart/reranking-quickstart.mdx
-              - page: Tool use & agents
+              - page: Tool use
                 path: pages/get-started/quickstart/tool-use-quickstart.mdx
           - page: Authentication
             path: pages/get-started/authentication.mdx

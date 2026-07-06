@@ -34,6 +34,9 @@ logo:
 
 favicon: assets/favicon.png
 
+metadata:
+  og:image: assets/images/f1cc130-cohere_meta_image.jpg
+
 css: assets/styles.css
 
 agents:
