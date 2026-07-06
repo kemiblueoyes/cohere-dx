@@ -661,8 +661,8 @@ navigation:
             path: pages/cohere-api/teams-and-roles.mdx
           - page: Errors
             path: pages/cohere-api/errors.mdx
-          - page: Migrating From API v1 to API v2
-            path: pages/v2/text-generation/migrating-v1-to-v2.mdx
+          - page: Migrating from API v1
+            path: pages/cohere-api/migrating-v1-to-v2.mdx
           - page: Using the OpenAI SDK
             path: pages/v2/cohere-api/compatibility-api.mdx
           - page: Installation

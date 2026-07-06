@@ -1,18 +1,18 @@
 ---
-title: "Migrating From API v1 to API v2"
-slug: "v2/docs/migrating-v1-to-v2"
-
-hidden: true 
-description: "The document serves as a reference for developers looking to update their existing Cohere API v1 implementations to the new v2 standard."
+title: "Migrating from API v1 to v2"
+slug: reference/migrating-v1-to-v2
+description: >-
+  Migrate Cohere API v1 integrations to v2. Compare request and response
+  changes across endpoints with side-by-side code examples.
 keywords: "Cohere, text generation, LLMs, generative AI"
-
-createdAt: "Thu Feb 29 2024 18:13:25 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Thu May 23 2024 04:32:10 GMT+0000 (Coordinated Universal Time)"
+audience: Developer
 ---
-This guide serves as a reference for developers looking to update their code that uses Cohere API v1 in favor of the new v2 standard. It outlines the key differences and necessary changes when migrating from Cohere API v1 to v2 and the various aspects of the API, including chat functionality, RAG (Retrieval-Augmented Generation), and tool use. Each section provides code examples for both v1 and v2, highlighting the structural changes in request formats, response handling, and new features introduced in v2.
+Migrate your Cohere API v1 integrations to v2. This guide compares request and
+response formats endpoint by endpoint, with side-by-side v1 and v2 code examples
+for Chat, retrieval-augmented generation (RAG), tool use, and related
+capabilities.
 
-
-```python PYTHON
+```python Python
 # ! pip install -U cohere
 
 import cohere
@@ -26,11 +26,11 @@ co_v2 = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 # General
 
-- v2: `model` is a required field for Embed, Rerank, Classify, and Chat.
+v2: `model` is a required field for Embed, Rerank, Classify, and Chat.
 
 # Embed
 
-- v2: `embedding_types` is a required field for Embed.
+v2: `embedding_types` is a required field for Embed.
 
 # Chat
 
@@ -46,7 +46,7 @@ co_v2 = cohere.ClientV2(api_key="COHERE_API_KEY")
 
 **v1**
 
-```python PYTHON
+```python Python
 res = co_v1.chat(
     model="command-a-03-2025",
     preamble="You respond in concise sentences.",
@@ -69,7 +69,7 @@ Excited to join the team at Co1t, where I look forward to contributing my skills
 
 **v2**
 
-```python PYTHON
+```python Python
 res = co_v2.chat(
     model="command-a-plus-05-2026",
     messages=[
@@ -102,7 +102,7 @@ Excited to join the team at Co1t, bringing my passion for innovation and a backg
 
 **v1**
 
-```python PYTHON
+```python Python
 res = co_v1.chat(model="command-a-03-2025", message="What is 2 + 2")
 
 print(res.text)
@@ -113,7 +113,7 @@ The answer is 4.
 
 **v2**
 
-```python PYTHON
+```python Python
 res = co_v2.chat(
     model="command-a-plus-05-2026",
     messages=[{"role": "user", "content": "What is 2 + 2"}],
@@ -137,7 +137,7 @@ The answer is 4.
 
 **v1**
 
-```python PYTHON
+```python Python
 message = "I'm joining a new startup called Co1t today. Could you help me write a one-sentence introduction message to my teammates."
 
 res = co_v1.chat_stream(model="command-a-03-2025", message=message)
@@ -152,7 +152,7 @@ for chunk in res:
 
 **v2**
 
-```python PYTHON
+```python Python
 message = "I'm joining a new startup called Co1t today. Could you help me write a one-sentence introduction message to my teammates."
 
 res = co_v2.chat_stream(
@@ -181,7 +181,7 @@ for chunk in res:
 
 **v1**
 
-```python PYTHON
+```python Python
 # Define the documents
 documents_v1 = [
     {
@@ -210,7 +210,7 @@ Yes, there are fitness-related benefits. We offer gym memberships, on-site yoga 
 
 **v2**
 
-```python PYTHON
+```python Python
 # Define the documents
 documents_v2 = [
     {
@@ -243,7 +243,7 @@ Yes, we offer gym memberships, on-site yoga classes, and comprehensive health in
 
 The following is a list of the the different options for structuring documents for RAG in v2.
 
-```python PYTHON
+```python Python
 documents_v2 = [
     # List of objects with data string
     {
@@ -275,7 +275,7 @@ documents_v2 = [
 
 **v1**
 
-```python PYTHON
+```python Python
 # Yes, there are fitness-related benefits. We offer gym memberships, on-site yoga classes, and comprehensive health insurance.
 
 print(res_v1.citations)
@@ -289,7 +289,7 @@ print(res_v1.documents)
 
 **v2**
 
-```python PYTHON
+```python Python
 # Yes, we offer gym memberships, on-site yoga classes, and comprehensive health insurance.
 
 print(res_v2.message.citations)
@@ -305,8 +305,8 @@ print(res_v2.message.citations)
 
 ## Connectors
 
-- v1: Supported via the [`connectors` parameter](/v1/docs/overview-rag-connectors)
-- v2: Supported via user-defined tools.
+- v1: The `connectors` parameter was deprecated on September 15, 2025.
+- v2: Use [user-defined tools](/docs/tools) instead.
 
 ## Web search
 
@@ -317,7 +317,7 @@ print(res_v2.message.citations)
 
 Uses the web search connector to search the internet for information relevant to the user's query.
 
-```python PYTHON
+```python Python
 res_v1 = co_v1.chat(
     message="who won euro 2024",
     connectors=[{"id": "web-search"}],
@@ -332,7 +332,7 @@ Spain won the UEFA Euro 2024, defeating England 2-1 in the final.
 
 Web search functionality is supported via tools.
 
-```python PYTHON
+```python Python
 # Any search engine can be used. This example uses the Tavily API.
 from tavily import TavilyClient
 
@@ -475,7 +475,7 @@ Spain won the 2024 European Championship. They beat England in the final, with s
 
 **v1**
 
-```python PYTHON
+```python Python
 message = "Are there fitness-related benefits?"
 
 res_v1 = co_v1.chat_stream(
@@ -500,7 +500,7 @@ Yes, we offer gym memberships, on-site yoga classes, and comprehensive health in
 
 **v2**
 
-```python PYTHON
+```python Python
 message = "Are there fitness-related benefits?"
 
 messages = [{"role": "user", "content": message}]
@@ -534,7 +534,7 @@ start=14 end=88 text='gym memberships, on-site yoga classes, and comprehensive h
 
 **v1**
 
-```python PYTHON
+```python Python
 def get_weather(location):
     return {"temperature": "20C"}
 
@@ -558,7 +558,7 @@ tools_v1 = [
 
 **v2**
 
-```python PYTHON
+```python Python
 def get_weather(location):
     return [{"temperature": "20C"}]
     # You can return a list of objects e.g. [{"url": "abc.com", "text": "..."}, {"url": "xyz.com", "text": "..."}]
@@ -599,7 +599,7 @@ tools_v2 = [
 
 **v1**
 
-```python PYTHON
+```python Python
 message = "What's the weather in Toronto?"
 
 res_v1 = co_v1.chat(
@@ -614,7 +614,7 @@ print(res_v1.tool_calls)
 
 **v2**
 
-```python PYTHON
+```python Python
 messages = [
     {"role": "user", "content": "What's the weather in Toronto?"}
 ]
@@ -639,7 +639,7 @@ if res_v2.message.tool_calls:
 
 
 **v1**
-```python PYTHON
+```python Python
 tool_results = [
     {
         "call": {
@@ -651,7 +651,7 @@ tool_results = [
 ]
 ```
 **v2**
-```python PYTHON
+```python Python
 messages = [
     {
         "role": "tool",
@@ -685,7 +685,7 @@ messages = [
 
 **v1**
 
-```python PYTHON
+```python Python
 tool_content_v1 = []
 if res_v1.tool_calls:
     for tc in res_v1.tool_calls:
@@ -711,7 +711,7 @@ It is currently 20°C in Toronto.
 
 **v2**
 
-```python PYTHON
+```python Python
 if res_v2.message.tool_calls:
     for tc in res_v2.message.tool_calls:
         tool_result = functions_map[tc.function.name](
@@ -755,7 +755,7 @@ It's 20°C in Toronto.
 
 **v1**
 
-```python PYTHON
+```python Python
 print(res_v1.citations)
 print(res_v1.documents)
 ```
@@ -767,7 +767,7 @@ print(res_v1.documents)
 
 **v2**
 
-```python PYTHON
+```python Python
 print(res_v2.message.citations)
 ```
 ```
@@ -794,7 +794,7 @@ print(res_v2.message.citations)
 
 **v1**
 
-```python PYTHON
+```python Python
 tool_content_v1 = []
 if res_v1.tool_calls:
     for tc in res_v1.tool_calls:
@@ -825,7 +825,7 @@ It's 20°C in Toronto.
 
 **v2**
 
-```python PYTHON
+```python Python
 if res_v2.message.tool_calls:
     for tc in res_v2.message.tool_calls:
         tool_result = functions_map[tc.function.name](
@@ -865,7 +865,7 @@ It's 20°C in Toronto.
 start=5 end=9 text='20°C' sources=[ToolSource(type='tool', id='get_weather_k88p0m8504w5:0', tool_output={'temperature': '20C'})]
 ```
 
-## Citation quality (both RAG and tool use)
+## Citation quality in RAG and tool use
 - v1: controlled via `citation_quality` parameter
 - v2: controlled via `citation_options` parameter (with `mode` as a key)
 
@@ -876,7 +876,6 @@ The following v1 features are not supported in v2:
     - `conversation_id` parameter (chat history is now managed by the developer via the `messages` parameter)
 - RAG
     - `search_queries_only` parameter
-    - `connectors` parameter
     - `prompt_truncation` parameter
 - Tool use
     - `force_single_step` parameter (all tool calls are now multi-step by default)
