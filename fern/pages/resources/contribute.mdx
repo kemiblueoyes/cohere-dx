@@ -1,17 +1,60 @@
 ---
-title: Help Us Improve The Cohere Docs
+title: Contributing to Cohere docs
 slug: docs/contribute
 hidden: false
 description: >-
-  Contribute to our docs content, stored in the cohere-developer-experience
-  repo; we welcome your pull requests!
-keywords: 'cohere, documentation, contribute, open-source'
-createdAt: 'Tue Aug 20 2024 20:10:53 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Tue Aug 20 2024 20:10:53 GMT+0000 (Coordinated Universal Time)'
+  Reference for contributing to Cohere docs in the cohere-developer-experience
+  repository, including editable paths, sync constraints, and local build steps.
+keywords: 'cohere documentation, contribute, pull request, cohere-developer-experience'
+audience: Developer
 ---
 
-All our docs content is stored in https://github.com/cohere-ai/cohere-developer-experience/. 
+This reference covers how to contribute to Cohere documentation and developer content in the [cohere-developer-experience](https://github.com/cohere-ai/cohere-developer-experience) repository on GitHub. Use it to find what you can edit directly, what Cohere syncs from internal sources, and how to validate changes locally.
 
-We welcome contributions to this repo! Feel free to pull request any of the content you see and we will work with you to merge it. The OpenAPI specs and snippets are one-way synced from our internal repositories so we will need to take your changes and merge them behind the scenes.
+## Repository layout
 
-Please see the repository readme for more guidance.
+| Path | Contents |
+| ---- | -------- |
+| `fern/` | Documentation site content and Fern configuration for [docs.cohere.com](https://docs.cohere.com) |
+| `cohere-openapi.yaml` | OpenAPI specification for the Cohere platform API |
+| `snippets/` | Code snippets for using Cohere across environments |
+
+## Contribution types
+
+| Content | How to contribute |
+| ------- | ----------------- |
+| MDX pages in `fern/pages/` | Open a pull request on GitHub. Cohere reviews the change and merges it with you. |
+| `cohere-openapi.yaml` | Open a pull request. The spec is one-way synced from internal repositories, so Cohere applies accepted changes internally. |
+| Files in `snippets/` | Open a pull request. Snippets are one-way synced from internal repositories, so Cohere applies accepted changes internally. |
+| Python code samples in `fern/pages/` | Open a pull request and format samples with the Python formatting script before you submit. |
+
+## Local build
+
+Cohere recommends building the site locally to validate rendering and links before you open a pull request.
+
+| Step | Command or requirement |
+| ---- | ---------------------- |
+| Prerequisites | [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) |
+| Install build tools | From the repository root, run `make install`. |
+| Start local preview | From the repository root, run `make dev`. |
+
+## Python code sample formatting
+
+If you change Python code samples, format them before you submit a pull request.
+
+| Step | Command |
+| ---- | ------- |
+| Install Black | `pip3 install "black==24.10.0"` |
+| Format samples | `python3 .github/scripts/check_python_code_snippets.py fern/pages` |
+
+Run both commands from the repository root.
+
+## Usage notes and constraints
+
+- OpenAPI specifications and snippets are maintained in internal Cohere repositories and synced one-way into this repository. You can still propose changes through a pull request, but Cohere merges them behind the scenes after review.
+- For additional repository conventions and setup details, see the [repository README](https://github.com/cohere-ai/cohere-developer-experience#how-to-contribute-to-this-repository).
+
+## Related links
+
+- To browse or fork the repository, see [cohere-developer-experience on GitHub](https://github.com/cohere-ai/cohere-developer-experience).
+- To look up Cohere product and AI terminology while editing docs, see the [Glossary](/docs/resources/glossary).
