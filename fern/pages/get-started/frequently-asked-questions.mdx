@@ -1,15 +1,16 @@
 ---
-title: Cohere FAQs
+title: Cohere frequently asked questions
 slug: docs/cohere-faqs
 description: >-
-  Cohere is a powerful platform for using Large Language Models (LLMs).
-  This page covers FAQs related to functionality, pricing, troubleshooting, and more.
-keywords: 'natural language processing, generative AI, fine-tuning models'
+  Answers to common questions about Cohere models, deployment, pricing, API usage,
+  troubleshooting, and account management.
+keywords: Cohere FAQ, models, deployment, pricing, API usage, troubleshooting, account management
+audience: Developer, Technical Decision-Maker, Platform Operator
 ---
 
-Here, we'll walk through some common questions we get about how Cohere's models work, what pricing options there are, and more!
+This page answers common questions about Cohere models, deployment, the platform and API, getting started, troubleshooting, billing, and security.
 
-## Cohere Models 
+## Cohere models 
 <AccordionGroup>
 <Accordion title="What is the difference between the Command R and Command R+ models?">
 
@@ -27,13 +28,13 @@ You can check out [this link](https://cohere.com/research/aya) to learn more abo
 
 <Accordion title="How do Cohere's models compare to other LLMs on the market?">
 
-Cohere’s Command models have strong performance across enterprise tasks such as summarization, multilingual use cases, and retrieval augmented generation. We also have the widest range of deployment options, you can check it [here](https://cohere.com/deployment-options). 
+Cohere's Command models have strong performance across enterprise tasks such as summarization, multilingual use cases, and retrieval augmented generation. We also have the widest range of deployment options, you can check it [here](https://cohere.com/deployment-options). 
 
 </Accordion>
 
 <Accordion title="How can I use Cohere's models for tasks like translation, text embedding, summarization, and custom tool development?">
 
-You can access Cohere’s models through our platform (cohere.com) or through various cloud platforms including, but not limited to, Sagemaker, Bedrock, Azure AI, and OCI Generatie AI. We also have private deployments. In terms of use case specific features, please reference the latest [API documentation](https://docs.cohere.com/reference/about) to learn more about the API features and [Cookbooks](https://docs.cohere.com/page/cookbooks) with starter code for various tasks to aid development. 
+You can access Cohere's models through our platform (cohere.com) or through various cloud platforms including, but not limited to, Sagemaker, Bedrock, Azure AI, and OCI Generatie AI. We also have private deployments. In terms of use case specific features, please reference the latest [API documentation](https://docs.cohere.com/reference/about) to learn more about the API features and [Cookbooks](https://docs.cohere.com/page/cookbooks) with starter code for various tasks to aid development. 
 
 </Accordion>
 
@@ -48,13 +49,13 @@ You can find our prompt engineering recommendations in the following resources:
 
 <Accordion title="How can I effectively use and fine-tune models for specific tasks, like data extraction, question answering, and generating content within certain constraints?">
 
-To fine-tune models for tasks like data extraction, question answering, or content generation, it’s important to start by defining your goals and ensuring your data captures the task accurately.
+To fine-tune models for tasks like data extraction, question answering, or content generation, it's important to start by defining your goals and ensuring your data captures the task accurately.
 
 For generative models, fine-tuning involves training on input-output pairs, where the model learns to generate specific outputs based on given inputs. This is ideal for tasks like customizing responses or enforcing a particular writing style.
 
 For tasks like data extraction, fine-tuning helps the model identify relevant patterns and structure data as needed. High-quality, task-specific data is essential for achieving accurate results.
 
-For more details, you can refer to [Cohere’s fine-tuning guide](https://docs.cohere.com/docs/fine-tuning) for best practices.
+For more details, you can refer to [Cohere's fine-tuning guide](https://docs.cohere.com/docs/fine-tuning) for best practices.
 
 Fine tuning is a powerful capability, but takes some effort to get right. You should first understand what you are trying to achieve and then determine if the data you are planning to train on effectively captures that task. The generative models specifically learn off of input/output pairs and therefore need to see examples of the expected input for your task and the ideal output. For more information, see our [finetuning guide](https://docs.cohere.com/v1/docs/chat-improving-the-results).
 
@@ -111,7 +112,7 @@ You can find further guides on [chunking strategies](https://docs.cohere.com/pag
 
 <Accordion title="How can I develop a multilingual chatbot that can understand and respond to user queries in different languages, incorporate external data, and perform tasks like text search, citation generation, and answer reranking?">
 
-Cohere’s models offer multilingual capabilities out of the box. You can reference our example notebooks such as this [RAG one](https://docs.cohere.com/page/basic-rag) to get a better idea of how to piece these models together to build a question answering application.
+Cohere's models offer multilingual capabilities out of the box. You can reference our example notebooks such as this [RAG one](https://docs.cohere.com/page/basic-rag) to get a better idea of how to piece these models together to build a question answering application.
 
 </Accordion>
 
@@ -123,11 +124,11 @@ We are always looking to expand multilingual support to other languages. Command
 
 <Accordion title="Which languages are supported by Cohere models?">
 
-Cohere’s command models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+Cohere's command models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
 
 Additionally, pre-training data has been included for the following 13 languages: Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
 
-You can find a full list of languages that are supported by Cohere’s multilingual embedding model [here](https://docs.cohere.com/docs/supported-languages). 
+You can find a full list of languages that are supported by Cohere's multilingual embedding model [here](https://docs.cohere.com/docs/supported-languages). 
 
 </Accordion>
 
@@ -139,7 +140,7 @@ You can check the range of use cases based on our customer stories [here](https:
 
 </AccordionGroup>
 
-## Model Deployment
+## Model deployment
 <AccordionGroup>
 
 <Accordion title="What Cohere models can I access via my cloud provider?">
@@ -179,7 +180,7 @@ Please check our deployment options [here](https://cohere.com/deployment-options
 </Accordion>
 </AccordionGroup>
 
-## Platform & API
+## Platform and API
 <AccordionGroup>
 
 <Accordion title="How can I monitor and manage my API usage limits, and what steps can I take if I need higher limits or encounter issues with my current limits?">
@@ -192,7 +193,7 @@ We offer two kinds of API keys: trial keys (with a variety of attendant limitati
 
 We make a distinction between “trial” and “production” usage of an API key.
 
-Trial API key usage is free, [but limited](https://docs.cohere.com/docs/rate-limits). You can test different applications or build proofs of concept using all of Cohere’s models and APIs with a trial key by simply signing up for a Cohere account [here](https://dashboard.cohere.com/welcome/register).
+Trial API key usage is free, [but limited](https://docs.cohere.com/docs/rate-limits). You can test different applications or build proofs of concept using all of Cohere's models and APIs with a trial key by simply signing up for a Cohere account [here](https://dashboard.cohere.com/welcome/register).
 
 </Accordion>
 
@@ -210,7 +211,7 @@ You can contact our support team at support@cohere.com and get help and share yo
 
 </AccordionGroup>
 
-## Getting Started
+## Getting started
 <AccordionGroup>
 
 <Accordion title="How do I use the Cohere API?">
@@ -289,20 +290,20 @@ You can find the documentation with the full Cohere model and feature overview [
 </Accordion>
 </AccordionGroup>
 
-## Troubleshooting Errors 
+## Troubleshooting errors 
 <AccordionGroup>
 
 <Accordion title="When using Cohere's API, why am I encountering errors related to dataset creation, API key limitations, or missing artifacts, and how can these issues be resolved?">
 
 Here are some common errors and potential solutions for dealing with errors related to API key limitations or missing artifacts. 
 
-#### API Key Limitations
+#### API key limitations
 
 Cohere's API keys have certain limitations and permissions associated with them. If you are encountering errors related to API key limitations, it could be due to the following reasons:
 - Rate Limits: Cohere's API has rate limits in place to ensure fair usage. If you exceed the allowed number of requests within a specific time frame, you may receive an error. To resolve this, double check the rate limits for your API plan and ensure your usage is within the specified limits. You can also implement a rate-limiting mechanism in your code to control the frequency of API requests.
 - API Key Expiration: API keys may have an expiration date. If your key has expired, it will no longer work.Check the validity period of your API key and renew it if necessary. Contact Cohere's support team if you need assistance with key renewal.
 
-#### Missing Artifacts
+#### Missing artifacts
 
 Cohere's dataset creation process involves generating artifacts, which are essential components for training models. If you receive errors about missing artifacts, consider the following:
 
@@ -310,7 +311,7 @@ Cohere's dataset creation process involves generating artifacts, which are essen
 - File Upload Issues: Artifacts are generated after successfully uploading your dataset files. Issues with file uploads can lead to missing artifacts. Verify that your dataset files are accessible and not corrupted. You should also check file size limits to ensure your files meet the requirements. 
 - Synchronization Delay: Sometimes, there might be a slight delay in generating artifacts after uploading the dataset. Wait for a few minutes and refresh the dataset status to see if the artifacts are generated.
 
-#### General Troubleshooting Steps
+#### General troubleshooting steps
 
 If your problem doesn't fall into these buckets, here are a few other things you can try:
 
@@ -318,11 +319,11 @@ If your problem doesn't fall into these buckets, here are a few other things you
 - Inspect API Responses: Carefully examine the error responses returned by the API. They often contain valuable information about the issue. Cohere uses conventional HTTP response codes to indicate the success or failure of an API request. In general:
     - Codes in the 2xx range indicate success.
     - Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.).
-    - Codes in the 5xx range indicate an error with Cohere’s servers (these are rare).
+    - Codes in the 5xx range indicate an error with Cohere's servers (these are rare).
 
 Review the [Errors page](https://docs.cohere.com/reference/errors) to learn more about how to deal with non-2xx response code. 
 
-#### Reach Out to Cohere Support
+#### Contact support
 
 If the issue persists, contact Cohere's support team. They can provide personalized assistance and help identify any specific problems with your API integration.
 
@@ -355,7 +356,7 @@ If you're facing any technical challenges or need guidance, our support team is 
 </Accordion>
 </AccordionGroup>
 
-## Billing, Pricing, Licensing, Account Management
+## Billing, pricing, licensing, account management
 <AccordionGroup>
 
 <Accordion title="How can I get in touch with Cohere's support team?">
@@ -476,19 +477,19 @@ Should you have any further questions please feel free to reach out to our sales
 </Accordion>
 </AccordionGroup>
 
-## Legal, Security, Data Privacy
+## Legal, security, data privacy
 
 <AccordionGroup>
 
 <Accordion title="Is my data private and secure when using Cohere platform, or is it accessible to others?">
 
-When you’re using Cohere models via our Platform, we segment your data using logical segmentation. When using Cohere models via a private or cloud deployment from one of our partners, your data is not shared with Cohere.
+When you're using Cohere models via our Platform, we segment your data using logical segmentation. When using Cohere models via a private or cloud deployment from one of our partners, your data is not shared with Cohere.
 
 </Accordion>
 
 <Accordion title="Could you provide more specific information about your GDPR compliance practices and policies, including any relevant documentation, so that I can forward the details to our legal team for review?">
 
-We support our enterprise customers’ privacy and data security compliance needs by offering multiple deployment options so customers can control access to data and personal information under their control. Seamlessly complete your privacy and security compliance reviews by visiting Cohere’s [Trust Center](https://cohere-inc.secureframetrust.com/) where you can request a copy of our SOC 2 Type II Report, and review our privacy documentation and other compliance resources.
+We support our enterprise customers' privacy and data security compliance needs by offering multiple deployment options so customers can control access to data and personal information under their control. Seamlessly complete your privacy and security compliance reviews by visiting Cohere's [Trust Center](https://cohere-inc.secureframetrust.com/) where you can request a copy of our SOC 2 Type II Report, and review our privacy documentation and other compliance resources.
 
 </Accordion>
 
@@ -496,14 +497,14 @@ We support our enterprise customers’ privacy and data security compliance need
 
 When it comes to using AI models securely, two important areas stand out.
 
-#### 1. Model Security and Safety
+#### 1. Model security and safety
 
 This responsibility lies primarily with the model provider, and at Cohere, we are deeply committed to ensuring responsible AI development. Our team includes some of the top experts in AI security and safety. We lead through various initiatives, including governance and compliance frameworks, safety and security protocols, strict data controls for model training, and industry thought leadership.
 
-#### 2. Secure Application Development with Cohere Models:
+#### 2. Secure application development with Cohere models
 While Cohere ensures the model's security, customers are responsible for building and deploying applications using these models securely. A strong focus on a Secure Product Lifecycle is essential, and our models integrate seamlessly into this process. Core security principles remain as relevant in the AI space as elsewhere. For example, robust authentication protocols should exist for all users, services, and micro-services. Secrets, tokens, and credentials must be tightly controlled and regularly monitored.
 
-#### Our recommendations:
+#### Our recommendations
 - Implement responsible AI and governance policies in your AI development process, focusing on customer safety and security.
 - Continuously monitor the performance of your applications and promptly address any issues that arise.
 
