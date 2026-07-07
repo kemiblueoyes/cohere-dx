@@ -1,10 +1,10 @@
 # Hidden Link Report
 
-Generated: 2026-06-25T21:44:09.949Z
+Generated: 2026-07-06T21:24:33.029Z
 
-Hidden pages found: 247
-Visible source pages scanned: 335
-Hidden-link violations found: 70
+Hidden pages found: 245
+Visible source pages scanned: 339
+Hidden-link violations found: 69
 
 ## `fern/pages/cookbooks/convfinqa-finetuning-wandb.mdx`
 
@@ -37,72 +37,62 @@ Hidden-link violations found: 70
 
 ## `fern/pages/get-started/frequently-asked-questions.mdx`
 
-- Line 36: links to hidden page `/v1/docs/crafting-effective-prompts`
-  - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
-  - Link: `https://docs.cohere.com/v1/docs/crafting-effective-prompts`
-  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
-
-- Line 37: links to hidden page `/v1/docs/advanced-prompt-engineering-techniques`
-  - Target: `fern/pages/text-generation/prompt-engineering/advanced-prompt-engineering-techniques.mdx`
-  - Link: `https://docs.cohere.com/v1/docs/advanced-prompt-engineering-techniques`
-  - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
-
-- Line 49: links to hidden page `/docs/fine-tuning`
+- Line 46: links to hidden page `/docs/fine-tuning`
   - Target: `fern/pages/fine-tuning/fine-tuning.mdx`
   - Link: `https://docs.cohere.com/docs/fine-tuning`
   - Hidden by: v1.yml nav hidden entry under # HIDDEN SECTION; v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 51: links to hidden page `/v1/docs/chat-improving-the-results`
+- Line 48: links to hidden page `/v1/docs/chat-improving-the-results`
   - Target: `fern/pages/fine-tuning/chat-fine-tuning/chat-improving-the-results.mdx`
   - Link: `https://docs.cohere.com/v1/docs/chat-improving-the-results`
   - Hidden by: v1.yml nav hidden entry under # HIDDEN SECTION; v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 57: links to hidden page `/docs/chat-preparing-the-data`
+- Line 54: links to hidden page `/docs/chat-preparing-the-data`
   - Target: `fern/pages/fine-tuning/chat-fine-tuning/chat-preparing-the-data.mdx`
   - Link: `https://docs.cohere.com/docs/chat-preparing-the-data`
   - Hidden by: v1.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 57: links to hidden page `/docs/chat-preparing-the-data`
+- Line 54: links to hidden page `/docs/chat-preparing-the-data`
   - Target: `fern/pages/v2/fine-tuning/chat-fine-tuning/chat-preparing-the-data.mdx`
   - Link: `https://docs.cohere.com/docs/chat-preparing-the-data`
   - Hidden by: v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 57: links to hidden page `/docs/classify-preparing-the-data`
+- Line 54: links to hidden page `/docs/classify-preparing-the-data`
   - Target: `fern/pages/fine-tuning/classify-fine-tuning/classify-preparing-the-data.mdx`
   - Link: `https://docs.cohere.com/docs/classify-preparing-the-data`
   - Hidden by: v1.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 57: links to hidden page `/docs/classify-preparing-the-data`
+- Line 54: links to hidden page `/docs/classify-preparing-the-data`
   - Target: `fern/pages/v2/fine-tuning/classify-fine-tuning/classify-preparing-the-data.mdx`
   - Link: `https://docs.cohere.com/docs/classify-preparing-the-data`
   - Hidden by: v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 57: links to hidden page `/docs/rerank-preparing-the-data`
+- Line 54: links to hidden page `/docs/rerank-preparing-the-data`
   - Target: `fern/pages/fine-tuning/rerank-fine-tuning/rerank-preparing-the-data.mdx`
   - Link: `https://docs.cohere.com/docs/rerank-preparing-the-data`
   - Hidden by: v1.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 57: links to hidden page `/docs/rerank-preparing-the-data`
+- Line 54: links to hidden page `/docs/rerank-preparing-the-data`
   - Target: `fern/pages/v2/fine-tuning/rerank-fine-tuning/rerank-preparing-the-data.mdx`
   - Link: `https://docs.cohere.com/docs/rerank-preparing-the-data`
   - Hidden by: v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 63: links to hidden page `/docs/fine-tuning`
+- Line 60: links to hidden page `/docs/fine-tuning`
   - Target: `fern/pages/fine-tuning/fine-tuning.mdx`
   - Link: `https://docs.cohere.com/docs/fine-tuning`
   - Hidden by: v1.yml nav hidden entry under # HIDDEN SECTION; v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 122: links to hidden page `/docs/supported-languages`
+- Line 119: links to hidden page `/docs/supported-languages`
   - Target: `fern/pages/text-embeddings/multilingual-language-models/supported-languages.mdx`
   - Link: `https://docs.cohere.com/docs/supported-languages`
   - Hidden by: frontmatter hidden: true; v1.yml nav hidden entry under # HIDDEN SECTION; v2.yml nav hidden entry under # HIDDEN SECTION
 
-- Line 250: links to hidden page `/v1/docs/crafting-effective-prompts`
+- Line 247: links to hidden page `/v1/docs/crafting-effective-prompts`
   - Target: `fern/pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx`
   - Link: `https://docs.cohere.com/v1/docs/crafting-effective-prompts`
   - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
 
-- Line 251: links to hidden page `/v1/docs/advanced-prompt-engineering-techniques`
+- Line 248: links to hidden page `/v1/docs/advanced-prompt-engineering-techniques`
   - Target: `fern/pages/text-generation/prompt-engineering/advanced-prompt-engineering-techniques.mdx`
   - Link: `https://docs.cohere.com/v1/docs/advanced-prompt-engineering-techniques`
   - Hidden by: frontmatter hidden: true; v1.yml nav hidden parent section
@@ -248,6 +238,13 @@ Hidden-link violations found: 70
   - Target: `fern/pages/text-embeddings/multilingual-language-models/supported-languages.mdx`
   - Link: `/docs/supported-languages`
   - Hidden by: frontmatter hidden: true; v1.yml nav hidden entry under # HIDDEN SECTION; v2.yml nav hidden entry under # HIDDEN SECTION
+
+## `fern/pages/models/the-command-family-of-models/command-a-plus.mdx`
+
+- Line 56: links to hidden page `/docs/usage-policy`
+  - Target: `fern/pages/responsible-use/responsible-use/usage-guidelines.mdx`
+  - Link: `https://docs.cohere.com/docs/usage-policy`
+  - Hidden by: frontmatter hidden: true
 
 ## `fern/pages/models/the-command-family-of-models/command-a.mdx`
 
