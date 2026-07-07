@@ -34,5 +34,6 @@ The value of this SKILL isn't just updating documentation. It's ensuring documen
 ###  3. Based on the approved draft, create the final draft:
 - Polish pass against `.claude/doc-standards/writing-style-guide.md` (AI-writing fingerprints, active voice, simplicity) on new or edited prose.
 - Code format check against `.claude/doc-standards/content-model.md` and `.claude/doc-standards/fern-platform-rules.md` (credential placeholders, tab labels, CodeBlocks vs. Tabs usage).
+- Suggest edits for description, title, and keywords in frontmatter where applicable 
 - Confirm page template structure is still intact after edits.
 - Present the final draft to the user for approval.

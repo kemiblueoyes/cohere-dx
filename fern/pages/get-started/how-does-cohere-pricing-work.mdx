@@ -1,30 +1,28 @@
 ---
-title: How Does Cohere's Pricing Work?
+title: "How Cohere pricing and billing works"
 slug: docs/how-does-cohere-pricing-work
-hidden: false
-description: >-
-  This page details Cohere's pricing model. Our models can be accessed directly through our API, allowing for the creation of scalable production workloads.
-keywords: 'Cohere, large language model pricing'
-createdAt: 'Thu May 30 2024 16:38:15 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Thu May 30 2024 16:43:25 GMT+0000 (Coordinated Universal Time)'
+description: "Reference for Cohere pricing units, billed tokens in API responses, and trial vs production API key billing."
+keywords: "Cohere, large language model pricing, API billing, billed tokens"
+audience: "Developer, Technical Decision-Maker"
 ---
-If you're looking to scale use cases in production, Cohere models are some of the most cost-efficient options on the market today. This page contains information about how Cohere's pricing model operates, for each of our major model offerings. 
 
-<Info>
-You can find up-to-date prices for each of our generation, rerank, and embed models on the [dedicated pricing page](https://cohere.com/pricing).
-</Info>
+This reference covers how Cohere calculates usage charges across model types, what `billed_units` means in API responses, and how trial and production API keys are billed. For current per-model prices, see the [Cohere pricing page](https://cohere.com/pricing).
 
-## How Are Costs Calculated for Different Cohere Models?
+## Pricing units by model type
 
-Our generative models, such as [Command A+](/docs/command-a-plus), [Command A](/docs/command-a), [Command R7B](/docs/command-r7b),
-[Command R](/docs/command-r), and [Command R+](/docs/command-r-plus), are priced on a per-token basis. Be aware that input tokens
-(i.e. tokens generated from text sent _to_ the model) and output tokens (i.e. text generated _by_ the model) are priced differently.
+| Model type | Pricing unit | Billing notes |
+| ---------- | ------------ | ------------- |
+| Generative (chat models) | Per token | Input tokens and output tokens are priced separately. |
+| Rerank | Per search | Each rerank request counts as one search. |
+| Embed | Per token | Charges apply to the number of tokens embedded. |
 
-Our Rerank models are priced based on the quantity of searches, and our Embedding models are priced based on the number of tokens embedded. 
+Generative pricing applies to models such as [Command A+](/docs/command-a-plus), [Command A](/docs/command-a), [Command R7B](/docs/command-r7b), [Command R](/docs/command-r), and [Command R+](/docs/command-r-plus).
 
-### What's the Difference Between "billed" Tokens and Generic Tokens?
+## Billed tokens vs token counts
 
-When using the [Chat API endpoint](https://docs.cohere.com/reference/chat), the response will contain the total count of input and output tokens, as well as the count of _billed_ tokens. Here's an example:
+API responses include both `tokens` and `billed_units`. The `billed_units` fields are what Cohere uses for billing.
+
+The [Chat API](/reference/chat) returns both values in the response `meta` object:
 
 ```json JSON
 {
@@ -39,10 +37,28 @@ When using the [Chat API endpoint](https://docs.cohere.com/reference/chat), the 
 }
 ```
 
-The rerank and embed models have their own, slightly different versions, and it may not be obvious why there are separate input and output values under `billed_units`. To clarify, the _billed_ input and output tokens are the tokens that you're actually _billed_ for. The reason these values can be different from the overall `"tokens"` value is that there are situations in which Cohere adds tokens under the hood, and there are others in which a particular model has been trained to do so (i.e. when outputting special tokens). Since these are tokens *you don't have control over, you are not charged for them.* 
+| Field | Description |
+| ----- | ----------- |
+| `billed_units` | Tokens you are charged for. |
+| `tokens` | Total tokens processed, including tokens added by Cohere or generated as special model output. |
 
-## Trial Usage and Production Usage
+`billed_units` and `tokens` can differ when Cohere adds tokens during processing or when a model outputs special tokens you do not control. You are not charged for tokens outside `billed_units`.
 
-Cohere makes a distinction between "trial" and "production" usage of an API key.  
+The [Rerank](/reference/rerank) and [Embed](/reference/embed) endpoints return their own `billed_units` fields. Rerank reports `search_units` instead of token counts. Embed reports embedded token counts.
 
-With respect to pricing, the key thing to understand is that trial API key usage is free, [but limited](/docs/rate-limits). Developers wanting to test different applications or build proofs of concept can use all of Cohere's models and APIs can do so with a trial key by simply signing up for a Cohere account [here](https://dashboard.cohere.com/welcome/register).
+## Trial and production API keys
+
+Cohere distinguishes between trial and production API keys for billing.
+
+| Key type | Billing | Usage limits |
+| -------- | ------- | ------------ |
+| Trial | Free | [Rate-limited](/docs/rate-limits) |
+| Production | Paid | Higher limits than trial keys |
+
+Create either key type on the [API keys page](https://dashboard.cohere.com/api-keys). Sign up for a Cohere account on the [registration page](https://dashboard.cohere.com/welcome/register) to get a trial key for evaluation and proofs of concept.
+
+## Related links
+
+- For current model prices, see the [Cohere pricing page](https://cohere.com/pricing).
+- To create and manage API keys, see [Authentication](/docs/authentication).
+- For rate limits by key type and endpoint, see [API keys and rate limits](/docs/rate-limits).

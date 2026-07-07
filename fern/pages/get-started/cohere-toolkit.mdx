@@ -1,40 +1,82 @@
 ---
-title: How to Start with the Cohere Toolkit
+title: Cohere Toolkit overview
 slug: docs/cohere-toolkit
-hidden: false
 description: >-
-  Build and deploy RAG applications quickly with the Cohere Toolkit, which
-  offers pre-built front-end and back-end components.
-keywords: 'toolkit, agents, LLMs, generative AI'
-createdAt: 'Mon Apr 22 2024 18:32:38 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Mon May 06 2024 17:47:21 GMT+0000 (Coordinated Universal Time)'
+  Build and deploy RAG applications quickly with the open-source Cohere
+  Toolkit, a deployable app with pre-built interfaces, backend APIs, and
+  retrieval components.
+keywords: 'Cohere Toolkit, RAG, open source, deployment, retrieval'
+audience: Developer
 ---
-[Cohere Toolkit](https://github.com/cohere-ai/cohere-toolkit) is a collection of pre-built components enabling developers to quickly build and deploy [retrieval augmented generation](/docs/retrieval-augmented-generation-rag) (RAG) applications. With it, you can cut time-to-launch down from months to weeks, and deploy in as little as a few minutes.
+The [Cohere Toolkit](https://github.com/cohere-ai/cohere-toolkit) is an open-source, deployable application for building [retrieval augmented generation](/docs/retrieval-augmented-generation-rag) (RAG) products. It bundles pre-built interfaces, a customizable backend API, and retrieval tooling so you can move from prototype to deployment without assembling each layer from scratch.
 
-The pre-built components fall into two big categories: front-end and back end.
+## When to use the Cohere Toolkit
 
-- **Front-end**: The Cohere Toolkit front end is a web application built in Next.js. It includes a simple SQL database out of the box to store conversation history, documents, and citations, directly in the app.
-- **Back-end**: The Cohere Toolkit back-end contains the preconfigured data sources and retrieval code needed to set up RAG on custom data sources, which are called "retrieval chains"). Users can also configure which model to use, selecting from Cohere models hosted on our native platform, Azure, or AWS Sagemaker. By default, we have configured a Langchain data retriever to test RAG on Wikipedia and your own uploaded documents. 
+Use the Cohere Toolkit when you want to:
 
-Here's an image that shows how these different components work together:
+- Ship a RAG-based product quickly with a working chat UI and backend.
+- Test retrieval workflows on custom data sources before investing in a fully custom stack.
+- Customize model providers, tools, and data connectors without rebuilding the application shell.
+- Deploy locally for development or to cloud environments such as AWS, GCP, or Azure.
 
-<img src='../../assets/images/63101b4-toolkit_graphic.png' />
+If you only need API access to Cohere models, start with the [API reference](/reference/about) or an [SDK](/docs/sdks) instead. Use the Toolkit when you want a deployable application framework, not just model calls.
 
+## How it works
 
-## Cohere Toolkit Quick Start
+The Toolkit combines three layers:
 
-You can get started quickly with toolkit on Google Cloud Run, Microsoft Azure, or locally. [Read this](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#quick-start) for more details, including CLI commands to run after cloning the repo and environment variables that need to be set.  
+1. Interfaces for end users, including web applications and a Slack bot.
+2. A backend API that handles chat, model routing, and retrieval.
+3. Deployment guides for running the stack locally or in production.
 
-## Deploying Cohere Toolkit
+You configure which Cohere models to call, which tools and data sources to attach, and which interface to serve. The default setup includes a Next.js web UI with conversation history stored in a local SQL database.
 
-The toolkit can be deployed on single containers, AWS ECS, and GCP. Find out how [here](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#deployment-guides).
+<figure>
+    <img src="../../assets/images/63101b4-toolkit_graphic.png"
+         alt="Cohere Toolkit architecture showing interfaces, backend API, and deployment options." />
+    <figcaption>The Toolkit connects client interfaces to a customizable backend API and retrieval layer.</figcaption>
+</figure>
 
-## Developing on Cohere Toolkit
+## Key capabilities
 
-If you want to configure old retrieval chains or add new ones, you'll need to work through a few steps. These include installing poetry, setting up your local database, testing, etc. More context is available [here](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#setup-for-development).
+### Interfaces
 
-## Working with Cohere Toolkit
+The Toolkit ships with client-side interfaces you can run or replace:
 
-The toolkit is powerful and flexible. There's a lot you can do with it, including adding your own [model deployment](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#how-to-add-your-own-model-deployment), calling the toolkit's backend [over the API](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#how-to-call-the-backend-as-an-api), adding a [connector](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#how-to-add-a-connector-to-the-toolkit), and much else besides. 
+- A default Next.js web UI for chat, with conversation history stored in a SQL database.
+- Agentic and basic web application modes.
+- A Slack bot implementation.
 
-Following the links in this document or [read the full repository](https://github.com/cohere-ai/cohere-toolkit) to find everything you need!
+You can point Docker Compose at a different interface if you want to use your own UI.
+
+### Backend API
+
+The backend in `src/backend` follows a structure similar to the [Chat API](/reference/chat) and adds configurable components:
+
+- Model providers for Cohere Platform, SageMaker, Azure, Bedrock, Hugging Face, and local models.
+- Retrieval and tools, including connectors to external data sources.
+
+By default, the Toolkit includes a LangChain retriever for testing RAG on Wikipedia and uploaded documents.
+
+### Customization and extension
+
+Beyond the defaults, you can extend the Toolkit to fit your stack:
+
+- Add [model deployments](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/command_model_providers.md) for additional providers.
+- Register [connectors](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/how_to_guides.md#how-to-add-a-connector-to-the-toolkit) to external data sources.
+- Call the backend [over the API](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/how_to_guides.md#how-to-call-the-backend-as-an-api) from your own applications.
+- Add [custom tools](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/custom_tool_guides/tool_guide.md), authentication, and theming.
+
+### Deployment options
+
+Run the Toolkit locally with Docker Compose or GitHub Codespaces, or follow the repository's [service deployment guides](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/service_deployments.md) for AWS, GCP, and Azure.
+
+## Next steps
+
+To get started with the Toolkit:
+
+- Follow the [quick start guide](https://github.com/cohere-ai/cohere-toolkit?tab=readme-ov-file#try-now) in the repository to run locally or in the cloud.
+- Read the [setup guide](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/setup.md) for detailed environment and dependency requirements.
+- Review [deployment guides](https://github.com/cohere-ai/cohere-toolkit/blob/main/docs/service_deployments.md) when you are ready to move beyond local development.
+- Learn RAG fundamentals in the [retrieval augmented generation](/docs/retrieval-augmented-generation-rag) docs.
+- Explore [LangChain integrations](/docs/cohere-and-langchain) if you plan to extend retrieval workflows.

@@ -15,7 +15,7 @@ These are content formatting and model guidelines that focus on:
 
 Frontmatter is required for all published and public mdx pages. 
 
-- title: required. between 30 and 60 characters
+- title: required. between 20 and 60 characters
 - description: required. up to 160 characters
 - keywords: required. comma separated list of at least 2 short keyword phrases
 - audience: required. comma separated list of target audiences. Must be 1 or more of: Developer, Technical Decison-Maker, Platform Operator

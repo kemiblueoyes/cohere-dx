@@ -1,69 +1,77 @@
 ---
-title: An Overview of the Developer Playground
+title: Cohere Playground overview
 slug: docs/playground-overview
-hidden: false
 description: >-
-  The Cohere Playground is a powerful visual interface for testing Cohere's generation and embedding language models without coding.
-keywords: 'Large language model playground, generative AI'
-createdAt: 'Wed Nov 02 2022 21:28:20 GMT+0000 (Coordinated Universal Time)'
-updatedAt: 'Wed May 29 2024 18:55:51 GMT+0000 (Coordinated Universal Time)'
+   Test Cohere's Chat and Embed models in the Playground, a visual interface for trying prompts, tuning parameters, and exporting 
+   code without writing any.
+keywords: Cohere, Cohere Playground, Chat, embeddings, prompt testing
+audience: Developer
 ---
-The [Cohere Playground](https://dashboard.cohere.com/playground) is a visual interface supporting two models:
+The [Cohere Playground](https://dashboard.cohere.com/playground) is a visual interface for testing Cohere's [Chat](/reference/chat) and [Embed](/reference/embed) models without writing code.
 
-- [Chat](https://docs.cohere.com/reference/chat)
-- [Embed](https://docs.cohere.com/reference/embed)
+You can try prompts, adjust model parameters, and inspect the output directly in your browser. When you're ready to start building, click `View Code` to export the underlying logic and add it to your application.
 
-It's a great way to test our models for specific use cases without writing code; when you're ready to start building, simply click `View Code` to get the underlying logic to add to your application.
+<img alt="Cohere Playground" src="../../assets/images/cohere-playground-default-landing-page.png" />
+## When to use the Playground
 
-## Using the Playground
+Use the Playground when you want to:
 
-In the next few sections, we'll walk through how to interact with both supported models via the Playground.
+- Prototype a use case before writing any code.
+- Compare how different models respond to the same input.
+- Tune parameters such as temperature or truncation and see the effect immediately.
+- Generate starter code from a working configuration.
 
-### Chat
+For production workloads, move to the [API](/reference/about) or an [SDK](/docs/cohere-works-everywhere) once you've settled on a model and parameters.
 
-The [Chat endpoint](https://docs.cohere.com/reference/chat) provides a response (i.e. language or code) to a prompt. You can use the Chat Playground to generate text or code, answer a question, or create content. It looks like this:
+## How it works
 
-<img src='../../assets/images/chat-pg-basic.png' />
+Each model has its own interface with a panel on the right for adjusting parameters. You enter your input, run the model, and review the output in the same view. Selecting `View Code` turns your current configuration into runnable code that you can copy into your application.
 
-Your message goes in the `Message...` box at the bottom, and you can pass a message by hitting `Enter` or by clicking the `Send` button.
+## Chat
 
-You can customize the model's behavior with the `System message`, which is a prompt that guides the model as it generates output. You can learn more about how to craft an effective system message in our [dedicated guide](https://docs.cohere.com/docs/preambles).
+The [Chat endpoint](/reference/chat) returns a response, such as text or code, to a prompt. Use the Chat Playground to generate text or code, answer a question, or create content.
 
-To customize further _within_ the Playground, you can use the panel on the right:
+Your message goes in the `Message...` box at the bottom. Send it by pressing `Enter` or clicking `Send`. To guide the model's behavior, use the `System message`, a prompt that shapes how the model generates its output.
 
-<img src='../../assets/images/chat-pg-panel.png' />
+<img alt="Cohere Playground c=Chat interface" src="../../assets/images/cohere-playground-chat-interface.png" />
 
-Here's what's available:
+Adjust the model's behavior with the parameters in the right-hand panel:
 
-- `Model`: Choose from a list of our generation models (we recommend `command-a-plus-05-2026`, the default).
-- `Functions`: Function calling allows developers to connect models to external functions like APIs, databases, etc., take actions in them, and return results for users to interact with. Learn more in [tool use](https://docs.cohere.com/docs/tool-use) docs.
-- `JSON Mode`: This is part of Cohere's [structured output](https://docs.cohere.com/docs/structured-outputs) functionality. When enabled, the model's response will be a JSON object that matched the schema that you have supplied. Learn more in [JSON mode](https://docs.cohere.com/docs/parameter-types-in-json).
-- Under `Advanced Parameters`, you can customize the `temperature` and `seed`. A higher temperature will make the model more creative, while a lower temperature will make the model more focused and deterministic, and seed can help you keep outputs consistent. Learn more [here](https://docs.cohere.com/docs/predictable-outputs).
-- Under `Advanced Parameters`, you'll also see the ability to turn on reasoning. This will cause the model to consider the implications of its response and provide a justification for its output. More information will be available as we continue to roll out this feature.
+- `Model`: Choose from a list of generation models. The default is `command-a-plus-05-2026`.
+- `Functions`: Available for many models. Function calling connects models to external functions such as APIs and databases, takes actions in them, and returns results for users to interact with. Learn more in the [tool use](/docs/tool-use-overview) docs.
+- `JSON Mode`: Available for many models. Part of Cohere's [structured output](/docs/structured-outputs) functionality. When enabled, the model returns a JSON object that matches the schema you supply. Learn more in [JSON mode](/docs/parameter-types-in-json).
+- `Reasoning`: Available for some models. Reasoning shows how the model considers the implications of its response and provides a justification for its output.
+- `Advanced Parameters`: Customize the `temperature` and `seed`. A higher temperature makes the model more creative, while a lower temperature makes it more focused and deterministic. Seed helps you keep outputs consistent. Learn more in [predictable outputs](/docs/predictable-outputs).
 
-### Embed
+## Embed
 
-The [Embed](https://docs.cohere.com/reference/embed) model enables users to create numerical representations for strings, which comes in handy for semantic search, topic modeling, classification tasks, and many other workflows. You can use the Embed Playground to test this functionality, and it looks like this:
+The [Embed](/reference/embed) model creates numerical representations of strings, which are useful for semantic search, topic modeling, classification, and other workflows. Use the Embed Playground to test this functionality.
 
-<img src='../../assets/images/embed-pg-basic.png' />
+To create embeddings, either use `Add input` to enter your own strings, or use `Upload a file`. Select `Run` to see a two-dimensional visualization of the strings in the `OUTPUT` box.
 
-To create embeddings through the Playground, you can either use `Add input` to feed the model your own strings, or you can use `Upload a file`. If you select `Run`, you'll see the two-dimensional visualization of the strings in the `OUTPUT` box.
+{/* SCREENSHOT 3: Embed output visualization. Show the OUTPUT box with the two-dimensional visualization of several input strings, since this is the Embed Playground's distinguishing feature. */}
 
-As with Chat, the Playground's Embed model interface offers a side panel where you can further customize the model:
+The Embed interface offers a side panel for further customization:
 
-<img src='../../assets/images/embed-pg-panel.png' />
+- `Model`: Choose from a list of embedding models. The default is `embed-v4.0`.
+- `Truncate`: Specify how the API handles inputs longer than the maximum token length.
 
-Here's what's available:
+### Save a configuration as a preset
 
-- `Model`: Choose from a list of our embedding models (we recommend `embed-v4.0`, the default).
-- `Truncate`: This allows you to specify how the API will handle inputs longer than the maximum token length.
+To reuse a configuration later, select `Save` in the top toolbar. This saves the current Playground state as a preset that you can load at any time.
 
-## Next Steps
-As mentioned, once you've roughed out an idea you can use `View Code` to get the logic. If you want to explore further, check out our:
+In the `Save as Preset` dialog, enter a `Preset name` and an optional `Preset description`, then select `Save as new preset`. To store the generated embeddings alongside the configuration, select `Include output` before saving.
 
-- [Models page](https://docs.cohere.com/docs/models)
-- [Text Generation](https://docs.cohere.com/docs/introduction-to-text-generation-at-cohere) docs
-- [Embeddings](https://docs.cohere.com/docs/embeddings) docs
-- [API](https://docs.cohere.com/reference/about) reference
-- [Integrations](https://docs.cohere.com/docs/integrations) page
-- [Cookbooks](https://docs.cohere.com/docs/cookbooks)
+{/* SCREENSHOT 4: Save as Preset dialog. Show the dialog with the Preset name and Preset description fields and the Include output checkbox, so readers know what to expect when they select Save. */}
+<img alt="Cohere Playground Embed interface" src="../../assets/images/cohere-playground-embed-interface.png" />
+
+## Next steps
+
+Once you have a configuration that works, use `View Code` to export the underlying logic. To explore further:
+
+- Browse available models on the [Models page](/docs/models).
+- Learn the fundamentals in the [Text Generation](/docs/introduction-to-text-generation-at-cohere) docs.
+- Understand vector representations in the [Embeddings](/docs/embeddings) docs.
+- Look up endpoints and parameters in the [API reference](/reference/about).
+- Connect Cohere to your stack with the [Integrations](/docs/integrations) page.
+- Find end-to-end examples in [Cookbooks](/docs/cookbooks).

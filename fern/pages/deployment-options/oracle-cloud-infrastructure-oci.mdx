@@ -11,7 +11,7 @@ createdAt: "Mon Feb 22 2024 14:53:59 GMT+0000 (Coordinated Universal Time)"
 updatedAt: "Fri Apr 11 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
 ---
 
-The Cohere Python SDK natively supports Oracle Cloud Infrastructure (OCI) Generative AI service. With `pip install cohere[oci]`, you get `OciClient` and `OciClientV2` classes that behave identically to the Cohere-hosted `Client` and `ClientV2` -- same methods, same response types, same streaming format. Switching from Cohere's hosted API to OCI Generative AI means changing one constructor.
+The Cohere Python SDK natively supports Oracle Cloud Infrastructure (OCI) Generative AI service. With `pip install -U cohere[oci]`, you get `OciClient` and `OciClientV2` classes that behave identically to the Cohere-hosted `Client` and `ClientV2` -- same methods, same response types, same streaming format. Switching from Cohere's hosted API to OCI Generative AI means changing one constructor.
 
 Under the hood, the SDK handles URL rewriting, request and response format translation, OCI cryptographic request signing, and streaming event transformation. Your application code never sees the OCI-specific details.
 
@@ -22,7 +22,7 @@ The SDK supports all Cohere models available on OCI Generative AI, including the
 ## Installation
 
 ```bash
-pip install cohere[oci]
+pip install -U cohere[oci]
 ```
 
 This installs the Cohere SDK along with the OCI SDK dependency required for authentication and request signing.
