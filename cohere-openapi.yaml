@@ -49,9 +49,7 @@ paths:
       operationId: chat
       x-fern-streaming:
         stream-description: |
-          Generates a streamed text response to a user message.
-
-          To learn how to use the Chat API and RAG follow our [Text Generation guides](https://docs.cohere.com/docs/chat-api).
+          Generates a text response to a user message and streams the response as server-sent events. Use this endpoint when you want to display partial results as they are generated.
         stream-condition: $request.stream
         response:
           required:
@@ -1492,8 +1490,9 @@ paths:
                   parameters:
                     category: Electronics
       description: |
-        Generates a text response to a user message.
-        To learn how to use the Chat API and RAG follow our [Text Generation guides](https://docs.cohere.com/docs/chat-api).
+        Generates a complete text response to a user message. Use this endpoint when you want the full response returned as a single JSON object. 
+        
+        To stream partial results as they are generated, use [Chat with Streaming](/reference/chat-stream).
       requestBody:
         content:
           application/json:
@@ -1536,9 +1535,9 @@ paths:
                   description: |
                     Defaults to `false`.
 
-                    When `true`, the response will be a JSON stream of events. The final event will contain the complete response, and will have an `event_type` of `"stream-end"`.
+                    When `true`, the response is returned as a JSON stream of events. Generated text is emitted through `text-generation` events as the response is produced. The final event has an `event_type` of `stream-end` and contains the complete response.
 
-                    Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated.
+                    Use streaming when you want to render generated text incrementally, such as in chat interfaces or assistants.
 
                     Compatible Deployments: Cohere Platform, Azure, AWS Sagemaker/Bedrock, Private Deployments
                   type: boolean
@@ -1623,7 +1622,9 @@ paths:
                   description: |
                     Defaults to `false`.
 
-                    When `true`, the response will only contain a list of generated search queries, but no search will take place, and no reply from the model to the user's `message` will be generated.
+                    When `true`, the response is returned as a JSON stream of events. Generated text is emitted through `text-generation` events as the response is produced. The final event has an `event_type` of `stream-end` and contains the complete response.
+
+                    Use streaming when you want to render generated text incrementally, such as in chat interfaces or assistants.
 
                     Compatible Deployments: Cohere Platform, Azure, AWS Sagemaker/Bedrock, Private Deployments
                 documents:
@@ -1903,9 +1904,7 @@ paths:
         terminator: "[DONE]"
         stream-condition: $request.stream
         stream-description: |
-          Generates a text response to a user message. To learn how to use the Chat API and RAG follow our [Text Generation guides](https://docs.cohere.com/v2/docs/chat-api).
-
-          Follow the [Migration Guide](https://docs.cohere.com/v2/docs/migrating-v1-to-v2) for instructions on moving from API v1 to API v2.
+          Generates a text response to a user message and streams the response as server-sent events. Use this endpoint when you want to display partial results as they are generated.
         response:
           required:
             - id
@@ -1956,9 +1955,9 @@ paths:
               message-end: "#/components/schemas/ChatMessageEndEvent"
               debug: "#/components/schemas/ChatDebugEvent"
       description: |
-        Generates a text response to a user message and streams it down, token by token. To learn how to use the Chat API with streaming follow our [Text Generation guides](https://docs.cohere.com/v2/docs/chat-api).
-
-        Follow the [Migration Guide](https://docs.cohere.com/v2/docs/migrating-v1-to-v2) for instructions on moving from API v1 to API v2.
+        Generates a complete text response to a user message. Use this endpoint when you want the full response returned as a single JSON object. 
+        
+        To stream partial results as they are generated, use [Chat with Streaming](/reference/chat-stream).
       parameters:
         - $ref: "#/components/parameters/RequestSource"
       requestBody:
@@ -1974,9 +1973,9 @@ paths:
                   description: |
                     Defaults to `false`.
 
-                    When `true`, the response will be a SSE stream of events.
+                    When `true`, the response is returned as a server-sent events (SSE) stream. Each event contains JSON data for part of the streamed response.
 
-                    Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated.
+                    Use streaming when you want to render generated text incrementally, such as in chat interfaces or assistants.
                   type: boolean
                   x-fern-audiences:
                     - public
