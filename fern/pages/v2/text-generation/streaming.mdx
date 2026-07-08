@@ -1,27 +1,32 @@
 ---
-title: A Guide to Streaming Responses
+title: Streaming responses
 slug: "v2/docs/streaming"
-
-hidden: false
 description: >-
   The document explains how the Chat API can stream events like text generation in real-time.
-keywords: "streaming, generative AI, text generation"
-
-createdAt: "Thu Jun 01 2023 16:44:31 GMT+0000 (Coordinated Universal Time)"
-updatedAt: "Tue Jun 18 2024 07:41:22 GMT+0000 (Coordinated Universal Time)"
+keywords: "chat streaming, generative AI, text generation"
 ---
-The [Chat API](/reference/chat) is capable of streaming events (such as text generation) as they come. This means that partial results from the model can be displayed within moments, even if the full generation takes longer.
+The [Chat API](/reference/chat) can stream a response as server-sent events instead of returning the full response at once. 
+Streaming lets your application display generated text as it becomes available, so users can start reading 
+before the model finishes the full response.
 
-You're likely already familiar with streaming. When you ask the model a question using [the Cohere playground](https://dashboard.cohere.com/playground), the interface doesn't output a single block of text, instead it _streams_ the text out a few words at a time. In many user interfaces enabling streaming improves the user experience by lowering the perceived latency.
+Use streaming when you want to reduce perceived latency in chat interfaces, assistants, copilots, or other interactive experiences. 
+For example, the [Cohere playground](https://dashboard.cohere.com/playground) displays model responses a few words at a time rather 
+than waiting for the full response to complete.
 
 ## Stream Events
 
-When streaming is enabled, the API sends events down one by one. Each event has a `type`. Events of different types need to be handled correctly.
+When streaming is enabled, the API sends events down one by one. 
 
-The following is an example of printing the `content-delta` event type from a streamed response, which contains the text contents of an LLM's response.
+Each event has a `type` field that identifies what kind of update it carries. 
+Check this field in your application and process each event based on its type. For example, appending text from `content-delta` events, 
+reading metadata from `message-start`, or acting on tool calls from `tool-call-delta` events. Not every event contains model text, and 
+the event types you receive depend on which API features you enable, such as RAG or tool use.
 
+<Note>`stream` must be _true_ for streaming responses. When using the SDK `chat_stream` method, this is handled for you.</Note>
+
+This example handles the `content-delta` event, which contains generated text from the streamed response, and prints each text chunk as it arrives.
 <CodeBlocks>
-```python PYTHON
+```python Python
 import cohere
 
 co = cohere.ClientV2(api_key="COHERE_API_KEY")
@@ -62,21 +67,21 @@ A large language model (LLM) is a type of artificial neural network model that h
 
 ```
 
-The following sections describe the different types of events that are emitted during a streaming session.
+The rest of this page describes the event types emitted during a streaming session.
 
 ### Basic Chat Stream Events
 
 #### message-start
 
-The first event in the stream containing metadata for the request such as the `id`. Only one `message-start` event will be emitted.
+The first event in the stream containing metadata for the request, such as the `id`. Only one `message-start` event will be emitted.
 
 #### content-start
 
-The event that indicates the start of the content block of the message. Only one `content-start` event will be emitted.
+The event indicating the start of the content block of the message. Only one `content-start` event will be emitted.
 
 #### content-delta
 
-The event that is emitted whenever the next chunk of text comes back from the model. As the model continues generating text, multiple events of this type will be emitted. Each event generates one token through the `delta.message.content.text` field.
+The event emitted whenever the next chunk of text comes back from the model. As the model continues generating text, multiple events of this type will be emitted. Each event generates one token through the `delta.message.content.text` field.
 
 ```
 # Sample events
@@ -94,7 +99,7 @@ type='content-delta' index=0 delta=ChatContentDeltaEventDelta(message=ChatConten
 
 #### content-end
 
-The event that indicates the end of the content block of the message. Only one `content-end` event will be emitted.
+The event indicating the end of the content block of the message. Only one `content-end` event will be emitted.
 
 #### message-end
 

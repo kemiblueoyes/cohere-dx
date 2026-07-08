@@ -299,11 +299,11 @@ navigation:
           - link: Security
             href: https://cohere.ai/security
           - page: Usage policy
-            path: pages/responsible-use/responsible-use/usage-guidelines.mdx 
+            path: pages/responsible-use/usage-guidelines.mdx 
           - link: Command A Technical Report
             href: https://cohere.com/research/papers/command-a-technical-report.pdf#page=46&zoom=100,62,620
           - page: Command R and Command R+ model card
-            path: pages/responsible-use/responsible-use.mdx                      
+            path: pages/responsible-use/command-r-and-r-plus-model-card.mdx                      
           - page: Cohere Labs acceptable use policy
             path: pages/responsible-use/cohere-labs-acceptable-use-policy.mdx
       - section: Resources
