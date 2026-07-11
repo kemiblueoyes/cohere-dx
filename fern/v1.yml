@@ -82,8 +82,6 @@ navigation:
             path: pages/models/cohere-embed.mdx
           - page: Rerank
             path: pages/models/rerank-2.mdx
-          - page: North Mini Code
-            path: pages/models/north/north-mini-code-1.0.mdx
           - section: Aya
             path: pages/models/aya.mdx
             contents:
@@ -93,6 +91,10 @@ navigation:
                 path: pages/models/aya-expanse.mdx
               - page: Tiny Aya
                 path: pages/models/tiny-aya.mdx
+          - section: North
+            contents:
+              - page: North Mini Code
+                path: pages/models/north/north-mini-code-1.0.mdx
       - section: Text generation
         contents:
           - page: Introduction
@@ -189,40 +191,40 @@ navigation:
                 path: pages/text-embeddings/reranking/overview.mdx
               - page: Rerank best practices
                 path: pages/text-embeddings/reranking/reranking-best-practices.mdx
-          - section: Deployment options
+      - section: Deployment options
+        contents:
+          - page: Overview
+            path: pages/deployment-options/deployment-options-overview.mdx
+          - page: Decision guide
+            path: pages/deployment-options/deployment-decision.mdx
+          - section: Private deployment
             contents:
               - page: Overview
-                path: pages/deployment-options/deployment-options-overview.mdx
-              - page: Decision guide
-                path: pages/deployment-options/deployment-decision.mdx
-              - section: Private deployment
-                contents:
-                  - page: Overview
-                    path: pages/v2/deployment-options/private-deployment/private-deployment-overview.mdx
-                  - page: Setup
-                    path: pages/v2/deployment-options/private-deployment/private-deployment-setup.mdx
-                  - page: Model deployment
-                    path: pages/deployment-options/private-deployment/single-container-on-private-clouds.mdx
-                  - page: Model deployment on AWS VPC
-                    path: pages/v2/deployment-options/private-deployment/aws-private-deployment.mdx
-                  - page: SDK usage
-                    path: pages/deployment-options/private-deployment/private-deployment-usage.mdx
-              - section: Cloud AI services
-                contents:
-                - section: Cohere on AWS
-                  path: pages/deployment-options/cohere-on-aws/cohere-on-aws.mdx
+                path: pages/v2/deployment-options/private-deployment/private-deployment-overview.mdx
+              - page: Setup
+                path: pages/v2/deployment-options/private-deployment/private-deployment-setup.mdx
+              - page: Model deployment
+                path: pages/deployment-options/private-deployment/single-container-on-private-clouds.mdx
+              - page: Model deployment on AWS VPC
+                path: pages/v2/deployment-options/private-deployment/aws-private-deployment.mdx
+              - page: SDK usage
+                path: pages/deployment-options/private-deployment/private-deployment-usage.mdx
+          - section: Cloud AI services
+            contents:
+            - section: Cohere on AWS
+              path: pages/deployment-options/cohere-on-aws/cohere-on-aws.mdx
+              contents:
+                - page: Amazon Bedrock
+                  path: pages/deployment-options/cohere-on-aws/amazon-bedrock.mdx
+                - section: Amazon SageMaker
+                  path: pages/deployment-options/cohere-on-aws/amazon-sagemaker-setup-guide.mdx
                   contents:
-                    - page: Amazon Bedrock
-                      path: pages/deployment-options/cohere-on-aws/amazon-bedrock.mdx
-                    - section: Amazon SageMaker
-                      path: pages/deployment-options/cohere-on-aws/amazon-sagemaker-setup-guide.mdx
-                      contents:
-                        - page: Deploy a finetuned model
-                          path: pages/deployment-options/cohere-on-aws/byo-finetuning-sm.mdx
-                - page: Cohere on Azure
-                  path: pages/deployment-options/cohere-on-microsoft-azure.mdx
-                - page: Cohere on Oracle Cloud Infrastructure (OCI)
-                  path: pages/deployment-options/oracle-cloud-infrastructure-oci.mdx
+                    - page: Deploy a finetuned model
+                      path: pages/deployment-options/cohere-on-aws/byo-finetuning-sm.mdx
+            - page: Cohere on Azure
+              path: pages/deployment-options/cohere-on-microsoft-azure.mdx
+            - page: Cohere on Oracle Cloud Infrastructure (OCI)
+              path: pages/deployment-options/oracle-cloud-infrastructure-oci.mdx
       - section: Going live
         contents:
           - page: Rate limits

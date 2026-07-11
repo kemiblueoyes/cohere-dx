@@ -61,12 +61,6 @@ navigation:
         contents:
           - page: Overview
             path: pages/models/models.mdx
-          - section: Audio
-            contents:
-              - page: Cohere Transcribe
-                path: pages/models/transcribe.mdx
-              - page: Cohere Transcribe Arabic
-                path: pages/models/transcribe-arabic.mdx
           - section: Command
             contents:
               - page: Command A+
@@ -89,8 +83,6 @@ navigation:
             path: pages/models/cohere-embed.mdx
           - page: Rerank
             path: pages/models/rerank-2.mdx
-          - page: North Mini Code
-            path: pages/models/north/north-mini-code-1.0.mdx
           - section: Aya
             path: pages/models/aya.mdx
             contents:
@@ -100,6 +92,16 @@ navigation:
                 path: pages/models/aya-expanse.mdx
               - page: Tiny Aya
                 path: pages/models/tiny-aya.mdx
+          - section: North
+            contents:
+              - page: North Mini Code
+                path: pages/models/north/north-mini-code-1.0.mdx
+          - section: Audio
+            contents:
+              - page: Cohere Transcribe
+                path: pages/models/transcribe.mdx
+              - page: Cohere Transcribe Arabic
+                path: pages/models/transcribe-arabic.mdx
       - section: Text generation
         contents:
           - page: Introduction
@@ -197,9 +199,9 @@ navigation:
       - section: Deployment options
         contents:
           - page: Overview
-            path: pages/deployment-options/deployment-options-overview.mdx
+            path: pages/v2/deployment-options/deployment-options-overview.mdx
           - page: Decision guide
-            path: pages/deployment-options/deployment-decision.mdx
+            path: pages/v2/deployment-options/deployment-decision.mdx
           - section: Private deployment
             contents:
               - page: Overview
