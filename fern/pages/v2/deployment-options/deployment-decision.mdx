@@ -15,6 +15,7 @@ When you deploy Cohere in your organization, you choose a deployment option that
 
 This guide helps you evaluate the four deployment options and choose the one that fits your organization's security, compliance, and infrastructure requirements.
 
+
 ## Deployment options at a glance
 
 | Deployment option | Infrastructure managed by | Data processed by | Best for |
@@ -23,6 +24,7 @@ This guide helps you evaluate the four deployment options and choose the one tha
 | **Cloud AI Services** (AWS, Azure, OCI) | Cloud provider | Cloud provider | Teams already on a major cloud platform who want managed infrastructure |
 | **Private Deployment - Cloud (VPC)** | Your team | Your team | Organizations that need network isolation and tighter data controls |
 | **Private Deployment - On-Premises** | Your team | Your team | Air-gapped environments and maximum data sovereignty |
+
 
 ## Understand each option
 
@@ -40,6 +42,9 @@ The Cohere Platform is a fully managed SaaS API. Cohere hosts the infrastructure
 
 **Best for:** Teams that want fast access to Cohere models without managing infrastructure, and whose data sensitivity requirements are met by Cohere's enterprise data commitments and ZDR opt-out.
 
+**Need dedicated infrastructure without managing it yourself?** [Model Vault](/docs/model-vault) is a dedicated-infrastructure tier of the Cohere Platform. It provides fully isolated, Cohere-managed inference with no rate limits and auto-scaled production workloads, without the GPU procurement and operational overhead of a private deployment. Model Vault is suited for enterprises that need performance guarantees and network isolation but want Cohere to handle the infrastructure entirely.
+
+
 ### Cloud AI Services
 
 Cohere models are available through AWS Bedrock, AWS SageMaker, Microsoft Azure AI Foundry, and Oracle Cloud Infrastructure (OCI). In these deployments, the cloud provider hosts and manages Cohere's models within their own infrastructure.
@@ -54,7 +59,8 @@ Cohere models are available through AWS Bedrock, AWS SageMaker, Microsoft Azure 
 
 **Best for:** Organizations that are already standardized on a major cloud platform and want to keep AI infrastructure within the same environment, billing, and compliance boundary. Also suitable for teams with existing cloud security controls they want to extend to AI workloads.
 
-**Feature support note:** Cloud AI Services support the core Cohere endpoints: chat, embed, and rerank. Some legacy endpoints are not available on all platforms. See [SDKs by deployment](/docs/cohere-works-everywhere)  for the full feature support matrix.
+**Feature support note:** Cloud AI Services support the core Cohere endpoints: chat, embed, and rerank. Some legacy endpoints are not available on all platforms. See [SDKs by deployment](/docs/cohere-works-everywhere) for the full feature support matrix.
+
 
 ### Private Deployment - Cloud (VPC)
 
@@ -72,6 +78,7 @@ Private Deployment in your cloud environment runs Cohere models inside your own 
 
 **Operational overhead:** Higher than Cohere Platform or Cloud AI Services. Your team is responsible for provisioning, scaling, monitoring, and maintaining the deployment.
 
+
 ### Private Deployment - On-Premises
 
 On-premises deployment runs Cohere models on your own physical infrastructure, including fully air-gapped environments with no external network access. This is the maximum data sovereignty option.
@@ -87,6 +94,7 @@ On-premises deployment runs Cohere models on your own physical infrastructure, i
 **Best for:** Defense, intelligence, and other public-sector organizations requiring air-gapped environments; enterprises with the most stringent data sovereignty requirements; organizations subject to regulations that prohibit cloud processing of certain data categories.
 
 **Operational overhead:** The highest of all options. Your team is responsible for the full infrastructure stack.
+
 
 ## Compare by key decision factors
 
@@ -106,6 +114,7 @@ Use this table to evaluate options against your organization's specific requirem
 | **Time to first API call** | Minutes | Hours to days | Days to weeks | Weeks to months |
 | **Infrastructure management** | Cohere | Cloud provider | Your team | Your team |
 | **Full feature support** | Yes | Partial (varies by platform) | Yes | Yes |
+
 
 ## Compliance considerations
 
@@ -139,6 +148,7 @@ For strict GDPR data residency requirements:
 - **Cloud AI Services:** Your cloud provider's regional deployment options apply. Azure and AWS both support EU data residency for supported services.
 - **Private deployments:** Full control. Data stays within your designated environment.
 
+
 ## Questions to answer before you choose
 
 Work through these questions with your security, legal, and infrastructure teams before selecting a deployment option.
@@ -161,6 +171,7 @@ Work through these questions with your security, legal, and infrastructure teams
 **Timeline**
 - How quickly do you need the deployment operational?
 - Is a phased approach viable, such as starting on the Cohere Platform and migrating to private deployment later?
+
 
 ## Recommended paths by scenario
 
@@ -194,6 +205,7 @@ If your application does not involve sensitive data categories, the Cohere Platf
 
 Organizations with requirements that prohibit cloud processing, or that need full control over the infrastructure stack, should plan for private deployment. On-premises provides maximum sovereignty; VPC provides a balance of control and operational manageability.
 
+
 ## Next steps
 
 If you're still evaluating which option fits your requirements, review [Cohere's Enterprise Data Commitments](https://cohere.com/enterprise-data-commitments) and [Trust Center](https://trustcenter.cohere.com) for detailed information on data handling, certifications, and compliance resources.
@@ -201,6 +213,7 @@ If you're still evaluating which option fits your requirements, review [Cohere's
 When you're ready to set up your chosen deployment option, continue with the setup guide for that option:
 
 - [Set up the Cohere Platform](/docs/the-cohere-platform)
+- [Set up Model Vault](/docs/model-vault)
 - [Read the private deployment overview](/docs/private-deployment-overview)
 - [Set up Amazon Bedrock](/docs/amazon-bedrock)
 - [Set up Amazon SageMaker](/docs/amazon-sagemaker-setup-guide)

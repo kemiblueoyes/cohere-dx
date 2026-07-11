@@ -3,8 +3,8 @@ title: North Mini Code
 slug: docs/north-mini-code-1.0
 hidden: false
 description: >-
-  North Mini Code is a 30B total / 3B active parameter MoE model trained for agentic coding, released under Apache 2.0 and suitable for local deployment.
-keywords: 'generative AI, Cohere, North, code, tool use'
+  North Mini Code is a 30B total / 3B active parameter MoE model for agentic coding, available as open weights on Hugging Face and via the Cohere Chat API.
+keywords: 'generative AI, Cohere, North, code, tool use, open weights, Hugging Face'
 createdAt: 'Wed Jun 3rd 2026'
 updatedAt: ''
 layout: overview
@@ -27,12 +27,14 @@ import { ModelShowcase, Capability, Endpoint} from "../../../components/model-sh
   endpoints: [
     Endpoint.ChatV2,
   ],
-  usageMessage: <p>North Mini Code can be used in production through Cohere's <a href="model-vault" target="_blank" rel="noopener noreferrer">Model Vault</a>.</p>
+  usageMessage: <p>North Mini Code is available through the Cohere Chat API, as open weights on <a href="https://huggingface.co/CohereLabs/North-Mini-Code-1.0" target="_blank" rel="noopener noreferrer">Hugging Face</a>, and for production deployment through <a href="/docs/model-vault" target="_blank" rel="noopener noreferrer">Model Vault</a>.</p>
 }}/>
 
 ## Description
 
-North Mini Code is a 30B total / 3B active parameter Mixture of Experts model trained specifically for agentic coding. It is the first model in Cohere's North family of code agent models, released under the Apache 2.0 license. Its small active footprint makes it suitable for local deployment while remaining competitive with larger open-source models on software engineering and terminal-based agentic benchmarks.
+North Mini Code is a 30B total / 3B active parameter Mixture of Experts model trained specifically for agentic coding. It is the first model in Cohere's North family of code agent models. Released under the Apache 2.0 license as open weights on [Hugging Face](https://huggingface.co/CohereLabs/North-Mini-Code-1.0), it is also available on the Cohere platform through the Chat API. 
+
+Its small active footprint makes it suitable for local deployment while remaining competitive with larger open-source models on software engineering and terminal-based agentic benchmarks.
 
 ## What can North Mini Code be used for?
 
