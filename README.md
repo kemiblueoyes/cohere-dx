@@ -1,6 +1,10 @@
 ![](./banner.png)
 
-# Cohere Developer Experience
+# Cohere Developer Experience (PORTFOLIO PROJECT)
+
+**NOTE: This is not a Cohere official project but a forked repo to serve as a technical writing portfolio piece.**
+
+----
 
 At Cohere we aim to maximize developer productivity by meeting developers at their existing workflows: whether you want to use our model on our platform or on an external cloud platform, our aim is to provide the best experience available.
 
