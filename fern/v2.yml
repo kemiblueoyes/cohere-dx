@@ -26,6 +26,8 @@ navigation:
     layout:
       - section: Get started
         contents:
+          - page: Welcome to Cohere
+            path: pages/get-started/welcome.mdx
           - page: Introduction
             path: pages/v2/get-started/the-cohere-platform.mdx
           - section: Quickstart
@@ -57,6 +59,62 @@ navigation:
             path: pages/get-started/cohere-toolkit.mdx
           - page: FAQs
             path: pages/get-started/frequently-asked-questions.mdx
+      - section: Model Vault
+        contents:
+          - page: Overview
+            path: pages/model-vault/overview.mdx
+          - page: Quickstart
+            path: pages/model-vault/quickstart.mdx
+          - section: Deploy & manage
+            contents:
+              - page: Home Page
+                path: pages/model-vault/vault-home.mdx
+              - page: Creating a Vault
+                path: pages/model-vault/creating-a-vault.mdx
+              - page: Managing Vaults
+                path: pages/model-vault/managing-vaults.mdx
+          - section: Operate & observe
+            contents:
+              - page: Monitoring
+                path: pages/model-vault/monitoring.mdx
+          - section: Standard Vault
+            contents:
+              - page: Overview
+                path: pages/model-vault/standard/overview.mdx
+              - page: Supported Models
+                path: pages/model-vault/standard/supported-models.mdx
+              - page: Calling the API
+                path: pages/model-vault/standard/api-access.mdx
+              - page: Pricing
+                path: pages/model-vault/standard/pricing.mdx
+          - section: Encrypted Vault
+            contents:
+              - page: Overview
+                path: pages/model-vault/encrypted/overview.mdx
+              - page: Supported Models
+                path: pages/model-vault/encrypted/supported-models.mdx
+              - page: Calling the API
+                path: pages/model-vault/encrypted/api-usage.mdx
+              - section: Security
+                contents:
+                  - page: Confidential Computing Primer
+                    path: pages/model-vault/encrypted/confidential-computing.mdx
+                  - page: Security Model
+                    path: pages/model-vault/encrypted/security-model.mdx
+                  - page: Remote Attestation
+                    path: pages/model-vault/encrypted/attestation.mdx
+                  - page: Verifying Your Deployment
+                    path: pages/model-vault/encrypted/verifying-deployment.mdx
+                  - page: Encryption & Key Management
+                    path: pages/model-vault/encrypted/encryption-key-management.mdx
+                  - page: Compliance
+                    path: pages/model-vault/encrypted/compliance.mdx
+              - page: Pricing
+                path: pages/model-vault/encrypted/pricing.mdx
+              - page: FAQ
+                path: pages/model-vault/encrypted/faq.mdx
+          - page: Model Vault with North
+            path: pages/model-vault/model-vault-with-north.mdx
       - section: Models
         contents:
           - page: Overview
@@ -230,10 +288,6 @@ navigation:
               path: pages/v2/deployment-options/cohere-on-microsoft-azure.mdx
             - page: Cohere on Oracle Cloud Infrastructure (OCI)
               path: pages/deployment-options/oracle-cloud-infrastructure-oci.mdx
-          - section: Model Vault
-            contents:
-              - page: Model Vault
-                path: pages/v2/deployment-options/model-vault/model-vault.mdx
       - section: Going live
         contents:
           - page: Rate limits
@@ -335,14 +389,18 @@ navigation:
                 path: pages/v2/tutorials/cohere-on-azure/azure-ai-tool-use.mdx
       - section: Responsible use
         contents:
+          - link: Cohere Trust Center
+            href: https://trustcenter.cohere.com/
           - link: Security
-            href: https://cohere.ai/security
+            href: https://cohere.com/security
           - page: Usage policy
             path: pages/responsible-use/usage-guidelines.mdx
           - link: Command A Technical Report
             href: https://cohere.com/research/papers/command-a-technical-report.pdf#page=46&zoom=100,62,620
           - page: Command R and Command R+ model card
-            path: pages/responsible-use/command-r-and-r-plus-model-card.mdx   
+            path: pages/responsible-use/command-r-and-r-plus-model-card.mdx
+          - page: Cohere Web Crawlers
+            path: pages/responsible-use/cohere-web-crawlers.mdx
           - page: Cohere Labs acceptable use policy
             path: pages/responsible-use/cohere-labs-acceptable-use-policy.mdx
       - section: Resources
@@ -399,13 +457,13 @@ navigation:
         path: pages/command-line-interface/command-reference/user.mdx
       - page: Fine-tuning on AWS
         hidden: true
-        path: pages/fine-tuning/fine-tuning-on-aws.mdx
+        path: pages/-ARCHIVE-/fine-tuning/fine-tuning-on-aws.mdx
       - page: Fine-tuning Cohere models on Amazon Bedrock
         hidden: true
-        path: pages/fine-tuning/fine-tuning-on-aws/fine-tuning-cohere-models-on-amazon-bedrock.mdx
+        path: pages/-ARCHIVE-/fine-tuning/fine-tuning-on-aws/fine-tuning-cohere-models-on-amazon-bedrock.mdx
       - page: Fine-tuning Cohere models on Amazon SageMaker
         hidden: true
-        path: pages/fine-tuning/fine-tuning-on-aws/fine-tuning-cohere-models-on-amazon-sagemaker.mdx
+        path: pages/-ARCHIVE-/fine-tuning/fine-tuning-on-aws/fine-tuning-cohere-models-on-amazon-sagemaker.mdx
       - page: Cohere SDKs
         hidden: true
         path: pages/get-started/cohere-sdks.mdx
@@ -544,6 +602,18 @@ navigation:
       - page: "[ALT] The Generate endpoint"
         hidden: true
         path: pages/llm-university/sandbox/the-generate-endpoint-copy.mdx
+      - page: Customer Support
+        hidden: true
+        path: pages/quickstart-tutorials/customer-support-link.mdx
+      - page: Intent Recognition
+        hidden: true
+        path: pages/quickstart-tutorials/intent-recognition-link.mdx
+      - page: Sentiment Analysis
+        hidden: true
+        path: pages/quickstart-tutorials/sentiment-analysis-link.mdx
+      - page: Toxicity Detection
+        hidden: true
+        path: pages/quickstart-tutorials/toxicity-detection-link.mdx
       - page: Using the Embed API
         hidden: true
         path: pages/text-embeddings/embed-api.mdx

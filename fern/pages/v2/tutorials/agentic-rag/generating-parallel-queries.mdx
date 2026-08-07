@@ -17,6 +17,7 @@ But the second query is more complex. We need to break it down into two separate
 This is an example that requires query expansion. Here, the agentic RAG will need to transform the query into a more optimized set of queries it should use to perform the retrieval.
 
 In this part, we'll learn how to create an agentic RAG system that can perform query expansion and then run those queries in parallel:
+
 - Query expansion
 - Query expansion over multiple data sources
 - Query expansion in multi-turn conversations
@@ -208,6 +209,7 @@ This results in a richer and more representative list of documents retrieved, an
 ```python PYTHON
 messages = run_agent("Explain the Chat endpoint and the RAG feature")
 ```
+
 ```mdx
 
 QUESTION:
@@ -276,6 +278,7 @@ messages = run_agent(
     "What is the Embed endpoint? Give me some code tutorials"
 )
 ```
+
 ```mdx
 
 QUESTION:
@@ -322,6 +325,7 @@ In the first turn, the user asks about the Chat endpoint, to which the agent dul
 ```python PYTHON
 messages = run_agent("What is the Chat endpoint?")
 ```
+
 ```mdx
 
 QUESTION:
@@ -359,6 +363,7 @@ messages = run_agent(
     "How is it different from RAG? Also any code tutorials?", messages
 )
 ```
+
 ```mdx
 
 QUESTION:
@@ -391,6 +396,7 @@ Sources:
 ## Summary
 
 In this tutorial, we learned about:
+
 - How query expansion works in an agentic RAG system
 - How query expansion works over multiple data sources
 - How query expansion works in multi-turn conversations

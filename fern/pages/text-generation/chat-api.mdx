@@ -22,7 +22,9 @@ response = co.chat(
 )
 
 print(response.text)
+
 # "The Art of API Design: Crafting Elegant and Powerful Interfaces"
+
 ```
 ```java JAVA
 public class ChatPost {
@@ -31,14 +33,15 @@ public class ChatPost {
 
     NonStreamedChatResponse response = cohere.chat(
       ChatRequest.builder()
-      	.model("command-a-03-2025")
-      	.message("Write a title for a blog post about API design. Only output the title text.")
+        .model("command-a-03-2025")
+        .message("Write a title for a blog post about API design. Only output the title text.")
     )
 
     System.out.println(response); // "The Art of API Design: Crafting Elegant and Powerful Interfaces"
   }
 }
 ```
+
 ```typescript TYPESCRIPT
 const { CohereClient } = require('cohere-ai');
 
@@ -54,6 +57,7 @@ const cohere = new CohereClient({
   console.log(response.text)
 })();
 ```
+
 </CodeBlocks>
 
 ## Response Structure

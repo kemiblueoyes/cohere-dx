@@ -8,7 +8,6 @@ description: >-
 keywords: API reference, Cohere API, endpoints, authentication, SDKs, text generation, embeddings
 audience: Developer
 ---
-
 The Cohere API gives you direct access to Cohere's models: Command for text
 generation, Embed and Rerank for search and retrieval, and Cohere Transcribe
 for speech through a single set of endpoints.
@@ -75,6 +74,7 @@ The SDK is the recommended way to call the API. The example below makes a basic
 v1 `Chat` request in each supported language. For installation, configuration,
 and more examples, see [SDKs](/docs/sdks).
 
+
 <CodeBlocks>
 ```python Python
 import cohere
@@ -128,27 +128,27 @@ public class Default {
 package main
 
 import (
-	"context"
-	"log"
+    "context"
+    "log"
 
-	cohere "github.com/cohere-ai/cohere-go/v2"
-	client "github.com/cohere-ai/cohere-go/v2/client"
+    cohere "github.com/cohere-ai/cohere-go/v2"
+    client "github.com/cohere-ai/cohere-go/v2/client"
 )
 
 func main() {
     co := client.NewClient(client.WithToken("COHERE_API_KEY"))
 
-	response, err := co.Chat(
-		context.TODO(),
-		&cohere.ChatRequest{
-			Model:   "command-a-plus-05-2026",
-			Message: "Tell me about LLMs",
-		},
-	)
+    response, err := co.Chat(
+        context.TODO(),
+        &cohere.ChatRequest{
+            Model:   "command-a-plus-05-2026",
+            Message: "Tell me about LLMs",
+        },
+    )
 
-	if err != nil {
-		log.Fatal(err)
-	}
+    if err != nil {
+        log.Fatal(err)
+    }
 
 	log.Printf("%+v", response)
 }
@@ -164,3 +164,4 @@ func main() {
 - To upgrade to the current API version, see
   [Migrating from API v1 to v2](/docs/migrating-v1-to-v2).
 - To understand the concepts behind the models, see the [Cohere platform overview](/docs/the-cohere-platform).
+

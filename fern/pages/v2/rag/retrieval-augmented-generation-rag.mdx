@@ -12,6 +12,7 @@ When used with [Command A+](/docs/command-a-plus), [Command A](/docs/command-a),
 ## A quick example
 
 To call the Chat API with RAG, pass the following parameters as a minimum:
+
 - `model` for the model ID
 - `messages` for the user's query.
 - `documents` for defining the documents to be used as the context for the response. 
@@ -29,6 +30,7 @@ co = cohere.ClientV2(
     "COHERE_API_KEY"
 )  # Get your free API key here: https://dashboard.cohere.com/api-keys
 ```
+
 </Tab>
 
 <Tab title="Private deployment">
@@ -40,6 +42,7 @@ co = cohere.ClientV2(
     api_key="",  # Leave this blank
     base_url="YOUR_DEPLOYMENT_URL",
 )
+
 ```
 </Tab>
 </Tabs>
@@ -263,10 +266,12 @@ curl --request POST \
     ]
   }'
 ```
+
 ```
 # Sample response
 ['popularity of NSync', 'popularity of Backstreet Boys']
 ```
+
 Indeed, to generate a factually accurate answer to the question "Who is more popular: Nsync or Backstreet Boys?", looking up `popularity of NSync` and `popularity of Backstreet Boys` first would be helpful.
 
 <Accordion title="Customizing the generation of search queries">
@@ -277,10 +282,13 @@ For example, you can update the system message to encourage a longer list of sea
 ```python Python
 instructions = "Write a search query that will find helpful information for answering the user's question accurately. If you need more than one search query, write a list of search queries. If you decide that a search is very unlikely to find information that would be useful in constructing a response to the user, you should instead directly answer."
 ```
+
 Example response:
+
 ```mdx
 ['NSync popularity', 'Backstreet Boys popularity', 'NSync vs Backstreet Boys popularity comparison', 'Which boy band is more popular NSync or Backstreet Boys', 'NSync and Backstreet Boys fan base size comparison', 'Who has sold more albums NSync or Backstreet Boys', 'NSync and Backstreet Boys chart performance comparison']
 ```
+
 </Accordion>
 
 ### Step 2: Fetching relevant documents
@@ -296,6 +304,7 @@ When trying to stay within the context length limit, you might need to omit some
 #### Formatting documents
 
 The Chat endpoint supports a few different options for structuring documents in the `documents` parameter:
+
 - List of objects with `data` object: Each document is passed as a `data` object (with an optional `id` field to be used in citations). The `data` object is a string-any dictionary containing the document's contents. For example, a web search document can contain a `title`, `text`, and `url` for the document's title, text, and URL.
 - List of objects with `data` string: Each document is passed as a `data` string (with an optional `id` field to be used in citations).
 - List of strings: Each document is passed as a string.
@@ -411,6 +420,7 @@ curl --request POST \
 ```
 
 Example response:
+
 ```mdx
 Both NSYNC and Backstreet Boys were huge in the US at the turn of the millennium. However, Backstreet Boys achieved a greater level of success than NSYNC. They dominated the music business for a few years all over the world, including in some countries that were traditionally hard to penetrate for Western artists. Their success included massive album sales across the globe, great singles sales, plenty of chart-topping releases, hugely hyped tours and tremendous media coverage.
 ```
@@ -424,6 +434,7 @@ print(response.message.citations)
 ```
 
 Example response:
+
 ```mdx
 # (truncated for brevity)
 [Citation(start=36, 

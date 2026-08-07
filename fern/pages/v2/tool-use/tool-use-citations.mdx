@@ -33,6 +33,7 @@ co = cohere.ClientV2(
     "COHERE_API_KEY"
 )  # Get your free API key here: https://dashboard.cohere.com/api-keys
 ```
+
 </Tab>
 
 <Tab title="Private deployment">
@@ -45,6 +46,7 @@ co = cohere.ClientV2(
     api_key="",  # Leave this blank
     base_url="YOUR_DEPLOYMENT_URL",
 )
+
 ```
 </Tab>
 </Tabs>
@@ -122,6 +124,7 @@ if response.message.tool_calls:
                 "content": tool_content,
             }
         )
+
 ```
 ```bash cURL
 curl --request POST \
@@ -158,11 +161,13 @@ curl --request POST \
   ]
 }'
 ```
+
 </CodeBlocks>
 
 In the non-streaming mode (using `chat` to generate the model response), the citations are provided in the `message.citations` field of the response object.
 
 Each citation object contains:
+
 - `start` and `end`: the start and end indices of the text that cites a source(s)
 - `text`: its corresponding span of text
 - `sources`: the source(s) that it references
@@ -181,6 +186,7 @@ print(response.message.content[0].text)
 
 for citation in response.message.citations:
     print(citation, "\n")
+
 ```
 ```bash cURL
 curl --request POST \
@@ -263,9 +269,11 @@ curl --request POST \
   ]
 }'
 ```
+
 </CodeBlocks>
 
 Example response:
+
 ```mdx wordWrap
 It is currently 24°C in Madrid and 28°C in Brasilia.
 
@@ -273,7 +281,9 @@ start=16 end=20 text='24°C' sources=[ToolSource(type='tool', id='get_weather_14
 
 start=35 end=39 text='28°C' sources=[ToolSource(type='tool', id='get_weather_vdr9cvj619fk:0', tool_output={'temperature': '{"brasilia":"28°C"}'})] type='TEXT_CONTENT'
 ```
+
 ### Streaming
+
 In a streaming scenario (using `chat_stream` to generate the model response), the citations are provided in the `citation-start` events.
 
 Each citation object contains the same fields as the [non-streaming scenario](#non-streaming).
@@ -298,6 +308,7 @@ messages.append({"role": "assistant", "content": response_text})
 
 for citation in citations:
     print(citation, "\n")
+
 ```
 ```bash cURL
 curl --request POST \
@@ -381,9 +392,11 @@ curl --request POST \
   "stream": true
 }'
 ```
+
 </CodeBlocks>
 
 Example response:
+
 ```mdx wordWrap
 It is currently 24°C in Madrid and 28°C in Brasilia.
 
@@ -393,6 +406,7 @@ start=35 end=39 text='28°C' sources=[ToolSource(type='tool', id='get_weather_gh
 ```
 
 ## Document ID
+
 When passing the tool results from the tool execution step, you can optionally add custom IDs to the `id` field in the `document` object. These IDs will be used by the endpoint as the citation reference.
 
 If you don't provide the `id` field, the ID will be auto-generated in the the format of `<tool_call_id>:<auto_generated_id>`. Example: `get_weather_1byjy32y4hvq:0`.
@@ -476,6 +490,7 @@ print(response.message.content[0].text)
 
 for citation in response.message.citations:
     print(citation, "\n")
+
 ```
 ```bash cURL
 curl --request POST \
@@ -560,11 +575,13 @@ curl --request POST \
   ]
 }'
 ```
+
 </CodeBlocks>
 
 Note the `id` fields in the citations, which refer to the IDs in the `document` object.
 
 Example response:
+
 ```mdx wordWrap
 It's 24°C in Madrid and 28°C in Brasilia.
 
@@ -576,6 +593,7 @@ start=24 end=28 text='28°C' sources=[ToolSource(type='tool', id='2', tool_outpu
 In contrast, here's an example citation when the IDs are not provided.
 
 Example response:
+
 ```mdx wordWrap
 It is currently 24°C in Madrid and 28°C in Brasilia.
 
@@ -585,9 +603,11 @@ start=35 end=39 text='28°C' sources=[ToolSource(type='tool', id='get_weather_gh
 ```
 
 ## Citation modes
+
 When running tool use in streaming mode, it’s possible to configure how citations are generated and presented. You can choose between fast citations or accurate citations, depending on your latency and precision needs.
 
 ### Accurate citations
+
 The model produces its answer first, and then, after the entire response is generated, it provides citations that map to specific segments of the response text. This approach may incur slightly higher latency, but it ensures the citation indices are more precisely aligned with the final text segments of the model’s answer.
 
 This is the default option, or you can explicitly specify it by adding the `citation_options={"mode": "accurate"}` argument in the API call.
@@ -626,6 +646,7 @@ for chunk in response:
 print("\n")
 for citation in citations:
     print(citation, "\n")
+
 ```
 ```bash cURL
 curl --request POST \
@@ -714,6 +735,7 @@ curl --request POST \
   "stream": true
 }'
 ```
+
 </CodeBlocks>
 Example response:
 ```mdx wordWrap
@@ -722,6 +744,7 @@ It is currently 24°C in Madrid and 28°C in Brasilia.
 start=16 end=20 text='24°C' sources=[ToolSource(type='tool', id='1', tool_output={'temperature': '{"madrid":"24°C"}'})] type='TEXT_CONTENT' 
 
 start=35 end=39 text='28°C' sources=[ToolSource(type='tool', id='2', tool_output={'temperature': '{"brasilia":"28°C"}'})] type='TEXT_CONTENT' 
+
 ```
 
 ### Fast citations
@@ -752,6 +775,7 @@ for chunk in response:
                 end="",
             )
 ```
+
 ```bash cURL
 curl --request POST \
   --url https://api.cohere.ai/v2/chat \
@@ -839,6 +863,7 @@ curl --request POST \
   "stream": true
 }'
 ```
+
 </CodeBlocks>
 Example response:
 ```mdx wordWrap

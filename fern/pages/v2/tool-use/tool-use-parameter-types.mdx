@@ -46,6 +46,7 @@ response = co.chat(model="command-a-plus-05-2026",
 ### Important notes
 
 When using `strict_tools`, the following notes apply:
+
 - This parameter is only supported in Chat API V2 via the strict_tools parameter (not API V1).
 - You must specify at least one `required` parameter. Tools with only optional parameters are not supported in this mode.
 - You can define a maximum of 200 fields across all tools in a single Chat API call.
@@ -73,6 +74,7 @@ co = cohere.ClientV2(
     "COHERE_API_KEY"
 )  # Get your free API key here: https://dashboard.cohere.com/api-keys
 ```
+
 </Tab>
 
 <Tab title="Private deployment">
@@ -84,6 +86,7 @@ co = cohere.ClientV2(
     api_key="",  # Leave this blank
     base_url="YOUR_DEPLOYMENT_URL",
 )
+
 ```
 </Tab>
 </Tabs>
@@ -112,6 +115,7 @@ response = co.chat(
 for tc in response.message.tool_calls:
     print(f"{tc.function.name} | Parameters: {tc.function.arguments}")
 ```
+
 ```bash cURL
 curl --request POST \
   --url https://api.cohere.ai/v2/chat \
@@ -149,6 +153,7 @@ curl --request POST \
   "temperature": 0
 }'
 ```
+
 </CodeBlocks>
 
 </Accordion>
