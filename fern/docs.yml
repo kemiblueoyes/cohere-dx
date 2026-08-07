@@ -818,7 +818,3 @@ redirects:
   - source: "/v2/docs/generate-fine-tuning/generate-improving-the-results"
     destination: "/docs/fine-tuning"
     permanent: true
-
-analytics:
-  segment:
-    write-key: ${SEGMENT_WRITE_KEY}
