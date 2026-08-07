@@ -1,6 +1,6 @@
 dist/
 node_modules/
-.pnpm-store/
+.pnpm-store/*
 .vs/
 .vscode/
 .idea/

@@ -1,16 +1,20 @@
 ---
-title: Cohere platform overview
+title: Cohere Platform overview
 slug: docs/the-cohere-platform
 hidden: false
 description: >-
-  Cohere offers world-class Large Language Models (LLMs) like Command, Rerank, and Embed.
-  These help developers and enterprises build LLM-powered applications.
-keywords: 'natural language processing, generative AI, fine-tuning models'
+  Start building on the Cohere Platform: call models over the API, explore
+  common use cases, and choose where to run your workloads.
+keywords: 'Cohere Platform, API, Command, Embed, Rerank, SDKs, deployment'
+audience: Developer
+image: ../../assets/images/f1cc130-cohere_meta_image.jpg
 createdAt: 'Thu Oct 13 2022 21:30:34 GMT+0000 (Coordinated Universal Time)'
 updatedAt: 'Mon Jun 24 2024 09:16:55 GMT+0000 (Coordinated Universal Time)'
 ---
 
-Cohere is an AI platform for building production-grade applications and knowledge systems. Use Cohere's APIs and models to add language understanding, generation, search, retrieval, and agent capabilities to your products.
+The Cohere Platform is the managed API for Cohere's models. Call Command, Embed, Rerank, and related models over the API on Cohere's cloud — no infrastructure to manage. Grab an API key and start building in minutes.
+
+Looking for a different product? [Welcome to Cohere](../docs/welcome) compares the Platform, Model Vault, and North.
 
 <Tabs>
 
@@ -107,94 +111,86 @@ func main() {
 </Tab>
 
 </Tabs>
-Ready to build with your own data? [Start the RAG quickstart](/docs/rag-quickstart)  
-No code yet? [Explore in the Playground](https://dashboard.cohere.com/playground/generate)
+
+Ready to build with your own data? [Start the RAG quickstart](../docs/rag-quickstart).  
+No code yet? [Explore in the Playground](https://dashboard.cohere.com/playground/generate).
 
 ## Common use cases
 
 <CardGroup cols={2}>
   <Card title="Enterprise AI agents & automation">
-    Build agents that use  [tools](/docs/tools), [APIs](/reference/about), and company systems to complete tasks and workflows.
+    Build agents that use [tools](../docs/tools), [APIs](../reference/about), and company systems to complete tasks and workflows.
   </Card>
   <Card title="Search & retrieval">
-    Power [semantic search](/docs/semantic-search-with-cohere), knowledge assistants, and [RAG](/docs/retrieval-augmented-generation-rag) across your data with [Embed](/docs/cohere-embed) and [Rerank](/docs/rerank).
+    Power [semantic search](../docs/semantic-search-with-cohere), knowledge assistants, and [RAG](../docs/retrieval-augmented-generation-rag) across your data with [Embed](../docs/cohere-embed) and [Rerank](../docs/rerank).
   </Card>
   <Card title="Document intelligence">
-    Extract, classify, and organize information from large document collections using [Command](/docs/models#command).
+    Extract, classify, and organize information from large document collections using [Command](../docs/models#command).
   </Card>
   <Card title="Grounded content generation">
-    Generate reports, summaries, and responses backed by company knowledge and [citations](/docs/rag-citations).
+    Generate reports, summaries, and responses backed by company knowledge and [citations](../docs/rag-citations).
   </Card>
   <Card title="Multilingual applications">
-    Search and generate content across [multiple languages](/docs/aya).
+    Search and generate content across [multiple languages](../docs/aya).
   </Card>
 </CardGroup>
 
 ## Start building
 
-- **[RAG](/docs/retrieval-augmented-generation-rag)**: Ground model responses in your own data using the Chat endpoint with documents.
-- **[Semantic search](/docs/semantic-search-embed)**: Search by meaning, not keywords, using Cohere's Embed models.
-- **[Reranking](/docs/rerank)**: Improve retrieval quality by reranking candidate results before generation.
-- **[Text generation](/docs/chat-api)**: Generate and refine text using the Chat endpoint and Command models.
-- **[Tool use & agents](/docs/tool-use)**: Build agents that call external tools, APIs, and data sources.
-- **[Transcription](/docs/transcribe)**: Convert audio to text using Cohere's transcription models.
+- **[RAG](../docs/retrieval-augmented-generation-rag)**: Ground model responses in your own data using the Chat endpoint with documents.
+- **[Semantic search](../docs/semantic-search-embed)**: Search by meaning, not keywords, using Cohere's Embed models.
+- **[Reranking](../docs/rerank)**: Improve retrieval quality by reranking candidate results before generation.
+- **[Text generation](../docs/chat-api)**: Generate and refine text using the Chat endpoint and Command models.
+- **[Tool use & agents](../docs/tool-use)**: Build agents that call external tools, APIs, and data sources.
+- **[Transcription](../docs/transcribe)**: Convert audio to text using Cohere's transcription models.
 
-## Models
+## Models on the Platform
 
-<CardGroup cols={2}>
-  <Card title="Command" href="/docs/models#command">
-    Text generation models for chat, RAG, tool use, and agents. Optimized for enterprise performance and instruction following.
-  </Card>
-  <Card title="Embed" href="/docs/cohere-embed">
-    Convert text and images into vector embeddings for semantic search, retrieval, and classification across 100+ languages.
-  </Card>
-  <Card title="Rerank" href="/docs/rerank">
-    Improve search and retrieval quality by reranking candidate results by relevance before generation.
-  </Card>
-  <Card title="Transcribe" href="/docs/transcribe">
-    Convert audio to text with high accuracy across multiple languages using Cohere's speech recognition model.
-  </Card>
-  <Card title="Aya" href="/docs/aya">
-    Open-weight multilingual models designed for research and underserved languages. Supports 70+ languages.
-  </Card>
-</CardGroup>
+The Platform gives you API access to Cohere's model families. See the [models overview](../docs/models) for the full list and current versions.
+
+- [Command](../docs/models#command) — text generation for chat, RAG, tool use, and agents
+- [Embed](../docs/cohere-embed) — embeddings for semantic search, retrieval, and classification
+- [Rerank](../docs/rerank) — relevance ranking for search and retrieval pipelines
+- [Transcribe](../docs/transcribe) — speech-to-text across multiple languages
+- [Aya](../docs/aya) — open-weight multilingual models for research and underserved languages
 
 ## Developer resources
 
-- **[API reference](/reference/about)**: Complete reference for all Cohere endpoints, parameters, and response objects.
-- **[SDKs](/docs/sdks)**: Official Python, TypeScript, Go, and Java clients for the Cohere API.
-- **[Cohere Toolkit](/docs/cohere-toolkit)**: Open-source components for building and deploying RAG applications quickly, including preconfigured front-end, back-end, and data retrieval chains.
-- **[Cookbooks](/page/cookbooks)**: Code-based guides and recipes for common Cohere use cases and integrations.
+- **[API reference](../reference/about)**: Complete reference for all Cohere endpoints, parameters, and response objects.
+- **[SDKs](../docs/sdks)**: Official Python, TypeScript, Go, and Java clients for the Cohere API.
+- **[Cohere Toolkit](../docs/cohere-toolkit)**: Open-source components for building and deploying RAG applications quickly.
+- **[Cookbooks](../page/cookbooks)**: Code-based guides and recipes for common Cohere use cases and integrations.
 
-## Choose your deployment
+## Where to run Platform models
 
-The Cohere platform supports the full set of available features. Cloud and private deployment options support subsets of these features. See each platform's documentation for details.
+The managed Cohere Platform API is the default path. You can also access the same model families through cloud AI services and private deployments. Feature support varies by option — see each guide for details.
+
+Need dedicated single-tenant isolation or a ready-made agentic app instead? Compare products on [Welcome to Cohere](../docs/welcome).
 
 <CardGroup cols={2}>
-  <Card title="Cohere platform" href="/reference/about">
-    The fastest way to get started. Access Cohere models through a fully managed API with no infrastructure setup required.
-  </Card>
-  <Card title="Amazon Bedrock" href="/docs/aws-bedrock">
+  <Card title="Amazon Bedrock" href="../docs/aws-bedrock">
     Access Cohere's Command, Embed, and Rerank models through AWS's fully managed, serverless AI service.
   </Card>
-  <Card title="Amazon SageMaker" href="/docs/amazon-sagemaker-setup-guide">
+  <Card title="Amazon SageMaker" href="../docs/amazon-sagemaker-setup-guide">
     Deploy and customize Cohere models on AWS with full control over infrastructure, instance types, and configuration.
   </Card>
-  <Card title="AWS private deployment" href="/docs/aws-private-deployment">
+  <Card title="AWS private deployment" href="../docs/aws-private-deployment">
     Deploy Cohere models in your own AWS VPC for network isolation and tighter data controls.
   </Card>
-  <Card title="On-premises" href="/docs/private-deployment-overview">
+  <Card title="On-premises" href="../docs/private-deployment-overview">
     Run Cohere models on your own infrastructure, including air-gapped environments with no external network access.
   </Card>
-  <Card title="Microsoft Azure" href="/docs/cohere-on-microsoft-azure">
+  <Card title="Microsoft Azure" href="../docs/cohere-on-microsoft-azure">
     Access Cohere models through Azure AI Foundry on enterprise-grade Microsoft cloud infrastructure.
   </Card>
-  <Card title="OCI" href="/docs/oracle-cloud-infrastructure-oci">
+  <Card title="OCI" href="../docs/oracle-cloud-infrastructure-oci">
     Access Cohere's generative and embedding models through Oracle Cloud Infrastructure's fully managed AI service.
   </Card>
 </CardGroup>
 
+For SDK setup across deployments, see [SDKs by deployment](../docs/cohere-works-everywhere).
+
 ## Community & learning
 
-- **[LLMU](/docs/llmu)**: Free courses on large language models and building with Cohere, from fundamentals to advanced topics.
+- **[LLMU](../docs/llmu)**: Free courses on large language models and building with Cohere, from fundamentals to advanced topics.
 - **[Discord](https://discord.com/invite/co-mmunity)**: Share what you're building and get help from the Cohere community.
