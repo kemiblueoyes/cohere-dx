@@ -4,7 +4,7 @@ slug: "docs/choosing-deployment-option"
 description: >-
     Compare Cohere's deployment options across data residency, compliance, and infrastructure 
     requirements to choose the right fit for your organization."
-keywords: "Cohere deployment options, Cohere enterprise deployment"
+keywords: "Cohere deployment options, Cohere enterprise deployment, model vault"
 ---
 When you deploy Cohere in your organization, you choose a deployment option that determines:
 
@@ -13,7 +13,7 @@ When you deploy Cohere in your organization, you choose a deployment option that
 - **What compliance frameworks apply:** Dictates what your team is ultimately responsible for.
 - **How much operational overhead you take on:** Defines your day-to-day maintenance limits.
 
-This guide helps you evaluate the four deployment options and choose the one that fits your organization's security, compliance, and infrastructure requirements.
+This guide helps you evaluate the five deployment options and choose the one that fits your organization's security, compliance, and infrastructure requirements.
 
 
 ## Deployment options at a glance
@@ -21,6 +21,7 @@ This guide helps you evaluate the four deployment options and choose the one tha
 | Deployment option | Infrastructure managed by | Data processed by | Best for |
 |---|---|---|---|
 | **Cohere Platform** | Cohere | Cohere | Getting started quickly; general-purpose API access |
+| **Model Vault** | Cohere | Cohere (single-tenant) | Dedicated, isolated inference without operating the serving stack |
 | **Cloud AI Services** (AWS, Azure, OCI) | Cloud provider | Cloud provider | Teams already on a major cloud platform who want managed infrastructure |
 | **Private Deployment - Cloud (VPC)** | Your team | Your team | Organizations that need network isolation and tighter data controls |
 | **Private Deployment - On-Premises** | Your team | Your team | Air-gapped environments and maximum data sovereignty |
@@ -42,7 +43,22 @@ The Cohere Platform is a fully managed SaaS API. Cohere hosts the infrastructure
 
 **Best for:** Teams that want fast access to Cohere models without managing infrastructure, and whose data sensitivity requirements are met by Cohere's enterprise data commitments and ZDR opt-out.
 
-**Need dedicated infrastructure without managing it yourself?** [Model Vault](/docs/model-vault) is a dedicated-infrastructure tier of the Cohere Platform. It provides fully isolated, Cohere-managed inference with no rate limits and auto-scaled production workloads, without the GPU procurement and operational overhead of a private deployment. Model Vault is suited for enterprises that need performance guarantees and network isolation but want Cohere to handle the infrastructure entirely.
+
+### Model Vault
+
+[Model Vault](/docs/model-vault) is a Cohere-managed, single-tenant inference environment. Cohere operates the serving stack. You get dedicated infrastructure, no rate limits, and control over model selection, scaling, and monitoring. Every vault is either [Standard](/docs/model-vault/standard) or [Encrypted](/docs/model-vault/encrypted).
+
+**What Cohere controls:** Infrastructure, model hosting, maintenance, deployments, updates, and scaling.
+
+**What you control:** Vault type (Standard or Encrypted), model and performance tier, replica range, and how you call the vault over the API.
+
+**Data handling:** Standard Vaults protect data in transit and at rest. Encrypted Vaults add confidential computing, so prompts and responses stay protected in use inside hardware-backed trusted execution environments. Cohere and the cloud operator cannot access plaintext on an Encrypted Vault. Zero Data Retention (ZDR) is available for both types. A Data Processing Agreement (DPA) is available for enterprise customers.
+
+**Compliance certifications:** SOC 2, GDPR, and HIPAA support. Encrypted Vaults add verifiable remote attestation as evidence. See [Encrypted Vault compliance](/docs/model-vault/encrypted/compliance).
+
+**Best for:** Organizations that need dedicated, isolated inference and predictable performance without operating GPUs or a serving stack. Encrypted Vaults are suited for regulated or highly sensitive workloads that require hardware-backed confidentiality.
+
+**Operational overhead:** Low. You create and manage vaults in the Model Vault app. Cohere operates the underlying infrastructure.
 
 
 ### Cloud AI Services
@@ -76,7 +92,7 @@ Private Deployment in your cloud environment runs Cohere models inside your own 
 
 **Best for:** Organizations that need network isolation, where data cannot leave a defined network perimeter, but prefer to keep infrastructure in a cloud environment rather than on-premises. Common in financial services, healthcare, and other regulated industries.
 
-**Operational overhead:** Higher than Cohere Platform or Cloud AI Services. Your team is responsible for provisioning, scaling, monitoring, and maintaining the deployment.
+**Operational overhead:** Higher than Cohere Platform, Model Vault, or Cloud AI Services. Your team is responsible for provisioning, scaling, monitoring, and maintaining the deployment.
 
 
 ### Private Deployment - On-Premises
@@ -100,20 +116,20 @@ On-premises deployment runs Cohere models on your own physical infrastructure, i
 
 Use this table to evaluate options against your organization's specific requirements.
 
-| Factor | Cohere Platform | Cloud AI Services | Private - Cloud (VPC) | Private - On-Premises |
-|---|---|---|---|---|
-| **Data processed by** | Cohere | Cloud provider | Your team | Your team |
-| **Cohere receives prompts** | Yes (ZDR opt-out available) | No | No | No |
-| **DPA with Cohere required** | Yes (enterprise) | No | No | No |
-| **Network isolation** | No | Partial (within cloud) | Yes (VPC boundary) | Yes (air-gapped possible) |
-| **Data residency control** | Limited | Cloud provider regions | Your cloud region | Your physical location |
-| **SOC 2 / ISO 27001** | Cohere-certified | Cloud provider-certified | Your responsibility | Your responsibility |
-| **FedRAMP High** | Via Second Front (Game Warden) | Via cloud provider (where applicable) | Your responsibility | Your responsibility |
-| **HIPAA** | BAA available for custom model engagements only | Via cloud provider | Your responsibility | Your responsibility |
-| **Fine-tuning availability** | Yes | Varies by platform | Yes | Yes |
-| **Time to first API call** | Minutes | Hours to days | Days to weeks | Weeks to months |
-| **Infrastructure management** | Cohere | Cloud provider | Your team | Your team |
-| **Full feature support** | Yes | Partial (varies by platform) | Yes | Yes |
+| Factor | Cohere Platform | Model Vault | Cloud AI Services | Private - Cloud (VPC) | Private - On-Premises |
+|---|---|---|---|---|---|
+| **Data processed by** | Cohere | Cohere (single-tenant) | Cloud provider | Your team | Your team |
+| **Cohere receives prompts** | Yes (ZDR opt-out available) | Standard: Yes (ZDR available). Encrypted: No (plaintext inaccessible) | No | No | No |
+| **DPA with Cohere required** | Yes (enterprise) | Yes (enterprise) | No | No | No |
+| **Network isolation** | No | Yes (single-tenant) | Partial (within cloud) | Yes (VPC boundary) | Yes (air-gapped possible) |
+| **Data residency control** | Limited | Region selection (contact Cohere) | Cloud provider regions | Your cloud region | Your physical location |
+| **SOC 2 / ISO 27001** | Cohere-certified | SOC 2 (Encrypted adds attestation) | Cloud provider-certified | Your responsibility | Your responsibility |
+| **FedRAMP High** | Via Second Front (Game Warden) | Contact Cohere | Via cloud provider (where applicable) | Your responsibility | Your responsibility |
+| **HIPAA** | BAA available for custom model engagements only | Encrypted: confidential computing safeguards | Via cloud provider | Your responsibility | Your responsibility |
+| **Fine-tuning availability** | Yes | Customized models | Varies by platform | Yes | Yes |
+| **Time to first API call** | Minutes | Minutes | Hours to days | Days to weeks | Weeks to months |
+| **Infrastructure management** | Cohere | Cohere | Cloud provider | Your team | Your team |
+| **Full feature support** | Yes | Yes (model-dependent) | Partial (varies by platform) | Yes | Yes |
 
 
 ## Compliance considerations
@@ -135,6 +151,7 @@ Cohere may execute a Business Associate Agreement (BAA) for custom model develop
 If your use case involves Protected Health Information (PHI):
 
 - Do not submit PHI through the Cohere Platform SaaS service.
+- Evaluate [Model Vault Encrypted](/docs/model-vault/encrypted) if you need Cohere-managed inference with confidential computing. Hardware-backed TEEs keep PHI inaccessible to the infrastructure operator while it is processed. Confirm the control mapping with Cohere and your legal team. See [Encrypted Vault compliance](/docs/model-vault/encrypted/compliance).
 - Consider a Cloud AI Services deployment on a HIPAA-eligible cloud service (AWS, Azure, or OCI each offer HIPAA-eligible configurations; verify the specific service).
 - Private deployment keeps all data within your environment and is the most direct path to full HIPAA control.
 
@@ -145,6 +162,7 @@ Cohere operates across multiple jurisdictions including Canada, the EU, and the 
 For strict GDPR data residency requirements:
 
 - **Cohere Platform:** Limited control over where data is processed. Contact Cohere to understand processing regions.
+- **Model Vault:** Region selection supports data-residency requirements. Contact Cohere to confirm the regions available for your vault. Encrypted Vaults add hardware-enforced access restrictions.
 - **Cloud AI Services:** Your cloud provider's regional deployment options apply. Azure and AWS both support EU data residency for supported services.
 - **Private deployments:** Full control. Data stays within your designated environment.
 
@@ -165,21 +183,22 @@ Work through these questions with your security, legal, and infrastructure teams
 
 **Infrastructure and operations**
 - Does your organization have the engineering capacity to manage a private deployment?
+- Do you need dedicated capacity and isolation without operating a serving stack?
 - Are you already standardized on a cloud provider that offers Cohere models?
 - What are your latency requirements, and how does infrastructure location affect them?
 
 **Timeline**
 - How quickly do you need the deployment operational?
-- Is a phased approach viable, such as starting on the Cohere Platform and migrating to private deployment later?
+- Is a phased approach viable, such as starting on the Cohere Platform and moving to Model Vault or private deployment later?
 
 
 ## Recommended paths by scenario
 
 ### Regulated industry (financial services, insurance)
 
-**Recommended:** Private Deployment - Cloud (VPC) or Cloud AI Services on your existing cloud provider.
+**Recommended:** Private Deployment - Cloud (VPC), Cloud AI Services on your existing cloud provider, or Model Vault Encrypted.
 
-Financial services organizations typically need network isolation and data residency control, but can operate within cloud environments. A VPC deployment keeps data within your network boundary while using cloud infrastructure your team already manages. If you're on AWS or Azure, Cloud AI Services may provide sufficient data controls depending on your specific regulatory requirements. Evaluate against your compliance team's requirements.
+Financial services organizations typically need network isolation and data residency control, but can operate within cloud environments. A VPC deployment keeps data within your network boundary while using cloud infrastructure your team already manages. If you're on AWS or Azure, Cloud AI Services may provide sufficient data controls depending on your specific regulatory requirements. If you need dedicated, isolated inference without operating the serving stack, evaluate [Model Vault Encrypted](/docs/model-vault/encrypted) against your compliance team's requirements.
 
 ### Federal agency or defense contractor
 
@@ -189,15 +208,22 @@ Cohere's FedRAMP High authorization through Second Front Game Warden is the fast
 
 ### Healthcare organization
 
-**Recommended:** Private Deployment - Cloud (VPC) or Cloud AI Services on a HIPAA-eligible cloud service.
+**Recommended:** Private Deployment - Cloud (VPC), Cloud AI Services on a HIPAA-eligible cloud service, or Model Vault Encrypted.
 
-Do not submit PHI through the Cohere Platform SaaS service. If your application requires PHI processing, evaluate Cloud AI Services on a HIPAA-eligible AWS or Azure configuration, or deploy privately within your own VPC. Engage Cohere and your legal team to understand the BAA scope if custom model development is part of your use case.
+Do not submit PHI through the Cohere Platform SaaS service. If your application requires PHI processing, evaluate Cloud AI Services on a HIPAA-eligible AWS or Azure configuration, deploy privately within your own VPC, or evaluate [Model Vault Encrypted](/docs/model-vault/encrypted) for Cohere-managed inference with confidential computing. Engage Cohere and your legal team to understand the BAA scope if custom model development is part of your use case.
 
 ### Enterprise team starting quickly, low data sensitivity
 
 **Recommended:** Cohere Platform.
 
-If your application does not involve sensitive data categories, the Cohere Platform is the fastest path to production. Enable zero data retention in the dashboard if you do not want prompts logged. Upgrade your deployment option as your requirements evolve.
+If your application does not involve sensitive data categories, the Cohere Platform is the fastest path to production. Enable zero data retention in the dashboard if you do not want prompts logged. If you later need dedicated capacity, no rate limits, or single-tenant isolation, move to Model Vault. Upgrade your deployment option as your requirements evolve.
+
+### Enterprise needing dedicated capacity or isolation
+
+**Recommended:** Model Vault.
+
+If you need dedicated throughput, no rate limits, and single-tenant isolation, but do not want to operate GPUs or a serving stack, Model Vault is the fit. Choose Standard Vault for dedicated inference with data protected in transit and at rest. Choose Encrypted Vault when you need confidential computing and verifiable attestation.
+
 
 ### Large enterprise with strict data sovereignty
 
@@ -212,7 +238,7 @@ If you're still evaluating which option fits your requirements, review [Cohere's
 
 When you're ready to set up your chosen deployment option, continue with the setup guide for that option:
 
-- [Set up the Cohere Platform](/docs/the-cohere-platform)
+- [Set up the Cohere Platform](/docs/cohere-platform-deployment)
 - [Set up Model Vault](/docs/model-vault)
 - [Read the private deployment overview](/docs/private-deployment-overview)
 - [Set up Amazon Bedrock](/docs/amazon-bedrock)

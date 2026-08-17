@@ -1,0 +1,123 @@
+---
+title: "Deploy with the Cohere Platform"
+slug: "docs/cohere-platform-deployment"
+description: "Set up the Cohere Platform: create an API key, authenticate the SDK, and send a request on Cohere's hosted API."
+keywords: "Cohere Platform, hosted API, managed deployment, API key, Cohere SaaS"
+audience: "Developer, Technical Decision-Maker"
+---
+
+This guide shows you how to set up the Cohere Platform, Cohere's fully managed hosted API at `api.cohere.com`. Cohere hosts the models and manages availability and updates. You authenticate with an API key and call the API. You don't provision infrastructure.
+
+Use this path when you want API access without managing infrastructure, and your data-sensitivity requirements are met by Cohere's enterprise data commitments. If you need dedicated isolation, no rate limits, or confidential computing, see [Model Vault](/docs/model-vault). If you're still comparing options, see [Choose a deployment option](/docs/choosing-deployment-option).
+
+## Prerequisites
+
+You need the following before you begin:
+
+- A Cohere account, or the ability to [create one](https://dashboard.cohere.com/welcome/register).
+- Access to the [API keys page](https://dashboard.cohere.com/api-keys) after you sign up.
+- A supported SDK language if you call the API from code: Python, TypeScript, Java, or Go. See [SDKs](/docs/sdks) for install commands.
+
+You don't need a cloud subscription, VPC, IAM role, or container license.
+
+To try the API without writing code, use the [Playground](https://dashboard.cohere.com/playground/generate). This guide covers the API path.
+
+## Recommended approach
+
+This guide uses the official Cohere SDK against `https://api.cohere.com`, with your API key passed to the client. That is the default Platform path, and it supports the full set of Cohere features. For the feature matrix across deployments, see [SDKs by deployment](/docs/cohere-works-everywhere).
+
+This page doesn't cover cloud-provider clients, Model Vault endpoints, or private-deployment base URLs. Those options have their own setup guides.
+
+What each side controls:
+
+- Cohere controls infrastructure, model hosting, availability, and updates.
+- You control API keys, which models you call, and how you integrate the API.
+
+## Set up the Platform
+
+<Steps toc={true}>
+### Create a Cohere account
+
+Register on the [Cohere dashboard](https://dashboard.cohere.com/welcome/register). A trial account is enough to complete this guide.
+
+### Create an API key
+
+Open the [API keys page](https://dashboard.cohere.com/api-keys) and create a trial key for evaluation.
+
+Cohere issues two key types. Trial keys are free and rate-limited. Production keys are paid and have higher limits. See [Authentication](/docs/authentication) and [API keys and rate limits](/docs/rate-limits).
+
+Store the key as `COHERE_API_KEY`. don't commit it to source control.
+
+### Install the SDK
+
+```bash
+pip install -U cohere
+```
+
+For other languages, see [Installation](/docs/get-started-installation).
+
+### Initialize the client
+
+The client defaults to `https://api.cohere.com`. For other languages, see [SDKs](/docs/sdks).
+
+```python
+import cohere
+
+co = cohere.ClientV2(api_key="COHERE_API_KEY")
+```
+
+### Send a request
+
+Send a Chat request as a connectivity check. For richer examples, see [Cohere Platform overview](/docs/the-cohere-platform) and the [Chat API reference](/reference/chat).
+
+```python
+response = co.chat(
+    model="command-a-plus-05-2026",
+    messages=[
+        {
+            "role": "user",
+            "content": "Say hello.",
+        }
+    ],
+)
+
+print(response.message.content[0].text)
+```
+
+</Steps>
+
+## Verify the result
+
+A successful call returns a non-empty model reply. Model output is non-deterministic, so treat a completed response as the check, not a specific string.
+
+If the call fails, confirm that `COHERE_API_KEY` is set and valid. Trial keys are rate-limited. See [API keys and rate limits](/docs/rate-limits).
+
+## Security and compliance considerations
+
+On the Cohere Platform, prompts and completions are processed on Cohere's infrastructure.
+
+- Enterprise customers can opt out of model training in the Cohere dashboard.
+- If you're approved for Zero Data Retention (ZDR), Cohere doesn't log prompts or completions.
+- A Data Processing Agreement (DPA) is available for enterprise customers.
+- don't submit Protected Health Information (PHI) through the Platform SaaS service. See the [HIPAA section](/docs/choosing-deployment-option#hipaa) of the decision guide.
+
+For data handling and certifications, see [Cohere's Enterprise Data Commitments](https://cohere.com/enterprise-data-commitments) and the [Trust Center](https://trustcenter.cohere.com).
+
+## Production considerations
+
+After the first successful call:
+
+- Upgrade from a trial key when you're ready to go live. See [Upgrade to a production key](/docs/going-live).
+- Review [rate limits](/docs/rate-limits) and [how pricing and billing work](/docs/how-does-cohere-pricing-work).
+- Subscribe to the [Cohere status page](https://status.cohere.ai) for incident and maintenance updates.
+- If you later need dedicated capacity, no rate limits, or single-tenant isolation, move to [Model Vault](/docs/model-vault).
+
+## Next steps
+
+When you're ready to continue, pick the next page based on your goal:
+
+- To see what you can build on the Platform, read [Cohere Platform overview](/docs/the-cohere-platform).
+- To compare this option with Model Vault, cloud AI services, or private deployment, read [Choose a deployment option](/docs/choosing-deployment-option).
+- To look up endpoints and parameters, use the [API reference](/reference/about).
+- To initialize a client in another language, see [SDKs](/docs/sdks).
+- To go to production, follow [Upgrade to a production key](/docs/going-live).

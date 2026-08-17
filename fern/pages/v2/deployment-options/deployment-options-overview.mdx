@@ -2,18 +2,23 @@
 title: "Cohere deployment options"
 slug: "v2/docs/deployment-options-overview"
 description: "This page provides an overview of the available options for deploying Cohere's models."
-keywords: "generative AI, large language models, private deployment"
+keywords: "generative AI, large language models, private deployment, model vault"
 ---
 Cohere models are available through multiple deployment options, so you can choose the setup that best fits your organization's security, compliance, and infrastructure requirements.
 
 ## Deployment options
 <CardGroup cols={1}>
   <Card title="Cohere Platform">
-    The fastest way to get started. Access Cohere models through a fully managed API with no infrastructure setup required. Model Vault is another Cohere-managed option on the Cohere Platform for dedicated, isolated, single-tenant inference with control over model selection, scaling, and performance monitoring.
+    The fastest way to get started. Access Cohere models through a fully managed API with no infrastructure setup required.
 
     [Get started](docs/authentication)
+  </Card>
+  <Card title="Model Vault">
+    Deploy Cohere models in a Cohere-managed, isolated, single-tenant environment. You get dedicated inference with no rate limits, and choose Standard or Encrypted (confidential computing).
 
-    [Set up Model Vault](/docs/model-vault)
+    [Get started](/docs/model-vault/quickstart)
+
+    [Read Model Vault overview](/docs/model-vault)
   </Card>
   <Card title="Private deployment">
     Deploy Cohere models securely inside your own controlled environment, either within a private cloud VPC or on-premises. Supports fully network-isolated, air-gapped systems.

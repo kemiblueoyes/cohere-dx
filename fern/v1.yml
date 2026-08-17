@@ -24,11 +24,11 @@ landing-page:
 navigation:
   - tab: docs
     layout:
-      - page: Welcome to Cohere
-        path: pages/get-started/welcome.mdx
-      - section: Cohere Platform
+      - section: Get Started
         contents:
-          - page: Overview
+          - page: Welcome to Cohere
+            path: pages/get-started/welcome.mdx
+          - page: Platform overview
             path: pages/get-started/the-cohere-platform.mdx
           - section: Quickstart
             contents:
@@ -50,75 +50,74 @@ navigation:
             contents: 
               - page: SDKs by deployment
                 path: pages/get-started/cohere-works-everywhere.mdx
-          - page: Pricing
-            path: pages/get-started/how-does-cohere-pricing-work.mdx
           - page: Playground
             path: pages/get-started/playground-overview.mdx
           - page: Cohere Toolkit
             path: pages/get-started/cohere-toolkit.mdx
-          - page: FAQs
-            path: pages/get-started/frequently-asked-questions.mdx
-      - section: Model Vault
+      - section: Build with Cohere
         contents:
-          - page: Overview
-            path: pages/model-vault/overview.mdx
-          - page: Quickstart
-            path: pages/model-vault/quickstart.mdx
-          - section: Deploy & manage
-            contents:
-              - page: Home Page
-                path: pages/model-vault/vault-home.mdx
-              - page: Creating a Vault
-                path: pages/model-vault/creating-a-vault.mdx
-              - page: Managing Vaults
-                path: pages/model-vault/managing-vaults.mdx
-          - section: Operate & observe
-            contents:
-              - page: Monitoring
-                path: pages/model-vault/monitoring.mdx
-          - section: Standard Vault
+          - section: Generate text
             contents:
               - page: Overview
-                path: pages/model-vault/standard/overview.mdx
-              - page: Supported Models
-                path: pages/model-vault/standard/supported-models.mdx
-              - page: Calling the API
-                path: pages/model-vault/standard/api-access.mdx
-              - page: Pricing
-                path: pages/model-vault/standard/pricing.mdx
-          - section: Encrypted Vault
+                path: pages/text-generation/introduction-to-text-generation-at-cohere.mdx
+              - page: Using the Chat API
+                path: pages/text-generation/chat-api.mdx
+              - page: Streaming
+                path: pages/text-generation/streaming.mdx
+              - page: Structured outputs
+                path: pages/text-generation/structured-outputs.mdx
+              - page: Predictable outputs
+                path: pages/text-generation/predictable-outputs.mdx
+              - page: Advanced generation parameters
+                path: pages/text-generation/advanced-generation-hyperparameters.mdx
+              - page: Tokens and tokenizers
+                path: pages/text-generation/tokens-and-tokenizers.mdx
+              - page: Summarizing text
+                path: pages/text-generation/summarizing-text.mdx
+              - page: Safety modes
+                path: pages/text-generation/safety-modes.mdx
+              - page: Migrating from the Generate API to the Chat API
+                path: pages/text-generation/migrating-from-cogenerate-to-cochat.mdx
+          - section: Build RAG applications
             contents:
-              - page: Overview
-                path: pages/model-vault/encrypted/overview.mdx
-              - page: Supported Models
-                path: pages/model-vault/encrypted/supported-models.mdx
-              - page: Calling the API
-                path: pages/model-vault/encrypted/api-usage.mdx
-              - section: Security
+              - page: Basic usage
+                path: pages/text-generation/retrieval-augmented-generation-rag.mdx
+          - section: Build search and retrieval
+            contents:
+              - page: Embeddings
+                path: pages/text-embeddings/embeddings.mdx
+              - page: Semantic search
+                path: pages/text-embeddings/semantic-search-embed.mdx
+              - page: Multimodal embeddings
+                path: pages/text-embeddings/multimodal-embeddings.mdx
+              - page: Batch embedding jobs
+                path: pages/text-embeddings/embed-jobs-api.mdx
+              - page: Datasets
+                path: pages/text-embeddings/datasets.mdx
+          - section: Rerank results
+            contents:
+              - page: Rerank overview
+                path: pages/text-embeddings/reranking/overview.mdx
+              - page: Rerank best practices
+                path: pages/text-embeddings/reranking/reranking-best-practices.mdx
+          - section: Build agents and tool-using applications
+            contents:
+              - page: Tool use overview
+                path: pages/text-generation/tools.mdx
+              - section: Multi-step tool use (agents)
+                path: pages/text-generation/tools/multi-step-tool-use.mdx
                 contents:
-                  - page: Confidential Computing Primer
-                    path: pages/model-vault/encrypted/confidential-computing.mdx
-                  - page: Security Model
-                    path: pages/model-vault/encrypted/security-model.mdx
-                  - page: Remote Attestation
-                    path: pages/model-vault/encrypted/attestation.mdx
-                  - page: Verifying Your Deployment
-                    path: pages/model-vault/encrypted/verifying-deployment.mdx
-                  - page: Encryption & Key Management
-                    path: pages/model-vault/encrypted/encryption-key-management.mdx
-                  - page: Compliance
-                    path: pages/model-vault/encrypted/compliance.mdx
-              - page: Pricing
-                path: pages/model-vault/encrypted/pricing.mdx
-              - page: FAQ
-                path: pages/model-vault/encrypted/faq.mdx
-          - page: Model Vault with North
-            path: pages/model-vault/model-vault-with-north.mdx
-      - section: Models
+                  - page: Implementing a multi-step agent with LangChain
+                    path: pages/text-generation/tools/multi-step-tool-use/implementing-a-multi-step-agent-with-langchain.mdx
+              - page: Single-step tool use
+                path: pages/text-generation/tools/tool-use.mdx
+              - page: Parameter types
+                path: pages/text-generation/tools/parameter-types-in-tool-use.mdx
+      - section: Choose models
         contents:
-          - page: Overview
+          - page: Model overview
             path: pages/models/models.mdx
-          - section: Command
+          - section: Generate
             contents:
               - page: Command A+
                 path: pages/models/the-command-family-of-models/command-a-plus.mdx
@@ -140,7 +139,7 @@ navigation:
             path: pages/models/cohere-embed.mdx
           - page: Rerank
             path: pages/models/rerank-2.mdx
-          - section: Aya
+          - section: Multilingual with Aya
             path: pages/models/aya.mdx
             contents:
               - page: Aya Vision
@@ -149,112 +148,80 @@ navigation:
                 path: pages/models/aya-expanse.mdx
               - page: Tiny Aya
                 path: pages/models/tiny-aya.mdx
-          - section: North
+          - section: Code with North
             contents:
               - page: North Mini Code
                 path: pages/models/north/north-mini-code-1.0.mdx
-      - section: Text generation
+      - section: Plan your deployment
         contents:
-          - page: Introduction
-            path: pages/text-generation/introduction-to-text-generation-at-cohere.mdx
-          - page: Using the Chat API
-            path: pages/text-generation/chat-api.mdx
-          - page: Streaming responses
-            path: pages/text-generation/streaming.mdx
-          - page: Structured outputs
-            path: pages/text-generation/structured-outputs.mdx
-          - page: Predictable outputs
-            path: pages/text-generation/predictable-outputs.mdx
-          - page: Advanced generation parameters
-            path: pages/text-generation/advanced-generation-hyperparameters.mdx
-          - page: Retrieval augmented generation (RAG)
-            path: pages/text-generation/retrieval-augmented-generation-rag.mdx
-          - section: RAG connectors
-            hidden: true
+          - section: Deploy Cohere
             contents:
-              - page: Overview of RAG connectors
-                path: pages/text-generation/connectors/overview-1.mdx
-              - page: Creating and deploying a connector
-                path: pages/text-generation/connectors/creating-and-deploying-a-connector.mdx
-              - page: Managing your connector
-                path: pages/text-generation/connectors/managing-your-connector.mdx
-              - page: Connector authentication
-                path: pages/text-generation/connectors/connector-authentication.mdx
-              - page: Connector FAQs
-                path: pages/text-generation/connectors/connector-faqs.mdx
-          - section: Tool use
-            path: pages/text-generation/tools.mdx
+              - page: Overview
+                path: pages/deployment-options/deployment-options-overview.mdx
+              - page: Choose a deployment option
+                path: pages/deployment-options/deployment-decision.mdx
+              - page: Pricing
+                path: pages/get-started/how-does-cohere-pricing-work.mdx
+          - section: Cohere Platform
             contents:
-              - section: Multi-step tool use (agents)
-                path: pages/text-generation/tools/multi-step-tool-use.mdx
+              - page: Deploy with the Cohere Platform
+                path: pages/deployment-options/cohere-platform-deployment.mdx
+          - section: Model Vault
+            contents:
+              - page: Overview
+                path: pages/model-vault/overview.mdx
+              - page: Quickstart
+                path: pages/model-vault/quickstart.mdx
+              - section: Deploy & manage
                 contents:
-                  - page: Implementing a multi-step agent with LangChain
-                    path: pages/text-generation/tools/multi-step-tool-use/implementing-a-multi-step-agent-with-langchain.mdx
-              - page: Single-step tool use
-                path: pages/text-generation/tools/tool-use.mdx
-              - page: Parameter types in tool use
-                path: pages/text-generation/tools/parameter-types-in-tool-use.mdx
-          - page: Tokens and tokenizers
-            path: pages/text-generation/tokens-and-tokenizers.mdx
-          - section: Prompt engineering
-            hidden: true 
-            contents:
-              - page: Crafting effective prompts
-                path: pages/text-generation/prompt-engineering/crafting-effective-prompts.mdx
-              - page: Advanced prompt engineering techniques
-                path: pages/text-generation/prompt-engineering/advanced-prompt-engineering-techniques.mdx
-              - page: Prompt truncation
-                path: pages/text-generation/prompt-engineering/prompt-truncation.mdx
-              - page: System messages
-                path: pages/text-generation/prompt-engineering/preambles.mdx
-              - section: Prompt library
+                  - page: Home page
+                    path: pages/model-vault/vault-home.mdx
+                  - page: Creating a vault
+                    path: pages/model-vault/creating-a-vault.mdx
+                  - page: Managing vaults
+                    path: pages/model-vault/managing-vaults.mdx
+              - section: Operate & observe
                 contents:
-                  - page: Create CSV data from JSON data
-                    path: pages/text-generation/prompt-engineering/prompt-library/create-csv-data-from-json-data.mdx
-                  - page: Create a markdown table from raw data
-                    path: pages/text-generation/prompt-engineering/prompt-library/create-a-markdown-table-from-raw-data.mdx
-                  - page: Meeting summarizer
-                    path: pages/text-generation/prompt-engineering/prompt-library/meeting-summarizer.mdx
-                  - page: Remove PII
-                    path: pages/text-generation/prompt-engineering/prompt-library/remove-pii.mdx
-                  - page: Add a docstring to your code
-                    path: pages/text-generation/prompt-engineering/prompt-library/add-a-docstring-to-your-code.mdx
-                  - page: Evaluate your LLM response
-                    path: pages/text-generation/prompt-engineering/prompt-library/evaluate-your-llm-response.mdx
-                  - page: Faster web search
-                    path: pages/text-generation/prompt-engineering/prompt-library/faster-web-search.mdx
-                  - page: Multilingual interpreter
-                    path: pages/text-generation/prompt-engineering/prompt-library/multilingual-interpreter.mdx
-          - page: Migrating from the Generate API to the Chat API
-            path: pages/text-generation/migrating-from-cogenerate-to-cochat.mdx
-          - page: Summarizing text
-            path: pages/text-generation/summarizing-text.mdx
-          - page: Safety modes
-            path: pages/text-generation/safety-modes.mdx
-      - section: Embeddings
-        contents:
-          - page: Overview
-            path: pages/text-embeddings/embeddings.mdx
-          - page: Semantic search with embeddings
-            path: pages/text-embeddings/semantic-search-embed.mdx
-          - page: Multimodal embeddings
-            path: pages/text-embeddings/multimodal-embeddings.mdx
-          - page: Batch embedding jobs
-            path: pages/text-embeddings/embed-jobs-api.mdx
-          - page: Datasets
-            path: pages/text-embeddings/datasets.mdx
-          - section: Reranking
-            contents:
-              - page: Rerank overview
-                path: pages/text-embeddings/reranking/overview.mdx
-              - page: Rerank best practices
-                path: pages/text-embeddings/reranking/reranking-best-practices.mdx
-      - section: Deployment options
-        contents:
-          - page: Overview
-            path: pages/deployment-options/deployment-options-overview.mdx
-          - page: Decision guide
-            path: pages/deployment-options/deployment-decision.mdx
+                  - page: Monitoring
+                    path: pages/model-vault/monitoring.mdx
+              - section: Standard Vault
+                contents:
+                  - page: Overview
+                    path: pages/model-vault/standard/overview.mdx
+                  - page: Supported models
+                    path: pages/model-vault/standard/supported-models.mdx
+                  - page: Calling the API
+                    path: pages/model-vault/standard/api-access.mdx
+                  - page: Pricing
+                    path: pages/model-vault/standard/pricing.mdx
+              - section: Encrypted Vault
+                contents:
+                  - page: Overview
+                    path: pages/model-vault/encrypted/overview.mdx
+                  - page: Supported models
+                    path: pages/model-vault/encrypted/supported-models.mdx
+                  - page: Calling the API
+                    path: pages/model-vault/encrypted/api-usage.mdx
+                  - section: Security
+                    contents:
+                      - page: Confidential computing primer
+                        path: pages/model-vault/encrypted/confidential-computing.mdx
+                      - page: Security model
+                        path: pages/model-vault/encrypted/security-model.mdx
+                      - page: Remote attestation
+                        path: pages/model-vault/encrypted/attestation.mdx
+                      - page: Verifying your deployment
+                        path: pages/model-vault/encrypted/verifying-deployment.mdx
+                      - page: Encryption & key management
+                        path: pages/model-vault/encrypted/encryption-key-management.mdx
+                      - page: Compliance
+                        path: pages/model-vault/encrypted/compliance.mdx
+                  - page: Pricing
+                    path: pages/model-vault/encrypted/pricing.mdx
+                  - page: FAQ
+                    path: pages/model-vault/encrypted/faq.mdx
+              - page: Model Vault with North
+                path: pages/model-vault/model-vault-with-north.mdx
           - section: Private deployment
             contents:
               - page: Overview
@@ -267,7 +234,7 @@ navigation:
                 path: pages/v2/deployment-options/private-deployment/aws-private-deployment.mdx
               - page: SDK usage
                 path: pages/deployment-options/private-deployment/private-deployment-usage.mdx
-          - section: Cloud AI services
+          - section: Cloud AI platforms
             contents:
             - section: Cohere on AWS
               path: pages/deployment-options/cohere-on-aws/cohere-on-aws.mdx
@@ -283,17 +250,21 @@ navigation:
               path: pages/deployment-options/cohere-on-microsoft-azure.mdx
             - page: Cohere on Oracle Cloud Infrastructure (OCI)
               path: pages/deployment-options/oracle-cloud-infrastructure-oci.mdx
-      - section: Going live
+      - section: Operate in production
         contents:
-          - page: Rate limits
-            path: pages/going-live/rate-limits.mdx
-          - page: Upgrading to production key
-            path: pages/going-live/upgrading-to-prod-key.mdx
-          - page: Deprecations
-            path: pages/going-live/deprecations.mdx
-      - section: Integrations
+          - section: Production readiness
+            contents:
+              - page: Rate limits
+                path: pages/going-live/rate-limits.mdx
+              - page: Upgrading to production key
+                path: pages/going-live/upgrading-to-prod-key.mdx
+          - section: Lifecycle management
+            contents:
+              - page: Deprecations
+                path: pages/going-live/deprecations.mdx
+      - section: Integrate with your stack
         contents:
-          - section: Embedding models
+          - section: Vector databases & search
             path: pages/integrations/integrations.mdx
             contents:
               - page: Elasticsearch and Cohere
@@ -302,8 +273,6 @@ navigation:
                 path: pages/integrations/integrations/mongodb-and-cohere.mdx
               - page: Redis and Cohere
                 path: pages/integrations/integrations/redis-and-cohere.mdx
-              - page: Haystack and Cohere
-                path: pages/integrations/integrations/haystack-and-cohere.mdx
               - page: Pinecone and Cohere
                 path: pages/integrations/integrations/pinecone-and-cohere.mdx
               - page: Weaviate and Cohere
@@ -320,9 +289,10 @@ navigation:
                 path: pages/integrations/integrations/zilliz-and-cohere.mdx
               - page: Chroma and Cohere
                 path: pages/integrations/integrations/chroma-and-cohere.mdx
-          - section: Cohere and LangChain
-            path: pages/integrations/cohere-and-langchain.mdx
+          - section: AI frameworks
             contents:
+              - page: LangChain
+                path: pages/integrations/cohere-and-langchain.mdx
               - page: Chat on LangChain
                 path: pages/integrations/cohere-and-langchain/chat-on-langchain.mdx
               - page: Embed on LangChain
@@ -331,17 +301,16 @@ navigation:
                 path: pages/integrations/cohere-and-langchain/rerank-on-langchain.mdx
               - page: Tools on LangChain
                 path: pages/integrations/cohere-and-langchain/tools-on-langchain.mdx
-          - page: LlamaIndex and Cohere
-            path: pages/integrations/llamaindex.mdx
-      - section: Tutorials
+              - page: LlamaIndex
+                path: pages/integrations/llamaindex.mdx
+              - page: Haystack
+                path: pages/integrations/integrations/haystack-and-cohere.mdx
+      - section: Learn by building
         contents:
-          - page: Cookbooks
-            path: pages/cookbooks.mdx
-          - link: LLM University
-            href: https://cohere.com/llmu
-          - section: Build things with Cohere!
-            path: pages/tutorials/build-things-with-cohere.mdx
-            contents: 
+          - section: Application tutorials
+            contents:
+              - page: Start here
+                path: pages/tutorials/build-things-with-cohere.mdx
               - page: Cohere text generation tutorial
                 path: pages/tutorials/build-things-with-cohere/text-generation-tutorial.mdx
               - page: Building a chatbot with Cohere
@@ -354,28 +323,44 @@ navigation:
                 path: pages/tutorials/build-things-with-cohere/rag-with-cohere.mdx
               - page: Building an agent with Cohere
                 path: pages/tutorials/build-things-with-cohere/building-an-agent-with-cohere.mdx
-      - section: Responsible use
+          - section: Learning resources
+            contents:
+              - page: Cookbooks
+                path: pages/cookbooks.mdx
+              - link: LLM University
+                href: https://cohere.com/llmu
+      - section: Trust, safety & governance
         contents:
-          - link: Cohere Trust Center
-            href: https://trustcenter.cohere.com/
-          - link: Security
-            href: https://cohere.com/security
-          - page: Usage policy
-            path: pages/responsible-use/usage-guidelines.mdx
-          - link: Command A Technical Report
-            href: https://cohere.com/research/papers/command-a-technical-report.pdf#page=46&zoom=100,62,620
-          - page: Command R and Command R+ model card
-            path: pages/responsible-use/command-r-and-r-plus-model-card.mdx
-          - page: Cohere Web Crawlers
-            path: pages/responsible-use/cohere-web-crawlers.mdx
-          - page: Cohere Labs acceptable use policy
-            path: pages/responsible-use/cohere-labs-acceptable-use-policy.mdx
+          - section: Responsible AI
+            contents:
+              - page: Usage policy
+                path: pages/responsible-use/usage-guidelines.mdx
+              - page: Labs acceptable use policy
+                path: pages/responsible-use/cohere-labs-acceptable-use-policy.mdx
+              - page: Command R model cards
+                path: pages/responsible-use/command-r-and-r-plus-model-card.mdx
+              - link: Command A technical report
+                href: https://cohere.com/research/papers/command-a-technical-report.pdf#page=46&zoom=100,62,620
+          - section: Security & compliance
+            contents:
+              - link: Cohere Trust Center
+                href: https://trustcenter.cohere.com/
+              - link: Security
+                href: https://cohere.com/security
+          - section: Cohere services
+            contents:
+              - page: Web crawlers
+                path: pages/responsible-use/cohere-web-crawlers.mdx
       - section: Resources
         contents:
-          - page: Improve Cohere docs
-            path: pages/resources/contribute.mdx
           - page: Glossary
             path: pages/resources/glossary.mdx
+          - page: FAQs
+            path: pages/get-started/frequently-asked-questions.mdx
+          - page: Release notes
+            path: pages/changelog/overview.mdx
+          - page: Contribute to Cohere docs
+            path: pages/resources/contribute.mdx
       # HIDDEN SECTION
       - page: Command and Command Lite
         path: pages/models/the-command-family-of-models/command-beta.mdx

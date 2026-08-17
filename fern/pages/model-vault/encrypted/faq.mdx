@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions About Model Vault Encrypted
+title: Frequently asked questions about Model Vault Encrypted
 slug: "docs/model-vault/encrypted/faq"
 
 hidden: false
@@ -9,7 +9,7 @@ keywords: "model vault encrypted, confidential computing FAQ, attestation, verif
 
 Common questions about Model Vault Encrypted. For the underlying concepts, start with the
 [Encrypted Vault overview](../../../docs/model-vault/encrypted) and the
-[Confidential Computing Primer](../../../docs/model-vault/encrypted/confidential-computing).
+[Confidential computing primer](../../../docs/model-vault/encrypted/confidential-computing).
 
 ## Getting started
 
@@ -57,7 +57,7 @@ service lets you confirm the attestation service itself ran genuine, unmodified 
 No. Your prompts and responses are decrypted only **inside** the trusted execution environment (TEE),
 using keys that are generated inside the environment and never shared with Cohere. The protection is
 enforced by the hardware and verified through attestation. See the
-[Security Model](../../../docs/model-vault/encrypted/security-model).
+[Security model](../../../docs/model-vault/encrypted/security-model).
 </Accordion>
 
 <Accordion title="Can the cloud provider or host operator see my data?">
@@ -91,7 +91,7 @@ responses. See [Monitoring](../../../docs/model-vault/monitoring).
 Cohere (including operators and support), the cloud provider and anyone with hypervisor or host-level
 access, the Kubernetes control plane, the load balancer and network, and other tenants (your vault is
 single-tenant). All of them sit **outside** the trust boundary. See the
-[Security Model](../../../docs/model-vault/encrypted/security-model).
+[Security model](../../../docs/model-vault/encrypted/security-model).
 </Accordion>
 
 <Accordion title="What threats does Model Vault Encrypted protect against?">
@@ -120,7 +120,7 @@ the model is running, and you can prove it.
 TLS protects data in transit and disk encryption protects data at rest, but both leave data in
 plaintext in memory while it is processed. Confidential computing closes that gap by keeping data
 encrypted and isolated **in use**, inside the TEE, where even the infrastructure operator cannot read
-it. See the [Confidential Computing Primer](../../../docs/model-vault/encrypted/confidential-computing).
+it. See the [Confidential computing primer](../../../docs/model-vault/encrypted/confidential-computing).
 </Accordion>
 </AccordionGroup>
 
@@ -132,7 +132,7 @@ The keys that protect your data are generated **inside** the TEE and never leave
 boundary, so Cohere and the cloud provider never have access to them. Memory-encryption keys live in
 the processor; the OHTTP keys that protect your traffic are generated per environment and shared only
 with peer environments that pass attestation. See
-[Encryption & Key Management](../../../docs/model-vault/encrypted/encryption-key-management).
+[Encryption & key management](../../../docs/model-vault/encrypted/encryption-key-management).
 </Accordion>
 
 <Accordion title="How is my data protected end to end?">
@@ -150,7 +150,7 @@ only inside the TEE, only for the duration of the request.
 Remote attestation lets you cryptographically confirm that you are talking to a genuine TEE running
 the exact, approved code, **before** any data is sent. It turns "trust us" into "verify it yourself,"
 which is what makes the privacy guarantee verifiable rather than contractual. See
-[Remote Attestation](../../../docs/model-vault/encrypted/attestation).
+[Remote attestation](../../../docs/model-vault/encrypted/attestation).
 </Accordion>
 
 <Accordion title="What does attestation actually prove?">
@@ -165,7 +165,7 @@ It is automatic. The client SDK, or proxy, verifies attestation on your behalf a
 inference response also includes an attestation certificate your client checks, confirming proof of the
 policy, CPU, GPU, and software for the environment that served it. You can also inspect the result
 visually in the Model Vault app. See
-[Verifying Your Deployment](../../../docs/model-vault/encrypted/verifying-deployment).
+[Verifying your deployment](../../../docs/model-vault/encrypted/verifying-deployment).
 </Accordion>
 
 <Accordion title="Can I verify a past request, or only before data is sent?">
@@ -199,7 +199,7 @@ attestation simply cannot be decrypted.
 
 <AccordionGroup>
 <Accordion title="Which models are supported?">
-See [Supported Models](../../../docs/model-vault/encrypted/supported-models) for the current list,
+See [Supported models](../../../docs/model-vault/encrypted/supported-models) for the current list,
 which is expanding over time.
 </Accordion>
 

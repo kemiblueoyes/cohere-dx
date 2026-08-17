@@ -1,5 +1,5 @@
 ---
-title: Encrypted Vault Overview
+title: Encrypted Vault overview
 slug: "docs/model-vault/encrypted"
 
 hidden: false
@@ -48,31 +48,31 @@ Follow the shared flow, choosing the **Encrypted** option when you create the va
 <Steps>
 ### Understand what Encrypted Vaults protect
 
-Review the [Security Model](../../docs/model-vault/encrypted/security-model) to understand the trust
+Review the [Security model](../../docs/model-vault/encrypted/security-model) to understand the trust
 boundary and threat model, specifically who is (and is not) able to access your data.
 
 ### Learn the foundations (optional)
 
 New to confidential computing? Read the
-[Confidential Computing Primer](../../docs/model-vault/encrypted/confidential-computing) for a quick
+[Confidential computing primer](../../docs/model-vault/encrypted/confidential-computing) for a quick
 grounding in TEEs, secure enclaves, and GPU confidential computing.
 
 ### Create your vault
 
 Provision a vault as usual and choose the encrypted option. See
-[Creating a Vault](../../docs/model-vault/creating-a-vault).
+[Creating a vault](../../docs/model-vault/creating-a-vault).
 
 ### Understand how verification works
 
 You do not have to verify manually before each request: the Cohere OHTTP proxy checks the
 deployment's attestation automatically and refuses the connection if it does not pass. To understand
 what is checked, and how you can inspect the evidence yourself, see
-[Remote Attestation](../../docs/model-vault/encrypted/attestation) and
-[Verifying Your Deployment](../../docs/model-vault/encrypted/verifying-deployment).
+[Remote attestation](../../docs/model-vault/encrypted/attestation) and
+[Verifying your deployment](../../docs/model-vault/encrypted/verifying-deployment).
 
 ### Configure encryption and keys
 
-Review [Encryption & Key Management](../../docs/model-vault/encrypted/encryption-key-management) to
+Review [Encryption & key management](../../docs/model-vault/encrypted/encryption-key-management) to
 understand how data is protected in transit, at rest, and in use, and how keys (and ZDR) are handled.
 
 ### Call your vault
@@ -90,12 +90,12 @@ HIPAA, SOC 2, and audit-logging requirements.
 
 ## What's specific to Encrypted Vaults
 
-- [Security Model](../../docs/model-vault/encrypted/security-model)
-- [Confidential Computing Primer](../../docs/model-vault/encrypted/confidential-computing)
-- [Remote Attestation](../../docs/model-vault/encrypted/attestation)
-- [Verifying Your Deployment](../../docs/model-vault/encrypted/verifying-deployment)
-- [Encryption & Key Management](../../docs/model-vault/encrypted/encryption-key-management)
+- [Security model](../../docs/model-vault/encrypted/security-model)
+- [Confidential computing primer](../../docs/model-vault/encrypted/confidential-computing)
+- [Remote attestation](../../docs/model-vault/encrypted/attestation)
+- [Verifying your deployment](../../docs/model-vault/encrypted/verifying-deployment)
+- [Encryption & key management](../../docs/model-vault/encrypted/encryption-key-management)
 - [Compliance](../../docs/model-vault/encrypted/compliance)
 - [Using the API with an Encrypted Vault](../../docs/model-vault/encrypted/api-usage)
-- [Supported Models](../../docs/model-vault/encrypted/supported-models)
+- [Supported models](../../docs/model-vault/encrypted/supported-models)
 - [Pricing](../../docs/model-vault/encrypted/pricing)
