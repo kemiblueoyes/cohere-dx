@@ -1,5 +1,6 @@
 dist/
 node_modules/
+doc-workflows/
 .pnpm-store/
 .vs/
 .vscode/
@@ -187,3 +188,5 @@ virtualenv/
 fern/**/.preview
 fern/**/.definition
 .fern-docs-dev.pgid
+
+
