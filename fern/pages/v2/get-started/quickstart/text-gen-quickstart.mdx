@@ -40,7 +40,11 @@ response = co.chat(
     ],
 )
 
-print(response.message.content[0].text)
+for content_item in response.message.content:
+    if content_item.type == "thinking":
+        print("thinking:", content_item.thinking)
+    if content_item.type == "text":
+        print("text:", content_item.text)
 ```
 
 ```mdx wordWrap
@@ -66,9 +70,13 @@ response = co.chat(
 )
 
 # The model responds
-print(
-    response.message.content[0].text
-)  # Hi, how can I help you today?
+for content_item in response.message.content:
+    if content_item.type == "thinking":
+        print("thinking:", content_item.thinking)
+    if content_item.type == "text":
+        print(
+            "text:", content_item.text
+        )  # Hi, how can I help you today?
 
 # Append the model's response to the messages
 messages.append(response.message)
@@ -87,7 +95,11 @@ response = co.chat(
     messages=messages,
 )
 
-print(response.message.content[0].text)
+for content_item in response.message.content:
+    if content_item.type == "thinking":
+        print("thinking:", content_item.thinking)
+    if content_item.type == "text":
+        print("text:", content_item.text)
 ```
 
 ```mdx wordWrap
@@ -110,7 +122,10 @@ response = co.chat_stream(
 
 for chunk in response:
     if chunk.type == "content-delta":
-        print(chunk.delta.message.content.text, end="")
+        if chunk.delta.message.content.thinking:
+            print(chunk.delta.message.content.thinking, end="")
+        if chunk.delta.message.content.text:
+            print(chunk.delta.message.content.text, end="")
 ```
 
 ```mdx wordWrap
