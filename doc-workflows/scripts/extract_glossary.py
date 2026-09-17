@@ -1,31 +1,29 @@
 #!/usr/bin/env python3
-"""Build the Cohere developer glossary from the docs.
+"""Build the Cohere developer glossary.
 
-You pick the terms. The script scans the docs and writes a glossary.
+1. Edit glossary_vocabulary.json. This is the term list you maintain.
+   Add or remove terms here, and write a definition when you have one.
 
-Edit glossary_vocabulary.json to add, remove, or define terms. The script
-then reads the .mdx files under fern/pages to count how often each term
-appears, note a source page, and copy a definition from the docs only if
-the JSON file left that term blank.
+2. Run python3 doc-workflows/scripts/extract_glossary.py. It reads that JSON, then scans the .mdx docs under
+   fern/pages for each term. It counts mentions, notes a source page, and
+   fills in a definition from the docs only if you left the JSON blank.
+   It skips archive, changelog, API reference, university, and cookbook
+   pages by default, and never scans the glossary page itself.
 
-It skips some folders by default (archive, changelog, API reference,
-university, cookbooks) and never scans the glossary page itself.
+3. Review glossary-candidates.md. The script writes this check file from
+   the JSON plus the scan. It lists every term, its definition (from the
+   JSON, or from the docs if the JSON was blank), where it was found, how
+   often it appears, and which terms still need a definition.
 
-What it writes:
-
-* Always: doc-workflows/glossary-candidates.md — every term, its
-  definition, where it was found, how often it appears, and which terms
-  still need a definition.
-* With --write-glossary: also updates the table on
-  fern/pages/resources/glossary.mdx. The title and intro stay; only the
-  table is replaced. Don't edit that table by hand. Change the JSON file
-  and rerun.
+4. When the check file looks right, rerun with --write-glossary. That
+   updates the table on fern/pages/resources/glossary.mdx (the published
+   page). Don't edit that table by hand.
 
 Usage:
-    # Review. Writes the candidates file only.
+    # Steps 2–3. Writes the check file only.
     python3 doc-workflows/scripts/extract_glossary.py
 
-    # Same scan, and update the published glossary page.
+    # Step 4. Same scan, then update the published glossary page.
     python3 doc-workflows/scripts/extract_glossary.py --write-glossary
 
     # Override paths or skipped folders (these are the defaults).
