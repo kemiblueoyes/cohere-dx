@@ -1,47 +1,34 @@
 #!/usr/bin/env python3
-"""Build the Cohere developer glossary from the docs corpus.
+"""Build the Cohere developer glossary from the docs.
 
-This is a rerunnable extractor. It scans the MDX documentation corpus under
-fern/pages and produces a glossary of Cohere product and ML/AI terms with
-dev-facing definitions.
+You pick the terms. The script scans the docs and writes a glossary.
 
-How it decides what belongs:
+Edit glossary_vocabulary.json to add, remove, or define terms. The script
+then reads the .mdx files under fern/pages to count how often each term
+appears, note a source page, and copy a definition from the docs only if
+the JSON file left that term blank.
 
-* The curated vocabulary file (glossary_vocabulary.json) is the source of
-  truth. Its term list (with curated definitions) keeps the output focused on
-  real Cohere product and ML/AI vocabulary.
-* The docs corpus supplies evidence: occurrence counts, source pages, and a
-  candidate definition sentence for each term (used when a term has no curated
-  definition).
-* Some subdirectories are skipped by default (see DEFAULT_EXCLUDED_DIRS), as is
-  the glossary page itself, so its own content never feeds back into the counts.
+It skips some folders by default (archive, changelog, API reference,
+university, cookbooks) and never scans the glossary page itself.
 
-Outputs:
+What it writes:
 
-* Always: a candidates report (default doc-workflows/glossary-candidates.md)
-  with the curated definitions table, the terms still missing a definition, and
-  a paste-ready block.
-* With --write-glossary: the Definitions section is also published into the
-  glossary page (default fern/pages/resources/glossary.mdx), preserving that
-  file's frontmatter and any intro text before the first heading. That section
-  is regenerated on every run; do not hand-edit it - edit
-  glossary_vocabulary.json instead.
+* Always: doc-workflows/glossary-candidates.md — every term, its
+  definition, where it was found, how often it appears, and which terms
+  still need a definition.
+* With --write-glossary: also updates the table on
+  fern/pages/resources/glossary.mdx. The title and intro stay; only the
+  table is replaced. Don't edit that table by hand. Change the JSON file
+  and rerun.
 
 Usage:
-    # Dry run: scan the docs and (re)write the candidates report only. Use
-    # this first, after editing glossary_vocabulary.json or the docs corpus,
-    # to review new/missing terms before touching the published glossary.
+    # Review. Writes the candidates file only.
     python3 doc-workflows/scripts/extract_glossary.py
 
-    # Publish: same scan, but also regenerate the Definitions section of
-    # fern/pages/resources/glossary.mdx. Use this once you're happy with the
-    # candidates report and want the glossary page updated.
+    # Same scan, and update the published glossary page.
     python3 doc-workflows/scripts/extract_glossary.py --write-glossary
 
-    # Custom paths/excludes: override any default location, or change which
-    # subdirectories are skipped. Use this for one-off runs against a
-    # different checkout layout, a subset of pages, or an adjusted exclude
-    # list (the values shown here are the script's defaults).
+    # Override paths or skipped folders (these are the defaults).
     python3 doc-workflows/scripts/extract_glossary.py \\
         --pages fern/pages \\
         --vocab doc-workflows/scripts/glossary_vocabulary.json \\
@@ -49,8 +36,8 @@ Usage:
         --glossary fern/pages/resources/glossary.mdx \\
         --exclude-dirs -ARCHIVE- changelog api-reference llm-university cookbooks
 
-Paths default to locations relative to the repository root (the parent of the
-doc-workflows directory), so the script can be run from anywhere.
+Paths are relative to the repository root, so you can run this from any
+directory.
 """
 
 from __future__ import annotations
